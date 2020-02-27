@@ -37,7 +37,7 @@ in
   ]) ++ (with epkgs.melpaPackages; [
     company-coq
     elcord
-    # flycheck-clj-kondo
+    flycheck-clj-kondo
     flycheck-joker
     jedi-direx
     kotlin-mode

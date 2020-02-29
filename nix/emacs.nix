@@ -45,5 +45,8 @@ in
     proof-general
     spacemacs-theme
     xresources-theme
-  ]))
+  ]) ++ [
+    pkgs.hlint
+    pkgs.haskellPackages.hindent
+  ])
 

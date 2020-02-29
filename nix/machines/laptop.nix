@@ -54,6 +54,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
     neofetch
     nitrogen
     pamixer
+    polybarFull
     playerctl
     (python3.withPackages (ps: with ps; [
       pywal
@@ -108,13 +109,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
   # Nixpkgs overlays
   nixpkgs.overlays = [
     (self: super: {
-      my-polybar = super.polybar.override {
-        i3Support = true;
-        # i3GapsSupport = true;
-        pulseSupport = true;
-      };
-    })
-    (self: super: {
       my-jbr = super.jetbrains.jdk.override {
         url = "https://jetbrains.bintray.com/intellij-jdk/jbr-11_0_2-linux-x64-b164.tar.gz";
       };
@@ -163,7 +157,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
                         rofi
-                        my-polybar
+                        polybarFull
                         betterlockscreen
                       ];
     };

@@ -1,0 +1,60 @@
+{ config, pkgs, ... }:
+
+let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
+{
+  environment.systemPackages = with pkgs; [
+    arc-icon-theme
+    arc-theme
+    ant-theme
+    cabal-install
+    clojure
+    curl
+    unstable.discord
+    docker
+    (import /home/skykanin/Projects/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    firefox
+    fish
+    ghc
+    gnome3.networkmanagerapplet
+    git
+    joker
+    kitty
+    my-idea-ultimate
+    my-leiningen
+    lxappearance-gtk3
+    neofetch
+    nitrogen
+    pamixer
+    pavucontrol
+    polybarFull
+    playerctl
+    (python3.withPackages (ps: with ps; [
+      pywal
+    ]))
+    pywal
+    rofi
+    spotifywm
+    wget
+    xdg_utils
+    xorg.xbacklight
+  ];
+
+  # Nixpkgs overlays
+  nixpkgs.overlays = [
+    (self: super: {
+      my-jbr = super.jetbrains.jdk.override {
+        url = "https://jetbrains.bintray.com/intellij-jdk/jbr-11_0_2-linux-x64-b164.tar.gz";
+      };
+    })
+    (self: super: {
+      my-leiningen = super.leiningen.override {
+        jdk = pkgs.openjdk11;
+      };
+    })
+    (self: super: {
+      my-idea-ultimate = super.jetbrains.idea-ultimate.override {
+        jdk = pkgs.jetbrains.jdk;
+      };
+    })
+  ];
+}

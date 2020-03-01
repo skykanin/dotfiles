@@ -9,6 +9,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     cabal-install
     clojure
     curl
+    unstable.colorz
     unstable.discord
     docker
     (import /home/skykanin/Projects/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
@@ -28,12 +29,11 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     pavucontrol
     polybarFull
     playerctl
-    (python3.withPackages (ps: with ps; [
-      pywal
-    ]))
     pywal
+    qbittorrent
     rofi
     spotifywm
+    weechat
     wget
     xdg_utils
     xorg.xbacklight

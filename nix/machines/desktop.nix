@@ -27,7 +27,7 @@
         Option         "metamodes" "DP-0: 1920x1080_144 +1920+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
       '';
     xrandrHeads = [
-      { output = "DP-0"; primary = true; }
+      { output = "DP-2"; primary = true; }
       { monitorConfig =
           ''
             Option "Rotate" "Left"

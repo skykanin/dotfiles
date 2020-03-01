@@ -25,7 +25,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     my-leiningen
     lxappearance-gtk3
     neofetch
-    nitrogen
     pamixer
     pavucontrol
     polybarFull

@@ -20,20 +20,28 @@
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
-  services.xserver = {
-    videoDrivers = [ "nvidia" ];
-    screenSection =
-      ''
-        Option         "metamodes" "DP-0: 1920x1080_144 +1920+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+  services = {
+
+    plex = {
+      enable = true;
+      openFirewall = true;
+    };
+    
+    xserver = {
+      videoDrivers = [ "nvidia" ];
+      screenSection =
+        ''
+        Option         "metamodes" "DP-2: 1920x1080_144 +1920+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
       '';
-    xrandrHeads = [
-      { output = "DP-2"; primary = true; }
-      { monitorConfig =
-          ''
+      xrandrHeads = [
+        { output = "DP-2"; primary = true; }
+        { monitorConfig =
+            ''
             Option "Rotate" "Left"
           '';        
           output = "HDMI-0"; }
-    ];
+      ];
+    };
   };
 
   # This value determines the NixOS release with which your system is to be

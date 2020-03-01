@@ -13,6 +13,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     unstable.discord
     docker
     (import /home/skykanin/Projects/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    feh
     firefox
     fish
     ghc

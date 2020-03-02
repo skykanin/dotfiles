@@ -227,14 +227,14 @@ bindsym XF86MonBrightnessUp exec brightnessctl s +500
 bindsym XF86MonBrightnessDown exec brightnessctl s 500-
 
 # Set wallpaper
-exec_always feh --bg-max Pictures/hyperbeast.jpg
+# exec_always feh --bg-max Pictures/wallpapers/koi_two.jpg
 
 #Set login screen and lock screen after 15 min
 exec betterlockscreen -l dim
 exec --no-startup-id xautolock -time 15 -locker "betterlockscreen -l dim"
 
-# Set theme
-exec_always wal -R
+# Set wallpaper and theme
+exec_always wal -i "~/Pictures/wallpapers/koi_two.jpg"
 
 # Start compton
 exec_always --no-startup-id compton -b

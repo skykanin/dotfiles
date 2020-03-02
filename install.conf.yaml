@@ -1,0 +1,27 @@
+- defaults:
+    link:
+      create: true
+      force: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.emacs: dots/emacs/.emacs
+    ~/.emacs.d/hs-lint.el: dots/emacs/hs-list.el
+    ~/.gitconfig: dots/.gitconfig
+    ~/.config/i3/config: dots/i3/config
+    ~/.config/polybar: dots/polybar
+    ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf
+    ~/.config/fish: dots/fish
+    ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix
+    ~/.config/rofi/config: dots/rofi/config
+    ~/Pictures/wallpapers: dots/wallpapers
+
+- create:
+    - ~/downloads
+    - ~/.vim/undo-history
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

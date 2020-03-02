@@ -2,7 +2,6 @@
     link:
       create: true
       force: true
-      relink: true
 
 - clean: ['~']
 

@@ -6,6 +6,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     arc-icon-theme
     arc-theme
     ant-theme
+    bat
     cabal-install
     clojure
     curl

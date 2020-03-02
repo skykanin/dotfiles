@@ -12,7 +12,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     unstable.colorz
     unstable.discord
     docker
-    (import /home/skykanin/Projects/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     feh
     firefox
     fish
@@ -29,6 +29,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     pavucontrol
     polybarFull
     playerctl
+    python38
     pywal
     qbittorrent
     rofi

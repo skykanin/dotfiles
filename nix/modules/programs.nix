@@ -17,5 +17,7 @@
       enable = true;
       package = pkgs.openjdk11;
     };
+
+    # qt5ct.enable = true;
   };
 }

@@ -22,6 +22,12 @@
   
   networking.networkmanager.enable = true;
   nixpkgs.config.allowUnfree = true;
+
+  qt5 = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
+  };
   
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;

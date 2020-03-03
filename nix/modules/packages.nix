@@ -3,6 +3,7 @@
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 {
   environment.systemPackages = with pkgs; [
+    unstable.android-studio
     arc-icon-theme
     arc-theme
     ant-theme
@@ -19,6 +20,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     fish
     flameshot
     ghc
+    gnome3.nautilus
     gnome3.networkmanagerapplet
     git
     joker

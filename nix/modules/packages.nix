@@ -3,11 +3,13 @@
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 {
   environment.systemPackages = with pkgs; [
+    adwaita-qt
     unstable.android-studio
     arc-icon-theme
     arc-theme
     ant-theme
     bat
+    betterlockscreen
     cabal-install
     clojure
     curl

@@ -10,8 +10,10 @@
     };
     
     xserver = {
-      autoRepeatDelay = 280;
+      autoRepeatDelay = 200;
       autoRepeatInterval = 10;
+      autorun = true;
+      
       enable = true;
       layout = "no";
       libinput = {
@@ -19,20 +21,8 @@
         accelProfile = "flat";
         naturalScrolling = true;
       };
-      autorun = true;
-      
-      windowManager.default = "i3";
-      windowManager.i3 = {
-        enable = true;
-        configFile = /home/skykanin/.config/i3/config;
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [
-          rofi
-          polybarFull
-          betterlockscreen
-        ];
-      };
-      
+
+
       desktopManager = {
         default = "none";
         xterm.enable = false;
@@ -47,6 +37,24 @@
           enable = true;
           greeter.enable = false;
         };
+      };
+      
+      windowManager.default = "i3";
+      windowManager.i3 = {
+        enable = true;
+        configFile = /home/skykanin/.config/i3/config;
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [
+          rofi
+          polybarFull
+          betterlockscreen
+        ];
+      };
+
+      xautolock = {
+        enable = true;
+        locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
+        time = 10;
       };
     };
   };

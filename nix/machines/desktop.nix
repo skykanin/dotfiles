@@ -20,6 +20,14 @@
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
+  boot.supportedFilesystems = [ "ntfs" ];
+  
+  fileSystems."/mnt/media" =
+    { device = "/dev/disk/by-uuid/FAFA6314FA62CC87";
+      fsType = "ntfs";
+      options = [ "rw" "uid=1000"];
+    };
+
   services = {
 
     plex = {

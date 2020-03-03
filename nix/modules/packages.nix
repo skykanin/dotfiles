@@ -17,6 +17,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     feh
     firefox
     fish
+    flameshot
     ghc
     gnome3.networkmanagerapplet
     git
@@ -25,11 +26,13 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     my-idea-ultimate
     my-leiningen
     lxappearance-gtk3
+    unstable.mpv-with-scripts
     neofetch
     pamixer
     pavucontrol
     polybarFull
     playerctl
+    plex
     python38
     pywal
     qbittorrent

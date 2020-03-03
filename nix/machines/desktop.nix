@@ -29,18 +29,23 @@
     
     xserver = {
       videoDrivers = [ "nvidia" ];
-      screenSection =
-        ''
-        Option         "metamodes" "DP-2: 1920x1080_144 +1920+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-      '';
-      xrandrHeads = [
-        { output = "DP-2"; primary = true; }
-        { monitorConfig =
-            ''
-            Option "Rotate" "Left"
-          '';        
-          output = "HDMI-0"; }
-      ];
+      #screenSection =
+      #  ''
+      #    Option         "metamodes" "DP-2: 1920x1080_144 +0+240 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: 1920x1080 +1920+0 { ForceCompositionPipeline=On, ForceFullCompositionPipeline=On, Rotation=90 }"
+      #  '';
+       xrandrHeads = [
+         {
+           output = "DP-2";
+           primary = true;
+         }
+         {
+           output = "HDMI-0";
+           monitorConfig =
+             ''
+               Option "Rotate" "left"
+             '';
+         }
+       ];
     };
   };
 

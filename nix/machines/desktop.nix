@@ -20,13 +20,10 @@
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
-  boot.supportedFilesystems = [ "ntfs" ];
-  
-  fileSystems."/mnt/media" =
-    { device = "/dev/disk/by-uuid/FAFA6314FA62CC87";
-      fsType = "ntfs";
-      options = [ "rw" "uid=1000"];
-    };
+  environment.extraInit =
+    ''
+      xrandr --output DP-2 --mode 1920x1080 --rate 144 --left-of HDMI-0 --dpi 100
+    '';
 
   services = {
 
@@ -36,7 +33,9 @@
     };
     
     xserver = {
+      exportConfiguration = true;
       videoDrivers = [ "nvidia" ];
+      wacom.enable = true;
       #screenSection =
       #  ''
       #    Option         "metamodes" "DP-2: 1920x1080_144 +0+240 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: 1920x1080 +1920+0 { ForceCompositionPipeline=On, ForceFullCompositionPipeline=On, Rotation=90 }"

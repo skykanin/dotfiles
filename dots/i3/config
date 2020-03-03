@@ -179,9 +179,10 @@ default_border pixel 2
 # Set colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $hl i3wm.color1 #f0f0f0
 
 # Color config           border  background   text   indicator  child_border
-client.focused           $bg     $bg          $fg    $bg        $bg
+client.focused           $hl     $hl          $fg    $hl        $hl
 client.focused_inactive  $bg     $bg          $fg    $bg        $bg
 client.unfocused         $bg     $bg          $fg    $bg        $bg
 client.urgent            $bg     $bg          $fg    $bg        $bg
@@ -216,10 +217,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym Insert exec pamixer -i 10
 bindsym Delete exec pamixer -d 10
 
-bindsym Ctrl_R+Up exec playerctl play
-bindsym Ctrl_R+Down exec playerctl pause
-bindsym Ctrl_R+Right exec playerctl next
-bindsym Crtl_R+Left exec playerctl previous
+bindsym Ctrl+Insert exec playerctl play-pause
+bindsym Shift+Insert exec playerctl next
+bindsym Shift+Delete exec playerctl previous
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl s +500

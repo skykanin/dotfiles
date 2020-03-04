@@ -228,19 +228,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 500-
 # Set wallpaper
 # exec_always feh --bg-max Pictures/wallpapers/koi_two.jpg
 
-#Set login screen and lock screen after 15 min
+# Set login screen
 exec betterlockscreen -l dim
-exec --no-startup-id xautolock -time 15 -locker "betterlockscreen -l dim"
 
 # Set wallpaper and theme
 exec_always wal -R
-
-# Start compton
-# exec_always --no-startup-id compton -b
-
-# Mirror display
-# exec_always xrandr --output HDMI-1 --same-as eDP-1 --transform 1,0,0,0,1,-60,0,0,1
-# exec_always xrandr --output HDMI-1 --same-as eDP-1 --scale-from 1920x1080
 
 # Startup default apps
 exec kitty

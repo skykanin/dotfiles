@@ -3,3 +3,5 @@
 	name = skykanin
 [core]
 	editor = nano
+[pull]
+	rebase = true

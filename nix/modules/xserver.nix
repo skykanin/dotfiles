@@ -24,7 +24,6 @@
 
 
       desktopManager = {
-        default = "none";
         xterm.enable = false;
       };
       
@@ -37,9 +36,9 @@
           enable = true;
           greeter.enable = false;
         };
+	defaultSession = "none+i3";
       };
       
-      windowManager.default = "i3";
       windowManager.i3 = {
         enable = true;
         configFile = /home/skykanin/.config/i3/config;

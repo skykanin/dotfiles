@@ -41,12 +41,12 @@ in
     flycheck-joker
     jedi-direx
     kotlin-mode
-    org-link-minor-mode
+    #org-link-minor-mode
     proof-general
     spacemacs-theme
     xresources-theme
   ]) ++ [
     pkgs.hlint
-    pkgs.haskellPackages.hindent
+    #pkgs.haskellPackages.hindent
   ])
 

@@ -1,8 +1,16 @@
 { config, pkgs, ... }:
 
-let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
+with pkgs;
+let unstable = import <nixos-unstable> { config.allowUnfree = true; };
+  custom-python-packages = python-packages: with python-packages; [
+    pygobject3
+    requests
+  ];
+  python-with-packages = python3.withPackages custom-python-packages;
+  in
 {
   environment.systemPackages = with pkgs; [
+    python-with-packages
     adwaita-qt
     unstable.android-studio
     arc-icon-theme
@@ -37,7 +45,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
     polybarFull
     playerctl
     plex
-    python38
     pywal
     qbittorrent
     rofi

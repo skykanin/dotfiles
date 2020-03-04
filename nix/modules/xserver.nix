@@ -19,7 +19,6 @@
       libinput = {
         enable = true;
         accelProfile = "flat";
-        naturalScrolling = true;
       };
 
 

@@ -23,7 +23,8 @@
   programs.light.enable = true;
   services.compton.vSync = true;
   # Suspend on lid close
-  services.logind.lidSwitch = "suspend"; 
+  services.logind.lidSwitch = "suspend";
+  services.xserver.libinput.naturalScrolling = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

@@ -50,6 +50,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
     rofi
     slack
     spotifywm
+    steam
     weechat
     wget
     xdg_utils

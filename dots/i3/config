@@ -174,7 +174,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id "sh ~/.config/polybar/launch.sh"
 
 # Border config
-default_border pixel 2
+default_border pixel 3
 
 # Set colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -198,7 +198,7 @@ bindsym Print exec flameshot gui -p ~/Pictures
 bindsym $mod+shift+s exec flameshot gui -p ~/Pictures
 
 # Add gaps
-gaps inner 10
+gaps inner 9
 gaps outer 5
 
 smart_gaps on

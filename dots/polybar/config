@@ -53,7 +53,7 @@ font-1 = "DroidSansMono Nerd Font:size=12:bold"
 
 modules-left = i3
 modules-center = date
-modules-right = temperature memory cpu pulseaudio backlight-acpi battery
+modules-right = spotify temperature memory cpu pulseaudio backlight-acpi battery
 
 tray-position = right
 tray-padding = 2
@@ -326,6 +326,11 @@ format-warn-underline = ${self.format-underline}
 label =  %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
+
+[module/spotify]
+type = custom/script
+exec = ~/dotfiles/scripts/spotify.sh
+interval = 10
 
 [settings]
 screenchange-reload = true

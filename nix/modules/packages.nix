@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 with pkgs;
-let unstable = import <nixos-unstable> { config.allowUnfree = true; };
+let stable = import <stable> { config.allowUnfree = true; };
   custom-python-packages = python-packages: with python-packages; [
     pygobject3
     requests
@@ -12,7 +12,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
   environment.systemPackages = with pkgs; [
     python-with-packages
     adwaita-qt
-    unstable.android-studio
+    android-studio
     arc-icon-theme
     arc-theme
     ant-theme
@@ -21,8 +21,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
     cabal-install
     clojure
     curl
-    unstable.colorz
-    unstable.discord
+    colorz
+    discord
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     feh
@@ -38,7 +38,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; };
     my-idea-ultimate
     my-leiningen
     lxappearance-gtk3
-    unstable.mpv-with-scripts
+    mpv-with-scripts
     neofetch
     pamixer
     pavucontrol

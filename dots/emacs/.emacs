@@ -44,7 +44,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme)))
+    (hindent proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -205,6 +205,7 @@
 
 (setq haskell-process-type 'cabal-new-repl)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 ;; Keybindings for Haskell
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
@@ -215,12 +216,17 @@
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
 
-;; Formaton save for Haskell
+;; Haskell linter
 (load "/home/skykanin/.emacs.d/hs-lint.el")
 (require 'hs-lint)
 (defun my-haskell-mode-hook ()
     (local-set-key "\C-cl" 'hs-lint))
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+
+;; Format on save for Haskell
+;; (add-to-list 'load-path "/path/to/hindent/elisp")
+(require 'hindent)
+(add-hook 'haskell-mode-hook #'hindent-mode)
 
 ;; elcord
 (require 'elcord)

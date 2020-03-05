@@ -2,15 +2,9 @@
 
 with pkgs;
 let stable = import <stable> { config.allowUnfree = true; };
-  custom-python-packages = python-packages: with python-packages; [
-    pygobject3
-    requests
-  ];
-  python-with-packages = python3.withPackages custom-python-packages;
   in
 {
   environment.systemPackages = with pkgs; [
-    python-with-packages
     adwaita-qt
     android-studio
     arc-icon-theme

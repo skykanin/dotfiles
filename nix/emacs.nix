@@ -2,6 +2,7 @@
 
 let
   myEmacs = pkgs.emacs;
+  stable-pkgs = import <stable> {};
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
@@ -47,6 +48,6 @@ in
     xresources-theme
   ]) ++ [
     pkgs.hlint
-    #pkgs.haskellPackages.hindent
+    stable-pkgs.haskellPackages.hindent
   ])
 

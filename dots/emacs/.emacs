@@ -220,12 +220,16 @@
 (load "/home/skykanin/.emacs.d/hs-lint.el")
 (require 'hs-lint)
 (defun my-haskell-mode-hook ()
-    (local-set-key "\C-cl" 'hs-lint))
+  "Set keybinding for hs-lint."
+  (local-set-key "\C-cl" 'hs-lint))
 (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
 ;; Format on save for Haskell
-;; (add-to-list 'load-path "/path/to/hindent/elisp")
 (require 'hindent)
+;; TODO: Figure out way to set keybinding in hindent mode for reformatting entire buffer
+;; hindent-reformat-buffer
+;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Binding-keys-to-commands.html
+
 (add-hook 'haskell-mode-hook #'hindent-mode)
 
 ;; elcord

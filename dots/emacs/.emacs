@@ -226,11 +226,8 @@
 
 ;; Format on save for Haskell
 (require 'hindent)
-;; TODO: Figure out way to set keybinding in hindent mode for reformatting entire buffer
-;; hindent-reformat-buffer
-;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Binding-keys-to-commands.html
-
 (add-hook 'haskell-mode-hook #'hindent-mode)
+(add-hook 'after-save-hook #'hindent-reformat-buffer)
 
 ;; elcord
 (require 'elcord)

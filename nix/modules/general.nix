@@ -15,6 +15,11 @@
     opengl = {
       driSupport32Bit = true;
       enable = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+      ];
     };
     pulseaudio.support32Bit = true;
   };

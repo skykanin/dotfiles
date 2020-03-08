@@ -33,7 +33,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     my-idea-ultimate
     my-leiningen
     lxappearance-gtk3
-    mpv-with-scripts
+    mpv
     neofetch
     pamixer
     pavucontrol

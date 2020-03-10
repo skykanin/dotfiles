@@ -187,11 +187,11 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%d %b"
-date-alt = "%Y-%m-%d"
+date = " %d %b"
+date-alt = " %Y-%m-%d"
 
-time = " %H:%M"
-time-alt = " %H:%M:%S"
+time = "  %H:%M"
+time-alt = "  %H:%M:%S"
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground}

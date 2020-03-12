@@ -52,7 +52,7 @@
       xautolock = {
         enable = true;
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
-        time = 10;
+        time = 30;
       };
     };
   };

@@ -185,7 +185,7 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = " %d %b"
 date-alt = " %Y-%m-%d"
@@ -330,7 +330,7 @@ label-warn-foreground = ${colors.secondary}
 [module/spotify]
 type = custom/script
 exec = ~/dotfiles/scripts/spotify.sh
-interval = 10
+interval = 1
 
 [settings]
 screenchange-reload = true

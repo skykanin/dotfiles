@@ -36,6 +36,8 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+focus_follows_mouse no
+
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -130,7 +132,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign apps to workspaces
-assign [class="kitty"] $ws1
+assign [class="kitty-startup"] $ws1
 assign [class="Firefox"] $ws2
 assign [class="Emacs"] $ws3
 assign [class="discord"] $ws4
@@ -235,7 +237,7 @@ exec betterlockscreen -l dim
 exec_always wal -R
 
 # Startup default apps
-exec kitty
+exec kitty --class 'kitty-startup'
 exec firefox
 exec emacs
 exec Discord

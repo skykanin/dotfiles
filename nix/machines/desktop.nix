@@ -19,6 +19,14 @@
   networking.hostName = "emma";
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
+  # Detect other OS partitions  
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    version = 2;
+    devices = [ "nodev" ];
+    useOSProber = true;
+  };
 
   environment.extraInit =
     ''

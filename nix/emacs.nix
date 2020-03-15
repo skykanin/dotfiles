@@ -47,6 +47,7 @@ in
     spacemacs-theme
     xresources-theme
   ]) ++ [
+    stable-pkgs.clj-kondo
     pkgs.hlint
     stable-pkgs.haskellPackages.hindent
   ])

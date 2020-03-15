@@ -74,11 +74,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- 
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode 0)
@@ -95,18 +90,6 @@
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
-
-;;(require 'spaceline-config)
-;; (spaceline-spacemacs-theme)
-
-;;(require 'telephone-line)
-;;(setq telephone-line-primary-left-separator 'telephone-line-cubed-left
-;;      telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
-;;      telephone-line-primary-right-separator 'telephone-line-cubed-right
-;;      telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
-;;(setq telephone-line-height 24
-;;      telephone-line-evil-use-short-tag t)
-;;(telephone-line-mode 1)
 
 ;;(require 'smart-tabs-mode)
 ;; (smart-tabs-insinuate 'javascript)

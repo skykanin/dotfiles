@@ -3,5 +3,7 @@
 	name = skykanin
 [core]
 	editor = nano
+[push]
+	followTags = true
 [pull]
 	rebase = true

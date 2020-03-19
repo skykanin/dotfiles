@@ -16,6 +16,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     clojure
     curl
     colorz
+    direnv
     discord
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
@@ -35,6 +36,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     lxappearance-gtk3
     mpv
     neofetch
+    obs-studio
     pamixer
     pavucontrol
     polybarFull

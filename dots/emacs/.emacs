@@ -210,7 +210,16 @@
 ;; Format on save for Haskell
 (require 'hindent)
 (add-hook 'haskell-mode-hook #'hindent-mode)
-(add-hook 'after-save-hook #'hindent-reformat-buffer)
+;; TODO: Fix this, is called globally and not only in hident-mode
+;; (add-hook 'after-save-hook #'hindent-reformat-buffer)
+;; (remove-hook 'after-save-hook #'hindent-reformat-buffer)
+;; (add-hook 'hindent-mode (lambda () (local-set-key (kbd "M-p") #'hindent-reformat-buffer)))
+
+(defun add-hindent-format-key ()
+  "Reformat entire buffer."
+  (local-set-key (kbd "M-p") 'hindent-reformat-buffer))
+
+(add-hook 'hindent-mode 'add-hindent-format-key)
 
 ;; elcord
 (require 'elcord)

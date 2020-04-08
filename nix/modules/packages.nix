@@ -36,14 +36,17 @@ let stable = import <stable> { config.allowUnfree = true; };
     lxappearance-gtk3
     mpv
     neofetch
+    nodejs-13_x
     obs-studio
     pamixer
     pavucontrol
     polybarFull
     playerctl
     plex
+    python38Packages.youtube-dl
     pywal
     qbittorrent
+    qdirstat
     rofi
     slack
     spotifywm

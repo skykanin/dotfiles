@@ -39,6 +39,7 @@
  '(fci-rule-color "#383838")
  '(haskell-mode-hook (quote (interactive-haskell-mode)))
  '(haskell-stylish-on-save t)
+ '(hindent-reformat-buffer-on-save t)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
@@ -189,7 +190,7 @@
 (require 'haskell-interactive-mode)
 (require 'haskell-process)
 
-(setq haskell-process-type 'cabal-new-repl)
+;; (setq haskell-process-type 'cabal-new-repl)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
@@ -205,24 +206,15 @@
 ;; Haskell linter
 (load "/home/skykanin/.emacs.d/hs-lint.el")
 (require 'hs-lint)
-(defun my-haskell-mode-hook ()
-  "Set keybinding for hs-lint."
-  (local-set-key "\C-cl" 'hs-lint))
-(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
 
 ;; Format on save for Haskell
 (require 'hindent)
+;; TODO: Hindent isn't always loaded for some reason
 (add-hook 'haskell-mode-hook #'hindent-mode)
-;; TODO: Fix this, is called globally and not only in hident-mode
-;; (add-hook 'after-save-hook #'hindent-reformat-buffer)
-;; (remove-hook 'after-save-hook #'hindent-reformat-buffer)
-;; (add-hook 'hindent-mode (lambda () (local-set-key (kbd "M-p") #'hindent-reformat-buffer)))
+(add-hook 'hindent-mode-hook
+          (lambda () (local-set-key (kbd "M-p") 'hindent-reformat-buffer)))
 
-(defun add-hindent-format-key ()
-  "Reformat entire buffer."
-  (local-set-key (kbd "M-p") 'hindent-reformat-buffer))
-
-(add-hook 'hindent-mode 'add-hindent-format-key)
+(setq hindent-reformat-buffer-on-save t)
 
 ;; elcord
 (require 'elcord)

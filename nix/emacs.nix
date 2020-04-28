@@ -6,6 +6,7 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
+    all-the-icons
     better-defaults
     cider
     clojure-mode

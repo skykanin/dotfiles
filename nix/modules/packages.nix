@@ -8,7 +8,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     adwaita-qt
     android-studio
     arc-icon-theme
-    arc-theme
+    stable.arc-theme
     ant-theme
     bat
     betterlockscreen
@@ -25,13 +25,12 @@ let stable = import <stable> { config.allowUnfree = true; };
     fish
     flameshot
     (stable.haskellPackages.ghcWithPackages (ps: with ps; [hlint hindent]))
-    # ghc
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git
+    jetbrains.idea-ultimate
     joker
     kitty
-    my-idea-ultimate
     my-leiningen
     lxappearance-gtk3
     mpv
@@ -43,7 +42,6 @@ let stable = import <stable> { config.allowUnfree = true; };
     polybarFull
     playerctl
     plex
-    python38Packages.youtube-dl
     pywal
     qbittorrent
     qdirstat
@@ -55,15 +53,11 @@ let stable = import <stable> { config.allowUnfree = true; };
     wget
     xdg_utils
     xorg.xbacklight
+    youtube-dl
   ];
 
   # Nixpkgs overlays
   nixpkgs.overlays = [
-    (self: super: {
-      my-jbr = super.jetbrains.jdk.override {
-        url = "https://jetbrains.bintray.com/intellij-jdk/jbr-11_0_2-linux-x64-b164.tar.gz";
-      };
-    })
     (self: super: {
       my-leiningen = super.leiningen.override {
         jdk = pkgs.openjdk11;

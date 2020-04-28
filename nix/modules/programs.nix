@@ -15,7 +15,8 @@
     
     java = {
       enable = true;
-      package = pkgs.openjdk11;
+      package = pkgs.jdk13;
+      
     };
 
     # qt5ct.enable = true;

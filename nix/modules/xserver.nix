@@ -50,7 +50,7 @@
       };
 
       xautolock = {
-        enable = true;
+        enable = false;
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
         time = 30;
       };

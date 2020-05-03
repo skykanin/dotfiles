@@ -271,7 +271,7 @@ type = internal/battery
 battery = BAT1
 adapter = AC
 full-at = 98
-poll-interval = 5
+poll-interval = 1
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
@@ -287,9 +287,9 @@ label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
 
-label-charging-font = 1
-label-discharging-font = 1
-nlabel-full-font = 1
+label-charging-font = 0
+label-discharging-font = 0
+label-full-font = 0
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 

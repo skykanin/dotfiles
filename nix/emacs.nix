@@ -4,12 +4,15 @@ let
   myEmacs = pkgs.emacs;
   stable-pkgs = import <stable> {};
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     all-the-icons
     better-defaults
     cider
     clojure-mode
+    company
+    dante
     doom-modeline
     doom-themes
     flycheck
@@ -21,6 +24,8 @@ in
     jedi
     js-comint
     js2-mode
+    lsp-mode
+    lsp-haskell
     markdown-mode
     markdown-preview-mode
     neotree
@@ -30,7 +35,6 @@ in
     projectile
     python-mode
     smart-tabs-mode
-    spaceline
     telephone-line
     use-package
     web-mode
@@ -45,11 +49,11 @@ in
     kotlin-mode
     #org-link-minor-mode
     proof-general
-    spacemacs-theme
-    xresources-theme
   ]) ++ [
-    stable-pkgs.clj-kondo
+    #pkgs.clj-kondo
     pkgs.hlint
     stable-pkgs.haskellPackages.hindent
+    pkgs.gprolog
+    (all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864 ghc865; }; })
   ])
 

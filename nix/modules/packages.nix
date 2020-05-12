@@ -21,7 +21,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     feh
-    firefox
+    firefox-devedition-bin
     fish
     flameshot
     (stable.haskellPackages.ghcWithPackages (ps: with ps; [hlint hindent]))
@@ -35,7 +35,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     lxappearance-gtk3
     mpv
     neofetch
-    nodejs-13_x
+    nodejs-14_x
     obs-studio
     pamixer
     pavucontrol

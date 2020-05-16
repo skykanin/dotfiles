@@ -15,7 +15,7 @@
     
     java = {
       enable = true;
-      package = pkgs.jdk13;
+      package = pkgs.jdk;
       
     };
 

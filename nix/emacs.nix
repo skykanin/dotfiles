@@ -25,7 +25,6 @@ in
     js-comint
     js2-mode
     lsp-mode
-    lsp-haskell
     markdown-mode
     markdown-preview-mode
     neotree
@@ -47,6 +46,7 @@ in
     flycheck-joker
     jedi-direx
     kotlin-mode
+    lsp-haskell
     #org-link-minor-mode
     proof-general
   ]) ++ [

@@ -101,7 +101,7 @@
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 (setq ring-bell-function 'ignore)
-(set-face-attribute 'default nil :height 115)
+(set-face-attribute 'default nil :height 135)
 
 (require 'ido)
 (ido-mode t)
@@ -275,10 +275,6 @@
             (set (make-local-variable 'company-backends)
                  (append '((company-capf company-dabbrev-code))
                          company-backends))))
-
-;; Integrat with lsp
-(require 'company-lsp)
-(push 'company-lsp company-backends)
 
 ;; elcord
 (require 'elcord)

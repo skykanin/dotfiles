@@ -5,8 +5,8 @@
       backend = "glx";
       enable = true;
       refreshRate = 0; # automatically detect monitor refresh rate
-      activeOpacity = "1.0";
-      inactiveOpacity = "1.0";      
+      activeOpacity = 1.0;
+      inactiveOpacity = 1.0;      
     };
     
     xserver = {

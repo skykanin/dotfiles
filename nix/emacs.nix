@@ -52,7 +52,6 @@ in
   ]) ++ [
     #pkgs.clj-kondo
     pkgs.hlint
-    stable-pkgs.haskellPackages.hindent
     pkgs.gprolog
     (all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864 ghc865; }; })
   ])

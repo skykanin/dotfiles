@@ -237,13 +237,16 @@
 (require 'hs-lint)
 
 ;; Format on save for Haskell
-(require 'hindent)
-;; TODO: Hindent isn't always loaded for some reason
-(add-hook 'haskell-mode-hook #'hindent-mode)
-(add-hook 'hindent-mode-hook
-          (lambda () (local-set-key (kbd "M-p") 'hindent-reformat-buffer)))
+(add-to-list 'load-path "/home/skykanin/.emacs.d/floskell.el")
+(require 'floskell)
+(add-hook 'haskell-mode-hook #'floskell-mode)
 
-(setq hindent-reformat-buffer-on-save t)
+;;(require 'hindent)
+;; TODO: Hindent isn't always loaded for some reason
+;;(add-hook 'haskell-mode-hook #'hindent-mode)
+;; (add-hook 'hindent-mode-hook (lambda () (local-set-key (kbd "M-p") 'hindent-reformat-buffer)))
+;; (setq hindent-reformat-buffer-on-save t)
+
 
 ;; Haskell dante
 (use-package dante

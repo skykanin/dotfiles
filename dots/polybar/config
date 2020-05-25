@@ -326,7 +326,7 @@ format-warn = <label-warn>
 format-warn-underline = ${self.format-underline}
 
 label =  %temperature-c%
-label-warn = %temperature-c%
+label-warn =  %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 [module/spotify]

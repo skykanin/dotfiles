@@ -14,6 +14,7 @@
     ~/.config/polybar: dots/polybar
     ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf
     ~/.config/fish: dots/fish
+    ~/.config/mpv: dots/mpv
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix
     ~/.config/rofi/config: dots/rofi/config
     ~/Pictures/wallpapers: dots/wallpapers

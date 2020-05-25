@@ -42,6 +42,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     polybarFull
     playerctl
     plex
+    python39
     pywal
     qbittorrent
     qdirstat

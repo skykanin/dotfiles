@@ -24,7 +24,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     firefox-devedition-bin
     fish
     flameshot
-    (stable.haskellPackages.ghcWithPackages (ps: with ps; [hlint hindent]))
+    ghc
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git

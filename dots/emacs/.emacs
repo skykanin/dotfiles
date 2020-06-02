@@ -62,7 +62,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (dante edit-indirect company-lsp lsp-haskell lsp-ui lsp-mode company-ghc all-the-icons svelte-mode hindent proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme)))
+    (tide dante edit-indirect company-lsp lsp-haskell lsp-ui lsp-mode company-ghc all-the-icons svelte-mode hindent proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -109,92 +109,50 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 
-;;(require 'smart-tabs-mode)
-;; (smart-tabs-insinuate 'javascript)
 (setq-default indent-tabs-mode nil)
 
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
-
-;; use web-mode for .js and .jsx files
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
-(add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
-
-;; nxml
-(add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xsd\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.ant\\'" . nxml-mode))
-
-;; http://www.flycheck.org/manual/latest/index.html
-(require 'flycheck)
-
-;; turn on flychecking globally
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(global-flycheck-mode)
-
-;; disable jshint since we prefer eslint checking
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers
-                      '(javascript-jshint)))
-
-;; use eslint with web-mode for js and jsx files
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-
-;; customize flycheck temp file prefix
-(setq-default flycheck-temp-prefix ".flycheck")
-
-;; disable json-jsonlist checking for json files
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(json-jsonlist)))
-
-;; use local eslint from node_modules before global
-;; http://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
-(defun my/use-eslint-from-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (eslint (and root
-                      (expand-file-name "node_modules/eslint/bin/eslint.js"
-                                        root))))
-    (when (and eslint (file-executable-p eslint))
-      (setq-local flycheck-javascript-eslint-executable eslint))))
-(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
-
-;; adjust indents for web-mode to 2 spaces
-(defun my-web-mode-hook ()
-  "Hooks for Web mode.  Adjust indent."
-  ;;; http://web-mode.org/
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-
-;; for better jsx syntax-highlighting in web-mode
-;; - courtesy of Patrick @halbtuerke
-(defadvice web-mode-highlight-part (around tweak-jsx activate)
-  (if (or (equal web-mode-content-type "jsx") (equal web-mode-content-type "js"))
-    (let ((web-mode-enable-part-face nil))
-      ad-do-it)
-    ad-do-it))
-
-;;; runs eslint --fix on the current file after save
-;;; alpha quality -- use at your own risk
-
-(defun eslint-fix-file ()
+;; Javascript setup
+(defun setup-tide-mode ()
   (interactive)
-  (message "eslint --fixing the file" (buffer-file-name))
-  (shell-command (concat "eslint --fix " (buffer-file-name))))
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
 
-(defun eslint-fix-file-and-revert ()
-  (interactive)
-  (eslint-fix-file)
-  (revert-buffer t t))
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
 
-(add-hook 'js2-mode-hook
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; tide formatting options
+(setq tide-format-options
+      '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil :indentSize 2 :tabSize 2))
+
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+
+;; JSX support
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-hook 'web-mode-hook
           (lambda ()
-            (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
+            (when (string-equal "jsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+;; configure jsx-tide checker to run after your default jsx checker
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
 
 ;; Setup svelte
 (require 'svelte-mode)
@@ -243,8 +201,6 @@
 ;; Setup company-mode
 (require 'company)
 (global-company-mode) ; Enable in all
-;; Tab complete without loosing ability to manually indent
-;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 ;; Integrate with haskell-mode
 (add-hook 'haskell-mode-hook
           (lambda ()

@@ -32,7 +32,6 @@ in
     parinfer
     projectile
     python-mode
-    smart-tabs-mode
     telephone-line
     use-package
     web-mode
@@ -49,9 +48,10 @@ in
     #org-link-minor-mode
     proof-general
   ]) ++ [
-    #pkgs.clj-kondo
-    pkgs.hlint
-    pkgs.gprolog
     (all-hies.selection { selector = p: { inherit (p) ghc883; }; })
+    #pkgs.clj-kondo
+    pkgs.gprolog
+    pkgs.hlint
+    pkgs.nodePackages.eslint
   ])
 

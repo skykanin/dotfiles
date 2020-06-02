@@ -4,7 +4,7 @@ let
   myEmacs = pkgs.emacs;
   stable-pkgs = import <stable> {};
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
-  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/haskell.nix") {};
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     all-the-icons
@@ -12,7 +12,6 @@ in
     cider
     clojure-mode
     company
-    dante
     doom-modeline
     doom-themes
     flycheck
@@ -53,6 +52,6 @@ in
     #pkgs.clj-kondo
     pkgs.hlint
     pkgs.gprolog
-    (all-hies.unstableFallback.selection { selector = p: { inherit (p) ghc864 ghc865; }; })
+    (all-hies.selection { selector = p: { inherit (p) ghc883; }; })
   ])
 

@@ -32,7 +32,7 @@
  ;; If there is more than one, they won't work right.
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
- '(custom-enabled-themes (quote (doom-tomorrow-night)))
+ '(custom-enabled-themes (quote (doom-challenger-deep)))
  '(custom-safe-themes
    (quote
     ("6b289bab28a7e511f9c54496be647dc60f5bd8f9917c9495978762b99d8c96a0" "86704574d397606ee1433af037c46611fb0a2787e8b6fd1d6c96361575be72d2" "6fc18b6b991926ea5debf205ee144b1a1fdcfcb69236024cc0bd863b666a1a11" "84890723510d225c45aaff941a7e201606a48b973f0121cb9bcb0b9399be8cba" "1c082c9b84449e54af757bcae23617d11f563fc9f33a832a8a2813c4d7dfb652" "356e5cbe0874b444263f3e1f9fffd4ae4c82c1b07fe085ba26e2a6d332db34dd" "4697a2d4afca3f5ed4fdf5f715e36a6cac5c6154e105f3596b44a4874ae52c45" "b35a14c7d94c1f411890d45edfb9dc1bd61c5becd5c326790b51df6ebf60f402" "3a3de615f80a0e8706208f0a71bbcc7cc3816988f971b6d237223b6731f91605" "43c808b039893c885bdeec885b4f7572141bd9392da7f0bd8d8346e02b2ec8da" "8aca557e9a17174d8f847fb02870cb2bb67f3b6e808e46c0e54a44e3e18e1020" "93a0885d5f46d2aeac12bf6be1754faa7d5e28b27926b8aa812840fe7d0b7983" "151bde695af0b0e69c3846500f58d9a0ca8cb2d447da68d7fbf4154dcf818ebc" "d1b4990bd599f5e2186c3f75769a2c5334063e9e541e37514942c27975700370" "49ec957b508c7d64708b40b0273697a84d3fee4f15dd9fc4a9588016adee3dad" "9954ed41d89d2dcf601c8e7499b6bb2778180bfcaeb7cdfc648078b8e05348c6" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" "fe666e5ac37c2dfcf80074e88b9252c71a22b6f5d2f566df9a7aa4f9bea55ef8" "a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "fd944f09d4d0c4d4a3c82bd7b3360f17e3ada8adf29f28199d09308ba01cc092" "a8c210aa94c4eae642a34aaf1c5c0552855dfca2153fa6dd23f3031ce19453d4" "f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" "d2e9c7e31e574bf38f4b0fb927aaff20c1e5f92f72001102758005e53d77b8c9" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" "f71859eae71f7f795e734e6e7d178728525008a28c325913f564a42f74042c31" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
@@ -210,10 +210,18 @@
 ;; Setup lsp stuff (language server protocol)
 (require 'lsp)
 
-;; lsp-haskell
-(require 'lsp-haskell)
-(add-hook 'haskell-mode-hook #'lsp)
-(setq lsp-document-sync-method 'full)
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(use-package lsp-haskell
+  :after lsp-clients
+  :hook ((haskell-mode . lsp))
+  :config
+  (setq lsp-haskell-set-hlint t
+        lsp-haskell-process-path-hie "hie-wrapper"
+        lsp-haskell-process-args-hie nil
+        lsp-document-sync-method 'full
+        tab-width 2))
 
 ;; Haskell setup
 (require 'haskell-mode)
@@ -231,41 +239,6 @@
 (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-
-;; Haskell linter
-(load "/home/skykanin/.emacs.d/hs-lint.el")
-(require 'hs-lint)
-
-;; Format on save for Haskell
-(add-to-list 'load-path "/home/skykanin/.emacs.d/floskell.el")
-(require 'floskell)
-(add-hook 'haskell-mode-hook #'floskell-mode)
-
-;;(require 'hindent)
-;; TODO: Hindent isn't always loaded for some reason
-;;(add-hook 'haskell-mode-hook #'hindent-mode)
-;; (add-hook 'hindent-mode-hook (lambda () (local-set-key (kbd "M-p") 'hindent-reformat-buffer)))
-;; (setq hindent-reformat-buffer-on-save t)
-
-
-;; Haskell dante
-(use-package dante
-  :ensure t
-  :after haskell-mode
-  :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode))
-
-(setq flymake-no-changes-timeout nil)
-(setq flymake-start-syntax-check-on-newline nil)
-(setq flycheck-check-syntax-automatically '(save mode-enabled))
-
-;; Using dante with hlint
-(add-hook 'dante-mode-hook
-          '(lambda () (flycheck-add-next-checker
-                       'haskell-dante
-                       '(warning . haskell-hlint))))
 
 ;; Setup company-mode
 (require 'company)
@@ -378,7 +351,7 @@
 
 ;; Doom theme
 (require 'doom-themes)
-(load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-challenger-deep t)
 (doom-themes-neotree-config)
 
 ;; Doom modeline

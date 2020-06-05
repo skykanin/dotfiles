@@ -33,6 +33,7 @@ in
     projectile
     python-mode
     telephone-line
+    tide
     use-package
     web-mode
     zenburn-theme
@@ -46,6 +47,7 @@ in
     kotlin-mode
     lsp-haskell
     #org-link-minor-mode
+    prettier-js
     proof-general
   ]) ++ [
     (all-hies.selection { selector = p: { inherit (p) ghc883; }; })
@@ -53,5 +55,6 @@ in
     pkgs.gprolog
     pkgs.hlint
     pkgs.nodePackages.eslint
+    pkgs.nodePackages.prettier
   ])
 

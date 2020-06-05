@@ -7,6 +7,7 @@
       ../modules/boot-efi.nix
       ../modules/general.nix
       ../modules/packages.nix
+      ../modules/printing.nix
       ../modules/programs.nix
       ../modules/redshift.nix
       ../modules/sound.nix
@@ -30,7 +31,7 @@
   services.compton.vSync = true;
   # Suspend on lid close
   services.logind.lidSwitch = "suspend";
-  services.xserver.libinput.naturalScrolling = true;
+  services.xserver.libinput.naturalScrolling = false;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

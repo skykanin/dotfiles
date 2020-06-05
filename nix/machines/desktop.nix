@@ -7,6 +7,7 @@
       ../modules/boot-efi.nix
       ../modules/general.nix
       ../modules/packages.nix
+      ../modules/printing.nix
       ../modules/programs.nix
       ../modules/redshift.nix
       ../modules/sound.nix

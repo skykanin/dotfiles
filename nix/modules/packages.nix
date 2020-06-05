@@ -10,6 +10,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     arc-icon-theme
     stable.arc-theme
     ant-theme
+    autorandr
     bat
     betterlockscreen
     cabal-install

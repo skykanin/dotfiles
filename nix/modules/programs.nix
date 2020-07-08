@@ -12,6 +12,14 @@
     };
 
     fuse.userAllowOther = true;
+   
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryFlavor = "curses";
+      };
+      package = pkgs.gnupg;
+    };
     
     java = {
       enable = true;

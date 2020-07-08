@@ -24,9 +24,11 @@
   environment.variables = {
     MESA_LOADER_DRIVER_OVERRIDE = "iris";
   };
-  hardware.opengl.package = (pkgs.mesa.override {
-    galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
-  }).drivers;
+
+  #hardware.opengl.package = (pkgs.mesa.override {
+  #  galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
+  #}).drivers;
+
   programs.light.enable = true;
   services.compton.vSync = true;
   # Suspend on lid close

@@ -1,24 +1,24 @@
 { config, pkgs, ... }:
 
 with pkgs;
-let stable = import <stable> { config.allowUnfree = true; };
+let
+  stable = import <stable> { config.allowUnfree = true; };
   in
 {
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    android-studio
+    # android-studio
     arc-icon-theme
     stable.arc-theme
     ant-theme
     autorandr
     bat
     betterlockscreen
-    cabal-install
     clojure
     curl
     colorz
     direnv
-    discord
+    # discord
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     feh
@@ -33,7 +33,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     joker
     kitty
     my-leiningen
-    lxappearance-gtk3
+    lxappearance
     mpv
     neofetch
     nodejs-14_x
@@ -43,7 +43,7 @@ let stable = import <stable> { config.allowUnfree = true; };
     polybarFull
     playerctl
     plex
-    python39
+    python3
     pywal
     qbittorrent
     qdirstat
@@ -63,11 +63,6 @@ let stable = import <stable> { config.allowUnfree = true; };
     (self: super: {
       my-leiningen = super.leiningen.override {
         jdk = pkgs.openjdk11;
-      };
-    })
-    (self: super: {
-      my-idea-ultimate = super.jetbrains.idea-ultimate.override {
-        jdk = pkgs.jetbrains.jdk;
       };
     })
   ];

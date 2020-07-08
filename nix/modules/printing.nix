@@ -3,6 +3,6 @@
 {
   services.printing = {
     enable = true;
-    drivers = [ pkgs.hplipWithPlugin ];
+    drivers = [ pkgs.brlaser pkgs.hplipWithPlugin ];
   };
 }

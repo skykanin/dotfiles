@@ -3,6 +3,7 @@
 with pkgs;
 let
   stable = import <stable> { config.allowUnfree = true; };
+  idris2-master = import /home/skykanin/dotfiles/nix/overlays/idris2/default.nix {};
   in
 {
   environment.systemPackages = with pkgs; [
@@ -29,6 +30,7 @@ let
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git
+    idris2-master
     jetbrains.idea-ultimate
     joker
     kitty

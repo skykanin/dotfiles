@@ -7,7 +7,7 @@ let
 {
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    # android-studio
+    android-studio
     arc-icon-theme
     stable.arc-theme
     ant-theme
@@ -18,7 +18,7 @@ let
     curl
     colorz
     direnv
-    # discord
+    discord
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     feh

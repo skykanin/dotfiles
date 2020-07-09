@@ -3,7 +3,6 @@
 with pkgs;
 let
   stable = import <stable> { config.allowUnfree = true; };
-  idris2-master = import /home/skykanin/dotfiles/nix/overlays/idris2/default.nix {};
   in
 {
   environment.systemPackages = with pkgs; [
@@ -30,7 +29,7 @@ let
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git
-    idris2-master
+    idris2-bleeding-edge
     jetbrains.idea-ultimate
     joker
     kitty
@@ -66,6 +65,19 @@ let
       my-leiningen = super.leiningen.override {
         jdk = pkgs.openjdk11;
       };
+    })
+    (self: super: {
+      idris2-bleeding-edge = idris2.overrideAttrs (oldAttrs: {
+        name = "idris2-master";
+        version = null;
+        
+        src = pkgs.fetchFromGitHub {
+          owner = "idris-lang";
+          repo = "Idris2";
+          rev = "master";
+          sha256 = "12af7c3zh2byqywjndgx9rdkfa78rgdzv2pmfnq8g42a2w9qk9ld";
+        };
+      });
     })
   ];
 }

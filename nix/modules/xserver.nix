@@ -27,11 +27,13 @@
       };
       
       displayManager = {
+        
+        autoLogin = {
+          enable = true;
+          user = "skykanin";
+        };
+
         lightdm = {
-          autoLogin = {
-            enable = true;
-            user = "skykanin";
-          };
           enable = true;
           greeter.enable = false;
         };

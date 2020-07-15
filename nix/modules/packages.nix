@@ -14,6 +14,7 @@ let
     autorandr
     bat
     betterlockscreen
+    chatterino2
     clojure
     curl
     colorz

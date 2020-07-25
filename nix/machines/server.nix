@@ -33,7 +33,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "no_NO.UTF-8";
+  # i18n.defaultLocale = "no_NO.UTF-8";
 
   console = {
     font = "Lat2-Terminus16";

@@ -343,6 +343,9 @@
 ;; Load company-coq when opening Coq files
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
+;; Idris
+(require 'idris-mode)
+
 ;; EasyPG
 (setenv "GPG_AGENT_INFO" "emacs")
 

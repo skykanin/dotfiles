@@ -48,10 +48,12 @@
   environment.systemPackages = with pkgs; [
     bat
     curl
+    direnv
     docker
     fish
     git
     kitty.terminfo
+    neofetch
     wget
   ];
 

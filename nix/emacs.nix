@@ -4,7 +4,6 @@ let
   myEmacs = pkgs.emacs;
   stable-pkgs = import <stable> {};
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
-  # all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/haskell.nix") {};
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     all-the-icons
@@ -51,10 +50,10 @@ in
     prettier-js
     proof-general
   ]) ++ [
+    pkgs.haskellPackages.haskell-language-server
     pkgs.hunspell
     pkgs.hunspellDicts.en_GB-ise
     pkgs.hunspellDicts.en_US
-    # (all-hies.selection { selector = p: { inherit (p) ghc883; }; })
     #pkgs.clj-kondo
     pkgs.gprolog
     pkgs.hlint

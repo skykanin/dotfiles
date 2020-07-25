@@ -12,6 +12,7 @@ in
     cider
     clojure-mode
     company
+    direnv
     doom-modeline
     doom-themes
     flycheck

@@ -98,7 +98,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-block ((t (:background nil))))
+ '(org-block-begin-line ((t (:underline nil :foreground "#858FA5" :background nil))))
+ '(org-block-end-line ((t (:overline nil :foreground "#858FA5" :background nil)))))
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode 0)
@@ -229,8 +231,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
-; (require 'flyspell)
-(add-hook 'org-mode-hook #'flyspell-mode)
+
+; (add-hook 'org-mode-hook #'flyspell-mode)
+(add-hook 'org-mode-hook #'ispell-minor-mode)
 
 ;; HTML export stuff
 (setq browse-url-browser-function 'browse-url-generic
@@ -320,6 +323,7 @@
 (require 'doom-themes)
 (load-theme 'doom-challenger-deep t)
 (doom-themes-neotree-config)
+(doom-themes-org-config)
 
 ;; Doom modeline
 (require 'doom-modeline)

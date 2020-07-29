@@ -27,6 +27,7 @@
   networking.networkmanager.enable = true;
   
   nix = {
+    autoOptimiseStore = true;
     package = pkgs.nixFlakes;
     extraOptions = pkgs.lib.optionalString (config.nix.package == pkgs.nixFlakes)
      "experimental-features = nix-command flakes";

@@ -53,11 +53,13 @@ let
     slack
     spotifywm
     steam
+    unzip
     weechat
     wget
     xdg_utils
     xorg.xbacklight
     youtube-dl
+    zip
   ];
 
   # Nixpkgs overlays

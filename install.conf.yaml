@@ -20,7 +20,6 @@
     ~/Pictures/wallpapers: dots/wallpapers
 
 - create:
-    - ~/downloads
     - ~/.vim/undo-history
 
 - shell:

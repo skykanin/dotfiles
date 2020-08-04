@@ -22,6 +22,7 @@ let
     discord
     docker
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    fd
     feh
     firefox-devedition-bin
     fish
@@ -53,6 +54,7 @@ let
     slack
     spotifywm
     steam
+    tree
     unzip
     weechat
     wget

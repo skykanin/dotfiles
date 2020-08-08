@@ -252,7 +252,7 @@ exec firefox-devedition
 exec emacs
 exec Discord
 exec spotifywm
-# exec qbittorrent
+exec qbittorrent
 
 # Start nm, blueman and flameshot applet in systemtray
 exec --no-startup-id nm-applet

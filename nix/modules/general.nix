@@ -33,12 +33,11 @@
   nix = {
     autoOptimiseStore = true;
     package = pkgs.nixFlakes;
-    extraOptions = pkgs.lib.optionalString (config.nix.package == pkgs.nixFlakes)
-     "experimental-features = nix-command flakes"
-     + ''
+    extraOptions = ''
+       experimental-features = nix-command flakes
        keep-outputs = true
        keep-derivations = true
-     '';
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;

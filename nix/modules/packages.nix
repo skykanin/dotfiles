@@ -39,6 +39,7 @@ let
     lxappearance
     mpv
     neofetch
+    nix-direnv
     nodejs-14_x
     obs-studio
     pamixer

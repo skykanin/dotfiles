@@ -3,15 +3,16 @@ function nixify --description 'Shell function to quickly setup nix + direnv in a
     echo "use nix" > .envrc
     direnv allow
   end
-  if test ! -e default.nix
-    echo >default.nix "\
-with import <nixpkgs> {};
-mkShell {
+  if test ! -e shell.nix
+    echo > shell.nix "\
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
   nativeBuildInputs = [
-    bashInteractive
+    pkgs.bashInteractive
   ];
 }
 "
-    $EDITOR default.nix
+    $EDITOR shell.nix
   end
 end

@@ -10,6 +10,8 @@
     ~/.emacs: dots/emacs/.emacs
     ~/.emacs.d/hs-lint.el: dots/emacs/hs-lint.el
     ~/.gitconfig: dots/.gitconfig
+    ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
+    ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
     ~/.config/polybar: dots/polybar
     ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf

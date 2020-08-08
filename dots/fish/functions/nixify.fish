@@ -1,0 +1,17 @@
+function nixify --description 'Shell function to quickly setup nix + direnv in a new project'
+  if test ! -e ./.envrc
+    echo "use nix" > .envrc
+    direnv allow
+  end
+  if test ! -e default.nix
+    echo >default.nix "\
+with import <nixpkgs> {};
+mkShell {
+  nativeBuildInputs = [
+    bashInteractive
+  ];
+}
+"
+    $EDITOR default.nix
+  end
+end

@@ -59,6 +59,7 @@ let
     unzip
     weechat
     wget
+    xclip
     xdg_utils
     xorg.xbacklight
     youtube-dl

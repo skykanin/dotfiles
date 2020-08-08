@@ -110,7 +110,7 @@
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 (setq ring-bell-function 'ignore)
-(set-face-attribute 'default nil :height 135)
+(set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 130)
 
 (require 'ido)
 (ido-mode t)
@@ -318,6 +318,11 @@
 
 ;; Eldoc
 (global-eldoc-mode t)
+
+;; Fira code mode
+(use-package fira-code-mode
+  :custom (fira-code-mode-disabled-ligatures '("#{" "#(" "#_" "#_(" "x"))
+  :config (global-fira-code-mode))
 
 ;; Doom theme
 (require 'doom-themes)

@@ -41,6 +41,7 @@ in
   ]) ++ (with epkgs.melpaPackages; [
     company-coq
     elcord
+    fira-code-mode
     flycheck-clj-kondo
     flycheck-joker
     jedi-direx
@@ -56,8 +57,8 @@ in
     pkgs.hunspellDicts.en_US
     #pkgs.clj-kondo
     pkgs.gprolog
-    pkgs.hlint
     pkgs.nodePackages.eslint
     pkgs.nodePackages.prettier
+    pkgs.fira-code-symbols
   ])
 

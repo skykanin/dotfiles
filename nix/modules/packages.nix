@@ -27,6 +27,7 @@ let
     firefox-devedition-bin
     fish
     flameshot
+    gitAndTools.gh
     ghc
     gnome3.nautilus
     gnome3.networkmanagerapplet

@@ -360,7 +360,9 @@
 (setq ispell-local-dictionary "en_GB")
 
 ;; direnv config
-(require 'direnv)
+(use-package direnv
+ :config
+ (direnv-mode))
 
 ;; Remove lock files
 (setq create-lockfiles nil)

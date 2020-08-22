@@ -83,7 +83,7 @@ let
           owner = "idris-lang";
           repo = "Idris2";
           rev = "master";
-          sha256 = "01gfcvq1ljwwc6y7vcbwghfwjg8ix7rd243yw2k5clgwfg8jkzsf";
+          sha256 = "1kv6xs6v0wiq202c8xz8dcd5p6wz2030kqmyvbyds2pzi304m9iy";
         };
       });
     })

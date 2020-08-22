@@ -14,6 +14,7 @@ let
     autorandr
     bat
     betterlockscreen
+    brightnessctl
     chatterino2
     clojure
     curl

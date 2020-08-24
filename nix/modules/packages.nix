@@ -21,6 +21,7 @@ let
     direnv
     discord
     docker
+    dotty
     (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     fd
     feh
@@ -39,6 +40,7 @@ let
     kitty
     my-leiningen
     lxappearance
+    metals
     mpv
     neofetch
     nix-direnv
@@ -88,5 +90,8 @@ let
         };
       });
     })
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
   ];
 }

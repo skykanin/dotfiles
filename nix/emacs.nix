@@ -23,6 +23,7 @@ in
     jedi
     js-comint
     js2-mode
+    lsp-metals
     lsp-mode
     markdown-mode
     markdown-preview-mode
@@ -32,6 +33,8 @@ in
     parinfer
     projectile
     python-mode
+    sbt-mode
+    scala-mode
     telephone-line
     tide
     use-package

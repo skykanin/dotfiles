@@ -29,6 +29,7 @@ let
     flameshot
     gitAndTools.gh
     ghc
+    gimp
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git
@@ -83,7 +84,7 @@ let
           owner = "idris-lang";
           repo = "Idris2";
           rev = "master";
-          sha256 = "1kv6xs6v0wiq202c8xz8dcd5p6wz2030kqmyvbyds2pzi304m9iy";
+          sha256 = "17yhyig3g5s3ajqjjxp1k5mz71614acwjxczjbary46h8d136p1p";
         };
       });
     })

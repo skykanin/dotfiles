@@ -15,6 +15,7 @@ let
     bat
     betterlockscreen
     brightnessctl
+    cachix
     chatterino2
     clojure
     curl

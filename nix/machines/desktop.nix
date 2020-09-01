@@ -14,6 +14,7 @@
       ../modules/ssh.nix
       ../modules/user.nix
       ../modules/xserver.nix
+      /etc/nixos/cachix.nix
     ];
 
   # Define hostname

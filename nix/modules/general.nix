@@ -38,6 +38,7 @@
        keep-outputs = true
        keep-derivations = true
     '';
+    trustedBinaryCaches = [ "https://hydra.iohk.io" ];
   };
 
   nixpkgs.config.allowUnfree = true;

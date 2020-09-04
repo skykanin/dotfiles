@@ -47,7 +47,7 @@ let
     neofetch
     nix-direnv
     nodejs-14_x
-    obs-studio
+    obs-studio-26
     pamixer
     pavucontrol
     polybarFull
@@ -78,6 +78,21 @@ let
       my-leiningen = super.leiningen.override {
         jdk = pkgs.openjdk11;
       };
+    })
+    (self: super: {
+      obs-studio-26 = obs-studio.overrideAttrs (oldAttrs: rec {
+        pname = "obs-studio";
+        version = "26.0.0-rc1";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "obsproject";
+          repo = "obs-studio";
+          rev = version;
+          sha256 = "0931df9yv5akid16y6abp0ihl8vc3gwa0dr3hnnn94h8567mwq3s";
+        };
+
+        buildInputs = oldAttrs.buildInputs ++ [pkgs.rnnoise];
+      });
     })
     (self: super: {
       idris2-bleeding-edge = idris2.overrideAttrs (oldAttrs: {

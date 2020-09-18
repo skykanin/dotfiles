@@ -28,7 +28,10 @@
     pulseaudio.support32Bit = true;
   };
   
-  networking.networkmanager.enable = true;
+  networking = {
+    firewall.allowedTCPPorts = [ 80 8080 3333 ];
+    networkmanager.enable = true;
+  };
   
   nix = {
     autoOptimiseStore = true;

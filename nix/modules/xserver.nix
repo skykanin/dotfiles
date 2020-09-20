@@ -18,7 +18,7 @@
       layout = "no";
       libinput = {
         enable = true;
-        accelProfile = "flat";
+        accelProfile = "adaptive";
       };
 
 

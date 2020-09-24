@@ -9,7 +9,7 @@ let
     adwaita-qt
     android-studio
     arc-icon-theme
-    stable.arc-theme
+    arc-theme
     ant-theme
     autorandr
     bat
@@ -82,13 +82,13 @@ let
     (self: super: {
       obs-studio-26 = obs-studio.overrideAttrs (oldAttrs: rec {
         pname = "obs-studio";
-        version = "26.0.0-rc1";
+        version = "26.0.0-rc3";
 
         src = pkgs.fetchFromGitHub {
           owner = "obsproject";
           repo = "obs-studio";
           rev = version;
-          sha256 = "0931df9yv5akid16y6abp0ihl8vc3gwa0dr3hnnn94h8567mwq3s";
+          sha256 = "0w14jfh6xi7rrz0p1ach3wmwmfkz7ff7nia66k6l9xc2brh3p8js";
         };
 
         buildInputs = oldAttrs.buildInputs ++ [pkgs.rnnoise];

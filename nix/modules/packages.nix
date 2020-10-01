@@ -43,7 +43,7 @@ let
     my-leiningen
     lxappearance
     metals
-    mpv
+    mpv-with-scripts
     neofetch
     nix-direnv
     nodejs-14_x

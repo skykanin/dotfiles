@@ -35,12 +35,13 @@
   
   nix = {
     autoOptimiseStore = true;
-    package = pkgs.nixFlakes;
     extraOptions = ''
        experimental-features = nix-command flakes
        keep-outputs = true
        keep-derivations = true
     '';
+    gc.automatic = true;
+    package = pkgs.nixFlakes;
     trustedBinaryCaches = [ "https://hydra.iohk.io" ];
   };
 

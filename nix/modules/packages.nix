@@ -57,6 +57,7 @@ let
     pywal
     qbittorrent
     qdirstat
+    racket
     rofi
     slack
     spotifywm

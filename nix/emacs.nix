@@ -53,6 +53,7 @@ in
     #org-link-minor-mode
     prettier-js
     proof-general
+    racket-mode
   ]) ++ [
     pkgs.haskellPackages.haskell-language-server
     pkgs.hunspell

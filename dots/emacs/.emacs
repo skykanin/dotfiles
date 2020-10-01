@@ -68,7 +68,7 @@
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(xresources-theme lsp-metals direnv cyberpunk-theme pinentry fish-mode tide dante edit-indirect company-lsp lsp-haskell lsp-mode company-ghc all-the-icons svelte-mode hindent proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme))
+   '(racket-mode xresources-theme lsp-metals direnv cyberpunk-theme pinentry fish-mode tide dante edit-indirect company-lsp lsp-haskell lsp-mode company-ghc all-the-icons svelte-mode hindent proof-general company-coq flycheck-kotlin kotlin-mode markdown-preview-mode markdown-mode idris-mode doom-modeline doom-themes dockerfile-mode flycheck-clj-kondo impatient-mode jedi-direx jedi python-mode js-comint paredit parinfer use-package htmlize org-link-minor-mode elcord telephone-line smart-tabs-mode cider projectile better-defaults clojure-mode zenburn-theme challenger-deep-theme haskell-mode neotree web-mode json-mode flycheck js2-mode spaceline spacemacs-theme))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e"))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -397,6 +397,28 @@
 
 ;; Remove lock files
 (setq create-lockfiles nil)
+
+;; Racket setup
+(require 'racket-mode)
+
+;; Custom key bindings
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key [(control shift up)]  'move-line-up)
+(global-set-key [(control shift down)]  'move-line-down)
 
 (provide '.emacs)
 ;;; .emacs ends here

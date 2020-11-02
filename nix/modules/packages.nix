@@ -50,6 +50,7 @@ let
     obs-studio
     pamixer
     pavucontrol
+    pciutils
     polybarFull
     playerctl
     plex

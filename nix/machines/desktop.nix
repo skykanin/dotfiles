@@ -19,8 +19,7 @@
 
   # Define hostname
   networking.hostName = "emma";
-  # Set your time zone.
-  time.timeZone = "Europe/Oslo";
+
   # Detect other OS partitions  
   boot.loader.grub = {
     enable = true;

@@ -56,6 +56,10 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
   
-  time.timeZone = "Europe/Oslo";
+  time = {
+    hardwareClockInLocalTime = true;
+    timeZone = "Europe/Oslo";
+  };
+  
   virtualisation.docker.enable = true;
 }

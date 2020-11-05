@@ -18,8 +18,6 @@
 
   # Define hostname
   networking.hostName = "daisy";
-  # Set your time zone.
-  time.timeZone = "Europe/Oslo";
 
   environment.variables = {
     MESA_LOADER_DRIVER_OVERRIDE = "iris";

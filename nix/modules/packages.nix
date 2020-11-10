@@ -41,6 +41,7 @@ let
     joker
     kitty
     my-leiningen
+    lutris
     lxappearance
     metals
     mpv-with-scripts

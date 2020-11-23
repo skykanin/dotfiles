@@ -66,6 +66,7 @@ let
     steam
     tree
     unzip
+    vim
     weechat
     wget
     wine

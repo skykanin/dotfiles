@@ -7,8 +7,9 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.emacs: dots/emacs/.emacs
-    ~/.emacs.d/hs-lint.el: dots/emacs/hs-lint.el
+    # ~/.emacs: dots/emacs/.emacs
+    # ~/.emacs.d/hs-lint.el: dots/emacs/hs-lint.el
+    ~/.doom.d: dots/emacs/doom
     ~/.gitconfig: dots/.gitconfig
     ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc

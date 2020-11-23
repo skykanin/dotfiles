@@ -68,6 +68,9 @@ let
     unzip
     weechat
     wget
+    wine
+    winetricks
+    wineWowPackages.full
     xclip
     xdg_utils
     xorg.xbacklight

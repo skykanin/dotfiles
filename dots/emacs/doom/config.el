@@ -22,6 +22,12 @@
 (setq doom-font (font-spec :family "Fira Code" :size 18)
        doom-variable-pitch-font (font-spec :family "sans" :size 15))
 
+;; Configure fira-code ligatures and disable some of them
+(use-package! fira-code-mode
+  :custom (fira-code-mode-disabled-ligatures
+           '("[]" "#{" "#(" "#_" "#_(" "x" "-}"))
+  :config (global-fira-code-mode))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:

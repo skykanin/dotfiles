@@ -56,6 +56,8 @@
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
         time = 30;
       };
+      
+      xkbOptions = "caps:escape";
     };
   };
 }

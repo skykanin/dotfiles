@@ -2,7 +2,7 @@
 	email = 3789764+skykanin@users.noreply.github.com
 	name = skykanin
 [core]
-	editor = nano
+	editor = vim
 [push]
 	followTags = true
 [pull]

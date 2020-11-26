@@ -25,18 +25,24 @@ primary = ${xrdb:color1:#222}
 secondary = ${xrdb:color2:#222}
 alert = ${xrdb:color3:#222}
 
+green = #32c332
+blue = #0078ff
+red = #f00e3c
+turquoise = #19bfe3
+purple = #9f78e1
+orange = #ce8500
+
 [bar/primary]
-; monitor = ${env:MONITOR:eDP-1}
 monitor = ${env:MONITOR:HDMI-0}
 width = 100%
-height = 35
+height = 32
 radius = 0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 0
 line-color = #f00
 
 border-size = 0
@@ -48,18 +54,55 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "DroidSansMono Nerd Font:size=12"
-font-1 = "DroidSansMono Nerd Font:size=12:bold"
-font-2 = "Unifont:size=12"
-font-3 = "Noto Color Emoji:size=12"
+font-0 = "DroidSansMono Nerd Font:size=12;2"
+font-1 = "DroidSansMono Nerd Font:size=12:bold;2"
+font-2 = "Unifont:size=12;2"
+font-3 = "Noto Color Emoji:size=12;2"
 
 modules-left = i3
 modules-center = date
-modules-right = spotify temperature memory cpu pulseaudio backlight-acpi battery
+modules-right = spotify temperature memory cpu pulseaudio battery
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/secondary]
+monitor = ${env:MONITOR:HDMI-0}
+width = 100%
+height = 32
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = ${colors.primary}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "DroidSansMono Nerd Font:size=12;2"
+font-1 = "DroidSansMono Nerd Font:size=12:bold;2"
+font-2 = "Unifont:size=12;2"
+font-3 = "Noto Color Emoji:size=12;2"
+
+modules-left = i3
+modules-center = network
+modules-right = filesystem
+
+tray-position = right
+tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -87,7 +130,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon% %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
+label-focused-foreground = ${colors.primary}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
@@ -97,7 +140,7 @@ label-unfocused-padding = 1
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
 label-visible-background = ${colors.background-alt}
-label-visible-underline = ${colors.primary}
+label-visible-foreground = ${colors.primary}
 label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
@@ -132,8 +175,8 @@ card = intel_backlight
 type = internal/cpu
 interval = 1
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-underline = #f90000
+format-prefix-foreground = ${colors.red}
+format-foreground = ${colors.red}
 format-font = 1
 label = %percentage:2%%
 label-font = 1
@@ -142,48 +185,36 @@ label-font = 1
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-underline = #4bffdc
+format-prefix-foreground = ${colors.turquoise}
+format-foreground = ${colors.turquoise}
 label = %percentage_used%%
 label-font = 1
 
-[module/wlan]
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+mount-1 = /mnt/media
+
+interval = 1
+
+fixed-values = true
+
+format-mounted =  <label-mounted>
+format-mounted-foreground = ${colors.orange}
+
+label-mounted = %mountpoint% %percentage_used%%
+label-unmounted = %mountpoint%: not mounted
+
+[module/network]
 type = internal/network
-interface = wlp1s0
-interval = 3.0
+interface = enp0s31f6
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+interval = 1
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = @INTERFACE_ETH@
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+format-connected-foreground = ${colors.purple}
+label-connected = %local_ip%  %upspeed%  %downspeed%
 
 [module/date]
 type = internal/date
@@ -197,7 +228,8 @@ time-alt = "  %H:%M:%S"
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+; format-underline = #0a6cf5
+format-foreground = ${colors.blue}
 
 label = %date% %time%
 label-font = 1
@@ -208,15 +240,15 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 format-muted = <label-muted>
 
-format-volume-underline = #00ff00
-format-muted-underline = #00ff00
+format-volume-foreground = ${colors.green}
+format-muted-foreground = ${colors.green}
 
 label-volume = 墳 %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.green}
 label-volume-font = 1
 
 label-muted = 婢 muted
-label-muted-foreground = ${colors.foreground}
+label-muted-foreground = ${colors.green}
 label-muted-font = 1
 
 ramp-volume-0 =  
@@ -239,34 +271,6 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${root.foreground}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -307,12 +311,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${colors.secondary}
 animation-charging-framerate = 750
-
-;animation-discharging-0 = 
-;animation-discharging-1 = 
-;animation-discharging-2 = 
-;animation-discharging-foreground = ${colors.secondary}
-;animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature

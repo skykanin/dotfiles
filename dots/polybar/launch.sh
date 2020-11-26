@@ -21,6 +21,11 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 outputs=$(xrandr --query | grep " connected" | cut -d " " -f 1)
 
 for m in $outputs; do
-  MONITOR=$m polybar --reload primary &> ~/polybar.error &
-  disown
+  if [ $m == DP-2 ]; then
+    MONITOR=$m polybar --reload primary &> ~/polybar.error &
+    disown
+  else
+    MONITOR=$m polybar --reload secondary &> ~/polybar.error &
+    disown
+  fi
 done

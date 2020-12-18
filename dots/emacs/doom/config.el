@@ -28,6 +28,9 @@
            '("[]" "#{" "#(" "#_" "#_(" "x" "-}"))
   :config (global-fira-code-mode))
 
+;; Configure flycheck-clj-kondo
+(use-package! flycheck-clj-kondo)
+
 ;; Make sure haskell and clojure REPL windows open on the right side
 ;; of the current buffer
 

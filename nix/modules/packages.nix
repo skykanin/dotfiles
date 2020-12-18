@@ -18,6 +18,7 @@ let
     cachix
     chatterino2
     clojure
+    clj-kondo
     curl
     colorz
     direnv

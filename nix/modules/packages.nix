@@ -71,7 +71,6 @@ let
     vim_configurable
     weechat
     wget
-    wine
     winetricks
     wineWowPackages.full
     xclip

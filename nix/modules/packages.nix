@@ -7,6 +7,7 @@ let
 {
   environment.systemPackages = with pkgs; [
     adwaita-qt
+    androidenv.androidPkgs_9_0.platform-tools
     android-studio
     arc-icon-theme
     arc-theme

@@ -29,7 +29,9 @@
   };
   
   networking = {
-    firewall.allowedTCPPorts = [ 80 8080 3333 ];
+    firewall.enable = true;
+    firewall.allowedTCPPorts = [ 80 8080 3333 9630 44330 19000 19001 19002 19003];
+    firewall.allowedUDPPorts = [ 80 9630 44330 19000 19001 19002 19003 ];
     networkmanager.enable = true;
   };
   

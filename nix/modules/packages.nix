@@ -62,6 +62,7 @@ let
     qbittorrent
     qdirstat
     racket
+    rlwrap
     rofi
     slack
     spotifywm
@@ -96,7 +97,7 @@ let
           owner = "idris-lang";
           repo = "Idris2";
           rev = "master";
-          sha256 = "0ybwr0m0bkj74d21vd70bvgmbhscg5d0h65f2k8b1d3wrbdys91k";
+          sha256 = "1s9397h58rmdzry02353q6d0im56hy9wgb69lp2lvb31x0n09h8c";
         };
       });
     })

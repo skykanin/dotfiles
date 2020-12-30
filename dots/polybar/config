@@ -229,7 +229,7 @@ time-alt = "  %H:%M:%S"
 format-prefix =
 format-prefix-foreground = ${colors.foreground}
 ; format-underline = #0a6cf5
-format-foreground = ${colors.blue}
+format-foreground = ${colors.purple}
 
 label = %date% %time%
 label-font = 1

@@ -26,7 +26,7 @@ let
     discord
     docker
     dotty
-    emacsGit # (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    emacsGit
     fd
     feh
     firefox-devedition-bin

@@ -26,7 +26,7 @@ let
     discord
     docker
     dotty
-    (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
+    emacsGit # (import /home/skykanin/dotfiles/nix/emacs.nix { inherit pkgs; }) # Emacs with my pkgs
     fd
     feh
     firefox-devedition-bin
@@ -62,6 +62,7 @@ let
     qbittorrent
     qdirstat
     racket
+    ripgrep
     rlwrap
     rofi
     slack

@@ -19,14 +19,11 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 18)
+(setq doom-font (font-spec
+                 :family "VictorMono Nerd Font"
+                 :weight 'semi-bold
+                 :size 18)
        doom-variable-pitch-font (font-spec :family "sans" :size 15))
-
-;; Configure fira-code ligatures and disable some of them
-(use-package! fira-code-mode
-  :custom (fira-code-mode-disabled-ligatures
-           '("[]" "#{" "#(" "#_" "#_(" "x" "-}"))
-  :config (global-fira-code-mode))
 
 ;; Configure flycheck-clj-kondo
 (use-package! flycheck-clj-kondo)

@@ -53,7 +53,15 @@ function fish_prompt
             return 1
         end
     end
-
+    
+    function _is_nix_shell
+        if set -q IN_NIX_SHELL
+            echo ' '
+            return 0
+        end
+        return 1
+    end
+    
     set -l cyan (set_color -o cyan)
     set -l yellow (set_color -o yellow)
     set -l red (set_color -o red)
@@ -82,6 +90,8 @@ function fish_prompt
             set repo_info "$repo_info$dirty"
         end
     end
+    
+    set -l is_nix_shell (_is_nix_shell)
 
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    echo -n -s $arrow ' ' $cwd $is_nix_shell $repo_info $normal ' '
 end

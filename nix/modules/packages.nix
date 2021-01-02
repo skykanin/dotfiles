@@ -26,7 +26,7 @@ let
     discord
     docker
     dotty
-    emacsGit
+    emacsGcc
     fd
     feh
     firefox-devedition-bin

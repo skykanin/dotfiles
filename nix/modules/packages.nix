@@ -98,7 +98,7 @@ let
           owner = "idris-lang";
           repo = "Idris2";
           rev = "master";
-          sha256 = "1s9397h58rmdzry02353q6d0im56hy9wgb69lp2lvb31x0n09h8c";
+          sha256 = "127zihakb035n1a0ky78362s1f5qbg4b92kmzz95frchc0kwg596";
         };
       });
     })

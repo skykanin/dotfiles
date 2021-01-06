@@ -25,6 +25,13 @@
                  :size 18)
        doom-variable-pitch-font (font-spec :family "sans" :size 15))
 
+;; Add line wrapping
+(global-visual-line-mode t)
+
+;; Configure elcord
+(use-package! elcord
+  :config (elcord-mode))
+
 ;; Configure flycheck-clj-kondo
 (use-package! flycheck-clj-kondo)
 

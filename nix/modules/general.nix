@@ -43,6 +43,7 @@
        keep-derivations = true
     '';
     gc.automatic = true;
+    maxJobs = 2;
     package = pkgs.nixFlakes;
     trustedBinaryCaches = [ "https://hydra.iohk.io" ];
   };

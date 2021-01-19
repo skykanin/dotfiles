@@ -9,8 +9,6 @@
     enableDefaultFonts = true;
 
     fonts = with pkgs; [
-      fira-code
-      fira-code-symbols
       nerdfonts
     ];
   };

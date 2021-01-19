@@ -38,7 +38,7 @@ let
     gnome3.nautilus
     gnome3.networkmanagerapplet
     git
-    idris2-bleeding-edge
+    idris2
     jetbrains.idea-ultimate
     joker
     kitty

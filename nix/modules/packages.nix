@@ -68,6 +68,7 @@ let
     slack
     spotifywm
     steam
+    texlive.combined.scheme-full
     tree
     unzip
     vim_configurable

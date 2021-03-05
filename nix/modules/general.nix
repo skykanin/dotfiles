@@ -4,7 +4,8 @@
   environment.pathsToLink = [
     "/share/nix-direnv"
   ];
-
+  
+  environment.variables.EDITOR = "vim";
   fonts = {
     enableDefaultFonts = true;
 

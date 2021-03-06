@@ -27,8 +27,6 @@
       
     };
 
-    # qt5ct.enable = true;
-
     vim.defaultEditor = true;
   };
 }

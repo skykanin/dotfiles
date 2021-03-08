@@ -1,0 +1,10 @@
+:set prompt "λ> "
+:seti -XDataKinds
+:seti -XGADTSyntax
+:seti -XGADTs
+:seti -XInstanceSigs
+:seti -XKindSignatures
+:seti -XLambdaCase
+:set -XNoStarIsType
+:seti -XTypeApplications
+:seti -Wall

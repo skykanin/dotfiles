@@ -10,7 +10,9 @@
     # ~/.emacs: dots/emacs/.emacs
     # ~/.emacs.d/hs-lint.el: dots/emacs/hs-lint.el
     ~/.doom.d: dots/emacs/doom
+    ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
+    ~/.haskeline: dots/.haskeline
     ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config

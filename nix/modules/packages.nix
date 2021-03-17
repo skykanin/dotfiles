@@ -32,6 +32,7 @@ let
     firefox-devedition-bin
     fish
     flameshot
+    gradle
     gitAndTools.gh
     ghc
     gimp
@@ -51,6 +52,7 @@ let
     nix-direnv
     nodejs-14_x
     obs-studio
+    openjdk15
     pamixer
     pavucontrol
     pciutils
@@ -69,6 +71,7 @@ let
     spotifywm
     steam
     texlive.combined.scheme-full
+    tldr
     tree
     unzip
     vim_configurable

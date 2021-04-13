@@ -36,9 +36,9 @@ let
     gitAndTools.gh
     ghc
     gimp
+    git
     gnome3.nautilus
     gnome3.networkmanagerapplet
-    git
     idris2
     jetbrains.idea-ultimate
     joker
@@ -46,6 +46,7 @@ let
     my-leiningen
     lutris
     lxappearance
+    mailspring
     metals
     mpv-with-scripts
     neofetch

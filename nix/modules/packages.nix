@@ -29,6 +29,8 @@ let
     emacsGcc
     fd
     feh
+    ffmpeg-full
+    file
     firefox-devedition-bin
     fish
     flameshot
@@ -43,6 +45,7 @@ let
     jetbrains.idea-ultimate
     joker
     kitty
+    lagrange
     my-leiningen
     lutris
     lxappearance
@@ -53,7 +56,7 @@ let
     nix-direnv
     nodejs-14_x
     obs-studio
-    openjdk15
+    openjdk16
     pamixer
     pavucontrol
     pciutils

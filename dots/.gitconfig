@@ -3,7 +3,11 @@
 	name = skykanin
 [core]
 	editor = vim
+[diff]
+        tool=vimdiff
 [push]
 	followTags = true
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main

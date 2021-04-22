@@ -35,6 +35,9 @@
 ;; Configure flycheck-clj-kondo
 (use-package! flycheck-clj-kondo)
 
+;; Configure lsp-haskell
+(setq lsp-haskell-formatting-provider "fourmolu")
+
 ;; Make sure haskell and clojure REPL windows open on the right side
 ;; of the current buffer
 

@@ -1,2 +1,6 @@
 editMode: Vi
 completionType: MenuCompletion
+bind: ctrl-R : r e l o a d return
+bind: ctrl-F : r e l o a d ! return
+keyseq: "^R" ctrl-R
+keyseq: "^F" ctrl-F

@@ -8,3 +8,4 @@
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -Wall
+:set -freverse-errors

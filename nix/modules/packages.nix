@@ -7,11 +7,14 @@ let
 {
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    androidenv.androidPkgs_9_0.platform-tools
     android-studio
+    android-udev-rules
     arc-icon-theme
     arc-theme
-    ant-theme
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
     autorandr
     bat
     betterlockscreen
@@ -54,6 +57,7 @@ let
     mpv-with-scripts
     neofetch
     nix-direnv
+    nixfmt
     nodejs-14_x
     obs-studio
     openjdk16
@@ -71,6 +75,7 @@ let
     ripgrep
     rlwrap
     rofi
+    shellcheck
     slack
     spotifywm
     steam

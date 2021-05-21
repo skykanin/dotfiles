@@ -8,4 +8,5 @@
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -Wall
+:seti -Wno-type-defaults
 :set -freverse-errors

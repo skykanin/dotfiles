@@ -45,6 +45,7 @@
         configFile = /home/skykanin/.config/i3/config;
         package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
+          i3lock
           rofi
           polybarFull
           betterlockscreen

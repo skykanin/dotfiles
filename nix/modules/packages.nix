@@ -44,7 +44,7 @@ let
     git
     gnome3.nautilus
     gnome3.networkmanagerapplet
-    idris2
+    idris2-git
     jetbrains.idea-ultimate
     joker
     kitty
@@ -84,7 +84,7 @@ let
     tree
     unzip
     vim_configurable
-    weechat
+    weechat-custom
     wget
     winetricks
     wineWowPackages.full
@@ -98,21 +98,31 @@ let
   # Nixpkgs overlays
   nixpkgs.overlays = [
     (self: super: {
+      weechat-custom = super.weechat.override {
+        configure = { availablePlugins, ... }: {
+        scripts = with super.weechatScripts; [
+          weechat-matrix
+        ];
+      };
+    };
+   })
+    (self: super: {
       my-leiningen = super.leiningen.override {
         jdk = pkgs.openjdk11;
       };
     })
     (self: super: {
-      idris2-bleeding-edge = idris2.overrideAttrs (oldAttrs: {
-        name = "idris2-master";
+      idris2-git = idris2.overrideAttrs (oldAttrs: {
+        name = "idris2";
         version = null;
         
         src = pkgs.fetchFromGitHub {
           owner = "idris-lang";
           repo = "Idris2";
-          rev = "master";
-          sha256 = "127zihakb035n1a0ky78362s1f5qbg4b92kmzz95frchc0kwg596";
+          rev = "6b071137624d72c0688315f2adecb3507a371027";
+          sha256 = "105ibnp5djp07cwnbzmr9vv4m2dhhcs99k62njmwfpjhpnxzj2zm";
         };
+        buildFlags = [ "bootstrap" "SCHEME=scheme" ];
       });
     })
     (import (builtins.fetchTarball {

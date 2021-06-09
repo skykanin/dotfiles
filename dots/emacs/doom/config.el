@@ -38,6 +38,23 @@
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 
+(use-package! idris-mode
+  :mode ("\\.l?idr\\'" . idris-mode)
+  :config
+
+  (after! lsp-mode
+    (add-to-list 'lsp-language-id-configuration '(idris-mode . "idris2"))
+
+    (lsp-register-client
+     (make-lsp-client
+      :new-connection (lsp-stdio-connection "idris2-lsp")
+      :major-modes '(idris-mode)
+      :server-id 'idris2-lsp)))
+
+  (setq lsp-semantic-tokens-enable t)
+
+  (add-hook 'idris-mode-hook #'lsp!))
+
 ;; Make sure haskell and clojure REPL windows open on the right side
 ;; of the current buffer
 

@@ -9,6 +9,7 @@
       "$HOME/.ssh/id_rsa_github"
       "$HOME/.ssh/hetzner_rsa"];
     enable = true;
+    permitRootLogin = "without-password";
     allowSFTP = false;
     hostKeys = [
       {

@@ -7,7 +7,14 @@
     nixosConfigurations = {
       "emma" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./machines/desktop.nix ./hardware/desktop.nix ];
+        modules = [
+          ({ ... }: {
+            # Let 'nixos-version --json' know about the Git revision
+            # of this flake.
+            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+          })
+          ./machines/desktop.nix
+          ./hardware/desktop.nix ];
       };
 
       # "daisy" = nixpkgs.lib.nixosSystem {

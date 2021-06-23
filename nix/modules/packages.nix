@@ -121,7 +121,7 @@ in {
     (import (builtins.fetchTarball {
       url =
         "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "0db7gp0mzzc0hzyrghfjycapdd9byybcga9flqgaywssmr17if69";
+      sha256 = "17iyyibsy26lvv39dim2x6hv4br726yrq29k43z9qyyr6dbp55sa";
     }))
   ];
 }

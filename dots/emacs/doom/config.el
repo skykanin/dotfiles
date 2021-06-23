@@ -38,6 +38,9 @@
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 
+;; Don't format on save for these modes
+(setq +format-on-save-enabled-modes '(not emacs-lisp-mode sql-mode clojure-mode haskell-mode tex-mode latex-mode org-msg-edit-mode))
+
 (use-package! idris-mode
   :mode ("\\.l?idr\\'" . idris-mode)
   :config

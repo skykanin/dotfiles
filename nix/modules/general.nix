@@ -41,8 +41,8 @@
     binaryCachePublicKeys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
     extraOptions = ''
        experimental-features = nix-command flakes ca-references
-       keep-outputs = true
-       keep-derivations = true
+       keep-outputs = false 
+       keep-derivations = false 
     '';
     gc.automatic = true;
     maxJobs = 2;

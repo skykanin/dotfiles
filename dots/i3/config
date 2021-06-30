@@ -204,7 +204,7 @@ client.placeholder       $bd     $bg          $fg    $bg        $bd
 client.background        $bd
 
 # Bind lockscreen
-bindsym $mod+shift+x exec betterlockscreen -l dimblur
+bindsym $mod+shift+x exec "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20"
 
 # Bind printscreen
 bindsym Print exec flameshot gui -p ~/Pictures
@@ -242,9 +242,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 500-
 for_window [class="jetbrains-studio"] floating enable
 # Set wallpaper
 # exec_always feh --bg-max Pictures/wallpapers/koi_two.jpg
-
-# Set login screen
-exec betterlockscreen -l dim
 
 # Set wallpaper and theme
 exec_always wal -R

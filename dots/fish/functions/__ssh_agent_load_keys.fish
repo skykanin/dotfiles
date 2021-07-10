@@ -8,7 +8,7 @@ function __ssh_agent_load_keys -d "Attempts to load keys from .ssh/"
         --type f \
         --max-depth 1)
 
-        ssh-add $keyfile ^ /dev/null > /dev/null
+        ssh-add $keyfile >/dev/null 2>&1
     end
 end
 

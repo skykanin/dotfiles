@@ -81,6 +81,14 @@ in {
     tree
     unzip
     vim_configurable
+    (vscode-with-extensions.override {
+      vscodeExtensions = with pkgs.vscode-extensions; [
+        ms-python.python
+        ms-toolsai.jupyter
+        ms-vsliveshare.vsliveshare
+        vscodevim.vim
+      ];
+    })
     weechat-custom
     wget
     winetricks
@@ -121,7 +129,7 @@ in {
     (import (builtins.fetchTarball {
       url =
         "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "0slf32x94av0wiamsz33jl46rrzbd2jyjsxd8bsgcj8rd0cvb729";
+      sha256 = "0vm3lwpqn0avwrkqk686d5bih8idsmhk0rs38wzzvl6b3941l0cl";
     }))
   ];
 }

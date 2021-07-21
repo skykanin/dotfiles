@@ -13,6 +13,11 @@
 
 (package! flycheck-clj-kondo)
 
+;; Disable annoying lsp-ui-mode by default
+;; NOTE: It's possible to disable parts of lsp-ui as well see docs
+;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
+(package! lsp-ui :disable t)
+
 (package! idris-mode :recipe (:host github :repo "idris-hackers/idris-mode"))
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

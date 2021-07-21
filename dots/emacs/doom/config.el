@@ -58,11 +58,6 @@
 
   (add-hook 'idris-mode-hook #'lsp!))
 
-;; Disable annoying lsp-ui-mode by default
-;; NOTE: It's possible to disable parts of lsp-ui as well see docs
-;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
-(setq lsp-ui-mode nil)
-
 ;; Make sure haskell and clojure REPL windows open on the right side
 ;; of the current buffer
 

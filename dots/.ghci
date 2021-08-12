@@ -5,6 +5,7 @@
 :seti -XInstanceSigs
 :seti -XKindSignatures
 :seti -XLambdaCase
+:seti -XMagicHash
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -Wall

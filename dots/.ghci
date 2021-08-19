@@ -6,6 +6,7 @@
 :seti -XKindSignatures
 :seti -XLambdaCase
 :seti -XMagicHash
+:seti -XTypeOperators
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -Wall

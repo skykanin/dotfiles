@@ -178,8 +178,8 @@ card = intel_backlight
 type = internal/cpu
 interval = 1
 format-prefix = " "
-format-prefix-foreground = ${colors.red}
-format-foreground = ${colors.red}
+format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
 format-font = 1
 label = %percentage:2%%
 label-font = 1
@@ -188,8 +188,8 @@ label-font = 1
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.turquoise}
-format-foreground = ${colors.turquoise}
+format-prefix-foreground = ${xrdb:color3}
+format-foreground = ${xrdb:color3}
 label = %percentage_used%%
 label-font = 1
 
@@ -244,15 +244,15 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 format-muted = <label-muted>
 
-format-volume-foreground = ${colors.green}
-format-muted-foreground = ${colors.green}
+format-volume-foreground = ${xrdb:color6}
+format-muted-foreground = ${xrdb:color6}
 
 label-volume = 墳 %percentage%%
-label-volume-foreground = ${colors.green}
+label-volume-foreground = ${xrdb:color6}
 label-volume-font = 1
 
 label-muted = 婢 muted
-label-muted-foreground = ${colors.green}
+label-muted-foreground = ${xrdb:color6}
 label-muted-font = 1
 
 ramp-volume-0 =  

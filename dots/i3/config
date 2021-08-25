@@ -267,3 +267,6 @@ exec_always xset s off
 
 # Set key repeat rate
 exec_always xset r rate 280 80
+
+# Merge wal colours into xrdb
+exec xrdb -merge ~/.cache/wal/colors.Xresources

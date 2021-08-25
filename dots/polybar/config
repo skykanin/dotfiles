@@ -19,11 +19,11 @@
 [colors]
 background = ${xrdb:color0:#222}
 background-alt = #444
-foreground = ${xrdb:color7:#222}
+foreground = ${xrdb:color2:#222}
 foreground-alt = #555
 primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
+secondary = ${xrdb:color4:#222}
+alert = ${xrdb:color7:#222}
 
 green = #32c332
 blue = #0078ff
@@ -49,7 +49,7 @@ border-size = 0
 border-color = ${colors.primary}
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -132,12 +132,13 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %icon% %name%
 label-focused-background = ${colors.background-alt}
-label-focused-foreground = ${colors.primary}
+label-focused-foreground = ${colors.foreground}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon% %name%
 label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.alert}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
@@ -203,7 +204,7 @@ interval = 1
 fixed-values = true
 
 format-mounted =  <label-mounted>
-format-mounted-foreground = ${colors.orange}
+format-mounted-foreground = ${colors.primary}
 
 label-mounted = %mountpoint% %percentage_used%%
 label-unmounted = %mountpoint%: not mounted
@@ -217,6 +218,7 @@ interval = 1
 format-connected = <label-connected>
 format-connected-foreground = ${colors.purple}
 label-connected = %local_ip%  %upspeed%  %downspeed%
+label-connected-foreground = ${colors.secondary}
 
 [module/date]
 type = internal/date
@@ -231,7 +233,7 @@ time-alt = "  %H:%M:%S"
 format-prefix =
 format-prefix-foreground = ${colors.foreground}
 ; format-underline = #0a6cf5
-format-foreground = ${colors.purple}
+format-foreground = ${colors.secondary}
 
 label = %date% %time%
 label-font = 1
@@ -334,6 +336,7 @@ type = custom/script
 exec = ~/dotfiles/scripts/spotify.sh
 format-font = 1
 interval = 1
+format-foreground = ${colors.alert}
 
 [settings]
 screenchange-reload = true

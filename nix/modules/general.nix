@@ -48,6 +48,7 @@
     maxJobs = 2;
     package = pkgs.nixFlakes;
     trustedBinaryCaches = [ "https://hydra.iohk.io" ];
+    trustedUsers = [ "root" "skykanin" ];
   };
 
   nixpkgs.config.allowUnfree = true;

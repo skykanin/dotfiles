@@ -29,8 +29,8 @@ let
 in {
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    android-studio
-    android-udev-rules
+    #android-studio
+    #android-udev-rules
     arc-icon-theme
     arc-theme
     aspell
@@ -105,7 +105,7 @@ in {
     tree
     unzip
     vim-with-conf
-    vscode
+    #vscode
     weechat-custom
     wget
     winetricks

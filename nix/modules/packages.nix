@@ -2,9 +2,8 @@
 
 with pkgs;
 let
-  stable = import <stable> { config.allowUnfree = true; };
-  vim-with-conf = pkgs.vim_configurable.customize {
-    name = "vim-with-config";
+  vim-with-conf = vim_configurable.customize {
+    name = "vim";
     vimrcConfig.customRC = ''
       let mapleader = "<space>"
       map <leader>y "+y

@@ -17,7 +17,7 @@ let
       set backspace=indent,eol,start
     '';
   };
-  vscode = pkgs.vscode-with-extensions.override {
+  vscode = vscode-with-extensions.override {
       vscodeExtensions = with pkgs.vscode-extensions; [
         ms-python.python
         ms-toolsai.jupyter
@@ -145,7 +145,7 @@ in {
     (import (builtins.fetchTarball {
       url =
         "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "1i1ms60gm186r2swrxzgdk0l83aczk1jnx6x182kcx0f4mn81l54";
+      sha256 = "0mznlld1wb918q2lm5panykhndjvgdbk9fp300sdjgfvf5dy0spz";
     }))
   ];
 }

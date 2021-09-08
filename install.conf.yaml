@@ -21,7 +21,7 @@
     ~/.config/fish: dots/fish
     ~/.config/mpv: dots/mpv
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix
-    ~/.config/rofi/config: dots/rofi/config
+    ~/.config/rofi/config.rasi: dots/rofi/config.rasi
     ~/Pictures/wallpapers: dots/wallpapers
 
 - create:

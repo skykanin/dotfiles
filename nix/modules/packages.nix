@@ -61,7 +61,7 @@ in {
     flameshot
     gradle
     gitAndTools.gh
-    haskell.compiler.ghc901
+    haskell.compiler.ghc921
     gimp
     git
     gnome3.nautilus

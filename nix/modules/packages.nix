@@ -118,6 +118,24 @@ in {
 
   # Nixpkgs overlays
   nixpkgs.overlays = [
+    # This will require updating the two patch files in pywal nix package
+    #
+    # (self: super: {
+    #   pywal-git = pywal.overrideAttrs (oldAttrs: {
+    #     pname = "pywal-git";
+    #     version = null;
+    #     
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "dylanaraps";
+    #       repo = "pywal";
+    #       rev = "236aa48e741ff8d65c4c3826db2813bf2ee6f352";
+    #       sha256 = "0p804c7f5f376vixd2ya5mxb2kdvwbmdb1ixs3j4cwf66sp89bid";
+    #     };
+    #     
+    #     patches = [];
+    #     postPatch = '''';
+    #   }); 
+    # })
     (self: super: {
       weechat-custom = super.weechat.override {
         configure = { availablePlugins, ... }: {

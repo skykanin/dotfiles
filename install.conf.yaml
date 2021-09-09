@@ -7,8 +7,6 @@
 
 - link:
     ~/.dotfiles: ''
-    # ~/.emacs: dots/emacs/.emacs
-    # ~/.emacs.d/hs-lint.el: dots/emacs/hs-lint.el
     ~/.doom.d: dots/emacs/doom
     ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
@@ -22,6 +20,7 @@
     ~/.config/mpv: dots/mpv
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix
     ~/.config/rofi/config.rasi: dots/rofi/config.rasi
+    ~/.config/wal: dots/wal
     ~/Pictures/wallpapers: dots/wallpapers
 
 - create:

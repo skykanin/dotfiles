@@ -7,6 +7,7 @@
 :seti -XKindSignatures
 :seti -XLambdaCase
 :seti -XMagicHash
+:seti -XPartialTypeSignatures
 :seti -XTypeOperators
 :set -XNoStarIsType
 :seti -XTypeApplications

@@ -7,10 +7,13 @@
   
   environment.variables.EDITOR = "vim";
   fonts = {
-    enableDefaultFonts = true;
-
     fonts = with pkgs; [
-      nerdfonts
+      (nerdfonts.override { fonts = [
+        "JetBrainsMono"
+        "VictorMono"
+      ];})
+      noto-fonts
+      unifont
     ];
   };
   

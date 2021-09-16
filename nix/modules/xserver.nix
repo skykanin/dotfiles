@@ -28,12 +28,11 @@
       autorun = true;
       
       enable = true;
-      layout = "no";
+      layout = "us";
       libinput = {
         enable = true;
         touchpad.accelProfile = "adaptive";
       };
-
 
       desktopManager = {
         xterm.enable = false;
@@ -70,7 +69,7 @@
         time = 30;
       };
       
-      xkbOptions = "caps:escape";
+      xkbOptions = "caps:escape,eurosign:e,compose:ralt";
     };
   };
 }

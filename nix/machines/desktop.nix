@@ -1,21 +1,20 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../modules/bluetooth.nix
-      ../modules/boot-efi.nix
-      ../modules/general.nix
-      ../modules/packages.nix
-      ../modules/printing.nix
-      ../modules/programs.nix
-      ../modules/redshift.nix
-      ../modules/sound.nix
-      ../modules/ssh.nix
-      ../modules/user.nix
-      ../modules/xserver.nix
-      /etc/nixos/cachix.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ../modules/bluetooth.nix
+    ../modules/boot-efi.nix
+    ../modules/general.nix
+    ../modules/packages.nix
+    ../modules/printing.nix
+    ../modules/programs.nix
+    ../modules/redshift.nix
+    ../modules/sound.nix
+    ../modules/ssh.nix
+    ../modules/user.nix
+    ../modules/xserver.nix
+    #/etc/nixos/cachix.nix
+  ];
 
   # Define hostname
   networking.hostName = "emma";
@@ -29,10 +28,9 @@
     useOSProber = true;
   };
 
-  environment.extraInit =
-    ''
-      xrandr --output DP-2 --mode 1920x1080 --rate 144 --left-of HDMI-0 --dpi 100
-    '';
+  environment.extraInit = ''
+    xrandr --output DP-2 --mode 1920x1080 --rate 144 --left-of HDMI-0 --dpi 100
+  '';
 
   services = {
 
@@ -40,7 +38,7 @@
       enable = false;
       openFirewall = true;
     };
-    
+
     xserver = {
       exportConfiguration = true;
       videoDrivers = [ "nvidia" ];
@@ -49,19 +47,18 @@
       #  ''
       #    Option         "metamodes" "DP-2: 1920x1080_144 +0+240 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: 1920x1080 +1920+0 { ForceCompositionPipeline=On, ForceFullCompositionPipeline=On, Rotation=90 }"
       #  '';
-       xrandrHeads = [
-         {
-           output = "DP-2";
-           primary = true;
-         }
-         {
-           output = "HDMI-0";
-           monitorConfig =
-             ''
-               Option "Rotate" "left"
-             '';
-         }
-       ];
+      xrandrHeads = [
+        {
+          output = "DP-2";
+          primary = true;
+        }
+        {
+          output = "HDMI-0";
+          monitorConfig = ''
+            Option "Rotate" "left"
+          '';
+        }
+      ];
     };
   };
 

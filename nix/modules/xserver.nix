@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   services = {
     picom = {
       backend = "glx";
@@ -7,7 +6,7 @@
       refreshRate = 0; # automatically detect monitor refresh rate
       activeOpacity = 1.0;
       inactiveOpacity = 1.0;
-      menuOpacity = 0.9;      
+      menuOpacity = 0.9;
       experimentalBackends = true;
       settings = {
         # blur-background = true;
@@ -21,12 +20,12 @@
         mark-overdir-focused = true;
       };
     };
-    
+
     xserver = {
       autoRepeatDelay = 200;
       autoRepeatInterval = 10;
       autorun = true;
-      
+
       enable = true;
       layout = "us";
       libinput = {
@@ -34,12 +33,10 @@
         touchpad.accelProfile = "adaptive";
       };
 
-      desktopManager = {
-        xterm.enable = false;
-      };
-      
+      desktopManager = { xterm.enable = false; };
+
       displayManager = {
-        
+
         autoLogin = {
           enable = true;
           user = "skykanin";
@@ -49,18 +46,14 @@
           enable = true;
           greeter.enable = false;
         };
-	defaultSession = "none+i3";
+        defaultSession = "none+i3";
       };
-      
+
       windowManager.i3 = {
         enable = true;
-        configFile = /home/skykanin/.config/i3/config;
+        configFile = "/home/skykanin/.config/i3/config";
         package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [
-          i3lock-color
-          rofi
-          polybarFull
-        ];
+        extraPackages = with pkgs; [ i3lock-color rofi polybarFull ];
       };
 
       xautolock = {
@@ -68,7 +61,7 @@
         locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
         time = 30;
       };
-      
+
       xkbOptions = "caps:escape,eurosign:e,compose:ralt";
     };
   };

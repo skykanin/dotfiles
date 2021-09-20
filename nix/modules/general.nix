@@ -1,22 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  environment.pathsToLink = [
-    "/share/nix-direnv"
-  ];
-  
-  environment.variables.EDITOR = "vim";
+  environment = {
+    etc."cachix.nix".source = toString ./cachix.nix;
+
+    pathsToLink = [ "/share/nix-direnv" ];
+
+    variables.EDITOR = "vim";
+  };
+
   fonts = {
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [
-        "JetBrainsMono"
-        "VictorMono"
-      ];})
+      (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
       noto-fonts
       unifont
     ];
   };
-  
+
   hardware = {
     opengl = {
       driSupport32Bit = true;
@@ -29,26 +29,28 @@
     };
     pulseaudio.support32Bit = true;
   };
-  
+
   networking = {
     firewall.enable = true;
-    firewall.allowedTCPPorts = [ 80 8080 3333 9630 44330 19000 19001 19002 19003];
+    firewall.allowedTCPPorts =
+      [ 80 8080 3333 9630 44330 19000 19001 19002 19003 ];
     firewall.allowedUDPPorts = [ 80 9630 44330 19000 19001 19002 19003 ];
-    nameservers = ["9.9.9.11"];
+    nameservers = [ "9.9.9.11" ];
     networkmanager.enable = true;
   };
-  
+
   nix = {
     autoOptimiseStore = true;
-    binaryCaches = [ "https://hydra.iohk.io" "https://nix-community.cachix.org" ];
+    binaryCaches =
+      [ "https://hydra.iohk.io" "https://nix-community.cachix.org" ];
     binaryCachePublicKeys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     extraOptions = ''
-       experimental-features = nix-command flakes ca-references
-       keep-outputs = false 
-       keep-derivations = false 
+      experimental-features = nix-command flakes ca-references
+      keep-outputs = false
+      keep-derivations = false
     '';
     gc.automatic = true;
     maxJobs = 2;
@@ -64,17 +66,17 @@
     platformTheme = "gtk2";
     style = "gtk2";
   };
-  
+
   services.gnome.gnome-keyring.enable = true;
- 
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
-  
+
   time = {
     hardwareClockInLocalTime = true;
     timeZone = "Europe/Oslo";
   };
-  
+
   virtualisation = {
     docker.enable = true;
     # virtualbox.host = {

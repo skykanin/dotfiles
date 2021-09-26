@@ -39,6 +39,7 @@ in {
     autorandr
     bat
     betterlockscreen
+    bottom
     brightnessctl
     cachix
     chatterino2

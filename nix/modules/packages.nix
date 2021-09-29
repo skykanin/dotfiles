@@ -15,6 +15,7 @@ let
       set hlsearch
       set clipboard=unnamedplus
       set backspace=indent,eol,start
+      set formatoptions=r
     '';
   };
   vscode = vscode-with-extensions.override {
@@ -164,7 +165,7 @@ in {
     (import (builtins.fetchTarball {
       url =
         "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "155cd3d89iyl0aary1c0xzi16zjq0xc20728kdvwqw60kk5i0j15";
+      sha256 = "1ylpzhxsw0309a9kiq3vx8wgj3rhhdsk565jfnj7qi6rv4pf66cx";
     }))
   ];
 }

@@ -116,6 +116,7 @@ in {
     xorg.xbacklight
     youtube-dl
     zip
+    zoom-us
   ];
 
   # Nixpkgs overlays

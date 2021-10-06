@@ -67,6 +67,7 @@ in {
     git
     gnome3.nautilus
     gnome3.networkmanagerapplet
+    gnumake
     jetbrains.idea-ultimate
     joker
     kitty

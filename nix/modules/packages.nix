@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, emacs-overlay, pkgs, ... }:
 
 with pkgs;
 let
@@ -164,10 +164,6 @@ in {
         buildFlags = [ "bootstrap" "SCHEME=scheme" ];
       });
     })
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      sha256 = "137a51jmk2h9mrp959ds6n1gdgg7wmvwhjxjjd6njcs40k38rshj";
-    }))
+   (import emacs-overlay)
   ];
 }

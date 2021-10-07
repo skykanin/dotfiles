@@ -134,7 +134,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign apps to workspaces
 assign [class="kitty-startup"] $ws1
-assign [class="^Firefox Developer Edition$"] $ws2
+assign [class="ff-startup"] $ws2
 assign [class="^Emacs$"] $ws3
 assign [class="discord"] $ws4
 assign [class="^Spotify$"] $ws5
@@ -249,7 +249,7 @@ exec_always wal -R
 
 # Startup default apps
 exec kitty --class 'kitty-startup'
-exec firefox-devedition
+exec firefox-devedition --class 'ff-startup'
 exec emacs
 exec Discord
 exec spotifywm

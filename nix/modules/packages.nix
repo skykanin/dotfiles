@@ -89,7 +89,6 @@ in {
     pciutils
     polybarFull
     playerctl
-    plex
     python3
     pywal
     qbittorrent

@@ -33,11 +33,6 @@
 
   services = {
 
-    plex = {
-      enable = false;
-      openFirewall = true;
-    };
-
     xserver = {
       exportConfiguration = true;
       videoDrivers = [ "nvidia" ];

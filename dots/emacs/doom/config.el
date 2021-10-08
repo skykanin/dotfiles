@@ -39,7 +39,8 @@
 (setq lsp-haskell-formatting-provider "fourmolu")
 
 ;; Don't format on save for these modes
-(setq +format-on-save-enabled-modes '(not emacs-lisp-mode sql-mode clojure-mode haskell-mode tex-mode latex-mode org-msg-edit-mode python-mode))
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python-mode rjsx-mode js2-mode less-css-mode format-all-mode))
 
 (use-package! idris-mode
   :mode ("\\.l?idr\\'" . idris-mode)
@@ -57,6 +58,23 @@
   (setq lsp-semantic-tokens-enable t)
 
   (add-hook 'idris-mode-hook #'lsp!))
+
+(use-package lsp-mode
+  :hook
+  ((elm-mode . lsp-deferred))
+
+  :init
+  (with-eval-after-load 'lsp-mode
+    ;; To avoid watching all Scrive API docs.
+    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
+    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
+    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t))
+
+  :config
+  ;; This is to make `lsp-mode' work with `direnv' and pick up the correct
+  ;; version of GHC.
+  (advice-add 'lsp :before #'direnv-update-environment)
+  (setq lsp-modeline-code-actions-enable nil))
 
 ;; Make sure haskell and clojure REPL windows open on the right side
 ;; of the current buffer

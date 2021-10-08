@@ -31,7 +31,7 @@
   };
 
   networking = {
-    firewall.enable = true;
+    firewall.enable = false;
     firewall.allowedTCPPorts =
       [ 80 8080 3333 9630 44330 19000 19001 19002 19003 ];
     firewall.allowedUDPPorts = [ 80 9630 44330 19000 19001 19002 19003 ];
@@ -52,7 +52,12 @@
       keep-outputs = false
       keep-derivations = false
     '';
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
     maxJobs = 2;
     package = pkgs.nixFlakes;
     trustedBinaryCaches = [ "https://hydra.iohk.io" ];

@@ -76,20 +76,8 @@
   (advice-add 'lsp :before #'direnv-update-environment)
   (setq lsp-modeline-code-actions-enable nil))
 
-;; Make sure haskell and clojure REPL windows open on the right side
-;; of the current buffer
-
-;; (setq repl-options
-;;   '(:side 'right
-;;     :actions '(#'display-buffer-in-side-window)
-;;     :select t
-;;     :modeline t
-;;     :size 0.5
-;;     :quit 'current)
-;;
-;; (set-popup-rule! "^\\*cider-repl" :side 'right :actions '(#'display-buffer-in-side-window) :select t :modeline t :size 0.5 :quit 'current)
-;; (set-popup-rule! "\\*haskell\\*" :side 'right :actions '(#'display-buffer-in-side-window) :select t :modeline t :size 0.5 :quit 'current)
-;; (set-popup-rule! "haskell" :ignore t)
+;; Associate the .pl file extension with prolog and not the default perl
+(add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the

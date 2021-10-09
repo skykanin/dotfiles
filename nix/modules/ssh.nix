@@ -2,7 +2,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     challengeResponseAuthentication = false;
-    passwordAuthentication = false;
+    passwordAuthentication = true;
     authorizedKeysFiles = [
       "$HOME/.ssh/id_rsa"
       "$HOME/.ssh/id_rsa_github"

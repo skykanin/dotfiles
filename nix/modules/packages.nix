@@ -29,7 +29,7 @@ let
 in {
   environment.systemPackages = with pkgs; [
     adwaita-qt
-    #android-studio
+    android-studio
     #android-udev-rules
     arc-icon-theme
     arc-theme

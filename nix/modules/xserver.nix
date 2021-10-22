@@ -47,6 +47,8 @@
           greeter.enable = false;
         };
         defaultSession = "none+i3";
+        
+        startx.enable = false;
       };
 
       windowManager.i3 = {

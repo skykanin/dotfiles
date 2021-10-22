@@ -68,6 +68,7 @@ in {
     gnome3.nautilus
     gnome3.networkmanagerapplet
     gnumake
+    insomnia
     jetbrains.idea-ultimate
     joker
     kitty

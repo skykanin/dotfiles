@@ -58,10 +58,16 @@
         extraPackages = with pkgs; [ i3lock-color rofi polybarFull ];
       };
 
-      xautolock = {
-        enable = false;
-        locker = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
-        time = 30;
+      xautolock =
+        let lock-script = pkgs.writeShellScript "lock-script" ''
+          ${pkgs.i3lock-color}/bin/i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' \
+            --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20
+        '';
+        in {
+        enable = true;
+        locker = toString lock-script;
+        nowlocker = toString lock-script;
+        time = 10;
       };
 
       xkbOptions = "caps:escape,eurosign:e,compose:ralt";

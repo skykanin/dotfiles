@@ -59,7 +59,8 @@
 
   (add-hook 'idris-mode-hook #'lsp!))
 
-(use-package lsp-mode
+(use-package! lsp-mode
+  :defer
   :hook
   ((elm-mode . lsp-deferred))
 
@@ -68,13 +69,7 @@
     ;; To avoid watching all Scrive API docs.
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
-    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t))
-
-  :config
-  ;; This is to make `lsp-mode' work with `direnv' and pick up the correct
-  ;; version of GHC.
-  (advice-add 'lsp :before #'direnv-update-environment)
-  (setq lsp-modeline-code-actions-enable nil))
+    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
 
 ;; Associate the .pl file extension with prolog and not the default perl
 (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))

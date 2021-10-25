@@ -19,7 +19,7 @@
 
   hardware = {
     opengl = {
-      driSupport32Bit = true;
+      driSupport = true;
       enable = true;
       extraPackages = with pkgs; [
         vaapiVdpau
@@ -27,7 +27,6 @@
         intel-media-driver
       ];
     };
-    pulseaudio.support32Bit = true;
   };
 
   networking = {

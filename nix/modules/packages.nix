@@ -64,7 +64,7 @@ in {
     gitAndTools.gh
     haskell.compiler.ghc921
     gimp
-    git
+    gitFull
     gnome3.nautilus
     gnome3.networkmanagerapplet
     gnumake

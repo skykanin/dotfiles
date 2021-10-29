@@ -9,9 +9,6 @@
       menuOpacity = 0.9;
       experimentalBackends = true;
       settings = {
-        # blur-background = true;
-        # blur-background-frame = true;
-        # blur-background-fixed = true;
         blur = {
           method = "gaussian";
           size = 30;
@@ -47,7 +44,7 @@
           greeter.enable = false;
         };
         defaultSession = "none+i3";
-        
+
         startx.enable = false;
       };
 

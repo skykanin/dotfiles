@@ -10,6 +10,7 @@
 :seti -XMagicHash
 :seti -XPartialTypeSignatures
 :seti -XTypeOperators
+:seti -XGHC2021
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -Wall

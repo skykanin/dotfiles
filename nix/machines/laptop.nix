@@ -1,37 +1,38 @@
 { config, pkgs, ... }:
 
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ../modules/bluetooth.nix
-      ../modules/boot-efi.nix
-      ../modules/general.nix
-      ../modules/packages.nix
-      ../modules/printing.nix
-      ../modules/programs.nix
-      ../modules/redshift.nix
-      ../modules/sound.nix
-      ../modules/ssh.nix
-      ../modules/user.nix
-      ../modules/xserver.nix
-    ];
+let
+  xserverConfig = {
+    compositorConfig = {
+      enable = true;
+      vSync = true;
+    };
+    videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
+    xautolockTimer = 10;
+    xrandrHeads = [ ];
+  };
+in {
+  imports = [ # Include the results of the hardware scan.
+    ../modules/bluetooth.nix
+    ../modules/boot-efi.nix
+    ../modules/general.nix
+    ../modules/packages.nix
+    ../modules/printing.nix
+    ../modules/programs.nix
+    ../modules/redshift.nix
+    ../modules/sound.nix
+    ../modules/ssh.nix
+    ../modules/user.nix
+    (import ../modules/xserver.nix ({ inherit config pkgs; } // xserverConfig))
+  ];
 
   # Define hostname
   networking.hostName = "daisy";
 
-  environment.variables = {
-    MESA_LOADER_DRIVER_OVERRIDE = "iris";
-  };
-
-  #hardware.opengl.package = (pkgs.mesa.override {
-  #  galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
-  #}).drivers;
+  environment.variables = { MESA_LOADER_DRIVER_OVERRIDE = "iris"; };
 
   programs.light.enable = true;
-  services.compton.vSync = true;
   # Suspend on lid close
   services.logind.lidSwitch = "suspend";
-  services.xserver.libinput.touchpad.naturalScrolling = false;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

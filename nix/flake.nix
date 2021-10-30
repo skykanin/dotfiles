@@ -15,19 +15,38 @@
         # Let 'nixos-version --json' know about the Git revision of this flake.
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
       };
-      special-module = {
-        _module.args = inputs;
-      };
+      special-module = { _module.args = inputs; };
     in {
       "emma" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ (systemRev) special-module ./machines/desktop.nix ./hardware/desktop.nix ];
+        modules = [
+          (systemRev)
+          special-module
+          ./machines/desktop.nix
+          ./hardware/desktop.nix
+        ];
       };
 
       "daisy" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ (systemRev) special-module ./machines/laptop.nix ./hardware/laptop.nix ];
+        modules = [
+          (systemRev)
+          special-module
+          ./machines/laptop.nix
+          ./hardware/laptop.nix
+        ];
       };
+
+      "iris" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          (systemRev)
+          special-module
+          ./machines/work-laptop.nix
+          ./hardware/work-laptop.nix
+        ];
+      };
+
     };
   };
 }

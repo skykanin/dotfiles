@@ -3,6 +3,7 @@
 {
   # Use the systemd-boot EFI boot loader.
   boot = {
+    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
     initrd = {
       luks.devices."root" = {
         device = "/dev/disk/by-uuid/d6131608-2843-4008-8263-6f6e130c2bb9";
@@ -10,10 +11,8 @@
         keyFile = "/keyfile0.bin";
         allowDiscards = true;
       };
-  
-      secrets = {
-        "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin";
-      };
+
+      secrets = { "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin"; };
     };
 
     # Use latest available kernel
@@ -24,7 +23,7 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
       };
-      
+
       grub = {
         enable = true;
         device = "nodev";
@@ -32,9 +31,8 @@
         efiSupport = true;
         enableCryptodisk = true;
       };
- 
+
       systemd-boot.enable = true;
     };
   };
 }
-

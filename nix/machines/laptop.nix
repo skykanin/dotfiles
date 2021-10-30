@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
   enableLight = true;
   xserverConfig = {
     compositorConfig = {
@@ -21,8 +22,8 @@ in {
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix
     ../modules/sound.nix
-    ../modules/ssh.nix
-    ../modules/user.nix
+    (import ../modules/ssh.nix { inherit config pkgs authorizedSshKeyFiles; })
+    (import ../modules/user.nix { inherit config pkgs authorizedSshKeyFiles; })
     (import ../modules/xserver/xserver.nix
       ({ inherit config pkgs; } // xserverConfig))
   ];

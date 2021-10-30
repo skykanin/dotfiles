@@ -2,6 +2,7 @@
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" "hetzner_rsa" ];
+  enableFirewall = false;
   enableLight = false;
   xserverConfig = {
     compositorConfig = {
@@ -27,7 +28,7 @@ in {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
-    ../modules/general.nix
+    (import ../modules/general.nix { inherit config pkgs enableFirewall; })
     ../modules/packages.nix
     ../modules/printing.nix
     (import ../modules/programs.nix { inherit config pkgs enableLight; })

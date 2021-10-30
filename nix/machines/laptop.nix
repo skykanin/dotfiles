@@ -2,6 +2,7 @@
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
+  enableFirewall = true;
   enableLight = true;
   xserverConfig = {
     compositorConfig = {
@@ -16,7 +17,7 @@ in {
   imports = [ # Include the results of the hardware scan.
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
-    ../modules/general.nix
+    (import ../modules/general.nix { inherit config pkgs enableFirewall; })
     ../modules/packages.nix
     ../modules/printing.nix
     (import ../modules/programs.nix { inherit config pkgs enableLight; })

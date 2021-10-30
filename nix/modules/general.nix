@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, enableFirewall, ... }:
 
 {
   environment = {
@@ -30,7 +30,7 @@
   };
 
   networking = {
-    firewall.enable = false;
+    firewall.enable = enableFirewall;
     firewall.allowedTCPPorts =
       [ 80 8080 3333 9630 44330 19000 19001 19002 19003 ];
     firewall.allowedUDPPorts = [ 80 9630 44330 19000 19001 19002 19003 ];
@@ -81,7 +81,5 @@
     timeZone = "Europe/Oslo";
   };
 
-  virtualisation = {
-    docker.enable = true;
-  };
+  virtualisation = { docker.enable = true; };
 }

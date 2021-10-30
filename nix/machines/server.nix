@@ -4,9 +4,10 @@
 
 { config, pkgs, ... }:
 
-{
+let authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
+in {
   imports =
-    [
+    map (path: import path { inherit config pkgs authorizedSshKeyFiles; }) [
       ../modules/ssh.nix
       ../modules/user.nix
     ];
@@ -71,7 +72,7 @@
   # services.xserver.enable = true;
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-  
+
   virtualisation.docker.enable = true;
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

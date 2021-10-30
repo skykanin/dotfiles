@@ -2,6 +2,7 @@
 { config, pkgs, compositorConfig, videoDrivers, xautolockTimer, xrandrHeads, ...
 }: {
   services = {
+    autorandr.enable = true;
     picom = import ./compositor.nix compositorConfig;
     xserver = {
       autoRepeatDelay = 200;

@@ -22,7 +22,8 @@ in {
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    (import ../modules/xserver.nix ({ inherit config pkgs; } // xserverConfig))
+    (import ../modules/xserver/xserver.nix
+      ({ inherit config pkgs; } // xserverConfig))
   ];
 
   # Define hostname

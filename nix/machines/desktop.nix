@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  enableLight = false;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -28,7 +29,7 @@ in {
     ../modules/general.nix
     ../modules/packages.nix
     ../modules/printing.nix
-    ../modules/programs.nix
+    (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix

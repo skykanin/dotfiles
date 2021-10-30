@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, enableLight, ... }:
 
 {
   programs = {
@@ -12,7 +12,7 @@
     };
 
     fuse.userAllowOther = true;
-   
+
     gnupg = {
       agent = {
         enable = true;
@@ -20,12 +20,13 @@
       };
       package = pkgs.gnupg;
     };
-    
+
     java = {
       enable = true;
       package = pkgs.jdk;
-      
     };
+
+    light.enable = enableLight;
 
     vim.defaultEditor = true;
   };

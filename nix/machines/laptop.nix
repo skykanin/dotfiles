@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  enableLight = true;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -17,7 +18,7 @@ in {
     ../modules/general.nix
     ../modules/packages.nix
     ../modules/printing.nix
-    ../modules/programs.nix
+    (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -31,7 +32,6 @@ in {
 
   environment.variables = { MESA_LOADER_DRIVER_OVERRIDE = "iris"; };
 
-  programs.light.enable = true;
   # Suspend on lid close
   services.logind.lidSwitch = "suspend";
 

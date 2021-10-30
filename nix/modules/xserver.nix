@@ -1,23 +1,8 @@
-{ config, pkgs, ... }: {
+# Configuration function for setting up xserver options
+{ config, pkgs, compositorConfig, videoDrivers, xautolockTimer, xrandrHeads, ...
+}: {
   services = {
-    picom = {
-      backend = "glx";
-      enable = true;
-      refreshRate = 0; # automatically detect monitor refresh rate
-      activeOpacity = 1.0;
-      inactiveOpacity = 1.0;
-      menuOpacity = 0.9;
-      experimentalBackends = true;
-      settings = {
-        blur = {
-          method = "gaussian";
-          size = 30;
-          deviation = 5.0;
-        };
-        mark-overdir-focused = true;
-      };
-    };
-
+    picom = import ./compositor.nix compositorConfig;
     xserver = {
       autoRepeatDelay = 200;
       autoRepeatInterval = 10;
@@ -27,7 +12,10 @@
       layout = "us";
       libinput = {
         enable = true;
-        touchpad.accelProfile = "adaptive";
+        touchpad = {
+          accelProfile = "adaptive";
+          naturalScrolling = false;
+        };
       };
 
       desktopManager = { xterm.enable = false; };
@@ -48,6 +36,12 @@
         startx.enable = false;
       };
 
+      exportConfiguration = true;
+
+      inherit videoDrivers;
+
+      wacom.enable = true;
+
       windowManager.i3 = {
         enable = true;
         configFile = "/home/skykanin/.config/i3/config";
@@ -61,6 +55,8 @@
         time = 20;
       };
       xkbOptions = "caps:escape,eurosign:e,compose:ralt";
+
+      inherit xrandrHeads;
     };
   };
 }

@@ -2,16 +2,42 @@
   description = "NixOS system configurations for various hosts";
 
   inputs = {
-    emacs-overlay.url =
-      "github:nix-community/emacs-overlay?rev=d8c2ba8a7c905c3ff94ce19263c293e9ffecee11";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    flake-utils.url = "github:numtide/flake-utils";
+
+    git-ignore-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:IvanMalison/gitignore.nix";
+    };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # Xmonad stuff
+    xmonad = {
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        git-ignore-nix.follows = "git-ignore-nix";
+      };
+      url = "github:xmonad/xmonad";
+    };
+    xmonad-contrib = {
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        git-ignore-nix.follows = "git-ignore-nix";
+        xmonad.follows = "xmonad";
+      };
+      url = "github:icy-thought/xmonad-contrib";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
 
     nixosConfigurations = let
       args = inputs;
-      systemRev = { ... }: {
+      lib = nixpkgs.lib;
+      custom-services = lib.filesystem.listFilesRecursive ./modules/services;
+      system-rev = { ... }: {
         # Let 'nixos-version --json' know about the Git revision of this flake.
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
       };
@@ -19,31 +45,34 @@
     in {
       "emma" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          (systemRev)
+        modules = lib.lists.flatten [
+          (system-rev)
           special-module
           ./machines/desktop.nix
           ./hardware/desktop.nix
+          custom-services
         ];
       };
 
       "daisy" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          (systemRev)
+        modules = lib.lists.flatten [
+          (system-rev)
           special-module
           ./machines/laptop.nix
           ./hardware/laptop.nix
+          custom-services
         ];
       };
 
       "iris" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          (systemRev)
+        modules = lib.lists.flatten [
+          (system-rev)
           special-module
           ./machines/work-laptop.nix
           ./hardware/work-laptop.nix
+          custom-services
         ];
       };
 

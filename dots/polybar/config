@@ -16,6 +16,10 @@
 ;
 ;==========================================================
 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
 [colors]
 background = ${xrdb:color0:#222}
 background-alt = #444
@@ -38,6 +42,8 @@ width = 100%
 height = 32
 radius = 0
 fixed-center = true
+wm-restack = generic
+override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -60,7 +66,7 @@ font-1 = "DroidSansMono Nerd Font:size=12:bold;2"
 font-2 = "Unifont:size=12;2"
 font-3 = "Noto Color Emoji:size=12;2"
 
-modules-left = i3
+modules-left = ewmh
 modules-center = date
 modules-right = spotify temperature memory cpu pulseaudio battery
 
@@ -77,6 +83,8 @@ width = 100%
 height = 32
 radius = 0
 fixed-center = true
+wm-restack = generic
+override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -99,7 +107,7 @@ font-1 = "DroidSansMono Nerd Font:size=12:bold;2"
 font-2 = "Unifont:size=12;2"
 font-3 = "Noto Color Emoji:size=12;2"
 
-modules-left = i3
+modules-left = ewmh
 modules-center = network
 modules-right = filesystem
 
@@ -108,6 +116,59 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = false
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+; icon-[0-9]+ = <desktop-name>;<icon>
+; NOTE: The desktop name needs to match the name configured by the WM
+; You can get a list of the defined desktops using:
+; $ xprop -root _NET_DESKTOP_NAMES
+; Note: Neither <desktop-name> nor <icon> can contain a semicolon (;)
+
+format = <label-state>
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;ﭮ
+icon-4 = 5;
+icon-default = 
+
+label-monitor = %name%
+
+label-active = %icon% %name%
+label-active-foreground = #000
+label-active-background = ${colors.primary}
+label-active-padding = 1
+
+label-occupied = %icon% %name%
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Don't display anything for empty workspaces
+label-empty =
+label-empty-foreground = #55
+label-empty-padding = 1
 
 [module/i3]
 type = internal/i3
@@ -345,7 +406,3 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5

@@ -1,4 +1,4 @@
-{ config, emacs-overlay, pkgs, ... }:
+{ config, emacs-overlay, pkgs, xmonad, xmonad-contrib, ... }:
 
 with pkgs;
 let
@@ -8,7 +8,7 @@ let
       let mapleader = "<space>"
       map <leader>y "+y
       map <leader>p "+p
-      
+
       syntax on
       set ruler
       set number
@@ -19,106 +19,112 @@ let
     '';
   };
   vscode = vscode-with-extensions.override {
-      vscodeExtensions = with pkgs.vscode-extensions; [
-        ms-python.python
-        ms-toolsai.jupyter
-        ms-vsliveshare.vsliveshare
-        vscodevim.vim
-      ];
-    };
-in {
-  environment.systemPackages = with pkgs; [
-    adwaita-qt
-    android-studio
-    #android-udev-rules
-    arc-icon-theme
-    arc-theme
-    aspell
-    aspellDicts.en
-    aspellDicts.en-computers
-    aspellDicts.en-science
-    autorandr
-    bat
-    betterlockscreen
-    bottom
-    brightnessctl
-    cachix
-    chatterino2
-    clojure
-    clj-kondo
-    curl
-    colorz
-    direnv
-    discord
-    docker
-    dotty
-    emacsGcc
-    fd
-    feh
-    ffmpeg-full
-    file
-    firefox-devedition-bin
-    fish
-    flameshot
-    gradle
-    gitAndTools.gh
-    haskell.compiler.ghc921
-    gimp
-    gitFull
-    gnome3.nautilus
-    gnome3.networkmanagerapplet
-    gnumake
-    insomnia
-    jetbrains.idea-ultimate
-    joker
-    kitty
-    lagrange
-    my-leiningen
-    lutris
-    lxappearance
-    mailspring
-    metals
-    mpv-with-scripts
-    neofetch
-    nix-direnv
-    nixfmt
-    nodejs-14_x
-    obs-studio
-    openjdk16
-    pamixer
-    pavucontrol
-    pciutils
-    polybarFull
-    playerctl
-    python3
-    pywal
-    qbittorrent
-    qdirstat
-    racket
-    ripgrep
-    rlwrap
+    vscodeExtensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      ms-toolsai.jupyter
+      ms-vsliveshare.vsliveshare
+      vscodevim.vim
+    ];
+  };
+  windowManagerPkgs = with pkgs; [
+    i3lock-color
     rofi
-    shellcheck
-    slack
-    spotifywm
-    steam
-    texlive.combined.scheme-full
-    tldr
-    tree
-    unzip
-    vim-with-conf
-    #vscode
-    weechat-custom
-    wget
-    winetricks
-    wineWowPackages.full
-    xclip
-    xdg_utils
-    xorg.xbacklight
-    youtube-dl
-    zip
-    zoom-us
+    polybar-git
+    #xmonad.defaultPackage.x86_64-linux
   ];
+in {
+  environment.systemPackages = with pkgs;
+    [
+      adwaita-qt
+      android-studio
+      #android-udev-rules
+      arc-icon-theme
+      arc-theme
+      aspell
+      aspellDicts.en
+      aspellDicts.en-computers
+      aspellDicts.en-science
+      autorandr
+      bat
+      blueberry
+      bottom
+      brightnessctl
+      cachix
+      chatterino2
+      clojure
+      clj-kondo
+      curl
+      colorz
+      direnv
+      discord
+      docker
+      dotty
+      emacsGcc
+      fd
+      feh
+      ffmpeg-full
+      file
+      firefox-devedition-bin
+      fish
+      gradle
+      gitAndTools.gh
+      haskell.compiler.ghc921
+      gimp
+      gitFull
+      gnome3.nautilus
+      gnome3.networkmanagerapplet
+      gnumake
+      insomnia
+      jetbrains.idea-ultimate
+      joker
+      kitty
+      lagrange
+      my-leiningen
+      lutris
+      lxappearance
+      mailspring
+      maim
+      metals
+      mpv-with-scripts
+      neofetch
+      nix-direnv
+      nixfmt
+      nodejs-14_x
+      obs-studio
+      openjdk17
+      pamixer
+      pavucontrol
+      pciutils
+      playerctl
+      python3
+      pywal
+      qbittorrent
+      qdirstat
+      racket
+      ripgrep
+      rlwrap
+      rofi
+      shellcheck
+      slack
+      spotifywm
+      steam
+      texlive.combined.scheme-full
+      tldr
+      #tree
+      unzip
+      vim-with-conf
+      #vscode
+      weechat-custom
+      wget
+      winetricks
+      wineWowPackages.full
+      xclip
+      xdg_utils
+      xorg.xbacklight
+      youtube-dl
+      zip
+      zoom-us
+    ] ++ windowManagerPkgs;
 
   # Nixpkgs overlays
   nixpkgs.overlays = [
@@ -164,6 +170,29 @@ in {
         buildFlags = [ "bootstrap" "SCHEME=scheme" ];
       });
     })
-   (import emacs-overlay)
+    (self: super: {
+      polybar-git = polybarFull.overrideAttrs (oldAttrs: rec {
+        name = "polybar";
+        version = "542f70efa3efd23e0305b0f728ae0389fdea4962";
+
+        src = pkgs.fetchFromGitHub {
+          owner = name;
+          repo = name;
+          rev = version;
+          sha256 = "sha256-GnF1IlwHe1nnqtYJNGcWYDA6EuZJsMVqqFqeEeJrkJM=";
+          fetchSubmodules = true;
+        };
+
+        buildInputs = oldAttrs.buildInputs ++ [ libuv ];
+
+        nativeBuildInputs = oldAttrs.nativeBuildInputs
+          ++ [ python3Packages.sphinx ];
+
+        patches = [ ./polybar.patch ];
+      });
+    })
+    (import emacs-overlay)
+    # xmonad.overlay
+    # xmonad-contrib.overlay
   ];
 }

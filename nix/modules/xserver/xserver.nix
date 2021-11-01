@@ -13,13 +13,14 @@
       layout = "us";
       libinput = {
         enable = true;
+        mouse.disableWhileTyping = true;
         touchpad = {
           accelProfile = "adaptive";
           naturalScrolling = false;
         };
       };
 
-      desktopManager = { xterm.enable = false; };
+      desktopManager = { xterm.enable = true; };
 
       displayManager = {
 
@@ -32,9 +33,8 @@
           enable = true;
           greeter.enable = false;
         };
-        defaultSession = "none+i3";
-
-        startx.enable = false;
+        defaultSession = "none+xmonad";
+        #startx.enable = true;
       };
 
       exportConfiguration = true;
@@ -43,11 +43,10 @@
 
       wacom.enable = true;
 
-      windowManager.i3 = {
+      windowManager.xmonad = {
         enable = true;
-        configFile = "/home/skykanin/.config/i3/config";
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [ i3lock-color rofi polybarFull ];
+        extraPackages = xmonadPackage: [ xmonadPackage.xmonad-contrib ];
+        ghcArgs = [ "-Werror" "-Wall" "-Wno-missing-signatures" ];
       };
 
       xautolock = import ./xautolock.nix {

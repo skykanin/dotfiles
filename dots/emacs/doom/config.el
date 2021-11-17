@@ -71,6 +71,16 @@
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
 
+;; Make the LSP shut the fuck up with prompts
+(setq! +lsp-prompt-to-install-server 'quiet)
+
+;; Temporary config to stop HLS from prompting restart
+;; when it crashes which is constantly
+(remove-hook 'haskell-mode-local-vars-hook #'lsp!)
+
+;; Make format errors popup small and escapable
+(set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
+
 ;; Associate the .pl file extension with prolog and not the default perl
 (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
 

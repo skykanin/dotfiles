@@ -1,2 +1,5 @@
 result
 dots/emacs/#.emacs#
+*.o
+*.hi
+*.errors

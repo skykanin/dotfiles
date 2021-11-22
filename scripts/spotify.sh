@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-#
 # Show Spotify current song
 
 set -euo pipefail

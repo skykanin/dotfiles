@@ -20,6 +20,7 @@
   hardware = {
     opengl = {
       driSupport = true;
+      driSupport32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
         vaapiVdpau
@@ -40,11 +41,17 @@
 
   nix = {
     autoOptimiseStore = true;
-    binaryCaches =
-      [ "https://hydra.iohk.io" "https://nix-community.cachix.org" ];
+    binaryCaches = [
+      "https://hydra.iohk.io"
+      "https://iohk.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://scrive.cachix.org"
+    ];
     binaryCachePublicKeys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU="
     ];
     extraOptions = ''
       experimental-features = nix-command flakes ca-references
@@ -71,10 +78,20 @@
     style = "gtk2";
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    custom.polybar.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStartSec=0s
+    DefaultTimeoutStopSec=0s
+    DefaultTimeoutRestartSec=0s
+    DefaultTimeoutAbortSec=0s
+  '';
 
   time = {
     hardwareClockInLocalTime = true;

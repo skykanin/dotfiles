@@ -5,6 +5,8 @@
 	editor = vim
 [diff]
         tool=vimdiff
+[merge]
+	conflictstyle=diff3
 [push]
 	followTags = true
 [pull]

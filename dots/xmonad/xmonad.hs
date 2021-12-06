@@ -18,7 +18,7 @@ import qualified Data.Map as M
 import Data.Maybe (fromJust)
 
 -- Hooks
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.EwmhDesktops (ewmh) -- ewmhFullscreen)
 import XMonad.Hooks.ManageDocks (avoidStruts, docks, manageDocks)
 import XMonad.Hooks.ManageHelpers (composeOne, doFullFloat, isDialog, isFullscreen, (-?>))
 
@@ -44,6 +44,7 @@ main :: IO ()
 main =
     xmonad
         . ewmh
+--        . ewmhFullscreen
         . docks
         . navFunction
         $ def
@@ -51,7 +52,7 @@ main =
             , modMask = myModMask
             , terminal = myTerminal
             , startupHook = myStartupHook
-            , handleEventHook = handleEventHook def <+> fullscreenEventHook
+            , handleEventHook = handleEventHook def
             , layoutHook = myLayoutHook
             , logHook = logHook def
             , workspaces = myWorkspaces
@@ -189,9 +190,8 @@ myManageHook =
         , className =? "qBittorrent" --> doShift (lookupWs "misc")
         , (className =? "ff-startup" <&&> resource =? "Dialog") --> doFloat -- Float Firefox Dialog
         , (className =? "firefox-developer-edition" <&&> resource =? "Dialog") --> doFloat -- Float Firefox Dialog
-        , isFullscreen --> doFullFloat
+        -- , isFullscreen --> doFullFloat
         , isDialog --> doFloat
-        , manageDocks
         ]
   where
     lookupWs = fromJust . (`M.lookup` workspaceMap)

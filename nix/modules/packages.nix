@@ -30,7 +30,6 @@ let
     i3lock-color
     rofi
     polybar-git
-    #xmonad.defaultPackage.x86_64-linux
   ];
 in {
   environment.systemPackages = with pkgs;
@@ -59,7 +58,7 @@ in {
       discord
       docker
       dotty
-      emacsGcc
+      emacsGcc28
       fd
       feh
       ffmpeg-full
@@ -121,7 +120,7 @@ in {
       xclip
       xdg_utils
       xorg.xbacklight
-      youtube-dl
+      yt-dlp
       zip
       zoom-us
     ] ++ windowManagerPkgs;

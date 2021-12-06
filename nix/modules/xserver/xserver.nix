@@ -33,7 +33,7 @@
           enable = true;
           greeter.enable = false;
         };
-        defaultSession = "none+xmonad";
+        defaultSession = "none+i3";
         #startx.enable = true;
       };
 
@@ -43,10 +43,11 @@
 
       wacom.enable = true;
 
-      windowManager.xmonad = {
+      windowManager.i3 = {
         enable = true;
-        extraPackages = xmonadPackage: [ xmonadPackage.xmonad-contrib ];
-        ghcArgs = [ "-Werror" "-Wall" "-Wno-missing-signatures" ];
+        configFile = "/home/skykanin/.config/i3/config";
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [ i3lock-color rofi polybarFull ];
       };
 
       xautolock = import ./xautolock.nix {

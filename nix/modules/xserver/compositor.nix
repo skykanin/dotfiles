@@ -15,8 +15,13 @@
       size = 30;
       deviation = 5.0;
     };
-    blur-background-exclude =
-      [ "window_type = 'dock'" "name ~= 'slop'" "_GTK_FRAME_EXTENTS@:c" ];
+    blur-background-exclude = [
+      "window_type = 'dock'"
+      "name ~= 'slop'"
+      "_GTK_FRAME_EXTENTS@:c"
+      "name ~= 'firefox-devedition'"
+      "name ~= 'firefox'"
+    ];
     mark-overdir-focused = true;
   };
   inherit vSync;

@@ -4,6 +4,7 @@ let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" "hetzner_rsa" ];
   enableFirewall = false;
   enableLight = false;
+  enablePlex = true;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -28,7 +29,9 @@ in {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
-    (import ../modules/general.nix { inherit config pkgs enableFirewall; })
+    (import ../modules/general.nix {
+      inherit config pkgs enableFirewall enablePlex;
+    })
     ../modules/packages.nix
     ../modules/printing.nix
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
@@ -53,7 +56,7 @@ in {
   };
 
   environment.extraInit = ''
-    xrandr --output DP-2 --mode 1920x1080 --rate 144 --left-of HDMI-0 --dpi 100
+    xrandr --output DP-2 --mode 2560x1440 --rate 169 --left-of HDMI-0 --output HDMI-0 --mode 1920x1080 --rotate left
   '';
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

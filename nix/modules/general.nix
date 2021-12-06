@@ -1,4 +1,4 @@
-{ config, pkgs, enableFirewall, ... }:
+{ config, pkgs, enableFirewall, enablePlex ? false, ... }:
 
 {
   environment = {
@@ -81,16 +81,20 @@
   services = {
     custom.polybar.enable = true;
     gnome.gnome-keyring.enable = true;
+    plex = {
+      enable = enablePlex;
+      openFirewall = true;
+    };
   };
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
   systemd.extraConfig = ''
-    DefaultTimeoutStartSec=0s
-    DefaultTimeoutStopSec=0s
-    DefaultTimeoutRestartSec=0s
-    DefaultTimeoutAbortSec=0s
+    DefaultTimeoutStartSec=1s
+    DefaultTimeoutStopSec=1s
+    DefaultTimeoutRestartSec=1s
+    DefaultTimeoutAbortSec=1s
   '';
 
   time = {

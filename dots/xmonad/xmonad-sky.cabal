@@ -1,0 +1,27 @@
+cabal-version:       3.0
+name:                xmonad-sky
+version:             0.1.0.0
+license:             BSD-3-Clause
+license-file:        LICENSE
+author:              Skykanin
+maintainer:          3789764+skykanin@users.noreply.github.com
+extra-source-files:  CHANGELOG.md
+
+library xmonad-lib
+  build-depends: base ^>=4.16.0.0
+  hs-source-dirs: lib
+  exposed-modules: Colors
+  default-language:    Haskell2010
+
+executable xmonad-sky
+  main-is:             xmonad.hs
+  build-depends:       base ^>=4.16.0.0,
+                       X11,
+                       containers,
+                       data-default,
+                       directory,
+                       utf8-string,
+                       xmonad,
+                       xmonad-contrib,
+                       xmonad-lib
+  default-language:    Haskell2010

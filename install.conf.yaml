@@ -14,6 +14,8 @@
     ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
+    ~/.config/xmonad: dots/xmonad
+    ~/.xmonad: dots/xmonad
     ~/.config/polybar: dots/polybar
     ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf
     ~/.config/fish: dots/fish

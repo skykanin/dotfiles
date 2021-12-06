@@ -13,13 +13,14 @@
       layout = "us";
       libinput = {
         enable = true;
+        mouse.disableWhileTyping = true;
         touchpad = {
           accelProfile = "adaptive";
           naturalScrolling = false;
         };
       };
 
-      desktopManager = { xterm.enable = false; };
+      desktopManager = { xterm.enable = true; };
 
       displayManager = {
 
@@ -33,8 +34,7 @@
           greeter.enable = false;
         };
         defaultSession = "none+i3";
-
-        startx.enable = false;
+        #startx.enable = true;
       };
 
       exportConfiguration = true;

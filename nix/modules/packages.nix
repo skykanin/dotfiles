@@ -68,6 +68,7 @@ in {
       gradle
       gitAndTools.gh
       haskell.compiler.ghc921
+      htop
       gimp
       gitFull
       gnome3.nautilus

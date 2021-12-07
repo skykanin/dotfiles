@@ -13,9 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:DejaVu Sans Mono 10
-# font pango:Fira Code Bold 11
-font pango:VictorMono Nerd Font SemiBold 12
+font pango:VictorMono Nerd Font SemiBold 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -208,8 +206,9 @@ client.background        $bd
 bindsym $mod+shift+x exec "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20"
 
 # Bind printscreen
-bindsym Print exec flameshot gui -p ~/Pictures
-bindsym $mod+shift+s exec flameshot gui -p ~/Pictures
+# bindsym Print exec flameshot gui -p ~/Pictures
+# bindsym $mod+shift+s exec flameshot gui -p ~/Pictures
+bindsym $mod+shift+s exec "maim -s 2>/dev/null | xclip -sel c -t image/png"
 
 # Add gaps
 gaps inner 9

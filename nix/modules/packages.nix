@@ -26,11 +26,11 @@ let
       vscodevim.vim
     ];
   };
-  windowManagerPkgs = with pkgs; [
-    i3lock-color
-    rofi
-    polybar-git
-  ];
+  # windowManagerPkgs = with pkgs; [
+  #   i3lock-color
+  #   rofi
+  #   polybar-git
+  # ];
 in {
   environment.systemPackages = with pkgs;
     [
@@ -123,7 +123,7 @@ in {
       yt-dlp
       zip
       zoom-us
-    ] ++ windowManagerPkgs;
+    ];
 
   # Nixpkgs overlays
   nixpkgs.overlays = [

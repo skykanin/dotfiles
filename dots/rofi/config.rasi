@@ -1,3 +1,4 @@
 configuration {
   theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  font: "Victor Mono Bold Nerd Font Complete Mono 15";
 }

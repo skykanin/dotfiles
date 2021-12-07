@@ -22,7 +22,7 @@
 (setq doom-font (font-spec
                  :family "VictorMono Nerd Font"
                  :weight 'semi-bold
-                 :size 18)
+                 :size 20)
        doom-variable-pitch-font (font-spec :family "sans" :size 15))
 
 ;; Add line wrapping
@@ -97,7 +97,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:

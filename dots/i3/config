@@ -192,11 +192,12 @@ set_from_resource $bg i3wm.color2 #f0f0f0
 set_from_resource $hl i3wm.color1 #f0f0f0
 set_from_resource $bd i3wm.color3 #f0f0f0
 set_from_resource $tc i3wm.color8 #f0f0f0
+set_from_resource $uf i3wm.color5 #f0f0f0
 
 # Color config           border  background   text   indicator  child_border
 client.focused           $bg     $bg          $tc    $bg        $bg
 client.focused_inactive  $bd     $bd          $tc    $bd        $bd
-client.unfocused         $bd     $bd          $tc    $bd        $bd
+client.unfocused         $uf     $uf          $tc    $uf        $uf
 client.urgent            $bg     $bg          $tc    $bg        $bg
 client.placeholder       $bd     $bg          $tc    $bg        $bd
 

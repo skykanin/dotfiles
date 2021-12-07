@@ -68,7 +68,7 @@ in {
     nix-direnv
     nixfmt
     nodejs-14_x
-    openjdk16
+    openjdk
     pamixer
     pavucontrol
     pciutils
@@ -83,6 +83,7 @@ in {
     slack
     spotifywm
     tldr
+    xclip
     zoom-us
   ];
 
@@ -104,7 +105,6 @@ in {
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-  networking.interfaces.enp0s20f0u5u1.useDHCP = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

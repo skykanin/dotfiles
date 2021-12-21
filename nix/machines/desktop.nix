@@ -2,7 +2,7 @@
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" "hetzner_rsa" ];
-  enableFirewall = false;
+  enableFirewall = true;
   enableLight = false;
   enablePlex = true;
   xserverConfig = {

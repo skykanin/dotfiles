@@ -2,7 +2,7 @@
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
-  enableFirewall = false;
+  enableFirewall = true;
   enableLight = true;
   xserverConfig = {
     compositorConfig = {

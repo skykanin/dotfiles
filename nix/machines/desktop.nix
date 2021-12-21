@@ -56,7 +56,7 @@ in {
   };
 
   environment.extraInit = ''
-    xrandr --output DP-2 --mode 2560x1440 --rate 169 --left-of HDMI-0 --output HDMI-0 --mode 1920x1080 --rotate left
+    xrandr --output DP-2 --mode 2560x1440 --rate 169 --output HDMI-0 --mode 1920x1080 --rotate left --right-of DP-2
   '';
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

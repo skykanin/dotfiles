@@ -148,7 +148,9 @@ in {
     (self: super: {
       weechat-custom = super.weechat.override {
         configure = { availablePlugins, ... }: {
-          scripts = with super.weechatScripts; [ weechat-matrix ];
+          scripts = with super.weechatScripts; [
+            #weechat-matrix
+          ];
         };
       };
     })

@@ -85,6 +85,7 @@
       enable = enablePlex;
       openFirewall = true;
     };
+    ratbagd.enable = true;
   };
 
   system.autoUpgrade.enable = true;

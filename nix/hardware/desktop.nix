@@ -20,6 +20,12 @@
       fsType = "vfat";
     };
 
+  fileSystems."/mnt/media2" =
+    { device = "/dev/disk/by-uuid/1ee97da3-3b08-47bb-973a-5cf118df9f88";
+      fsType = "btrfs";
+      options = [ "subvol=root" "noatime" "autodefrag" ];
+    };
+
   fileSystems."/mnt/media" =
     { device = "/dev/disk/by-uuid/FAFA6314FA62CC87";
       fsType = "ntfs";

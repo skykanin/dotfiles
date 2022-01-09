@@ -44,6 +44,7 @@ in {
     aspellDicts.en-science
     autorandr
     bat
+    betterdiscordctl
     blueberry
     bottom
     brightnessctl

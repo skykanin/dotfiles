@@ -11,9 +11,10 @@
 
   fonts = {
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "VictorMono" ]; })
+      jetbrains-mono
       noto-fonts
       unifont
+      victor-mono
     ];
   };
 

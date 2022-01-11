@@ -1,5 +1,5 @@
 configuration {
-  font: "Victor Mono Bold Nerd Font Complete Mono 15";
+  font: "Victor Mono Bold 15";
 }
 
 @theme "~/.cache/wal/colors-rofi-dark.rasi"

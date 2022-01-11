@@ -1,8 +1,7 @@
 /**
  * @name Pywal-Discord
  * @author contributors to https://github.com/FilipLitwora/pywal-discord
- * @version 0.0.2
- * @description change discord theme accordingly to pywal
+ * @version 0.0.2 * @description change discord theme accordingly to pywal
  * @source https://github.com/FilipLitwora/pywal-discord
  * @website https://github.com/FilipLitwora/pywal-discord
 */
@@ -666,7 +665,7 @@ html body div#app-mount.appMount-3lHmkl {
 
 /* please colour in the popout windows */
 .contentWrapper-3vHNP2, .recentMentionsPopout-2bI1ZN, .messagesPopout-eVzQcI, .list-wek7hJ,
-.quickswitcher-3JagVE, .modal-2Hrb0S, .emojiPicker-6YCk8a {
+.quickswitcher-pKcM9U, .modal-2Hrb0S, .emojiPicker-6YCk8a {
   background-color: var(--background-primary);
 }
 

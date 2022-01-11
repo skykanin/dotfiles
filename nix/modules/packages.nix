@@ -26,11 +26,6 @@ let
       vscodevim.vim
     ];
   };
-  # windowManagerPkgs = with pkgs; [
-  #   i3lock-color
-  #   rofi
-  #   polybar-git
-  # ];
 in {
   environment.systemPackages = with pkgs; [
     adwaita-qt
@@ -79,10 +74,8 @@ in {
     joker
     kitty
     lagrange
-    my-leiningen
     lutris
     lxappearance
-    mailspring
     maim
     metals
     mpv-with-scripts
@@ -166,9 +159,6 @@ in {
             ];
         };
       };
-    })
-    (self: super: {
-      my-leiningen = super.leiningen.override { jdk = pkgs.openjdk11; };
     })
     (self: super: {
       idris2-git = idris2.overrideAttrs (oldAttrs: {

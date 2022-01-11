@@ -232,6 +232,7 @@ bindsym Insert exec pamixer -i 10
 bindsym Delete exec pamixer -d 10
 
 bindsym Ctrl+Insert exec playerctl play-pause
+bindsym Shift+Home exec playerctl play-pause
 bindsym Shift+Insert exec playerctl next
 bindsym Shift+Delete exec playerctl previous
 

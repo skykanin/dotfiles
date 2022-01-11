@@ -652,20 +652,26 @@ html body div#app-mount.appMount-3lHmkl {
 
 /* end body div#app-mount.appMount-3lHmkl */
 
-.avatarSpeaking-2IGMRN {
+.avatarSpeaking-2pCGrZ {
   /* fix speaking indicator */
   -webkit-box-shadow: inset 0 0 0 2px var(--color1),
     inset 0 0 0 3px var(--background-secondary);
   box-shadow: inset 0 0 0 2px var(--color1), inset 0 0 0 3px;
 }
 
+/* background colour in friend list and friend search */
+.peopleList-2VBrVI, .searchBar-2aylmZ {
+  background-color: var(--background-primary);
+}
+
 /* please colour in the popout windows */
-.emojiPicker-3PwZFl, .recentMentionsPopout-3rCiI6, .messagesPopout-24nkyi, .list-wek7hJ, .quickswitcher-3JagVE {
+.contentWrapper-3vHNP2, .recentMentionsPopout-2bI1ZN, .messagesPopout-eVzQcI, .list-wek7hJ,
+.quickswitcher-3JagVE, .modal-2Hrb0S, .emojiPicker-6YCk8a {
   background-color: var(--background-primary);
 }
 
 /* fix clear background in 'all threads' popout window */
-.container-1KFiob { 
+.container-18GwIk { 
   background-color: var(--background-primary) !important;
 }
 
@@ -680,11 +686,11 @@ html body div#app-mount.appMount-3lHmkl {
 }
 
 /* indicate channels with new messages please */
-.modeUnread-1qO3K1 * {
+.modeUnread-3Cxepe * {
   color: var(--color6);
 }
 
-.unread-2lAfLh {
+.unread-36eUEm {
   background-color: var(--color6);
 }
 

@@ -4,6 +4,11 @@ let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
   enableFirewall = true;
   enableLight = true;
+  polybar-script = ''
+    MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+    MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+    MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
+  '';
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -17,7 +22,9 @@ in {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
-    (import ../modules/general.nix { inherit config pkgs enableFirewall; })
+    (import ../modules/general.nix {
+      inherit config pkgs enableFirewall polybar-script;
+    })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix
     ../modules/sound.nix
@@ -58,7 +65,7 @@ in {
     gimp
     git
     gnome3.nautilus
-    gnome3.networkmanagerapplet
+    networkmanagerapplet
     gnumake
     insomnia
     kitty
@@ -105,6 +112,10 @@ in {
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
+
+  environment.extraInit = ''
+    xrandr --output eDP-1-1 --mode 2560x1600
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,4 +1,4 @@
-{ config, pkgs, enableFirewall, enablePlex ? false, ... }:
+{ config, pkgs, enableFirewall, enablePlex ? false, polybar-script, ... }:
 
 {
   environment = {
@@ -10,12 +10,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
-      jetbrains-mono
-      noto-fonts
-      unifont
-      victor-mono
-    ];
+    fonts = with pkgs; [ jetbrains-mono noto-fonts unifont victor-mono ];
   };
 
   hardware = {
@@ -80,7 +75,10 @@
   };
 
   services = {
-    custom.polybar.enable = true;
+    custom.polybar = {
+      enable = true;
+      startup-script = polybar-script;
+    };
     gnome.gnome-keyring.enable = true;
     plex = {
       enable = enablePlex;

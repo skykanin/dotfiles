@@ -4,6 +4,9 @@ let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
   enableFirewall = true;
   enableLight = true;
+  polybar-script = ''
+    MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
+  '';
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -17,7 +20,9 @@ in {
   imports = [ # Include the results of the hardware scan.
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
-    (import ../modules/general.nix { inherit config pkgs enableFirewall; })
+    (import ../modules/general.nix {
+      inherit config pkgs enableFirewall polybar-script;
+    })
     ../modules/packages.nix
     ../modules/printing.nix
     (import ../modules/programs.nix { inherit config pkgs enableLight; })

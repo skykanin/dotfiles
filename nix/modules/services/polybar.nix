@@ -15,6 +15,12 @@ in with lib; {
       type = lib.types.package;
       default = pkgs.polybarFull;
     };
+    startup-script = mkOption {
+      type = lib.types.lines;
+      default = ''
+        polybar primary -c /etc/polybar/config.ini &
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -38,10 +44,7 @@ in with lib; {
       serviceConfig = {
         Type = "forking";
         ExecStart = let
-          script = ''
-            MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-            MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
-          '';
+          script = cfg.startup-script;
           scriptPkg = pkgs.writeShellScriptBin "polybar-start" script;
         in "${scriptPkg}/bin/polybar-start";
         Restart = "on-failure";

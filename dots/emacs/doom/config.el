@@ -20,7 +20,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec
-                 :family "VictorMono Nerd Font"
+                 :family "Victor Mono"
                  :weight 'semi-bold
                  :size 20)
        doom-variable-pitch-font (font-spec :family "sans" :size 15))
@@ -76,7 +76,7 @@
 
 ;; Temporary config to stop HLS from prompting restart
 ;; when it crashes which is constantly
-(remove-hook 'haskell-mode-local-vars-hook #'lsp!)
+;; (remove-hook 'haskell-mode-local-vars-hook #'lsp!)
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

@@ -44,6 +44,7 @@ in {
     arc-theme
     autorandr
     bat
+    blueberry
     bottom
     brightnessctl
     cachix
@@ -59,9 +60,9 @@ in {
     file
     firefox-devedition-bin
     fish
-    flameshot
     gitAndTools.gh
     haskell.compiler.ghc921
+    htop
     gimp
     git
     gnome3.nautilus
@@ -71,6 +72,7 @@ in {
     kitty
     lagrange
     lxappearance
+    maim
     neofetch
     nix-direnv
     nixfmt

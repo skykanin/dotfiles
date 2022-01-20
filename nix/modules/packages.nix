@@ -67,7 +67,7 @@ in {
     gimp
     gitFull
     gnome3.nautilus
-    gnome3.networkmanagerapplet
+    networkmanagerapplet
     gnumake
     insomnia
     jetbrains.idea-ultimate

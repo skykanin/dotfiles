@@ -1,7 +1,7 @@
 { config, pkgs, authorizedSshKeyFiles, ... }: {
   # Enable the OpenSSH daemon.
   services.openssh = {
-    challengeResponseAuthentication = false;
+    kbdInteractiveAuthentication = false;
     passwordAuthentication = true;
     authorizedKeysFiles = let sshPath = filename: "$HOME/.ssh/${filename}";
     in map sshPath authorizedSshKeyFiles;

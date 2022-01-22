@@ -56,7 +56,7 @@ function fish_prompt
     
     function _is_nix_shell
         if set -q IN_NIX_SHELL
-            echo ' '
+            echo '  '
             return 0
         end
         return 1

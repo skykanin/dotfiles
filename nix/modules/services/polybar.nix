@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 let
   cfg = config.services.custom.polybar;
   polybar-config = lib.strings.readFile ../../../dots/polybar/config.ini;
@@ -20,8 +19,8 @@ in with lib; {
       default = ''
         polybar primary -c /etc/polybar/config.ini &
       '';
+      };
     };
-  };
 
   config = mkIf cfg.enable {
     environment = {
@@ -41,12 +40,10 @@ in with lib; {
         pkgs.xorg.xrandr
         pkgs.procps
       ];
+      restartTriggers = [ config.environment.etc."polybar/config.ini".source ];
+      script = cfg.startup-script;
       serviceConfig = {
         Type = "forking";
-        ExecStart = let
-          script = cfg.startup-script;
-          scriptPkg = pkgs.writeShellScriptBin "polybar-start" script;
-        in "${scriptPkg}/bin/polybar-start";
         Restart = "on-failure";
       };
       wantedBy = [ "graphical-session.target" ];

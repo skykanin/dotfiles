@@ -5,7 +5,7 @@
   boot.loader = { 
     efi.canTouchEfiVariables = true;
     systemd-boot = {
-      configurationLimit = 2; # limit boot entries
+      configurationLimit = 5; # limit boot entries
       enable = true;
     };
   };

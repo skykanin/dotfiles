@@ -36,19 +36,24 @@
   };
 
   nix = {
-    autoOptimiseStore = true;
-    binaryCaches = [
-      "https://hydra.iohk.io"
-      "https://iohk.cachix.org"
-      "https://nix-community.cachix.org"
-      "https://scrive.cachix.org"
-    ];
-    binaryCachePublicKeys = [
+    settings = {
+      auto-optimise-store = true;
+      max-jobs = 2;
+      substituters = [
+        "https://hydra.iohk.io"
+        "https://iohk.cachix.org"
+        "https://nix-community.cachix.org"
+        "https://scrive.cachix.org"
+      ];
+    trusted-public-keys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU="
     ];
+    trusted-substituters = [ "https://hydra.iohk.io" ];
+    trusted-users = [ "root" "skykanin" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs = false
@@ -60,10 +65,7 @@
       dates = "weekly";
       options = "--delete-older-than 14d";
     };
-    maxJobs = 2;
     package = pkgs.nixFlakes;
-    trustedBinaryCaches = [ "https://hydra.iohk.io" ];
-    trustedUsers = [ "root" "skykanin" ];
   };
 
   nixpkgs.config.allowUnfree = true;

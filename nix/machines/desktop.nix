@@ -13,7 +13,7 @@ let
   xserverConfig = {
     compositorConfig = {
       enable = true;
-      vSync = false;
+      vSync = true;
     };
     videoDrivers = [ "nvidia" ];
     xautolockTimer = 20;

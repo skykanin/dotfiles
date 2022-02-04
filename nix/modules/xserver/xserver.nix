@@ -13,7 +13,10 @@
       layout = "us";
       libinput = {
         enable = true;
-        mouse.disableWhileTyping = true;
+        mouse = {
+          accelProfile = "flat";
+          disableWhileTyping = true;
+        };
         touchpad = {
           accelProfile = "adaptive";
           naturalScrolling = false;

@@ -24,15 +24,10 @@
         efiSysMountPoint = "/boot/efi";
       };
 
-      grub = {
+      systemd-boot = {
+        configurationLimit = 10; # limit boot entries
         enable = true;
-        device = "nodev";
-        version = 2;
-        efiSupport = true;
-        enableCryptodisk = true;
       };
-
-      systemd-boot.enable = true;
     };
   };
 }

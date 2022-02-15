@@ -37,7 +37,24 @@ in {
   # Define hostname
   networking.hostName = "iris";
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+    let
+      vim-with-conf = pkgs.vim_configurable.customize {
+          name = "vim";
+          vimrcConfig.customRC = ''
+            let mapleader = "<space>"
+            map <leader>y "+y
+            map <leader>p "+p
+      
+            syntax on
+            set ruler
+            set number
+            set hlsearch
+            set clipboard=unnamedplus
+            set backspace=indent,eol,start
+            set formatoptions=r
+          '';
+        }; in with pkgs; [
     adwaita-qt
     android-studio
     arc-icon-theme
@@ -92,6 +109,7 @@ in {
     slack
     spotifywm
     tldr
+    vim-with-conf
     xclip
     zoom-us
   ];
@@ -107,7 +125,21 @@ in {
     };
   };
 
-  nixpkgs.overlays = [ (import emacs-overlay) ];
+  nixpkgs.overlays = [
+    (import emacs-overlay)
+    (final: prev:
+     let
+       patchedPkgs = import (builtins.fetchTarball {
+         url =
+           "https://github.com/nixos/nixpkgs/archive/ffdadd3ef9167657657d60daf3fe0f1b3176402d.tar.gz";
+         sha256 = "1nrz4vzjsf3n8wlnxskgcgcvpwaymrlff690f5njm4nl0rv22hkh";
+       }) {
+         inherit (prev) system config;
+         # inherit (prev) overlays;  # not sure
+       };
+       patchedPam = patchedPkgs.pam;
+     in { i3lock-color = prev.i3lock-color.override { pam = patchedPam; }; })
+  ];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config

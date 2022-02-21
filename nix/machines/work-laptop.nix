@@ -9,6 +9,7 @@ let
     MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
     MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
   '';
+  threads = 6;
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -23,7 +24,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall polybar-script;
+      inherit config pkgs enableFirewall polybar-script threads;
     })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix

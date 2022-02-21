@@ -1,4 +1,4 @@
-{ config, pkgs, enableFirewall, enablePlex ? false, polybar-script, ... }:
+{ config, pkgs, enableFirewall, enablePlex ? false, polybar-script, threads, ... }:
 
 {
   environment = {
@@ -38,7 +38,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      max-jobs = 2;
+      max-jobs = threads;
       substituters = [
         "https://hydra.iohk.io"
         "https://iohk.cachix.org"

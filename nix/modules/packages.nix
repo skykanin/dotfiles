@@ -58,7 +58,7 @@ in {
     feh
     ffmpeg-full
     file
-    firefox-devedition-bin
+    firefox-bin
     fish
     gradle
     gitAndTools.gh

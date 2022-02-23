@@ -250,7 +250,7 @@ exec_always wal -R
 
 # Startup default apps
 exec kitty --class 'kitty-startup'
-exec firefox-devedition --class 'ff-startup'
+exec firefox --class 'ff-startup'
 exec emacs
 exec Discord
 exec spotifywm

@@ -19,8 +19,8 @@ in with lib; {
       default = ''
         polybar primary -c /etc/polybar/config.ini &
       '';
-      };
     };
+  };
 
   config = mkIf cfg.enable {
     environment = {
@@ -44,9 +44,11 @@ in with lib; {
       script = cfg.startup-script;
       serviceConfig = {
         Type = "forking";
-        Restart = "on-failure";
+        Restart = "always";
       };
+      partOf = [ "graphical-session.target" ];
       wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
     };
   };
 }

@@ -7,8 +7,15 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
+  boot.initrd.network.enable = true;
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  
+  hardware = {
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
+    firmware = [ pkgs.wireless-regdb ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9d9ea324-965f-43af-bba6-c45a225f8fd5";

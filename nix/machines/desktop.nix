@@ -53,6 +53,11 @@ in {
   # Define hostname
   networking.hostName = "emma";
 
+  networking = {
+    useDHCP = false;
+    interfaces.wlp4s0.useDHCP = true;
+  };
+
   environment.extraInit = ''
     xrandr --output DP-2 --mode 2560x1440 --rate 169 --output HDMI-0 --mode 1920x1080 --rotate left --right-of DP-2
   '';

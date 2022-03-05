@@ -3,6 +3,7 @@
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" "hetzner_rsa" ];
   enableFirewall = true;
+  enableNetworkmanager = true;
   enableLight = false;
   enablePlex = true;
   polybar-script = ''
@@ -35,7 +36,8 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enablePlex polybar-script threads;
+      inherit config pkgs enableFirewall enableNetworkmanager enablePlex
+        polybar-script threads;
     })
     ../modules/packages.nix
     ../modules/printing.nix

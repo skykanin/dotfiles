@@ -3,6 +3,7 @@
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
   enableFirewall = true;
+  enableNetworkmanager = true;
   enableLight = true;
   polybar-script = ''
     MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
@@ -24,7 +25,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall polybar-script threads;
+      inherit config pkgs enableFirewall enableNetworkmanager polybar-script threads;
     })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix

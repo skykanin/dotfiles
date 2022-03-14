@@ -127,6 +127,13 @@ in {
     };
   };
 
+  services.logind = {
+    lidSwitch = "lock";
+    extraConfig = ''
+      IdleAction=ignore
+    '';
+  };
+
   nixpkgs.overlays = [
     (import emacs-overlay)
     (final: prev:

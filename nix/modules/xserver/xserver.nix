@@ -56,7 +56,7 @@
       xautolock = import ./xautolock.nix {
         inherit pkgs;
         enable = true;
-        time = 20;
+        time = xautolockTimer;
       };
       xkbOptions = "caps:escape,eurosign:e,compose:ralt";
 

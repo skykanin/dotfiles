@@ -17,7 +17,7 @@ let
       vSync = true;
     };
     videoDrivers = [ "nvidia" ];
-    xautolockTimer = 10;
+    xautolockTimer = 5;
     xrandrHeads = [ ];
   };
 in {

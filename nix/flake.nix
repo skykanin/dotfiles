@@ -13,22 +13,6 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Xmonad stuff
-    xmonad = {
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        git-ignore-nix.follows = "git-ignore-nix";
-      };
-      url = "github:xmonad/xmonad";
-    };
-    xmonad-contrib = {
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        git-ignore-nix.follows = "git-ignore-nix";
-        xmonad.follows = "xmonad";
-      };
-      url = "github:icy-thought/xmonad-contrib";
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

@@ -31,7 +31,7 @@
     firewall.allowedTCPPorts =
       [ 80 8080 3333 4568 9630 44330 19000 19001 19002 19003 ];
     firewall.allowedUDPPorts = [ 80 9630 44330 19000 19001 19002 19003 ];
-    nameservers = [ "9.9.9.11" "8.8.8.8" ];
+    #nameservers = [ "9.9.9.11" "8.8.8.8" ];
     networkmanager.enable = enableNetworkmanager;
   };
 
@@ -104,5 +104,8 @@
     timeZone = "Europe/Oslo";
   };
 
-  virtualisation = { docker.enable = true; };
+  virtualisation = {
+    docker.enable = true;
+    libvirtd.enable = true;
+  };
 }

@@ -6,7 +6,7 @@ in {
     isNormalUser = true;
     description = username;
     extraGroups =
-      [ "wheel" "audio" "docker" "video" "networkmanager" "postgres" ];
+      [ "wheel" "audio" "docker" "libvirtd" "kvm" "video" "networkmanager" "postgres" ];
     initialPassword = "skykanin"; # Change with passwd later
     openssh.authorizedKeys.keyFiles =
       let sshPath = filename: "/home/${username}/.ssh/${filename}";

@@ -94,7 +94,6 @@ in {
     maim
     neofetch
     nix-direnv
-    nixfmt
     nodejs-14_x
     openjdk
     pamixer
@@ -127,12 +126,7 @@ in {
     };
   };
 
-  services.logind = {
-    lidSwitch = "lock";
-    extraConfig = ''
-      IdleAction=ignore
-    '';
-  };
+  services.logind.lidSwitch = "suspend";
 
   nixpkgs.overlays = [
     (import emacs-overlay)

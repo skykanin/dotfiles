@@ -5,8 +5,9 @@
   boot = {
     loader = { 
       efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot";
       systemd-boot = {
-        configurationLimit = 5; # limit boot entries
+        configurationLimit = 15; # limit boot entries
         enable = true;
       };
     };

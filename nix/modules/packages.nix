@@ -31,12 +31,9 @@ in {
     adwaita-qt
     #android-studio
     #android-udev-rules
+    ani-cli
     arc-icon-theme
     arc-theme
-    aspell
-    aspellDicts.en
-    aspellDicts.en-computers
-    aspellDicts.en-science
     autorandr
     bat
     betterdiscordctl
@@ -53,16 +50,16 @@ in {
     discord
     docker
     dotty
-    emacsGcc
+    emacsNativeComp
     fd
     feh
     ffmpeg-full
     file
     firefox-bin
     fish
-    gradle
+    flameshot
     gitAndTools.gh
-    haskell.compiler.ghc921
+    haskell.compiler.ghc922
     htop
     gimp
     gitFull
@@ -82,7 +79,8 @@ in {
     neofetch
     nix-direnv
     nixfmt
-    nodejs-14_x
+    nodejs-17_x
+    noisetorch
     obs-studio
     openjdk17
     pamixer
@@ -101,7 +99,7 @@ in {
     slack
     spotifywm
     steam
-    texlive.combined.scheme-full
+    streamlink
     tldr
     tree
     unzip
@@ -109,8 +107,6 @@ in {
     #vscode
     weechat-custom
     wget
-    winetricks
-    wineWowPackages.full
     xclip
     xdg_utils
     xorg.xbacklight

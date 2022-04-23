@@ -91,8 +91,12 @@
     ratbagd.enable = true;
   };
 
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system = {
+    autoUpgrade = {
+      allowReboot = true;
+      enable = true;
+    };
+  };
 
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=1s

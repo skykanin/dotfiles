@@ -110,6 +110,7 @@ in {
     slack
     spotifywm
     tldr
+    tree
     vim-with-conf
     xclip
     zoom-us

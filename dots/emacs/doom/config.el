@@ -45,7 +45,15 @@
 
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
-      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python-mode rjsx-mode js2-mode less-css-mode format-all-mode))
+      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))
+
+;; Disable extra ligatures even though they're not
+;; enabled through the seemingly broken `+extra' flag for the ligatures module
+;; See issue: https://github.com/hlissner/doom-emacs/issues/5738
+(eval-after-load 'clojure-mode '(setq clojure--prettify-symbols-alist nil))
+(eval-after-load 'python '(setq python-prettify-symbols-alist nil))
+(eval-after-load 'js2-mode '(setq js--prettify-symbols-alist nil))
+(eval-after-load 'lisp-mode '(setq lisp-prettify-symbols-alist nil))
 
 (use-package! idris-mode
   :mode ("\\.l?idr\\'" . idris-mode)

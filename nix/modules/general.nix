@@ -72,6 +72,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.noisetorch.enable = true;
+
   qt5 = {
     enable = true;
     platformTheme = "gtk2";

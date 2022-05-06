@@ -72,7 +72,7 @@ in {
     direnv
     discord
     docker
-    emacsGcc
+    emacsNativeComp
     fd
     feh
     ffmpeg-full
@@ -80,7 +80,7 @@ in {
     firefox-bin
     fish
     gitAndTools.gh
-    haskell.compiler.ghc921
+    haskell.compiler.ghc922
     htop
     gimp
     git
@@ -94,7 +94,7 @@ in {
     maim
     neofetch
     nix-direnv
-    nodejs-14_x
+    nodejs-17_x
     openjdk
     pamixer
     pavucontrol

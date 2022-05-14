@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" "hetzner_rsa" ];
@@ -10,6 +10,13 @@ let
     MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
     MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
   '';
+  noisetorchConfig = {
+    enable = true;
+    device-unit =
+      "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card4-controlC4.device";
+    device-id =
+      "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
+  };
   threads = 2;
   xserverConfig = {
     compositorConfig = {
@@ -37,7 +44,7 @@ in {
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
       inherit config pkgs enableFirewall enableNetworkmanager enablePlex
-        polybar-script threads;
+        noisetorchConfig polybar-script threads;
     })
     ../modules/packages.nix
     ../modules/printing.nix

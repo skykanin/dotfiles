@@ -8,6 +8,7 @@ let
   polybar-script = ''
     MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
   '';
+  noisetorchConfig.enable = false;
   threads = 2;
   xserverConfig = {
     compositorConfig = {
@@ -23,7 +24,8 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enableNetworkmanager polybar-script threads;
+      inherit config pkgs enableFirewall enableNetworkmanager polybar-script
+        noisetorchConfig threads;
     })
     ../modules/packages.nix
     ../modules/printing.nix

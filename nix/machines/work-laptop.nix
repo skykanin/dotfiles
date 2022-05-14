@@ -10,6 +10,11 @@ let
     MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
     MONITOR=DP-1-3 polybar secondary -c /etc/polybar/config.ini &
   '';
+  noisetorchConfig = {
+    enable = true;
+    device-unit = "";
+    device-id = "";
+  };
   threads = 6;
   xserverConfig = {
     compositorConfig = {
@@ -25,7 +30,8 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enableNetworkmanager polybar-script threads;
+      inherit config pkgs enableFirewall enableNetworkmanager noisetorchConfig
+        polybar-script threads;
     })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix
@@ -39,24 +45,24 @@ in {
   # Define hostname
   networking.hostName = "iris";
 
-  environment.systemPackages =
-    let
-      vim-with-conf = pkgs.vim_configurable.customize {
-          name = "vim";
-          vimrcConfig.customRC = ''
-            let mapleader = "<space>"
-            map <leader>y "+y
-            map <leader>p "+p
-      
-            syntax on
-            set ruler
-            set number
-            set hlsearch
-            set clipboard=unnamedplus
-            set backspace=indent,eol,start
-            set formatoptions=r
-          '';
-        }; in with pkgs; [
+  environment.systemPackages = let
+    vim-with-conf = pkgs.vim_configurable.customize {
+      name = "vim";
+      vimrcConfig.customRC = ''
+        let mapleader = "<space>"
+        map <leader>y "+y
+        map <leader>p "+p
+
+        syntax on
+        set ruler
+        set number
+        set hlsearch
+        set clipboard=unnamedplus
+        set backspace=indent,eol,start
+        set formatoptions=r
+      '';
+    };
+  in with pkgs; [
     adwaita-qt
     android-studio
     arc-icon-theme
@@ -132,17 +138,17 @@ in {
   nixpkgs.overlays = [
     (import emacs-overlay)
     (final: prev:
-     let
-       patchedPkgs = import (builtins.fetchTarball {
-         url =
-           "https://github.com/nixos/nixpkgs/archive/ffdadd3ef9167657657d60daf3fe0f1b3176402d.tar.gz";
-         sha256 = "1nrz4vzjsf3n8wlnxskgcgcvpwaymrlff690f5njm4nl0rv22hkh";
-       }) {
-         inherit (prev) system config;
-         # inherit (prev) overlays;  # not sure
-       };
-       patchedPam = patchedPkgs.pam;
-     in { i3lock-color = prev.i3lock-color.override { pam = patchedPam; }; })
+      let
+        patchedPkgs = import (builtins.fetchTarball {
+          url =
+            "https://github.com/nixos/nixpkgs/archive/ffdadd3ef9167657657d60daf3fe0f1b3176402d.tar.gz";
+          sha256 = "1nrz4vzjsf3n8wlnxskgcgcvpwaymrlff690f5njm4nl0rv22hkh";
+        }) {
+          inherit (prev) system config;
+          # inherit (prev) overlays;  # not sure
+        };
+        patchedPam = patchedPkgs.pam;
+      in { i3lock-color = prev.i3lock-color.override { pam = patchedPam; }; })
   ];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.

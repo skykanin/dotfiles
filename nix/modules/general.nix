@@ -1,5 +1,5 @@
 { config, pkgs, enableFirewall, enableNetworkmanager, enablePlex ? false
-, polybar-script, threads, ... }:
+, polybar-script, noisetorchConfig, threads, ... }:
 
 {
   environment = {
@@ -83,10 +83,18 @@
   };
 
   services = {
-    custom.polybar = {
-      enable = true;
-      startup-script = polybar-script;
+    custom = {
+      polybar = {
+        enable = true;
+        startup-script = polybar-script;
+      };
+      noisetorch = {
+        enable = noisetorchConfig.enable;
+        device-unit = noisetorchConfig.device-unit;
+        device-id = noisetorchConfig.device-id;
+      };
     };
+
     gnome.gnome-keyring.enable = true;
     plex = {
       enable = enablePlex;

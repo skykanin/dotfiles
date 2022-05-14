@@ -1,4 +1,5 @@
-{ config, pkgs, enableFirewall, enableNetworkmanager, enablePlex ? false, polybar-script, threads, ... }:
+{ config, pkgs, enableFirewall, enableNetworkmanager, enablePlex ? false
+, polybar-script, threads, ... }:
 
 {
   environment = {
@@ -24,6 +25,7 @@
         intel-media-driver
       ];
     };
+    opentabletdriver.enable = true;
   };
 
   networking = {

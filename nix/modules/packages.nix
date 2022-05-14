@@ -50,7 +50,7 @@ in {
     discord
     docker
     dotty
-    emacsNativeComp
+    emacs
     fd
     feh
     ffmpeg-full

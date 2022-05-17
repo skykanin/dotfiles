@@ -207,9 +207,8 @@ client.background        $bd
 bindsym $mod+shift+x exec "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20"
 
 # Bind printscreen
-# bindsym Print exec flameshot gui -p ~/Pictures
-# bindsym $mod+shift+s exec flameshot gui -p ~/Pictures
-bindsym $mod+shift+s exec "maim -s 2>/dev/null | xclip -sel c -t image/png"
+bindsym $mod+shift+s exec flameshot gui
+# bindsym $mod+shift+s exec "maim -s 2>/dev/null | xclip -sel c -t image/png"
 
 # Add gaps
 gaps inner 9

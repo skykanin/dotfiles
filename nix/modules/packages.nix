@@ -73,7 +73,6 @@ in {
     lagrange
     lutris
     lxappearance
-    maim
     metals
     mpv-with-scripts
     neofetch

@@ -72,7 +72,10 @@
     package = pkgs.nixFlakes;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [ "NoiseTorch-0.11.5" ];
+  };
 
   programs.noisetorch.enable = true;
 

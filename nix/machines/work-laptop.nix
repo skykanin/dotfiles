@@ -1,4 +1,4 @@
-{ config, emacs-overlay, pkgs, ... }:
+{ config, options, emacs-overlay, pkgs, ... }:
 
 let
   authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
@@ -12,8 +12,8 @@ let
   '';
   noisetorchConfig = {
     enable = true;
-    device-unit = "";
-    device-id = "";
+    device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\x2d4-1\x2d4.2-1\x2d4.2:1.0-sound-card1-controlC1.device";
+    device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
   };
   threads = 6;
   xserverConfig = {
@@ -30,7 +30,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enableNetworkmanager noisetorchConfig
+      inherit config options pkgs enableFirewall enableNetworkmanager noisetorchConfig
         polybar-script threads;
     })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
@@ -82,6 +82,7 @@ in {
     fd
     feh
     ffmpeg-full
+    flameshot
     file
     firefox-bin
     fish
@@ -100,7 +101,7 @@ in {
     maim
     neofetch
     nix-direnv
-    nodejs-17_x
+    nodejs-18_x
     openjdk
     pamixer
     pavucontrol

@@ -78,7 +78,7 @@ in {
     neofetch
     nix-direnv
     nixfmt
-    nodejs-17_x
+    nodejs-18_x
     noisetorch
     obs-studio
     openjdk17

@@ -1,4 +1,4 @@
-{ config, pkgs, enableFirewall, enableNetworkmanager, enablePlex ? false
+{ config, pkgs, enableFirewall, enableNetworkmanager, enableJellyfin ? false
 , polybar-script, noisetorchConfig, threads, ... }:
 
 {
@@ -99,8 +99,8 @@
     };
 
     gnome.gnome-keyring.enable = true;
-    plex = {
-      enable = enablePlex;
+    jellyfin = {
+      enable = true;
       openFirewall = true;
     };
     ratbagd.enable = true;

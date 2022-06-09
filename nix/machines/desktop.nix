@@ -5,7 +5,7 @@ let
   enableFirewall = true;
   enableNetworkmanager = true;
   enableLight = false;
-  enablePlex = true;
+  enableJellyfin = true;
   polybar-script = ''
     MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
     MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
@@ -43,7 +43,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enableNetworkmanager enablePlex
+      inherit config pkgs enableFirewall enableNetworkmanager enableJellyfin
         noisetorchConfig polybar-script threads;
     })
     ../modules/packages.nix

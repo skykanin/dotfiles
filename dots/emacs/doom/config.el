@@ -40,6 +40,19 @@
 ;; Configure flycheck-clj-kondo
 (use-package! flycheck-clj-kondo)
 
+;; Configure svelte
+(use-package! svelte-mode
+  :config
+  (setq lsp-semantic-tokens-enable t)
+  (after! lsp-mode
+    (add-to-list 'lsp-language-id-configuration '(svelte-mode . "svelte"))
+
+    (lsp-register-client
+     (make-lsp-client
+      :new-connection (lsp-stdio-connection "svelte-language-server")
+      :major-modes '(svelte-mode)
+      :server-id 'svelte-language-server))))
+
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 

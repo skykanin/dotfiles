@@ -13,7 +13,8 @@
 
 (package! flycheck-clj-kondo)
 
-;; Disable annoying lsp-ui-mode by default
+(package! svelte-mode)
+
 ;; NOTE: It's possible to disable parts of lsp-ui as well see docs
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 (package! lsp-ui :disable t)

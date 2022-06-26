@@ -17,7 +17,15 @@
 
 ;; NOTE: It's possible to disable parts of lsp-ui as well see docs
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
-(package! lsp-ui :disable t)
+;; (package! lsp-ui :disable t)
+
+;; When developing on `lsp-mode' use the local repo
+;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
+
+(package! lsp-mode
+  :recipe (:host github
+           :repo "emacs-lsp/lsp-mode"
+           :branch "master"))
 
 (package! idris-mode
   :recipe (:host github

@@ -85,6 +85,11 @@
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
 
+(use-package! lsp-ui
+  :after lsp-mode
+  :init
+  (setq lsp-ui-sideline-enable nil))
+
 ;; Make the LSP shut the fuck up with prompts
 (setq! +lsp-prompt-to-install-server 'quiet)
 

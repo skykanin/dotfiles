@@ -87,7 +87,7 @@ in {
     firefox-bin
     fish
     gitAndTools.gh
-    haskell.compiler.ghc922
+    haskell.compiler.ghc923
     htop
     gimp
     git

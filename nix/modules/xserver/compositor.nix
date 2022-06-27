@@ -4,7 +4,6 @@
 {
   backend = "glx";
   inherit enable;
-  refreshRate = 0; # automatically detect monitor refresh rate
   activeOpacity = 1.0;
   inactiveOpacity = 1.0;
   menuOpacity = 0.9;

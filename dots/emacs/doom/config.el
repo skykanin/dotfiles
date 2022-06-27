@@ -56,9 +56,13 @@
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 
+
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))
+
+;; Remove extra ligatures
+(setq +ligatures-extras-in-modes nil)
 
 ;; Disable extra ligatures even though they're not
 ;; enabled through the seemingly broken `+extra' flag for the ligatures module
@@ -79,6 +83,7 @@
   ((elm-mode . lsp-deferred))
 
   :init
+  (setq lsp-lens-enable t)
   (with-eval-after-load 'lsp-mode
     ;; To avoid watching all Scrive API docs.
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)

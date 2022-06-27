@@ -6,7 +6,9 @@
  '(custom-safe-themes
    '("01cf34eca93938925143f402c2e6141f03abb341f27d1c2dba3d50af9357ce70" "188fed85e53a774ae62e09ec95d58bb8f54932b3fd77223101d036e3564f9206" default))
  '(safe-local-variable-values
-   '((lsp-file-watch-threshold . 20000)
+   '((lsp-ui-doc-enable)
+     (lsp-ui-doc-show-with-cursor)
+     (lsp-file-watch-threshold . 20000)
      (haskell-mode-stylish-haskell-path . "brittany")
      (haskell-stylish-on-save . t)
      (lsp-haskell-formatting-provider . "brittany"))))

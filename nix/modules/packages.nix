@@ -101,6 +101,7 @@ in {
     streamlink
     tldr
     tree
+    unison-ucm
     unzip
     vim-with-conf
     #vscode

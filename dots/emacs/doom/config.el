@@ -104,6 +104,14 @@
 ;; Remember to add the hook again if you remove it !!!
 ;; (add-hook 'haskell-mode-local-vars-hook #'lsp!)
 
+(use-package! unisonlang-mode)
+
+(map! :after unisonlang-mode
+      :map unisonlang-mode-map
+      :leader
+      :n "m f" #'unisonlang-mode-add-fold
+      :n "m u" #'unisonlang-mode-remove-fold)
+
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
 

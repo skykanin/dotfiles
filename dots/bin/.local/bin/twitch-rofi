@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+config_dir=~/.config/twitch-rofi
+client_id=$(<$config_dir/client_id)
+oauth_token=$(<$config_dir/oauth_token)
+streamer=`curl -s 'https://gql.twitch.tv/gql' \
+        -H 'Connection: keep-alive' \
+        -H "Authorization: OAuth ${oauth_token}" \
+        -H 'Accept-Language: en-US,en;q=0.9' \
+        -H "Client-Id: ${client_id}" \
+        -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.15.2 Chrome/87.0.4280.144 Safari/537.36' \
+        -H 'X-Device-Id: 5e48e11f1026806c' \
+        -H 'Content-Type: text/plain;charset=UTF-8' \
+        -H 'Accept: */*' \
+        -H 'DNT: 1' \
+        -H 'Origin: https://www.twitch.tv' \
+        -H 'Sec-Fetch-Site: same-site' \
+        -H 'Sec-Fetch-Mode: cors' \
+        -H 'Sec-Fetch-Dest: empty' \
+        -H 'Referer: https://www.twitch.tv/' \
+        --data-raw '[{"operationName":"PersonalSections","variables":{"input":{"sectionInputs":["FOLLOWED_SECTION"]},"channelLogin":null,"withChannelUser":false},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"156c235ae84585c1252fdcf47636c0773af1f67db48c1091e56ded42c548fd43"}}}]' \
+        --compressed | \
+        jq -r '.[0].data.personalSections[0].items | map(select(.content | has("viewersCount")))[] | .user.login + " - " + .content.game.name + " - " + (.content.viewersCount | tostring)' | \
+rofi -dmenu -i -p 'Twitch'`|| exit 1
+streamer=`echo $streamer | awk '{print $1}'`
+
+streamlink -p mpv "http://twitch.tv/$streamer" "1080p,1080p60,720p60,720p,480p,best"
+
+# qualities=`echo $st | rg -o '\d+p(\d+)?'`
+# q=`echo -e "$qualities" | rofi -dmenu -i -p '⚙'`
+# streamlink -p mpv "http://twitch.tv/$streamer" $q

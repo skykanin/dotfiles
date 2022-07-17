@@ -37,6 +37,7 @@ in {
     autorandr
     bat
     betterdiscordctl
+    bintools-unwrapped
     blueberry
     bottom
     brightnessctl

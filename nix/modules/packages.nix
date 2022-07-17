@@ -70,6 +70,7 @@ in {
     insomnia
     jetbrains.idea-ultimate
     joker
+    jq
     kitty
     lagrange
     lutris

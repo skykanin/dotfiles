@@ -39,6 +39,7 @@ in with lib; {
         pkgs.gnugrep
         pkgs.xorg.xrandr
         pkgs.procps
+        pkgs.fribidi
       ];
       restartTriggers = [ config.environment.etc."polybar/config.ini".source ];
       script = cfg.startup-script;

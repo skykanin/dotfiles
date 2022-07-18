@@ -81,6 +81,12 @@
   :defer
   :hook
   ((elm-mode . lsp-deferred))
+  :config
+  ;; Slightly improve the ugly colours for semantic highlighting (only used for idris)
+  (after! lsp-semantic-tokens
+    (set-face-attribute 'lsp-face-semhl-function nil :foreground "#83a598")
+    (set-face-attribute 'lsp-face-semhl-variable nil :inherit 'default)
+    (set-face-attribute 'lsp-face-semhl-method nil :inherit 'default))
 
   :init
   (setq lsp-lens-enable t)
@@ -89,7 +95,7 @@
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
-
+  
 (use-package! lsp-ui
   :after lsp-mode
   :init

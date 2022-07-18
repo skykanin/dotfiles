@@ -1,4 +1,4 @@
-{ config, emacs-overlay, pkgs, xmonad, xmonad-contrib, ... }:
+{ config, emacs-overlay, idris2-pkgs, pkgs, ... }:
 
 with pkgs;
 let
@@ -67,6 +67,8 @@ in {
     gnome3.nautilus
     networkmanagerapplet
     gnumake
+    idris2
+    ipkgs.lsp.withSrcs.idris2 # LSP installed with ttc sources
     insomnia
     jetbrains.idea-ultimate
     joker
@@ -159,20 +161,6 @@ in {
       };
     })
     (self: super: {
-      idris2-git = idris2.overrideAttrs (oldAttrs: {
-        name = "idris2";
-        version = null;
-
-        src = pkgs.fetchFromGitHub {
-          owner = "idris-lang";
-          repo = "Idris2";
-          rev = "82cf4092b725cfac19b341ee6d1d8ff80bd84d61";
-          sha256 = "171nm3vi9h5idlzr8s42vqyw2c8l034icg6hzj7bh0qbkxrpqxig";
-        };
-        buildFlags = [ "bootstrap" "SCHEME=scheme" ];
-      });
-    })
-    (self: super: {
       polybar-git = polybarFull.overrideAttrs (oldAttrs: rec {
         name = "polybar";
         version = "542f70efa3efd23e0305b0f728ae0389fdea4962";
@@ -194,6 +182,13 @@ in {
       });
     })
     (import emacs-overlay)
+    (final: prev:
+      # Rename idris2-pkgs attribute to ipkgs
+      let overlay = (idris2-pkgs.overlay final prev);
+      in {
+        ipkgs = overlay.idris2-pkgs;
+        inherit (overlay) idris2 lib;
+      })
     (final: prev:
       let
         patchedPkgs = import (builtins.fetchTarball {

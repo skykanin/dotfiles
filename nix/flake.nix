@@ -11,6 +11,26 @@
       url = "github:IvanMalison/gitignore.nix";
     };
 
+    idris2-main = {
+      url =
+        "github:idris-lang/idris2?rev=4024857d20027a2852da1805b148e3185dc146f9";
+      flake = false;
+    };
+
+    lsp-pinned = {
+      url =
+        "github:idris-community/idris2-lsp?rev=c1aea55483c165aad9523c6b4a0a7c67d6262765";
+      flake = false;
+    };
+
+    idris2-pkgs = {
+      url =
+        "github:claymager/idris2-pkgs?rev=ac33a49d4d4bd2b50fddb040cd889733a02c8f09";
+      # Uses newer dependency versions than in the flake
+      inputs.lsp.follows = "lsp-pinned";
+      inputs.idris2.follows = "idris2-main";
+    };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   };

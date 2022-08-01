@@ -108,7 +108,7 @@ in {
     unison-ucm
     unzip
     vim-with-conf
-    #vscode
+    # vscode
     weechat-custom
     wget
     xclip

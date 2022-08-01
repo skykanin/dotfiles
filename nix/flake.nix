@@ -13,13 +13,13 @@
 
     idris2-main = {
       url =
-        "github:idris-lang/idris2?rev=4024857d20027a2852da1805b148e3185dc146f9";
+        "github:idris-lang/idris2?rev=a4b99bd81c861a17f9573e92c5a9b6e8b72e3352";
       flake = false;
     };
 
     lsp-pinned = {
       url =
-        "github:idris-community/idris2-lsp?rev=c1aea55483c165aad9523c6b4a0a7c67d6262765";
+        "github:idris-community/idris2-lsp?rev=630e84ed4a7800fd3e70214e44e4a3be96b73ae9";
       flake = false;
     };
 

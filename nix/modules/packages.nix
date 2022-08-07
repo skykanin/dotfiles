@@ -60,7 +60,7 @@ in {
     fish
     flameshot
     gitAndTools.gh
-    haskell.compiler.ghc923
+    haskell.compiler.ghc924
     htop
     gimp
     gitFull

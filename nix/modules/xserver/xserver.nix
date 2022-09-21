@@ -58,7 +58,7 @@
         enable = true;
         time = xautolockTimer;
       };
-      xkbOptions = "caps:escape,eurosign:e,compose:ralt";
+      xkbOptions = "caps:escape,eurosign:e,compose:rctrl,compose:ralt";
 
       inherit xrandrHeads;
     };

@@ -114,7 +114,7 @@
 
 (map! :after unisonlang-mode
       :map unisonlang-mode-map
-      :leader
+      :localleader
       :n "m f" #'unisonlang-mode-add-fold
       :n "m u" #'unisonlang-mode-remove-fold)
 
@@ -138,7 +138,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

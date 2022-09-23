@@ -75,6 +75,7 @@ in {
     cachix
     curl
     colorz
+    difftastic
     direnv
     discord
     docker
@@ -87,7 +88,7 @@ in {
     firefox-bin
     fish
     gitAndTools.gh
-    haskell.compiler.ghc923
+    haskell.compiler.ghc924
     htop
     gimp
     git
@@ -99,6 +100,7 @@ in {
     lagrange
     lxappearance
     maim
+    mpv
     neofetch
     nix-direnv
     nodejs-18_x

@@ -4,11 +4,13 @@
 [core]
 	editor = vim
 [diff]
-  tool=vimdiff
+        tool = vimdiff
+	external = difft
 [merge]
-	conflictstyle=diff3
+	conflictstyle = diff3
 [push]
 	followTags = true
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [init]

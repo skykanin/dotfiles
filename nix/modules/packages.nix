@@ -47,6 +47,7 @@ in {
     clj-kondo
     curl
     colorz
+    difftastic
     direnv
     discord
     docker

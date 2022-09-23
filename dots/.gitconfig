@@ -4,8 +4,8 @@
 [core]
 	editor = vim
 [diff]
-        tool = vimdiff
-	external = difft
+        tool = vimdiff3
+ 	# external = difft --color auto
 [merge]
 	conflictstyle = diff3
 [push]
@@ -15,3 +15,9 @@
 	rebase = true
 [init]
 	defaultBranch = main
+[color.ui]
+       ui = always
+[color.status]
+	changed = 83
+[color.diff]
+        new = 83

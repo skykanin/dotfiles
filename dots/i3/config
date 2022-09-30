@@ -236,8 +236,8 @@ bindsym Shift+Insert exec playerctl next
 bindsym Shift+Delete exec playerctl previous
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl s +500
-bindsym XF86MonBrightnessDown exec brightnessctl s 500-
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 # Bind twitch-rofi script
 bindsym $mod+y exec ~/dotfiles/scripts/twitch-rofi

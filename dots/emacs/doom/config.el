@@ -101,6 +101,10 @@
   :init
   (setq lsp-ui-sideline-enable nil))
 
+(use-package flycheck
+  :config
+   (remove-hook 'flycheck-mode-hook 'flycheck-maybe-display-error-at-point-soon 'flycheck-display-error-at-point-soon))
+
 ;; Make the LSP shut the fuck up with prompts
 (setq! +lsp-prompt-to-install-server 'quiet)
 

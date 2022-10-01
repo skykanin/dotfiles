@@ -19,5 +19,6 @@
        ui = always
 [color.status]
 	changed = 83
+        added = 199
 [color.diff]
         new = 83

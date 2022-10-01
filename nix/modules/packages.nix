@@ -28,9 +28,10 @@ let
   };
 in {
   environment.systemPackages = with pkgs; [
-    adwaita-qt
+    # vscode
     #android-studio
     #android-udev-rules
+    adwaita-qt
     ani-cli
     arc-icon-theme
     arc-theme
@@ -43,10 +44,10 @@ in {
     brightnessctl
     cachix
     chatterino2
-    clojure
     clj-kondo
-    curl
+    clojure
     colorz
+    curl
     difftastic
     direnv
     discord
@@ -60,20 +61,20 @@ in {
     firefox-bin
     fish
     flameshot
-    gitAndTools.gh
-    haskell.compiler.ghc924
-    htop
     gimp
+    gitAndTools.gh
     gitFull
     gnome3.nautilus
-    networkmanagerapplet
     gnumake
+    haskell.compiler.ghc924
+    htop
     idris2
-    ipkgs.lsp.withSrcs.idris2 # LSP installed with ttc sources
     insomnia
+    ipkgs.lsp.withSrcs.idris2 # LSP installed with ttc sources
     jetbrains.idea-ultimate
     joker
     jq
+    keepassxc
     kitty
     lagrange
     lutris
@@ -81,6 +82,7 @@ in {
     metals
     mpv-with-scripts
     neofetch
+    networkmanagerapplet
     nix-direnv
     nixfmt
     nodejs-18_x
@@ -109,7 +111,6 @@ in {
     unison-ucm
     unzip
     vim-with-conf
-    # vscode
     weechat-custom
     wget
     xclip

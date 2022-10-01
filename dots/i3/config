@@ -242,6 +242,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 # Bind twitch-rofi script
 bindsym $mod+y exec ~/dotfiles/scripts/twitch-rofi
 
+bindsym $mod+p exec ~/dotfiles/scripts/keepass-rofi -d ~/Passwords.kdbx
+
 # Set jetbrains studio to floating window by default
 for_window [class="jetbrains-studio"] floating enable
 # Set wallpaper

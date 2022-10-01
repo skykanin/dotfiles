@@ -73,8 +73,8 @@ in {
     bottom
     brightnessctl
     cachix
-    curl
     colorz
+    curl
     difftastic
     direnv
     discord
@@ -83,33 +83,34 @@ in {
     fd
     feh
     ffmpeg-full
-    flameshot
     file
     firefox-bin
     fish
-    gitAndTools.gh
-    haskell.compiler.ghc924
-    htop
+    flameshot
     gimp
     git
+    gitAndTools.gh
     gnome3.nautilus
-    networkmanagerapplet
     gnumake
+    haskell.compiler.ghc924
+    htop
     insomnia
+    keepassxc
     kitty
     lagrange
     lxappearance
     maim
     mpv
     neofetch
+    networkmanagerapplet
     nix-direnv
     nodejs-18_x
     openjdk
     pamixer
     pavucontrol
     pciutils
-    polybarFull
     playerctl
+    polybarFull
     python3
     pywal
     qdirstat

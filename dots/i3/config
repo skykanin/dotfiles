@@ -241,6 +241,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 # Bind twitch-rofi script
 bindsym $mod+y exec ~/dotfiles/scripts/twitch-rofi
+bindsym $mod+Shift+y exec ~/dotfiles/scripts/twitch-video-rofi
 
 bindsym $mod+p exec ~/dotfiles/scripts/keepass-rofi -d ~/Passwords.kdbx
 

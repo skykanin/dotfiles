@@ -7,8 +7,8 @@ let
   enableLight = true;
   polybar-script = ''
     MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=DP-1-3 polybar secondary -c /etc/polybar/config.ini &
+    MONITOR=DP-1-2 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+    MONITOR=DP-1-3 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
   '';
   noisetorchConfig = {
     enable = true;
@@ -106,6 +106,8 @@ in {
     nix-direnv
     nodejs-18_x
     openjdk
+    openresolv
+    openvpn
     pamixer
     pavucontrol
     pciutils

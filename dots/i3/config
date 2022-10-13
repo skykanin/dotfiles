@@ -185,11 +185,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start Polybar
-exec_always --no-startup-id "sh ~/.config/polybar/launch.sh"
-
 # Border config
 default_border pixel 3
+default_floating_border pixel 3
+for_window [class="^.*"] border pixel 3
 
 # Set colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -221,6 +220,7 @@ gaps outer 5
 
 smart_gaps on
 smart_borders on
+hide_edge_borders smart
 
 # Pulse Audio control
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
@@ -278,7 +278,7 @@ exec --no-startup-id "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --ti
 exec_always xset s off
 
 # Set key repeat rate
-exec_always xset r rate 280 80
+exec_always xset r rate 280 120
 
 # Merge wal colours into xrdb
 exec xrdb -merge ~/.cache/wal/colors.Xresources

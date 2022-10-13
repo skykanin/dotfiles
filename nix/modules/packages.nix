@@ -64,7 +64,7 @@ in {
     gimp
     gitAndTools.gh
     gitFull
-    gnome3.nautilus
+    gnome.nautilus
     gnumake
     haskell.compiler.ghc924
     htop

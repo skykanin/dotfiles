@@ -90,7 +90,7 @@ in {
     gimp
     git
     gitAndTools.gh
-    gnome3.nautilus
+    gnome.nautilus
     gnumake
     haskell.compiler.ghc924
     htop

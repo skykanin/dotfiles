@@ -69,7 +69,7 @@
       dates = "weekly";
       options = "--delete-older-than 14d";
     };
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
   };
 
   nixpkgs.config = {

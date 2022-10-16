@@ -80,7 +80,7 @@ in {
     lutris
     lxappearance
     metals
-    mpv-with-scripts
+    mpv
     neofetch
     networkmanagerapplet
     nix-direnv
@@ -114,7 +114,7 @@ in {
     weechat-custom
     wget
     xclip
-    xdg_utils
+    xdg-utils
     xorg.xbacklight
     yt-dlp
     zip

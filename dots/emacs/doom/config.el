@@ -56,7 +56,6 @@
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 
-
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))
@@ -74,8 +73,7 @@
 
 (use-package! idris-mode
   :mode ("\\.l?idr\\'" . idris-mode)
-  :config
-  (setq lsp-semantic-tokens-enable t))
+  :config (setq lsp-semantic-tokens-enable t))
 
 (use-package! lsp-mode
   :defer

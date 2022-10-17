@@ -33,6 +33,8 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    kolide-config.url = "github:znewman01/kolide-launcher?rev=c48b577d814c17a3aaeb1b89288c9c1509b87cf9";
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -46,6 +48,7 @@
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
       };
       special-module = { _module.args = inputs; };
+      kolide-module = inputs.kolide-config.nixosModules;
     in {
       "emma" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -69,7 +72,7 @@
         ];
       };
 
-      "iris" = nixpkgs.lib.nixosSystem {
+      "iris" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
@@ -77,6 +80,7 @@
           ./machines/work-laptop.nix
           ./hardware/work-laptop.nix
           custom-services
+          kolide-module.${system}.default
         ];
       };
 

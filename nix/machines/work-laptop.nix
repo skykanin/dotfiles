@@ -139,7 +139,16 @@ in {
     };
   };
 
-  services.logind.lidSwitch = "suspend";
+  services = {
+    logind.lidSwitch = "suspend";
+    
+    kolide-launcher = {
+      enable = true;
+      enrollSecretPath = "/persist/kolide/secret";
+      rootDirectory = "/cache/kolide";
+      additionalPackages = with pkgs; [ glib zfs networkmanager cryptsetup ];
+    };
+  };
 
   nixpkgs.overlays = [
     (import emacs-overlay)

@@ -97,7 +97,13 @@
 (use-package! lsp-ui
   :after lsp-mode
   :init
-  (setq lsp-ui-sideline-enable nil))
+    (setq lsp-ui-sideline-enable nil
+          lsp-ui-doc-enable t)
+  :config
+    (map! :after lsp-ui
+          :map lsp-ui-mode-map
+          :localleader
+          :n "s d" #'lsp-ui-doc-show))
 
 (use-package flycheck
   :config
@@ -117,8 +123,8 @@
 (map! :after unisonlang-mode
       :map unisonlang-mode-map
       :localleader
-      :n "m f" #'unisonlang-mode-add-fold
-      :n "m u" #'unisonlang-mode-remove-fold)
+      :n "f" #'unisonlang-mode-add-fold
+      :n "u" #'unisonlang-mode-remove-fold)
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

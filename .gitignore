@@ -3,3 +3,4 @@ dots/emacs/#.emacs#
 *.o
 *.hi
 *.errors
+dots/emacs/doom/myenv

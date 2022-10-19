@@ -33,6 +33,9 @@
 ;; Add line wrapping
 (global-visual-line-mode t)
 
+;; Load custom env file
+(doom-load-envvars-file "~/.doom.d/myenv")
+
 ;; Configure elcord
 (use-package! elcord
   :config (elcord-mode))

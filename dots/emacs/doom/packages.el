@@ -29,6 +29,13 @@
            :repo "emacs-lsp/lsp-mode"
            :branch "master"))
 
+;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
+
+(package! lsp-mode
+  :recipe (:host github
+           :repo "emacs-lsp/lsp-mode"
+           :branch "master"))
+
 (package! idris-mode
   :recipe (:host github
            :repo "idris-hackers/idris-mode"

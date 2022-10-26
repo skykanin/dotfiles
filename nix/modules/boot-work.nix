@@ -25,7 +25,7 @@
       };
 
       systemd-boot = {
-        configurationLimit = 10; # limit boot entries
+        configurationLimit = 20; # limit boot entries
         enable = true;
       };
     };

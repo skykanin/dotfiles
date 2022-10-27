@@ -3,6 +3,7 @@
 {
   # Use the systemd-boot EFI boot loader.
   boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
     initrd = {
       luks.devices."root" = {

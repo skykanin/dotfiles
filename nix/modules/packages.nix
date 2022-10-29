@@ -1,4 +1,4 @@
-{ config, emacs-overlay, idris2-pkgs, pkgs, ... }:
+{ config, emacs-overlay, idris2-main, pkgs, ... }:
 
 with pkgs;
 let
@@ -68,9 +68,8 @@ in {
     gnumake
     haskell.compiler.ghc924
     htop
-    idris2
+    idris2-main.idris2
     insomnia
-    ipkgs.lsp.withSrcs.idris2 # LSP installed with ttc sources
     jetbrains.idea-ultimate
     joker
     jq
@@ -184,13 +183,6 @@ in {
       });
     })
     (import emacs-overlay)
-    (final: prev:
-      # Rename idris2-pkgs attribute to ipkgs
-      let overlay = (idris2-pkgs.overlay final prev);
-      in {
-        ipkgs = overlay.idris2-pkgs;
-        inherit (overlay) idris2 lib;
-      })
     (final: prev:
       let
         patchedPkgs = import (builtins.fetchTarball {

@@ -11,61 +11,48 @@
       url = "github:IvanMalison/gitignore.nix";
     };
 
-    idris2-main = {
-      url =
-        "github:idris-lang/idris2?rev=a4b99bd81c861a17f9573e92c5a9b6e8b72e3352";
-      flake = false;
-    };
-
-    lsp-pinned = {
-      url =
-        "github:idris-community/idris2-lsp?rev=630e84ed4a7800fd3e70214e44e4a3be96b73ae9";
-      flake = false;
-    };
-
-    idris2-pkgs = {
-      url =
-        "github:claymager/idris2-pkgs?rev=ac33a49d4d4bd2b50fddb040cd889733a02c8f09";
-      # Uses newer dependency versions than in the flake
-      inputs.lsp.follows = "lsp-pinned";
-      inputs.idris2.follows = "idris2-main";
-    };
+    idris2-main.url =
+      "github:idris-lang/idris2?rev=c2bcc14e00794b19a7fc7ecc600f5a79b849f031";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    kolide-config.url = "github:znewman01/kolide-launcher?rev=c48b577d814c17a3aaeb1b89288c9c1509b87cf9";
+    kolide-config.url =
+      "github:znewman01/kolide-launcher?rev=c48b577d814c17a3aaeb1b89288c9c1509b87cf9";
 
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
 
     nixosConfigurations = let
-      args = inputs;
+      inputs' = system:
+        inputs // {
+          idris2-main = inputs.idris2-main.packages.${system};
+        };
       lib = nixpkgs.lib;
       custom-services = lib.filesystem.listFilesRecursive ./modules/services;
       system-rev = { ... }: {
         # Let 'nixos-version --json' know about the Git revision of this flake.
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
       };
-      special-module = { _module.args = inputs; };
+      special-module = system: { _module.args = (inputs' system); };
       kolide-module = inputs.kolide-config.nixosModules;
     in {
-      "emma" = nixpkgs.lib.nixosSystem {
+      "emma" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
-          special-module
+          (special-module system)
           ./machines/desktop.nix
           ./hardware/desktop.nix
           custom-services
         ];
       };
 
-      "daisy" = nixpkgs.lib.nixosSystem {
+      "daisy" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
-          special-module
+          (special-module system)
           ./machines/laptop.nix
           ./hardware/laptop.nix
           custom-services
@@ -76,7 +63,7 @@
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
-          special-module
+          (special-module system)
           ./machines/work-laptop.nix
           ./hardware/work-laptop.nix
           custom-services

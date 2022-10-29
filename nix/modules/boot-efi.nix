@@ -3,7 +3,13 @@
 {
   # Use the systemd-boot EFI boot loader.
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" "riscv64-linux" ];
+    # Enables NixOS to compile and run? software for these systems using qemu emulation.
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "x86_64-windows"
+      "riscv64-linux"
+    ];
+
     loader = { 
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";

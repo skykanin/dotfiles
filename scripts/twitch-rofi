@@ -24,7 +24,7 @@ streamer=`curl -s 'https://gql.twitch.tv/gql' \
 rofi -dmenu -i -p 'Twitch'`|| exit 1
 streamer=`echo $streamer | awk '{print $1}'`
 
-streamlink -p mpv "http://twitch.tv/$streamer" "1080p,1080p60,720p60,720p,480p,best"
+streamlink --twitch-low-latency --hls-live-edge=1 -p mpv "http://twitch.tv/$streamer" "1080p,1080p60,720p60,720p,480p,best"
 
 # qualities=`echo $st | rg -o '\d+p(\d+)?'`
 # q=`echo -e "$qualities" | rofi -dmenu -i -p '⚙'`

@@ -32,9 +32,6 @@ let
       }
       {
         output = "HDMI-0";
-        monitorConfig = ''
-          Option "Rotate" "left"
-        '';
       }
     ];
   };
@@ -66,7 +63,7 @@ in {
   };
 
   environment.extraInit = ''
-    xrandr --output DP-2 --mode 2560x1440 --rate 169 --output HDMI-0 --mode 2560x1440 --rotate left --right-of DP-2
+    xrandr --output DP-2 --mode 2560x1440 --rate 169 --output HDMI-0 --mode 2560x1440 --rotate normal --rate 74 --right-of DP-2
   '';
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

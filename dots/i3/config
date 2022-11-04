@@ -212,7 +212,6 @@ bindsym $mod+shift+x exec "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y'
 
 # Bind printscreen
 bindsym $mod+shift+s exec flameshot gui
-# bindsym $mod+shift+s exec "maim -s 2>/dev/null | xclip -sel c -t image/png"
 
 # Add gaps
 gaps inner 9
@@ -244,7 +243,7 @@ bindsym Shift+Delete exec playerctl previous
 bindsym XF86MonBrightnessUp exec brightnessctl s +10%
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
-# Bind twitch-rofi script
+# Bind twitch rofi scripts
 bindsym $mod+y exec ~/dotfiles/scripts/twitch-rofi
 bindsym $mod+Shift+y exec ~/dotfiles/scripts/twitch-video-rofi
 

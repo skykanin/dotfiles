@@ -38,7 +38,7 @@ bindsym $mod+Shift+q kill
 focus_follows_mouse no
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -261,7 +261,7 @@ exec_always wal -R
 exec kitty --class 'kitty-startup'
 exec firefox --class 'ff-startup2'
 exec emacs
-exec Discord
+exec Discord --disable-smooth-scrolling
 exec spotifywm
 exec qbittorrent
 

@@ -96,7 +96,11 @@
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
-  
+
+(map!
+ :desc "Toggle comment for a line or region."
+ :n "C-/" #'comment-line)
+
 (use-package! lsp-ui
   :after lsp-mode
   :init

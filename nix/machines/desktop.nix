@@ -13,7 +13,7 @@ let
   noisetorchConfig = {
     enable = true;
     device-unit =
-      "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card4-controlC4.device";
+      "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card3-controlC3.device";
     device-id =
       "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
   };

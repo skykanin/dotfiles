@@ -69,6 +69,7 @@ in {
     arc-icon-theme
     arc-theme
     autorandr
+    babashka
     bat
     blueberry
     bottom

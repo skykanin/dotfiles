@@ -15,8 +15,7 @@ let
   };
   noisetorchConfig = {
     enable = true;
-    device-unit =
-      "sys-devices-pci0000:00-0000:00:14.0-usb1-1x2d4-1x2d4.2-1x2d4.2:1.0-sound-card1-controlC1.device";
+    device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d4-1\\x2d4.2-1\\x2d4.2:1.0-sound-card1-controlC1.device";
     device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
   };
   threads = 6;

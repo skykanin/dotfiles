@@ -4,13 +4,13 @@
   services.redshift = {
     enable = true;
     temperature = {
-      day = 6500;
-      night = 3000;
+      day = 7000;
+      night = 3500;
     };
   };
 
   location = {
-    latitude = 63.430515;
-    longitude = 10.395053;
+    latitude = 59.913868;
+    longitude = 10.752245;
   }; 
 }

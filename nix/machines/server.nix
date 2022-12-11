@@ -2,85 +2,62 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, options, pkgs, ... }:
 
-let authorizedSshKeyFiles = [ "id_rsa" "id_rsa_github" ];
+let
+  authorizedSshKeyFiles = [ ];
+  authorizedSshKeys = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4zVrpCIEQcPGiDWusYCBfv+Q9yGvFxaATSinxUYJpRVxqe78/aBG++hk3xbOVdeJF9NQWBgEMLC482pBLqIRwqG48+uy3s9FqUkoFCGqvqqD6ZNrHa3rdk03GEUpKGyUEYPZlJ8Y+t3HqxJAw+5SihNDj7PFGTnTC0hSiLGMqCVknc37Qt9dOo4iY7ANoDjERFpSjMPR3804Higqt+bhkblZOv52yTXnS8GHapZBJYjOCQHnbOJmmjbGZle/lRulYaEHFIWJGbJD7EzjwFUB/Z0h2qEtq2egq3jeFI4GiXrHao7o3pvzgGRt0WL3rBTm1ogXA1h77Oqs9jMfgFqVNYHetPAac/dtwmZY8rRv1zAcEwVqytjrxKQnR5Ghlt4hJoo3btauyNLld+vsDbNiAsru7iyHo9R40Rn5Wx616Ca6Qsf8fZsfVDfPRqLpoF/0kkF5VT9UHsUK4Hm/pBD92dZ79szm06k1B5DBpRgKzcwA9e29uj5xzHWo1Mk7qWgc= skykanin@emma"
+  ];
+  enableFirewall = false;
+  enableNetworkmanager = false;
+  enableLight = false; 
+  enableOpengl = false;
+  threads = 4;
+  noisetorchConfig = { enable = false; };
+  polybarConfig = { enable = false; };
 in {
-  imports =
-    map (path: import path { inherit config pkgs authorizedSshKeyFiles; }) [
-      ../modules/ssh.nix
-      ../modules/user.nix
-    ];
+  imports = [
+    (import ../modules/user.nix {
+      inherit config pkgs authorizedSshKeys authorizedSshKeyFiles;
+    })
+    (import ../modules/general.nix {
+      inherit config options pkgs enableFirewall enableNetworkmanager
+        noisetorchConfig polybarConfig threads enableOpengl;
+    })
+    (import ../modules/programs.nix { inherit config pkgs enableLight; })
+  ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  # boot.loader.grub.efiInstallAsRemovable = true;
+  users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
+  services.openssh.enable = true;
 
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.cleanTmpDir = true;
+  networking.hostName = "dandy"; # Define your hostname.
+  networking.domain = "";
 
-  networking.hostName = "ada"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.ens3.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "no_NO.UTF-8";
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "no";
-  };
+  zramSwap.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System packages
   environment.systemPackages = with pkgs; [
     bat
     curl
     direnv
     docker
+    fd
     fish
     git
     kitty.terminfo
     neofetch
+    python3
     wget
   ];
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Docker virtualisation security
+  security.polkit.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  virtualisation.docker.enable = true;
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.03"; # Did you read the comment?
-
+  # NixOS version
+  system.stateVersion = "22.11";
 }
-

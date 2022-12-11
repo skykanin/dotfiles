@@ -6,10 +6,13 @@ let
   enableNetworkmanager = true;
   enableLight = false;
   enableJellyfin = true;
-  polybar-script = ''
-    MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
-  '';
+  polybarConfig = {
+    enable = true;
+    startup-script = ''
+      MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
+      MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
+    '';
+  };
   noisetorchConfig = {
     enable = true;
     device-unit =
@@ -30,9 +33,7 @@ let
         output = "DP-2";
         primary = true;
       }
-      {
-        output = "HDMI-0";
-      }
+      { output = "HDMI-0"; }
     ];
   };
 in {
@@ -41,7 +42,7 @@ in {
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
       inherit config pkgs enableFirewall enableNetworkmanager enableJellyfin
-        noisetorchConfig polybar-script threads;
+        noisetorchConfig polybarConfig threads;
     })
     ../modules/packages.nix
     ../modules/printing.nix

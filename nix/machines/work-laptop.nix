@@ -5,15 +5,19 @@ let
   enableFirewall = true;
   enableNetworkmanager = true;
   enableLight = true;
-  polybar-script = ''
-    MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=DP-1-2 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    MONITOR=DP-1-3 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-  '';
+  polybarConfig = {
+    enable = true;
+    startup-script = ''
+      MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+      MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+      MONITOR=DP-1-2 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+      MONITOR=DP-1-3 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+    '';
+  };
   noisetorchConfig = {
     enable = true;
-    device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\x2d4-1\x2d4.2-1\x2d4.2:1.0-sound-card1-controlC1.device";
+    device-unit =
+      "sys-devices-pci0000:00-0000:00:14.0-usb1-1x2d4-1x2d4.2-1x2d4.2:1.0-sound-card1-controlC1.device";
     device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
   };
   threads = 6;
@@ -31,8 +35,8 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager noisetorchConfig
-        polybar-script threads;
+      inherit config options pkgs enableFirewall enableNetworkmanager
+        noisetorchConfig polybarConfig threads;
     })
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
     ../modules/redshift.nix

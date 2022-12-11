@@ -1,5 +1,5 @@
-{ config, pkgs, enableFirewall, enableNetworkmanager, enableJellyfin ? false
-, polybar-script, noisetorchConfig, threads, ... }:
+{ config, pkgs, enableFirewall, enableNetworkmanager, enableOpengl ? true, enableJellyfin ? false
+, polybarConfig, noisetorchConfig, threads, ... }:
 
 {
   environment = {
@@ -18,7 +18,7 @@
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      enable = true;
+      enable = enableOpengl;
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
@@ -43,13 +43,11 @@
       max-jobs = threads;
       substituters = [
         "https://cache.nixos.org"
-        "https://hydra.iohk.io"
         "https://iohk.cachix.org"
         "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
         "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
@@ -70,12 +68,9 @@
     package = pkgs.nixVersions.stable;
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    # permittedInsecurePackages = [ "NoiseTorch-0.11.5" ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
-  programs.noisetorch.enable = true;
+  programs.noisetorch.enable = noisetorchConfig.enable;
 
   qt5 = {
     enable = true;
@@ -85,20 +80,13 @@
 
   services = {
     custom = {
-      polybar = {
-        enable = true;
-        startup-script = polybar-script;
-      };
-      noisetorch = {
-        enable = noisetorchConfig.enable;
-        device-unit = noisetorchConfig.device-unit;
-        device-id = noisetorchConfig.device-id;
-      };
+      polybar = polybarConfig;
+      noisetorch = noisetorchConfig;
     };
 
     gnome.gnome-keyring.enable = true;
     jellyfin = {
-      enable = true;
+      enable = enableJellyfin;
       openFirewall = true;
     };
     ratbagd.enable = true;

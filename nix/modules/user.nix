@@ -1,4 +1,4 @@
-{ config, pkgs, authorizedSshKeys ? [ ], authorizedSshKeyFiles, ... }:
+{ config, pkgs, authorizedSshKeys ? [ ], authorizedSshKeyFiles ? [ ], ... }:
 
 let username = "skykanin";
 in {

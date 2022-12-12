@@ -1,10 +1,8 @@
-{ config, pkgs, authorizedSshKeyFiles, ... }: {
+{ config, pkgs, ... }: {
   # Enable the OpenSSH daemon.
   services.openssh = {
     kbdInteractiveAuthentication = false;
     passwordAuthentication = true;
-    authorizedKeysFiles = let sshPath = filename: "$HOME/.ssh/${filename}";
-    in map sshPath authorizedSshKeyFiles;
     enable = true;
     permitRootLogin = "without-password";
     allowSFTP = false;

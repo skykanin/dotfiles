@@ -99,7 +99,7 @@ in {
     racket
     ripgrep
     rlwrap
-    rofiWithPlugins
+    rofi
     shellcheck
     slack
     spotifywm
@@ -140,17 +140,6 @@ in {
     #     postPatch = '''';
     #   }); 
     # })
-    (self: super: {
-      rofiWithPlugins = let
-        rofi-hoogle-src = pkgs.fetchFromGitHub {
-          owner = "rebeccaskinner";
-          repo = "rofi-hoogle";
-          rev = "27c273ff67add68578052a13f560a08c12fa5767";
-          sha256 = "09vx9bc8s53c575haalcqkdwy44ys1j8v9k2aaly7lndr19spp8f";
-        };
-        rofi-hoogle = import "${rofi-hoogle-src}/release.nix";
-      in super.rofi.override { plugins = [ rofi-hoogle.rofi-hoogle ]; };
-    })
     (self: super: {
       weechat-custom = super.weechat.override {
         configure = { availablePlugins, ... }: {

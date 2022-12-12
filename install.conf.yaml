@@ -23,7 +23,7 @@
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix
     ~/.config/rofi/config.rasi: dots/rofi/config.rasi
     ~/.config/wal: dots/wal
-    ~/.config/BetterDiscord/themes: dots/BetterDiscord/themes
+    ~/.config/discocss/custom.css: dots/discocss/custom.css
     ~/Pictures/wallpapers: dots/wallpapers
 
 - create:

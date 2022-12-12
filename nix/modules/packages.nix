@@ -37,7 +37,6 @@ in {
     arc-theme
     autorandr
     bat
-    betterdiscordctl
     bintools-unwrapped
     blueberry
     bottom
@@ -51,6 +50,7 @@ in {
     difftastic
     direnv
     discord
+    discocss
     docker
     dotty
     emacs

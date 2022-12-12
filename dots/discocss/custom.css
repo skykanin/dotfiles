@@ -305,6 +305,21 @@ html.newBrand {
   box-shadow: var(--elevation-low);
 }
 
+/* User profile */
+.userProfileInner-3F03PX {
+  background-color: var(--color0);
+}
+
+/* Link rediriect warning modal */
+.container-KJ38dt {
+  background-color: var(--color0);
+}
+
+/* Payment modal */
+.paymentModalContent, .sequencedAnimation-f_FX_M, .footerSeparator-VzAYwb {
+  background-color: var(--color0);
+}
+
 .rtcConnectionStatusConnected-VRZDjy,
 .rtcConnectionQualityFine-2J6i8z,
 .pingForeground-2uAOZ3 {

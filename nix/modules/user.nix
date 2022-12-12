@@ -18,8 +18,7 @@ in {
     initialPassword = "skykanin"; # Change with passwd later
     openssh.authorizedKeys = {
       keys = authorizedSshKeys;
-      keyFiles = let sshPath = filename: "/home/${username}/.ssh/${filename}";
-      in map sshPath authorizedSshKeyFiles;
+      keyFiles = authorizedSshKeyFiles;
     };
     shell = pkgs.fish;
   };

@@ -5,7 +5,7 @@
 { config, options, pkgs, ... }:
 
 let
-  authorizedSshKeyFiles = [ ];
+  authorizedSshKeyFiles = [ "/root/auth_key" ];
   authorizedSshKeys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4zVrpCIEQcPGiDWusYCBfv+Q9yGvFxaATSinxUYJpRVxqe78/aBG++hk3xbOVdeJF9NQWBgEMLC482pBLqIRwqG48+uy3s9FqUkoFCGqvqqD6ZNrHa3rdk03GEUpKGyUEYPZlJ8Y+t3HqxJAw+5SihNDj7PFGTnTC0hSiLGMqCVknc37Qt9dOo4iY7ANoDjERFpSjMPR3804Higqt+bhkblZOv52yTXnS8GHapZBJYjOCQHnbOJmmjbGZle/lRulYaEHFIWJGbJD7EzjwFUB/Z0h2qEtq2egq3jeFI4GiXrHao7o3pvzgGRt0WL3rBTm1ogXA1h77Oqs9jMfgFqVNYHetPAac/dtwmZY8rRv1zAcEwVqytjrxKQnR5Ghlt4hJoo3btauyNLld+vsDbNiAsru7iyHo9R40Rn5Wx616Ca6Qsf8fZsfVDfPRqLpoF/0kkF5VT9UHsUK4Hm/pBD92dZ79szm06k1B5DBpRgKzcwA9e29uj5xzHWo1Mk7qWgc= skykanin@emma"
   ];
@@ -13,7 +13,7 @@ let
   enableNetworkmanager = false;
   enableLight = false; 
   enableOpengl = false;
-  threads = 4;
+  threads = 2;
   noisetorchConfig = { enable = false; };
   polybarConfig = { enable = false; };
 in {
@@ -28,8 +28,11 @@ in {
     (import ../modules/programs.nix { inherit config pkgs enableLight; })
   ];
 
-  users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
   services.openssh.enable = true;
+  users.users.root.openssh.authorizedKeys = {
+    keyFiles = authorizedSshKeyFiles;
+    keys = authorizedSshKeys;
+  };
 
   boot.cleanTmpDir = true;
   networking.hostName = "dandy"; # Define your hostname.
@@ -52,6 +55,7 @@ in {
     kitty.terminfo
     neofetch
     python3
+    vim
     wget
   ];
 

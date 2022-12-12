@@ -2,7 +2,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     kbdInteractiveAuthentication = false;
-    passwordAuthentication = true;
+    passwordAuthentication = false;
     enable = true;
     permitRootLogin = "without-password";
     allowSFTP = false;

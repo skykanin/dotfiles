@@ -1,5 +1,6 @@
-{ config, pkgs, enableFirewall, enableNetworkmanager, enableOpengl ? true, enableJellyfin ? false
-, polybarConfig, noisetorchConfig, threads, ... }:
+{ config, pkgs, enableFirewall, enableNetworkmanager, enableOpengl ? true
+, enableJellyfin ? false, polybarConfig, noisetorchConfig, threads
+, ... }:
 
 {
   environment = {
@@ -90,13 +91,6 @@
       openFirewall = true;
     };
     ratbagd.enable = true;
-  };
-
-  system = {
-    autoUpgrade = {
-      allowReboot = true;
-      enable = true;
-    };
   };
 
   systemd.extraConfig = ''

@@ -1,4 +1,4 @@
-{ modulesPath, ... }:
+{ modulesPath, lib, ... }:
 
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
@@ -10,4 +10,6 @@
     device = "/dev/sda1";
     fsType = "ext4";
   };
+
+  swapDevices = lib.mkForce [];
 }

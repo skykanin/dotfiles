@@ -11,6 +11,8 @@
     variables.EDITOR = "vim";
   };
 
+  documentation.man.generateCaches = true;
+
   fonts = {
     fonts = with pkgs; [ jetbrains-mono noto-fonts unifont victor-mono ];
   };

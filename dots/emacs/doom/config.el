@@ -36,6 +36,16 @@
 ;; Load custom env file
 (doom-load-envvars-file "~/.doom.d/myenv")
 
+;; Add more default pairs to evil-surround
+(use-package! evil-surround
+  :config
+  (setq-default evil-surround-pairs-alist
+                  (progn
+                    ;; These don't work correctly
+                    (dolist (elem '((?\= . ("=" . "=")) (?\+ . ("+" . "+"))))
+                          (push elem evil-surround-pairs-alist))
+                    evil-surround-pairs-alist)))
+
 ;; Configure elcord
 (use-package! elcord
   :config (elcord-mode))

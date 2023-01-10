@@ -83,7 +83,7 @@ in {
     direnv
     discord
     docker
-    emacsNativeComp
+    emacs
     fd
     feh
     ffmpeg-full

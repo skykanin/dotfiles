@@ -16,9 +16,7 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    kolide-config.url =
-      "github:znewman01/kolide-launcher?rev=c48b577d814c17a3aaeb1b89288c9c1509b87cf9";
-
+    kolide-config.url = "github:skykanin/kolide-launcher";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {

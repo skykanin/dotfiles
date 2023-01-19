@@ -101,6 +101,8 @@
 
   :init
   (setq lsp-lens-enable t)
+        ;; Disables the lsp diagnostic provider flycheck/flymake.
+        ;; lsp-diagnostics-provider :none)
   (with-eval-after-load 'lsp-mode
     ;; To avoid watching all Scrive API docs.
     (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
@@ -122,15 +124,11 @@
           :localleader
           :n "s d" #'lsp-ui-doc-show))
 
-(use-package flycheck
-  :config
-   (remove-hook 'flycheck-mode-hook 'flycheck-maybe-display-error-at-point-soon 'flycheck-display-error-at-point-soon))
-
 ;; Make the LSP shut the fuck up with prompts
 (setq! +lsp-prompt-to-install-server 'quiet)
 
 ;; Temporary config to stop HLS from prompting restart
-;; when it crashes which is constantly
+;; when it crash loops.
 ;; (remove-hook 'haskell-mode-local-vars-hook #'lsp!)
 ;; Remember to add the hook again if you remove it !!!
 ;; (add-hook 'haskell-mode-local-vars-hook #'lsp!)

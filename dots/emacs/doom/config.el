@@ -33,6 +33,12 @@
 ;; Add line wrapping
 (global-visual-line-mode t)
 
+;; FIXME: This only works if `aspell' is installed globally
+;; on the machine
+(use-package! spell-fu
+  ;; Set the default dictionary to british english
+  :config (setq ispell-dictionary "en_GB"))
+
 ;; Load custom env file
 (doom-load-envvars-file "~/.doom.d/myenv")
 

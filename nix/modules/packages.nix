@@ -35,6 +35,7 @@ in {
     ani-cli
     arc-icon-theme
     arc-theme
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     autorandr
     bat
     bintools-unwrapped

@@ -30,6 +30,11 @@
        :weight 'semi-bold
        :size 14))
 
+;; Neotree settings
+(setq doom-neotree-enable-variable-pitch nil
+      doom-themes-neotree-enable-variable-pitch nil
+      doom-themes-neotree-file-icons t)
+
 ;; Add line wrapping
 (global-visual-line-mode t)
 

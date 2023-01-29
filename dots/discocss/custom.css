@@ -41,6 +41,11 @@ element {
   font-size: 100%;
 }
 
+/* Use victor mono in code blocks */
+.about, code, [class*="codeLine"], [class*="inlineCode"] {
+  font-family: 'Victor Mono SemiBold', mono !important;
+}
+
 /* end element */
 :root {
   /* Yeah, I know lightbg is actually darker than darkbg but whatever

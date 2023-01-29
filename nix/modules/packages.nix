@@ -88,7 +88,7 @@ in {
     nodejs-18_x
     noisetorch
     obs-studio
-    openjdk17
+    openjdk
     pamixer
     pavucontrol
     pciutils

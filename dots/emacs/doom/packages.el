@@ -31,10 +31,8 @@
 
 ;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
 
-(package! lsp-mode
-  :recipe (:host github
-           :repo "emacs-lsp/lsp-mode"
-           :branch "master"))
+(package! lsp-metals
+  :pin "a2df7263ece6ac69214e41c52d66aab8d3f650eb")
 
 (package! idris-mode
   :recipe (:host github

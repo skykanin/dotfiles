@@ -80,6 +80,11 @@
 ;; Configure lsp-haskell
 (setq lsp-haskell-formatting-provider "fourmolu")
 
+;; Configure scala metals LSP
+(use-package! lsp-metals
+  :config
+  (setq lsp-metals-java-home "/run/current-system/sw/lib/openjdk"))
+
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))

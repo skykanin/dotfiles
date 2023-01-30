@@ -70,6 +70,7 @@ in {
     android-studio
     arc-icon-theme
     arc-theme
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     autorandr
     babashka
     bat

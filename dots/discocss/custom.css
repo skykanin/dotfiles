@@ -671,6 +671,11 @@ html body div#app-mount.appMount-3lHmkl {
 
 /* end body div#app-mount.appMount-3lHmkl */
 
+/* Fix unseen new message highlight in thread channels */
+.modeUnread-3Cxepe .name-28HaxV {
+  color: var(--color6);
+}
+
 .avatarSpeaking-2pCGrZ {
   /* fix speaking indicator */
   -webkit-box-shadow: inset 0 0 0 2px var(--color1),

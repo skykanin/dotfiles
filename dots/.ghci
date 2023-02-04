@@ -11,6 +11,7 @@
 :seti -XPartialTypeSignatures
 :seti -XTypeOperators
 :seti -XGHC2021
+:seti -XLexicalNegation
 :set -XNoStarIsType
 :seti -XTypeApplications
 :seti -XOverloadedLabels

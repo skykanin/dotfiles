@@ -67,7 +67,7 @@ in {
     gitFull
     gnome.nautilus
     gnumake
-    haskell.compiler.ghc924
+    haskell.compiler.ghcHEAD
     htop
     idris2-main.idris2
     insomnia

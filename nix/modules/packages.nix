@@ -65,7 +65,6 @@ in {
     gimp
     gitAndTools.gh
     gitFull
-    gnome.nautilus
     gnumake
     haskell.compiler.ghcHEAD
     htop
@@ -85,6 +84,7 @@ in {
     networkmanagerapplet
     nix-direnv
     nixfmt
+    nnn
     nodejs-18_x
     noisetorch
     obs-studio

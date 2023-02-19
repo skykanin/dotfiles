@@ -95,7 +95,6 @@ in {
     gimp
     git
     gitAndTools.gh
-    gnome.nautilus
     gnumake
     haskell.compiler.ghc924
     htop
@@ -109,6 +108,7 @@ in {
     neofetch
     networkmanagerapplet
     nix-direnv
+    nnn
     nodejs-18_x
     openjdk
     openresolv

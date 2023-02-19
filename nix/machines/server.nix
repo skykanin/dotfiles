@@ -56,6 +56,7 @@ in {
     git
     kitty.terminfo
     neofetch
+    nnn
     python3
     vim
     wget

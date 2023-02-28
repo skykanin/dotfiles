@@ -96,7 +96,7 @@ in {
     git
     gitAndTools.gh
     gnumake
-    haskell.compiler.ghc924
+    (haskell.packages.ghc944.ghcWithPackages (p: with p; [ unicode-show ]))
     htop
     insomnia
     keepassxc

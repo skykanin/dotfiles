@@ -1,20 +1,18 @@
 :set prompt "λ> "
 :set prompt-cont "λ| "
-:seti -XBinaryLiterals
+:seti -XGHC2021
 :seti -XDataKinds
 :seti -XGADTSyntax
 :seti -XGADTs
-:seti -XInstanceSigs
-:seti -XKindSignatures
 :seti -XLambdaCase
 :seti -XMagicHash
 :seti -XPartialTypeSignatures
-:seti -XTypeOperators
-:seti -XGHC2021
 :seti -XLexicalNegation
-:set -XNoStarIsType
-:seti -XTypeApplications
+:seti -XNoStarIsType
 :seti -XOverloadedLabels
+:seti -XOverloadedStrings
 :seti -Wall
 :seti -Wno-type-defaults
 :set -freverse-errors
+import qualified Text.Show.Unicode
+:set -interactive-print=Text.Show.Unicode.uprint

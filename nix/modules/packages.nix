@@ -66,7 +66,7 @@ in {
     gitAndTools.gh
     gitFull
     gnumake
-    haskell.compiler.ghcHEAD
+    (haskell.packages.ghc944.ghcWithPackages (p: with p; [ unicode-show ]))
     htop
     idris2-main.idris2
     insomnia

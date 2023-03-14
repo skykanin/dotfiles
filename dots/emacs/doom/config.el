@@ -149,6 +149,21 @@
 ;; Remember to add the hook again if you remove it !!!
 ;; (add-hook 'haskell-mode-local-vars-hook #'lsp!)
 
+;; Remove rainbow delimiters from lisp modes
+(after! elisp-mode
+  (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+
+(after! clojure-mode
+  (remove-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
+
+(after! racket-mode
+  (remove-hook 'racket-mode-hook #'rainbow-delimiters-mode))
+
+(after! geiser-mode
+  (remove-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
+
+(after! scheme-mode-hook)
+
 (use-package! unisonlang-mode)
 
 (map! :after unisonlang-mode

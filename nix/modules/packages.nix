@@ -142,27 +142,6 @@ in {
     #     postPatch = '''';
     #   }); 
     # })
-    (self: super: {
-      polybar-git = polybarFull.overrideAttrs (oldAttrs: rec {
-        name = "polybar";
-        version = "542f70efa3efd23e0305b0f728ae0389fdea4962";
-
-        src = pkgs.fetchFromGitHub {
-          owner = name;
-          repo = name;
-          rev = version;
-          sha256 = "sha256-GnF1IlwHe1nnqtYJNGcWYDA6EuZJsMVqqFqeEeJrkJM=";
-          fetchSubmodules = true;
-        };
-
-        buildInputs = oldAttrs.buildInputs ++ [ libuv ];
-
-        nativeBuildInputs = oldAttrs.nativeBuildInputs
-          ++ [ python3Packages.sphinx ];
-
-        patches = [ ./polybar.patch ];
-      });
-    })
     (import emacs-overlay)
     (final: prev:
       let

@@ -43,6 +43,7 @@ in {
     bottom
     brightnessctl
     cachix
+    (cbqn.override { enableReplxx = true; }) 
     chatterino2
     clj-kondo
     clojure

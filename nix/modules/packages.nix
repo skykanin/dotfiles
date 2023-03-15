@@ -111,7 +111,7 @@ in {
     unison-ucm
     unzip
     vim-with-conf
-    weechat-custom
+    weechat
     wget
     xclip
     xdg-utils
@@ -141,16 +141,6 @@ in {
     #     postPatch = '''';
     #   }); 
     # })
-    (self: super: {
-      weechat-custom = super.weechat.override {
-        configure = { availablePlugins, ... }: {
-          scripts = with super.weechatScripts;
-            [
-              #weechat-matrix
-            ];
-        };
-      };
-    })
     (self: super: {
       polybar-git = polybarFull.overrideAttrs (oldAttrs: rec {
         name = "polybar";

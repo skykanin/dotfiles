@@ -167,6 +167,10 @@
 
 (use-package! unisonlang-mode)
 
+(map!
+ :desc "Toggle comment for a line or region."
+ :n "C-/" #'comment-line)
+
 (map! :after unisonlang-mode
       :map unisonlang-mode-map
       :localleader

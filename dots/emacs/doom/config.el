@@ -165,17 +165,18 @@
 (after! scheme-mode-hook
    (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
 
-(use-package! unisonlang-mode)
 
 (map!
  :desc "Toggle comment for a line or region."
  :n "C-/" #'comment-line)
 
-(map! :after unisonlang-mode
-      :map unisonlang-mode-map
-      :localleader
-      :n "f" #'unisonlang-mode-add-fold
-      :n "u" #'unisonlang-mode-remove-fold)
+(use-package! unisonlang-mode
+  :config
+  (map! :after unisonlang-mode
+        :map unisonlang-mode-map
+        :localleader
+        :n "f" #'unisonlang-mode-add-fold
+        :n "u" #'unisonlang-mode-remove-fold))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

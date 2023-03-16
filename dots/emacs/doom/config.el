@@ -162,7 +162,8 @@
 (after! geiser-mode
   (remove-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
-(after! scheme-mode-hook)
+(after! scheme-mode-hook
+   (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
 
 (use-package! unisonlang-mode)
 

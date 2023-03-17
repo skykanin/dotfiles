@@ -25,6 +25,7 @@
     ~/.config/wal: dots/wal
     ~/.config/discocss/custom.css: dots/discocss/custom.css
     ~/Pictures/wallpapers: dots/wallpapers
+    ~/get-sha.clj: scripts/get-sha.clj
 
 - create:
     - ~/.vim/undo-history

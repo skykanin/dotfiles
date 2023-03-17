@@ -85,7 +85,6 @@ in {
     neofetch
     networkmanagerapplet
     nix-direnv
-    nixfmt
     nnn
     nodejs-18_x
     noisetorch

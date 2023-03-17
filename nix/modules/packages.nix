@@ -37,6 +37,7 @@ in {
     arc-theme
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
     autorandr
+    babashka
     bat
     bintools-unwrapped
     blueberry

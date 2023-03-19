@@ -149,6 +149,10 @@
 ;; Remember to add the hook again if you remove it !!!
 ;; (add-hook 'haskell-mode-local-vars-hook #'lsp!)
 
+(map!
+ :desc "Toggle comment for a line or region."
+ :n "C-/" #'comment-line)
+
 ;; Remove rainbow delimiters from lisp modes
 (after! elisp-mode
   (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))

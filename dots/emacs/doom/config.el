@@ -178,6 +178,25 @@
         :n "f" #'unisonlang-mode-add-fold
         :n "u" #'unisonlang-mode-remove-fold))
 
+(use-package! bqn-mode
+  :config
+  ;; Use JetBrains Mono font which supports all bqn characters
+  ; (let ((jetbrains-mono '(:family "JetBrains Mono")))
+  ;   (apply #'set-face-attribute 'bqn-syntax-list-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-separator-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-arrow-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-function-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-one-modifier-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-two-modifier-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-subject-face nil jetbrains-mono)
+  ;   (apply #'set-face-attribute 'bqn-syntax-nothing-face nil jetbrains-mono))
+  ;; Set BQN input method
+  (after! bqn-mode
+    (set-input-method "BQN-Z")
+    (setq default-input-method "BQN-Z")
+    (toggle-input-method))
+  (add-hook! 'bqn-mode-hook #'toggle-input-method))
+
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
 

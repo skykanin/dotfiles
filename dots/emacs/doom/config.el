@@ -184,22 +184,24 @@
 
 (use-package! bqn-mode
   :config
-  ;; Use JetBrains Mono font which supports all bqn characters
-  ; (let ((jetbrains-mono '(:family "JetBrains Mono")))
-  ;   (apply #'set-face-attribute 'bqn-syntax-list-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-separator-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-arrow-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-function-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-one-modifier-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-two-modifier-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-subject-face nil jetbrains-mono)
-  ;   (apply #'set-face-attribute 'bqn-syntax-nothing-face nil jetbrains-mono))
   ;; Set BQN input method
   (after! bqn-mode
     (set-input-method "BQN-Z")
-    (setq default-input-method "BQN-Z")
-    (toggle-input-method))
-  (add-hook! 'bqn-mode-hook #'toggle-input-method))
+    (setq default-input-method "BQN-Z"))
+  ;; Set BQN386 font in other bqn major modes. `bqn-mode' already uses the font by default,
+  ;; however we include it here as well because comments aren't covered by the font faces.
+  (add-hook! '(bqn-mode-hook bqn-comint-mode-hook bqn-keymap-mode-hook bqn-glyph-mode-hook)
+           (face-remap-add-relative 'default '(:family "BQN386 Unicode"))
+    ;; Keybindings for bqn-mode
+    (map! :leader
+          :after bqn-mode
+          :mode bqn-mode
+          :n "m s d" #'bqn-help-symbol-info-at-point
+          :n "m s n" #'bqn-help-symbol-at-point-is-called
+          :n "m s k" #'bqn-keymap-mode-show-keyboard
+          :n "m s g" #'bqn-glyph-mode-show-glyphs
+          :n "m x b" #'bqn-comint-process-execute-buffer
+          :n "m x l" #'bqn-comint-process-execute-line)))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

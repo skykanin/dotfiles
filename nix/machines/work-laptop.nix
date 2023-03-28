@@ -66,6 +66,7 @@ in {
       '';
     };
   in with pkgs; [
+    _1password-gui-beta
     adwaita-qt
     android-studio
     arc-icon-theme
@@ -143,6 +144,8 @@ in {
       intelBusId = "PCI:0:2:0";
     };
   };
+
+  programs._1password.enable = true;
 
   services = {
     logind.lidSwitch = "suspend";

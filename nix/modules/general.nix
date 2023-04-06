@@ -14,7 +14,7 @@
   documentation.man.generateCaches = true;
 
   fonts = {
-    fonts = with pkgs; [ jetbrains-mono noto-fonts unifont victor-mono ];
+    fonts = with pkgs; [ bqn386 jetbrains-mono noto-fonts unifont victor-mono ];
   };
 
   hardware = {

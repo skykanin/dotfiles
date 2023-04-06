@@ -44,7 +44,7 @@ in {
     bottom
     brightnessctl
     cachix
-    cbqn-replxx
+    (cbqn-replxx.override { enableSingeli = true; })
     chatterino2
     clj-kondo
     clojure

@@ -45,7 +45,7 @@
   :config (setq ispell-dictionary "en_GB"))
 
 ;; Load custom env file
-(doom-load-envvars-file "~/.doom.d/myenv")
+;; (doom-load-envvars-file "~/.doom.d/myenv")
 
 ;; Add more default pairs to evil-surround
 (use-package! evil-surround
@@ -64,27 +64,6 @@
 ;; Configure flycheck-clj-kondo
 (use-package! flycheck-clj-kondo)
 
-;; Configure svelte
-(use-package! svelte-mode
-  :config
-  (setq lsp-semantic-tokens-enable t)
-  (after! lsp-mode
-    (add-to-list 'lsp-language-id-configuration '(svelte-mode . "svelte"))
-
-    (lsp-register-client
-     (make-lsp-client
-      :new-connection (lsp-stdio-connection "svelte-language-server")
-      :major-modes '(svelte-mode)
-      :server-id 'svelte-language-server))))
-
-;; Configure lsp-haskell
-(setq lsp-haskell-formatting-provider "fourmolu")
-
-;; Configure scala metals LSP
-(use-package! lsp-metals
-  :config
-  (setq lsp-metals-java-home "/run/current-system/sw/lib/openjdk"))
-
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))
@@ -100,54 +79,22 @@
 (eval-after-load 'js2-mode '(setq js--prettify-symbols-alist nil))
 (eval-after-load 'lisp-mode '(setq lisp-prettify-symbols-alist nil))
 
-(use-package! idris-mode
-  :mode ("\\.l?idr\\'" . idris-mode)
-  :config (setq lsp-semantic-tokens-enable t))
+;; ------------------------------- LSP -------------------------------
+;; Eglot global lsp servers config
+;;
+;; This syntax also works:
+;; '((:haskell .
+;;       (:formattingProvider "fourmolu"
+;;        :maxCompletions 30)
+(setq-default eglot-workspace-configuration
+  '((haskell
+      (formattingProvider . "fourmolu")
+      (maxCompletions . 30))))
 
-(use-package! lsp-mode
-  :defer
-  :hook
-  ((elm-mode . lsp-deferred))
-  :config
-  ;; Slightly improve the ugly colours for semantic highlighting (only used for idris)
-  (after! lsp-semantic-tokens
-    (set-face-attribute 'lsp-face-semhl-function nil :foreground "#83a598")
-    (set-face-attribute 'lsp-face-semhl-variable nil :inherit 'default)
-    (set-face-attribute 'lsp-face-semhl-method nil :inherit 'default))
+;; Restrict eldoc popup window size to 1.
+(setq-default eldoc-echo-area-use-multiline-p 1)
 
-  :init
-  (setq lsp-lens-enable t)
-        ;; Disables the lsp diagnostic provider flycheck/flymake.
-        ;; lsp-diagnostics-provider :none)
-  (with-eval-after-load 'lsp-mode
-    ;; To avoid watching all Scrive API docs.
-    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]api_docs\\'" t)
-    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_build-adminonly\\'" t)
-    (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]_local\\'" t)))
-
-(map!
- :desc "Toggle comment for a line or region."
- :n "C-/" #'comment-line)
-
-(use-package! lsp-ui
-  :after lsp-mode
-  :init
-    (setq lsp-ui-sideline-enable nil
-          lsp-ui-doc-enable t)
-  :config
-    (map! :after lsp-ui
-          :map lsp-ui-mode-map
-          :localleader
-          :n "s d" #'lsp-ui-doc-show))
-
-;; Make the LSP shut the fuck up with prompts
-(setq! +lsp-prompt-to-install-server 'quiet)
-
-;; Temporary config to stop HLS from prompting restart
-;; when it crash loops.
-;; (remove-hook 'haskell-mode-local-vars-hook #'lsp!)
-;; Remember to add the hook again if you remove it !!!
-;; (add-hook 'haskell-mode-local-vars-hook #'lsp!)
+;; ------------------------------- LSP END -------------------------------
 
 (map!
  :desc "Toggle comment for a line or region."
@@ -193,6 +140,7 @@
   (add-hook! '(bqn-mode-hook bqn-comint-mode-hook bqn-keymap-mode-hook bqn-glyph-mode-hook)
            (face-remap-add-relative 'default '(:family "BQN386 Unicode"))
     ;; Keybindings for bqn-mode
+    ;; FIXME: Make them mode local using localleader
     (map! :leader
           :after bqn-mode
           :mode bqn-mode

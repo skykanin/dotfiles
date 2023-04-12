@@ -33,12 +33,8 @@
 ;; When developing on `lsp-mode' use the local repo
 ;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
 
-(package! lsp-mode
-  :recipe (:host github
-           :repo "emacs-lsp/lsp-mode"
-           :branch "master"))
-
-;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
+(package! eglot
+  :pin "28c1c3a52e1cb7fa7260815eb53700f348d48dd5")
 
 (package! lsp-metals
   :pin "a2df7263ece6ac69214e41c52d66aab8d3f650eb")

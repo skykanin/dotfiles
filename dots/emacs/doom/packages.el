@@ -9,7 +9,8 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 
-(package! elcord)
+;; Disable elcord if on "iris" computer
+(package! elcord :disable (string= (system-name) "iris"))
 
 (package! flycheck-clj-kondo)
 

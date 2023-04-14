@@ -133,18 +133,18 @@
   ;; Set BQN386 font in other bqn major modes. `bqn-mode' already uses the font by default,
   ;; however we include it here as well because comments aren't covered by the font faces.
   (add-hook! '(bqn-mode-hook bqn-comint-mode-hook bqn-keymap-mode-hook bqn-glyph-mode-hook)
-           (face-remap-add-relative 'default '(:family "BQN386 Unicode"))
-    ;; Keybindings for bqn-mode
-    ;; FIXME: Make them mode local using localleader
-    (map! :leader
-          :after bqn-mode
-          :mode bqn-mode
-          :n "m s d" #'bqn-help-symbol-info-at-point
-          :n "m s n" #'bqn-help-symbol-at-point-is-called
-          :n "m s k" #'bqn-keymap-mode-show-keyboard
-          :n "m s g" #'bqn-glyph-mode-show-glyphs
-          :n "m x b" #'bqn-comint-process-execute-buffer
-          :n "m x l" #'bqn-comint-process-execute-line)))
+           (face-remap-add-relative 'default '(:family "BQN386 Unicode")))
+  ;; Keybindings for bqn-mode
+  ;; FIXME: Make them mode local using localleader
+  (map! :leader
+         :after bqn-mode
+         :mode bqn-mode
+         :n "m s d" #'bqn-help-symbol-info-at-point
+         :n "m s n" #'bqn-help-symbol-at-point-is-called
+         :n "m s k" #'bqn-keymap-mode-show-keyboard
+         :n "m s g" #'bqn-glyph-mode-show-glyphs
+         :n "m x b" #'bqn-comint-process-execute-buffer
+         :n "m x l" #'bqn-comint-process-execute-line))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

@@ -96,10 +96,6 @@
 
 ;; ------------------------------- LSP END -------------------------------
 
-(map!
- :desc "Toggle comment for a line or region."
- :n "C-/" #'comment-line)
-
 ;; Remove rainbow delimiters from lisp modes
 (after! elisp-mode
   (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
@@ -115,7 +111,6 @@
 
 (after! scheme-mode-hook
    (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
-
 
 (map!
  :desc "Toggle comment for a line or region."

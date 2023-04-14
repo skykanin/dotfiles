@@ -44,9 +44,6 @@
   ;; Set the default dictionary to british english
   :config (setq ispell-dictionary "en_GB"))
 
-;; Load custom env file
-;; (doom-load-envvars-file "~/.doom.d/myenv")
-
 ;; Add more default pairs to evil-surround
 (use-package! evil-surround
   :config

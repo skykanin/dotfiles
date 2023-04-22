@@ -125,7 +125,7 @@
     (setq default-input-method "BQN-Z"))
   ;; Set BQN386 font in other bqn major modes. `bqn-mode' already uses the font by default,
   ;; however we include it here as well because comments aren't covered by the font faces.
-  (add-hook! '(bqn-mode-hook bqn-comint-mode-hook bqn-keymap-mode-hook bqn-glyph-mode-hook)
+  (add-hook! '(bqn-keymap-mode-hook bqn-glyph-mode-hook)
            (face-remap-add-relative 'default '(:family "BQN386 Unicode")))
   ;; Keybindings for bqn-mode
   ;; FIXME: Make them mode local using localleader

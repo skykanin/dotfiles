@@ -136,8 +136,8 @@
          :n "m s n" #'bqn-help-symbol-at-point-is-called
          :n "m s k" #'bqn-keymap-mode-show-keyboard
          :n "m s g" #'bqn-glyph-mode-show-glyphs
-         :n "m x b" #'bqn-comint-process-execute-buffer
-         :n "m x l" #'bqn-comint-process-execute-line))
+         :n "m x b" #'bqn-comint-send-buffer
+         :n "m x l" #'bqn-comint-send-dwim))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

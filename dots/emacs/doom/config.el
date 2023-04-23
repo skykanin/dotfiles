@@ -128,16 +128,16 @@
   (add-hook! '(bqn-keymap-mode-hook bqn-glyph-mode-hook)
            (face-remap-add-relative 'default '(:family "BQN386 Unicode")))
   ;; Keybindings for bqn-mode
-  ;; FIXME: Make them mode local using localleader
   (map! :leader
-         :after bqn-mode
-         :mode bqn-mode
-         :n "m s d" #'bqn-help-symbol-info-at-point
-         :n "m s n" #'bqn-help-symbol-at-point-is-called
-         :n "m s k" #'bqn-keymap-mode-show-keyboard
-         :n "m s g" #'bqn-glyph-mode-show-glyphs
-         :n "m x b" #'bqn-comint-send-buffer
-         :n "m x l" #'bqn-comint-send-dwim))
+        :after bqn-mode
+        :map bqn-mode-map
+        :localleader
+        :n "s d" #'bqn-help-symbol-info-at-point
+        :n "s n" #'bqn-help-symbol-at-point-is-called
+        :n "s k" #'bqn-keymap-mode-show-keyboard
+        :n "s g" #'bqn-glyph-mode-show-glyphs
+        :n "x b" #'bqn-comint-send-buffer
+        :n "x l" #'bqn-comint-send-dwim))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

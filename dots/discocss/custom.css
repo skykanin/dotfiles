@@ -690,7 +690,7 @@ html body div#app-mount.appMount-3lHmkl {
 
 /* please colour in the popout windows */
 .contentWrapper-3vHNP2, .recentMentionsPopout-2bI1ZN, .messagesPopout-eVzQcI, .list-wek7hJ,
-.quickswitcher-pKcM9U, .modal-2Hrb0S, .emojiPicker-6YCk8a, .userProfileInnerThemedNonPremium-2AJg-H {
+.quickswitcher-pKcM9U, .modal-2Hrb0S, .emojiPicker-6YCk8a, .emojiPickerHasTabWrapper-LoluYe, .userProfileInnerThemedNonPremium-2AJg-H {
   background-color: var(--background-primary);
 }
 

@@ -6,7 +6,8 @@
  '(custom-safe-themes
    '("01cf34eca93938925143f402c2e6141f03abb341f27d1c2dba3d50af9357ce70" "188fed85e53a774ae62e09ec95d58bb8f54932b3fd77223101d036e3564f9206" default))
  '(safe-local-variable-values
-   '((ispell-dictionary . "en_GB")
+   '((lsp-bridge-user-langserver-dir . "/home/skykanin/Projects/consumers")
+     (ispell-dictionary . "en_GB")
      (lsp-haskell-formatting-provider . "fourmolu")
      (haskell-mode-stylish-haskell-path . "fourmolu")
      (lsp-haskell-plugin-import-lens-code-actions-on . f)

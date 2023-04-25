@@ -105,6 +105,9 @@
 (after! scheme-mode-hook
    (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
 
+;; Display major mode icon in the modeline
+(setq doom-modeline-major-mode-icon t)
+
 (map!
  :desc "Toggle comment for a line or region."
  :n "C-/" #'comment-line)

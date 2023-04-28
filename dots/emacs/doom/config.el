@@ -55,7 +55,11 @@
 
 ;; Configure elcord
 (use-package! elcord
-  :config (elcord-mode))
+  :config (elcord-mode)
+  :custom (elcord-use-major-mode-as-main-icon t)
+          (elcord-refresh-rate 10)
+          ;; NOTE: Bypass discord API URL caching?
+          (elcord-icon-base "https://raw.githubusercontent.com/skykanin/elcord/master/icons/"))
 
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes

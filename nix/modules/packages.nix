@@ -72,7 +72,7 @@ in {
     htop
     idris2-main.idris2
     insomnia
-    jetbrains.idea-ultimate
+    jetbrains.idea-community
     joker
     jq
     keepassxc

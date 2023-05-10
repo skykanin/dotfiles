@@ -40,7 +40,7 @@
 ;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
 
 (package! eglot
-  :pin "28c1c3a52e1cb7fa7260815eb53700f348d48dd5")
+  :pin "8b5532dd32b25276c1857508030b207f765ef9b6")
 
 (package! lsp-metals
   :pin "a2df7263ece6ac69214e41c52d66aab8d3f650eb")

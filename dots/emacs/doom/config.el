@@ -91,7 +91,7 @@
 ;; Restrict eldoc popup window size to 1.
 (setq-default eldoc-echo-area-use-multiline-p 1)
 
-;; ------------------------------- LSP END -------------------------------
+;; ------------------------------- END -------------------------------
 
 ;; Remove rainbow delimiters from lisp modes
 (after! elisp-mode
@@ -148,8 +148,40 @@
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
 
+;; ------------------------- Modeline and file explorer icons -------------------------
+
 ;; Associate the .pl file extension with prolog and not the default perl
-(add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
+(progn
+  (rassq-delete-all 'perl-mode auto-mode-alist)
+  (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode)))
+
+;; When getting the file icon for the buffer *only* use the
+;; major-mode to determine the correct icon to use, not the
+;; file extension.
+(eval-after-load 'all-the-icons
+  '(defun all-the-icons--icon-info-for-buffer (&optional f)
+    "Get icon info for the current buffer.
+
+When F is provided, the info function is calculated with the format
+`all-the-icons-icon-%s-for-file' or `all-the-icons-icon-%s-for-mode'."
+    (let* ((base-f (concat "all-the-icons-icon" (when f (format "-%s" f))))
+           (mode-f (intern (concat base-f "-for-mode"))))
+      (funcall mode-f major-mode))))
+
+;; When getting the file icon for `ivy-mode' file explorer hard code
+;; the prolog icon for files that end with ".pl"
+(eval-after-load 'all-the-icons-ivy
+  '(defun all-the-icons-ivy-icon-for-file (s)
+    "Return icon for filename S.
+  Return the octicon for directory if S is a directory.
+  Otherwise fallback to calling `all-the-icons-icon-for-file'."
+    (cond
+     ((string-match-p "\\/$" s)
+      (all-the-icons-octicon "file-directory" :face 'all-the-icons-ivy-dir-face))
+     ((string-match-p ".*\.pl" s) (all-the-icons-icon-for-mode 'prolog-mode))
+     (t (all-the-icons-icon-for-file s)))))
+
+;; --------------------------------------- END ---------------------------------------
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the

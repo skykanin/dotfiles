@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/skykanin/Pictures/wallpapers/planets.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#16181a",
+        "foreground": "#c4c5c5",
+        "cursor": "#c4c5c5"
+    },
+    "colors": {
+        "color0": "#16181a",
+        "color1": "#853748",
+        "color2": "#df4446",
+        "color3": "#00bce6",
+        "color4": "#e9755f",
+        "color5": "#ed9b75",
+        "color6": "#e6a881",
+        "color7": "#c4c5c5",
+        "color8": "#505153",
+        "color9": "#853748",
+        "color10": "#df4446",
+        "color11": "#00bce6",
+        "color12": "#e9755f",
+        "color13": "#ed9b75",
+        "color14": "#e6a881",
+        "color15": "#c4c5c5"
+    }
+}

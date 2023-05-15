@@ -26,6 +26,7 @@
     ~/.config/discocss/custom.css: dots/discocss/custom.css
     ~/Pictures/wallpapers: dots/wallpapers
     ~/get-sha.clj: scripts/get-sha.clj
+    ~/patch-discord-krisp: scripts/patch-discord-krisp
 
 - create:
     - ~/.vim/undo-history

@@ -1,0 +1,9 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p rizin
+
+set -x
+
+path=~/.config/discord/0.0.25/modules/discord_krisp/discord_krisp.node
+
+addr=$(rz-find -x '4889dfe8........4889dfe8' $path | head -n1)
+rizin -q -w -c "s $addr + 0x12 ; wao nop" $path

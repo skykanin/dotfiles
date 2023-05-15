@@ -688,10 +688,16 @@ html body div#app-mount.appMount-3lHmkl {
   background-color: var(--background-primary);
 }
 
-/* please colour in the popout windows */
+/* colour in the popout windows */
 .contentWrapper-3vHNP2, .recentMentionsPopout-2bI1ZN, .messagesPopout-eVzQcI, .list-wek7hJ,
-.quickswitcher-pKcM9U, .modal-2Hrb0S, .emojiPicker-6YCk8a, .emojiPickerHasTabWrapper-LoluYe, .userProfileInnerThemedNonPremium-2AJg-H {
+.quickswitcher-pKcM9U, .modal-2Hrb0S, .emojiPicker-6YCk8a, .emojiPickerHasTabWrapper-LoluYe, .userProfileInnerThemedNonPremium-2AJg-H,
+.root-1CAIjD {
   background-color: var(--background-primary);
+}
+
+/* style message preview in the 'pin-it' modal */
+.message-G6O-Wv {
+  background-color: var(--modal-footer-background) !important;
 }
 
 /* fix clear background in 'all threads' popout window */

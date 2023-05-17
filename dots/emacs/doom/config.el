@@ -178,7 +178,7 @@ When F is provided, the info function is calculated with the format
     (cond
      ((string-match-p "\\/$" s)
       (all-the-icons-octicon "file-directory" :face 'all-the-icons-ivy-dir-face))
-     ((string-match-p ".*\.pl" s) (all-the-icons-icon-for-mode 'prolog-mode))
+     ((string-match-p ".*\\.pl" s) (all-the-icons-icon-for-mode 'prolog-mode))
      (t (all-the-icons-icon-for-file s)))))
 
 ;; --------------------------------------- END ---------------------------------------

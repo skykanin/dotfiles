@@ -38,7 +38,7 @@ bindsym $mod+Shift+q kill
 focus_follows_mouse no
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym Super_L --release exec rofi -show drun -columns 2
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

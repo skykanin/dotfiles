@@ -263,7 +263,6 @@ exec firefox --class 'ff-startup2'
 exec emacs
 exec Discord --disable-smooth-scrolling
 exec spotifywm
-exec qbittorrent
 
 # Start nm, blueman and flameshot applet in systemtray
 exec --no-startup-id nm-applet

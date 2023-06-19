@@ -107,6 +107,7 @@ in {
     spotifywm
     steam
     streamlink
+    trash-cli
     tldr
     tree
     unison-ucm

@@ -7,7 +7,8 @@
     binfmt.emulatedSystems = [
       "aarch64-linux"
       "x86_64-windows"
-      "riscv64-linux"
+      # Broken qemu build for this arch
+      # "riscv64-linux"
     ];
 
     loader = { 

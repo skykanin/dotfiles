@@ -20,7 +20,6 @@
   hardware = {
     opengl = {
       driSupport = true;
-      driSupport32Bit = true;
       enable = enableOpengl;
       extraPackages = with pkgs; [
         vaapiVdpau

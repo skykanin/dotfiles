@@ -14,5 +14,3 @@
 :seti -Wall
 :seti -Wno-type-defaults
 :set -freverse-errors
-import qualified Text.Show.Unicode
-:set -interactive-print=Text.Show.Unicode.uprint

@@ -2,7 +2,7 @@
 
 # Picom compositor configuration
 {
-  backend = "glx";
+  backend = "xrender";
   inherit enable;
   activeOpacity = 1.0;
   inactiveOpacity = 1.0;

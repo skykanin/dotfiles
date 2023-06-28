@@ -68,7 +68,6 @@ in {
   in with pkgs; [
     _1password-gui-beta
     adwaita-qt
-    android-studio
     arc-icon-theme
     arc-theme
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
@@ -78,6 +77,7 @@ in {
     blueberry
     bottom
     brightnessctl
+    haskell.packages.ghc945.cabal-install
     cachix
     colorz
     curl
@@ -97,7 +97,7 @@ in {
     git
     gitAndTools.gh
     gnumake
-    (haskell.packages.ghc944.ghcWithPackages (p: with p; [ unicode-show ]))
+    haskell.packages.ghc945.ghc
     htop
     insomnia
     keepassxc
@@ -111,6 +111,7 @@ in {
     nix-direnv
     nnn
     nodejs-18_x
+    ntp
     openjdk
     openresolv
     openvpn
@@ -156,6 +157,8 @@ in {
       rootDirectory = "/cache/kolide";
       additionalPackages = with pkgs; [ glib zfs networkmanager cryptsetup ];
     };
+    
+    ntp.enable = true;
   };
 
   nixpkgs.overlays = [

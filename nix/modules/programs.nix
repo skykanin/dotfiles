@@ -21,6 +21,12 @@
       package = pkgs.gnupg;
     };
 
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+
     java = {
       enable = true;
       package = pkgs.jdk;

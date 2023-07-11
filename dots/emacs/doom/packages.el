@@ -23,6 +23,8 @@
 
 (package! unisonlang-mode)
 
+(package! fish-mode)
+
 ;; Pin magit deps
 (package! transient
       :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440"

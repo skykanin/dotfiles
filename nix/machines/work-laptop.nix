@@ -100,6 +100,7 @@ in {
     haskell.packages.ghc945.ghc
     htop
     insomnia
+    jq
     keepassxc
     kitty
     lagrange
@@ -130,6 +131,7 @@ in {
     spotifywm
     tldr
     tree
+    unzip
     vim-with-conf
     xclip
     zoom-us

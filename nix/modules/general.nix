@@ -65,7 +65,7 @@
       trusted-users = [ "root" "skykanin" ];
     };
     extraOptions = ''
-      experimental-features = nix-command flakes
+      experimental-features = nix-command flakes repl-flake
       keep-outputs = false
       keep-derivations = false
     '';

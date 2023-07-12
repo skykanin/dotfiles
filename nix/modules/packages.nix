@@ -2,22 +2,7 @@
 
 with pkgs;
 let
-  vim-with-conf = vim_configurable.customize {
-    name = "vim";
-    vimrcConfig.customRC = ''
-      let mapleader = "<space>"
-      map <leader>y "+y
-      map <leader>p "+p
-
-      syntax on
-      set ruler
-      set number
-      set hlsearch
-      set clipboard=unnamedplus
-      set backspace=indent,eol,start
-      set formatoptions=r
-    '';
-  };
+  vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
   vscode = vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python

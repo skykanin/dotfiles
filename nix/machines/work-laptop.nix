@@ -49,23 +49,8 @@ in {
   networking.hostName = "iris";
 
   environment.systemPackages = let
-    vim-with-conf = pkgs.vim_configurable.customize {
-      name = "vim";
-      vimrcConfig.customRC = ''
-        let mapleader = "<space>"
-        map <leader>y "+y
-        map <leader>p "+p
-
-        syntax on
-        set ruler
-        set number
-        set hlsearch
-        set clipboard=unnamedplus
-        set backspace=indent,eol,start
-        set formatoptions=r
-      '';
-    };
-  in with pkgs; [
+    vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
+    in with pkgs; [
     _1password-gui-beta
     adwaita-qt
     arc-icon-theme

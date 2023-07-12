@@ -77,6 +77,7 @@ in {
     blueberry
     bottom
     brightnessctl
+    busybox
     haskell.packages.ghc945.cabal-install
     cachix
     colorz

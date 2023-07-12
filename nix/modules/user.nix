@@ -18,7 +18,6 @@ in {
     initialPassword = "skykanin"; # Change with passwd later
     openssh.authorizedKeys = {
       keys = authorizedSshKeys;
-      keyFiles = authorizedSshKeyFiles;
     };
     shell = pkgs.fish;
   };

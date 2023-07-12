@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, options, lib, pkgs, ... }:
 
 let
   enableFirewall = true;
@@ -40,7 +40,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     (import ../modules/general.nix {
-      inherit config pkgs enableFirewall enableNetworkmanager enableJellyfin
+      inherit config options pkgs enableFirewall enableNetworkmanager enableJellyfin
         noisetorchConfig polybarConfig threads;
     })
     ../modules/packages.nix

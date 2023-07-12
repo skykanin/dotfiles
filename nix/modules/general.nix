@@ -1,6 +1,6 @@
 { config, pkgs, enableFirewall, enableNetworkmanager, enableOpengl ? true
 , enableJellyfin ? false, polybarConfig, noisetorchConfig, threads
-, ... }:
+, options, ... }:
 
 {
   environment = {

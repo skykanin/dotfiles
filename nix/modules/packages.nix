@@ -58,6 +58,7 @@ in {
     i3lock
     idris2-main.idris2
     insomnia
+    imagemagick
     jetbrains.idea-community
     joker
     jq

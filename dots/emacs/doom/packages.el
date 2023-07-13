@@ -52,6 +52,11 @@
            :repo "idris-hackers/idris-mode"
            :branch "main"))
 
+(package! idris2-mode
+  :recipe (:host github
+           :repo "idris-community/idris2-mode"
+           :branch "main"))
+
 (package! bqn-mode
   :recipe (:host github
            :repo "museoa/bqn-mode")

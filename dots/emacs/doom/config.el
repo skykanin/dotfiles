@@ -145,6 +145,8 @@
         :n "x b" #'bqn-comint-send-buffer
         :n "x l" #'bqn-comint-send-dwim))
 
+(use-package! idris2-mode)
+
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
 

@@ -91,7 +91,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -270,7 +270,7 @@ exec --no-startup-id blueberry
 exec --no-startup-id flameshot
 
 # Start i3 locked
-exec --no-startup-id "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20"
+exec --no-startup-id "i3lock -c 000000 -p win -e -f"
 
 # Disable screen saver blanking
 exec_always xset s off

@@ -55,6 +55,7 @@ in {
     gnumake
     (haskell.packages.ghc944.ghcWithPackages (p: with p; [ unicode-show ]))
     htop
+    i3lock
     idris2-main.idris2
     insomnia
     jetbrains.idea-community

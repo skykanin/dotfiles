@@ -2,8 +2,7 @@
 
 let
   lock-script = pkgs.writeShellScript "lock-script" ''
-    ${pkgs.i3lock-color}/bin/i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' \
-      --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20
+     ${pkgs.i3lock}/bin/i3lock -c 000000 -e -f
   '';
 in {
   inherit enable time;

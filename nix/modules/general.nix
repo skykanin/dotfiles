@@ -11,7 +11,17 @@
     variables.EDITOR = "vim";
   };
 
-  documentation.man.generateCaches = true;
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    doc.enable = true;
+    info.enable = true;
+    man = {
+      enable = true;
+      generateCaches = true;
+    };
+    nixos.enable = true;
+  };
 
   fonts = {
     fonts = with pkgs; [ bqn386 jetbrains-mono noto-fonts unifont victor-mono ];

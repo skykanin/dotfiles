@@ -66,6 +66,8 @@ in {
     lagrange
     lutris
     lxappearance
+    man-pages
+    man-pages-posix
     metals
     mpv
     neofetch

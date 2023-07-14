@@ -90,6 +90,7 @@ in {
     keepassxc
     kitty
     lagrange
+    libxml2
     lxappearance
     maim
     mpv

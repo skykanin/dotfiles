@@ -101,6 +101,7 @@ in {
     ntp
     openjdk
     openresolv
+    openssl
     openvpn
     pamixer
     pavucontrol

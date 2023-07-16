@@ -270,7 +270,7 @@ exec --no-startup-id blueberry
 exec --no-startup-id flameshot
 
 # Start i3 locked
-exec --no-startup-id "i3lock -c 000000 -p win -e -f"
+exec --no-startup-id "i3lock -c 000000 -e -f -i ~/Pictures/wallpapers/evening-forest2k.png"
 
 # Disable screen saver blanking
 exec_always xset s off

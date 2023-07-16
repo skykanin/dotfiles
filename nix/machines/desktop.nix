@@ -22,7 +22,7 @@ let
   threads = 2;
   xserverConfig = {
     compositorConfig = {
-      enable = true;
+      enable = false;
       vSync = true;
     };
     videoDrivers = [ "nvidia" ];

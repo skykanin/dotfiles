@@ -208,7 +208,7 @@ client.placeholder       $bd     $bg          $tc    $bg        $bd
 client.background        $bd
 
 # Bind lockscreen
-bindsym $mod+shift+x exec "i3lock-color -k -u -c 00000000 --date-str='%A, %B %Y' --time-color=ff005acc --date-color=ff005acc --time-size=60 --date-size=20"
+bindsym $mod+shift+x exec "i3lock -c 000000 -e -f -i ~/Pictures/wallpapers/evening-forest2k.png"
 
 # Bind printscreen
 bindsym $mod+shift+s exec flameshot gui

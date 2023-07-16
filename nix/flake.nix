@@ -35,7 +35,7 @@
       special-module = system: { _module.args = (inputs' system); };
       kolide-module = inputs.kolide-config.nixosModules;
     in {
-      "emma" = nixpkgs.lib.nixosSystem rec {
+      "desktop-emma" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
@@ -46,7 +46,7 @@
         ];
       };
 
-      "daisy" = nixpkgs.lib.nixosSystem rec {
+      "laptop-daisy" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
@@ -57,7 +57,7 @@
         ];
       };
 
-      "iris" = nixpkgs.lib.nixosSystem rec {
+      "work-laptop-iris" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)
@@ -69,7 +69,7 @@
         ];
       };
 
-      "dandy" = nixpkgs.lib.nixosSystem rec {
+      "server-dandy" = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           (system-rev)

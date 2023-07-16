@@ -4,6 +4,7 @@ let
   enableFirewall = true;
   enableNetworkmanager = true;
   enableLight = false;
+  enableSteam = true;
   enableJellyfin = true;
   polybarConfig = {
     enable = true;
@@ -45,7 +46,7 @@ in {
     })
     ../modules/packages.nix
     ../modules/printing.nix
-    (import ../modules/programs.nix { inherit config pkgs enableLight; })
+    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
     ../modules/redshift.nix
     ../modules/sound.nix
     (import ../modules/ssh.nix { inherit config pkgs; })
@@ -54,10 +55,8 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  # Define hostname
-  networking.hostName = "emma";
-
   networking = {
+    hostName = "emma";
     useDHCP = false;
     interfaces.wlp4s0.useDHCP = true;
   };

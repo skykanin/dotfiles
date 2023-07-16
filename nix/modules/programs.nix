@@ -1,4 +1,4 @@
-{ config, pkgs, enableLight, ... }:
+{ config, pkgs, enableLight, enableSteam, ... }:
 
 {
   programs = {
@@ -22,7 +22,7 @@
     };
 
     steam = {
-      enable = true;
+      enable = enableSteam;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };

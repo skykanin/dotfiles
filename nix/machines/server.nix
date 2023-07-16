@@ -15,6 +15,7 @@ let
   threads = 2;
   noisetorchConfig = { enable = false; };
   polybarConfig = { enable = false; };
+  enableSteam = false;
 in {
   imports = [
     (import ../modules/user.nix {
@@ -24,15 +25,18 @@ in {
       inherit config options pkgs enableFirewall enableNetworkmanager
         noisetorchConfig polybarConfig threads enableOpengl;
     })
-    (import ../modules/programs.nix { inherit config pkgs enableLight; })
+    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
   ];
 
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
 
   boot.tmp.cleanOnBoot = true;
-  networking.hostName = "dandy"; # Define your hostname.
-  networking.domain = "";
+
+  networking = {
+    hostName = "dandy";
+    domain = "";
+  };
 
   zramSwap.enable = true;
 

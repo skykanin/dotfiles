@@ -4,6 +4,7 @@ let
   enableFirewall = true;
   enableNetworkmanager = true;
   enableLight = true;
+  enableSteam = false;
   polybarConfig = {
     enable = true;
     startup-script = ''
@@ -36,7 +37,7 @@ in {
       inherit config options pkgs enableFirewall enableNetworkmanager
         noisetorchConfig polybarConfig threads;
     })
-    (import ../modules/programs.nix { inherit config pkgs enableLight; })
+    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
     ../modules/redshift.nix
     ../modules/sound.nix
     (import ../modules/ssh.nix { inherit config pkgs; })
@@ -45,7 +46,6 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  # Define hostname
   networking.hostName = "iris";
 
   environment.systemPackages = let

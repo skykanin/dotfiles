@@ -4,6 +4,7 @@ let
   enableFirewall = true;
   enableNetworkmanager = true;
   enableLight = true;
+  enableSteam = true;
   polybarConfig = {
     enable = true;
     startup-script = ''
@@ -31,7 +32,7 @@ in {
     })
     ../modules/packages.nix
     ../modules/printing.nix
-    (import ../modules/programs.nix { inherit config pkgs enableLight; })
+    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
     ../modules/redshift.nix
     ../modules/sound.nix
     (import ../modules/ssh.nix { inherit config pkgs; })
@@ -40,7 +41,6 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  # Define hostname
   networking.hostName = "daisy";
 
   environment.variables = { MESA_LOADER_DRIVER_OVERRIDE = "iris"; };

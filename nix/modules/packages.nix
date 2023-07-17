@@ -2,6 +2,9 @@
 
 with pkgs;
 let
+  obs-studio-custom = pkgs.wrapOBS {
+    plugins = with pkgs.obs-studio-plugins; [ input-overlay ];
+  };
   vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
   vscode = vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -77,7 +80,7 @@ in {
     nnn
     nodejs-18_x
     noisetorch
-    obs-studio
+    obs-studio-custom
     openjdk
     pamixer
     pavucontrol

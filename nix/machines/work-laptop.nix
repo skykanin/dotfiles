@@ -62,7 +62,6 @@ in {
     blueberry
     bottom
     brightnessctl
-    busybox
     haskell.packages.ghc945.cabal-install
     cachix
     colorz
@@ -93,6 +92,7 @@ in {
     libxml2
     lxappearance
     maim
+    mktemp
     mpv
     neofetch
     networkmanagerapplet

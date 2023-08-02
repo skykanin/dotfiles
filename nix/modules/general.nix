@@ -125,7 +125,12 @@
   };
 
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      daemon.settings = {
+        features = { buildkit = true; };
+      };
+    };
     libvirtd.enable = true;
   };
 }

@@ -10,7 +10,7 @@ let
     enable = true;
     startup-script = ''
       MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-      MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
+      DEFAULT_NETWORK_INTERFACE=wlp4s0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
     '';
   };
   noisetorchConfig = {
@@ -69,5 +69,4 @@ in {
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
-
 }

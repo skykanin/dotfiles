@@ -211,10 +211,10 @@ client.background        $bd
 set $lock-cmd "i3lock -c 000000 -e -f -i ~/Pictures/wallpapers/evening-forest2k.png"
 
 # Bind lockscreen
-bindsym $mod+shift+x exec $lock-cmd
+bindsym $mod+Shift+x exec $lock-cmd
 
 # Bind printscreen
-bindsym $mod+shift+s exec flameshot gui
+bindsym $mod+Shift+s exec flameshot gui
 
 # Add gaps
 gaps inner 9

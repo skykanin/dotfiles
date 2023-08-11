@@ -10,7 +10,7 @@ let
     enable = true;
     startup-script = ''
       MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-      DEFAULT_NETWORK_INTERFACE=wlp4s0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
+      DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
     '';
   };
   noisetorchConfig = {
@@ -58,7 +58,7 @@ in {
   networking = {
     hostName = "emma";
     useDHCP = false;
-    interfaces.wlp4s0.useDHCP = true;
+    interfaces.wlan0.useDHCP = true;
   };
 
   environment.extraInit = ''

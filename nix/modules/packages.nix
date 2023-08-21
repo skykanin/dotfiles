@@ -42,7 +42,6 @@ in {
     direnv
     discord
     discocss
-    docker
     dotty
     emacs
     fd

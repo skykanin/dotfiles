@@ -69,7 +69,6 @@ in {
     difftastic
     direnv
     discord
-    docker
     emacs
     fd
     feh

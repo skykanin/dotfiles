@@ -131,6 +131,7 @@
       daemon.settings = {
         features = { buildkit = true; };
       };
+      package = pkgs.docker_24;
     };
     libvirtd.enable = true;
   };

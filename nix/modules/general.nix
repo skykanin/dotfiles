@@ -23,9 +23,7 @@
     nixos.enable = true;
   };
 
-  fonts = {
-    fonts = with pkgs; [ bqn386 jetbrains-mono noto-fonts unifont victor-mono ];
-  };
+  fonts.packages= with pkgs; [ bqn386 jetbrains-mono noto-fonts unifont victor-mono ];
 
   hardware = {
     opengl = {

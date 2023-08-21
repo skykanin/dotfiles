@@ -110,6 +110,7 @@ in {
     xclip
     xdg-utils
     xorg.xbacklight
+    xsel
     yt-dlp
     zip
     zoom-us

@@ -122,6 +122,7 @@ in {
     unzip
     vim-with-conf
     xclip
+    xsel
     zoom-us
   ];
 

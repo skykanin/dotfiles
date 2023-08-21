@@ -7,6 +7,9 @@ pkgs.vim_configurable.customize {
     map <leader>y "+y
     map <leader>p "+p
 
+    " Prevent vim from clearing clipboard on exit
+    autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
     " Set to auto read when a file is changed from the outside
     set autoread
 

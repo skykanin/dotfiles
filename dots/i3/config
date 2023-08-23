@@ -113,9 +113,8 @@ assign [class="kitty-startup"] $ws1
 assign [class="ff-startup"] $ws2
 assign [class="emacs-startup"] $ws3
 assign [class="discord"] $ws4
-assign [class="^Spotify$"] $ws5
-assign [class="qBittorrent"] $ws6
-assign [class="Steam"] $ws7
+assign [class="spotify"] $ws5
+assign [class="qBittorrent"] $ws8
 
 # don't steal focus on startup
 no_focus [class="Steam"]

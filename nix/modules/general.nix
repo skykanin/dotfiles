@@ -79,6 +79,7 @@
       experimental-features = nix-command flakes repl-flake
       keep-outputs = false
       keep-derivations = false
+      warn-dirty = false
     '';
     gc = {
       automatic = true;

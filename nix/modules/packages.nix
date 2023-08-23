@@ -1,4 +1,4 @@
-{ config, emacs-overlay, idris2-main, pkgs, ... }:
+{ config, idris2-main, pkgs, ... }:
 
 with pkgs;
 let
@@ -43,7 +43,7 @@ in {
     discord
     discocss
     dotty
-    emacs
+    emacs29
     fd
     feh
     ffmpeg-full
@@ -147,6 +147,5 @@ in {
         };
       });
     })
-    (import emacs-overlay)
   ];
 }

@@ -1,4 +1,4 @@
-{ config, options, emacs-overlay, pkgs, ... }:
+{ config, options, pkgs, ... }:
 
 let
   enableFirewall = true;
@@ -69,7 +69,7 @@ in {
     difftastic
     direnv
     discord
-    emacs
+    emacs29
     fd
     feh
     ffmpeg-full
@@ -151,10 +151,6 @@ in {
     
     ntp.enable = true;
   };
-
-  nixpkgs.overlays = [
-    (import emacs-overlay)
-  ];
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config

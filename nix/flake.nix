@@ -2,8 +2,6 @@
   description = "NixOS system configurations for various hosts";
 
   inputs = {
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-
     flake-utils.url = "github:numtide/flake-utils";
 
     git-ignore-nix = {

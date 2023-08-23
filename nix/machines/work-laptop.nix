@@ -114,6 +114,7 @@ in {
     ripgrep
     rlwrap
     rofi
+    shellcheck
     slack
     spotifywm
     tldr

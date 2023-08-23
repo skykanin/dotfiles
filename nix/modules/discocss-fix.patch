@@ -1,0 +1,66 @@
+From 6bde602eafc5d04b199fc46cb40adcd2faf38ba6 Mon Sep 17 00:00:00 2001
+From: Luna Simons <luna@bddvlpr.com>
+Date: Sun, 13 Aug 2023 15:41:04 +0200
+Subject: [PATCH 1/2] fix: update preload location, use perl.
+
+This fix was made by Ennea (https://github.com/Ennea) in https://github.com/mlvzk/discocss/issues/26
+---
+ discocss | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/discocss b/discocss
+index f7e9eec..f3e8f6f 100755
+--- a/discocss
++++ b/discocss
+@@ -63,19 +63,18 @@ EOF
+ ln -f -s "$preloadFile" /tmp/discocss-preload.js
+ 
+ if [ "$(uname)" = "Darwin" ]; then
+-  sed_options='-i ""'
++  perl_options='-i -0pe ""'
+   core_asar="$(echo "$HOME/Library/Application Support/discord/"*"/modules/discord_desktop_core/core.asar")"
+ else
+-  sed_options='-i'
++	perl_options='-i -0pe'
+   core_asar="$(echo "$XDG_CONFIG_HOME/discord/"*"/modules/discord_desktop_core/core.asar")"
+ fi
+ 
+-app_preload_replace='s|  // App preload script, used to provide a replacement native API now that|try {require\(`/tmp/discocss-preload.js`)()} catch \(e\) {console.error\(e\);} |'
++app_preload_replace="s|  throw new Error\('Preload scripts should not be running in a subframe'\);\n}\n\nlet uncaughtExceptionHandler;\n\nfunction setUncaughtExceptionHandler\(handler\) {\n  uncaughtExceptionHandler = handler;\n}\n\nif \(window.opener === null\) {\n|throw new Error\(\);}let uncaughtExceptionHandler;function setUncaughtExceptionHandler\(handler\){uncaughtExceptionHandler=handler;}if \(window.opener === null\) {try{require\('/tmp/discocss-preload.js'\)\(\)}catch\(e\){console.error\(e\);}\n|"
+ launch_main_app_replace='s|// launch main app window; could be called multiple times for various reasons| const dp = require(`/tmp/discocss-preload.js`);                             |'
+ frame_true_replace='s|    mainWindowOptions.frame = true;|}dp.mo(mainWindowOptions);{        |'
+ causing_the_window_replace='s|// causing the window to be too small on a larger secondary display| dp.mw(mainWindow);                                                |'
+-LC_ALL=C sed $sed_options "$app_preload_replace; $launch_main_app_replace; $frame_true_replace; $causing_the_window_replace" \
+-  "$core_asar"
++LC_ALL=C perl $perl_options "$app_preload_replace" "$core_asar"
+ 
+ discordBin="$DISCOCSS_DISCORD_BIN"
+ if [ "$discordBin" ]; then
+
+From 610302e25a420b8cd6f08b8faff909685d2f79fd Mon Sep 17 00:00:00 2001
+From: Luna Simons <luna@bddvlpr.com>
+Date: Sun, 13 Aug 2023 15:45:55 +0200
+Subject: [PATCH 2/2] fix: darwin perl options
+
+---
+ discocss | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/discocss b/discocss
+index f3e8f6f..7a6c504 100755
+--- a/discocss
++++ b/discocss
+@@ -61,12 +61,11 @@ module.exports.mo = (options) => {
+ EOF
+ 
+ ln -f -s "$preloadFile" /tmp/discocss-preload.js
++perl_options='-i -0pe'
+ 
+ if [ "$(uname)" = "Darwin" ]; then
+-  perl_options='-i -0pe ""'
+   core_asar="$(echo "$HOME/Library/Application Support/discord/"*"/modules/discord_desktop_core/core.asar")"
+ else
+-	perl_options='-i -0pe'
+   core_asar="$(echo "$XDG_CONFIG_HOME/discord/"*"/modules/discord_desktop_core/core.asar")"
+ fi
+ 

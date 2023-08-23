@@ -1,12 +1,11 @@
 { config, idris2-main, pkgs, ... }:
 
-with pkgs;
 let
   obs-studio-custom = pkgs.wrapOBS {
     plugins = with pkgs.obs-studio-plugins; [ input-overlay ];
   };
   vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
-  vscode = vscode-with-extensions.override {
+  vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python
       ms-toolsai.jupyter

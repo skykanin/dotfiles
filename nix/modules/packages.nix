@@ -66,6 +66,7 @@ in {
     keepassxc
     kitty
     lagrange
+    lshw
     lutris
     lxappearance
     man-pages

@@ -89,6 +89,7 @@ in {
     kitty
     lagrange
     libxml2
+    lshw
     lxappearance
     maim
     mktemp

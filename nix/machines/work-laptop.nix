@@ -62,7 +62,7 @@ in {
     blueberry
     bottom
     brightnessctl
-    haskell.packages.ghc945.cabal-install
+    haskell.packages.ghc946.cabal-install
     cachix
     colorz
     curl
@@ -81,7 +81,7 @@ in {
     git
     gitAndTools.gh
     gnumake
-    haskell.packages.ghc945.ghc
+    haskell.packages.ghc946.ghc
     htop
     insomnia
     jq

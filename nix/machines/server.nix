@@ -18,9 +18,7 @@ let
   enableSteam = false;
 in {
   imports = [
-    (import ../modules/user.nix {
-      inherit config pkgs authorizedSshKeys;
-    })
+    ../modules/user.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager
         noisetorchConfig polybarConfig threads enableOpengl;
@@ -28,8 +26,10 @@ in {
     (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
   ];
 
-  services.openssh.enable = true;
+  module.user.authorizedSshKeys = authorizedSshKeys;
   users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
+
+  services.openssh.enable = true;
 
   boot.tmp.cleanOnBoot = true;
 

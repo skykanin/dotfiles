@@ -35,8 +35,8 @@ in {
     (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
     ../modules/redshift.nix
     ../modules/sound.nix
-    (import ../modules/ssh.nix { inherit config pkgs; })
-    (import ../modules/user.nix { inherit config pkgs; })
+    ../modules/ssh.nix
+    ../modules/user.nix
     (import ../modules/xserver/xserver.nix
       ({ inherit config pkgs; } // xserverConfig))
   ];

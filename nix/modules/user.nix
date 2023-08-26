@@ -1,24 +1,42 @@
-{ config, pkgs, authorizedSshKeys ? [ ], authorizedSshKeyFiles ? [ ], ... }:
+{ config, lib, pkgs, ... }:
 
-let username = "skykanin";
+let
+  cfg = config.module.user;
 in {
-  users.users.skykanin = {
-    isNormalUser = true;
-    description = username;
-    extraGroups = [
-      "wheel"
-      "audio"
-      "docker"
-      "libvirtd"
-      "kvm"
-      "video"
-      "networkmanager"
-      "postgres"
-    ];
-    initialPassword = "skykanin"; # Change with passwd later
-    openssh.authorizedKeys = {
-      keys = authorizedSshKeys;
+  options.module.user = with lib; {
+    authorizedSshKeys = mkOption {
+      type = types.listOf types.singleLineStr;
+      default = [ ];
     };
-    shell = pkgs.fish;
+    name = mkOption {
+      type = types.str;
+      default = "skykanin";
+    };
+    initialPassword = mkOption {
+      type = types.str;
+      default = "skykanin";
+    };
+  };
+
+  config = {
+    users.users."${cfg.name}" = {
+      isNormalUser = true;
+      description = cfg.name;
+      extraGroups = [
+        "wheel"
+        "audio"
+        "docker"
+        "libvirtd"
+        "kvm"
+        "video"
+        "networkmanager"
+        "postgres"
+      ];
+      initialPassword = cfg.initialPassword; # Change with passwd later
+      openssh.authorizedKeys = {
+        keys = cfg.authorizedSshKeys;
+      };
+      shell = pkgs.fish;
+    };
   };
 }

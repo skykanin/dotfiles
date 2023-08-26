@@ -9,53 +9,61 @@
       url = "github:IvanMalison/gitignore.nix";
     };
 
-    idris2-main.url =
-      "github:idris-lang/idris2?rev=c2bcc14e00794b19a7fc7ecc600f5a79b849f031";
+    idris2-main.url = "github:idris-lang/idris2?rev=c2bcc14e00794b19a7fc7ecc600f5a79b849f031";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     kolide-config.url = "github:skykanin/kolide-launcher";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    alejandra-remove-ads = import ./overlays/alejandra/default.nix;
+    pkgs = nixpkgs.legacyPackages.x86_64-linux.extend alejandra-remove-ads;
+  in {
+    formatter.x86_64-linux = pkgs.alejandra;
 
     nixosConfigurations = let
       inputs' = system:
-        inputs // {
+        inputs
+        // {
           idris2-main = inputs.idris2-main.packages.${system};
         };
       lib = nixpkgs.lib;
-      system-rev = { ... }: {
+      system-rev = {...}: {
         # Let 'nixos-version --json' know about the Git revision of this flake.
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
       };
-      special-module = system: { _module.args = (inputs' system); };
+      special-module = system: {_module.args = inputs' system;};
       kolide-module = inputs.kolide-config.nixosModules;
     in {
-      "desktop-emma" = nixpkgs.lib.nixosSystem rec {
+      "desktop-emma" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
-          (system-rev)
+          system-rev
           (special-module system)
           ./machines/desktop.nix
           ./hardware/desktop.nix
         ];
       };
 
-      "laptop-daisy" = nixpkgs.lib.nixosSystem rec {
+      "laptop-daisy" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
-          (system-rev)
+          system-rev
           (special-module system)
           ./machines/laptop.nix
           ./hardware/laptop.nix
         ];
       };
 
-      "work-laptop-iris" = nixpkgs.lib.nixosSystem rec {
+      "work-laptop-iris" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
-          (system-rev)
+          system-rev
           (special-module system)
           ./machines/work-laptop.nix
           ./hardware/work-laptop.nix

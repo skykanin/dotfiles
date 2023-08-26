@@ -71,10 +71,10 @@
         ];
       };
 
-      "server-dandy" = nixpkgs.lib.nixosSystem rec {
+      "server-dandy" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
-          (system-rev)
+          system-rev
           (special-module system)
           ./machines/server.nix
           ./hardware/server.nix

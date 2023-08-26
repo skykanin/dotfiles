@@ -1,17 +1,21 @@
-{ config, options, pkgs, ... }:
-
-let
+{
+  config,
+  options,
+  pkgs,
+  ...
+}: let
   xserverConfig = {
     compositorConfig = {
       enable = true;
       vSync = true;
     };
-    videoDrivers = [ "amdgpu" "radeon" "nouveau" "modesetting" "fbdev" ];
+    videoDrivers = ["amdgpu" "radeon" "nouveau" "modesetting" "fbdev"];
     xautolockTimer = 10;
-    xrandrHeads = [ ];
+    xrandrHeads = [];
   };
 in {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     ../modules/nix.nix
@@ -27,7 +31,7 @@ in {
     ../modules/ssh.nix
     ../modules/user.nix
     (import ../modules/xserver/xserver.nix
-      ({ inherit config pkgs; } // xserverConfig))
+      ({inherit config pkgs;} // xserverConfig))
   ];
 
   # Local modules
@@ -65,7 +69,7 @@ in {
 
   networking.hostName = "daisy";
 
-  environment.variables = { MESA_LOADER_DRIVER_OVERRIDE = "iris"; };
+  environment.variables = {MESA_LOADER_DRIVER_OVERRIDE = "iris";};
 
   # Suspend on lid close
   services.logind.lidSwitch = "suspend";
@@ -75,5 +79,4 @@ in {
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
-
 }

@@ -1,5 +1,12 @@
 # Configuration function for setting up xserver options
-{ config, pkgs, compositorConfig, videoDrivers, xautolockTimer, xrandrHeads, ...
+{
+  config,
+  pkgs,
+  compositorConfig,
+  videoDrivers,
+  xautolockTimer,
+  xrandrHeads,
+  ...
 }: {
   services = {
     autorandr.enable = true;
@@ -23,10 +30,9 @@
         };
       };
 
-      desktopManager = { xterm.enable = true; };
+      desktopManager = {xterm.enable = true;};
 
       displayManager = {
-
         autoLogin = {
           enable = true;
           user = "skykanin";
@@ -50,7 +56,7 @@
         enable = true;
         configFile = "/home/skykanin/.config/i3/config";
         package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [ i3lock rofi polybarFull ];
+        extraPackages = with pkgs; [i3lock rofi polybarFull];
       };
 
       xautolock = import ./xautolock.nix {

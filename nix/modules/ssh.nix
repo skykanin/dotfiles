@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # OpenSSH daemon.
   services.openssh = {
     enable = true;

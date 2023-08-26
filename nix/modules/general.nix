@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   environment = {
     etc."cachix.nix".source = toString ./cachix.nix;
 
-    pathsToLink = [ "/share/nix-direnv" ];
+    pathsToLink = ["/share/nix-direnv"];
 
     variables.EDITOR = "vim";
   };
@@ -21,9 +23,7 @@
     nixos.enable = true;
   };
 
-  fonts.packages= with pkgs; [ bqn386 jetbrains-mono noto-fonts unifont victor-mono ];
-
-
+  fonts.packages = with pkgs; [bqn386 jetbrains-mono noto-fonts unifont victor-mono];
 
   qt = {
     enable = true;
@@ -52,7 +52,7 @@
     docker = {
       enable = true;
       daemon.settings = {
-        features = { buildkit = true; };
+        features = {buildkit = true;};
       };
       package = pkgs.docker_24;
     };

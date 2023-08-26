@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Use the systemd-boot EFI boot loader.
   boot = {
     # Enables NixOS to compile and run? software for these systems using qemu emulation.
@@ -11,7 +13,7 @@
       # "riscv64-linux"
     ];
 
-    loader = { 
+    loader = {
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
       systemd-boot = {
@@ -20,7 +22,7 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" "ntfs" ];
+    supportedFilesystems = ["btrfs" "ntfs"];
     extraModprobeConfig = ''
       options kvm_intel nested=1
       options kvm_intel emulate_invalid_guest_state=0

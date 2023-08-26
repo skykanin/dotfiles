@@ -1,12 +1,15 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.local.user;
 in {
   options.local.user = with lib; {
     authorizedSshKeys = mkOption {
       type = types.listOf types.singleLineStr;
-      default = [ ];
+      default = [];
     };
     name = mkOption {
       type = types.str;

@@ -1,10 +1,13 @@
-{ config, idris2-main, pkgs, ... }:
-
-let
+{
+  config,
+  idris2-main,
+  pkgs,
+  ...
+}: let
   obs-studio-custom = pkgs.wrapOBS {
-    plugins = with pkgs.obs-studio-plugins; [ input-overlay ];
+    plugins = with pkgs.obs-studio-plugins; [input-overlay];
   };
-  vim-with-conf = (import ./../packages/vim.nix { inherit pkgs; });
+  vim-with-conf = import ./../packages/vim.nix {inherit pkgs;};
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python
@@ -22,7 +25,7 @@ in {
     ani-cli
     arc-icon-theme
     arc-theme
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
+    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
     autorandr
     babashka
     bat
@@ -54,7 +57,7 @@ in {
     gitAndTools.gh
     gitFull
     gnumake
-    (haskell.packages.ghc946.ghcWithPackages (p: with p; [ unicode-show ]))
+    (haskell.packages.ghc946.ghcWithPackages (p: with p; [unicode-show]))
     htop
     i3lock
     idris2-main.idris2
@@ -123,27 +126,29 @@ in {
     #   pywal-git = pywal.overrideAttrs (oldAttrs: {
     #     pname = "pywal-git";
     #     version = null;
-    #     
+    #
     #     src = pkgs.fetchFromGitHub {
     #       owner = "dylanaraps";
     #       repo = "pywal";
     #       rev = "236aa48e741ff8d65c4c3826db2813bf2ee6f352";
     #       sha256 = "0p804c7f5f376vixd2ya5mxb2kdvwbmdb1ixs3j4cwf66sp89bid";
     #     };
-    #     
+    #
     #     patches = [];
     #     postPatch = '''';
-    #   }); 
+    #   });
     # })
     # Fix discocss. See: https://github.com/mlvzk/discocss/issues/26
     (final: prev: {
       discocss = prev.discocss.overrideAttrs (oldAttrs: rec {
-        src = oldAttrs.src // {
-          rev = "dfb5a0c9c124c75081351df089e835aa7aca6d60";
-          sha256 = "sha256-B4gGDav2Bere9FXl7RHQ+MeUxCHmtkXi4vdSC1O1JI8=";
-        };
+        src =
+          oldAttrs.src
+          // {
+            rev = "dfb5a0c9c124c75081351df089e835aa7aca6d60";
+            sha256 = "sha256-B4gGDav2Bere9FXl7RHQ+MeUxCHmtkXi4vdSC1O1JI8=";
+          };
         # Make discocss work with Discord 0.0.28
-        patches = [ ./discocss-fix.patch ];
+        patches = [./discocss-fix.patch];
       });
     })
     # Update CBQN to newer commit so that we get the latest features

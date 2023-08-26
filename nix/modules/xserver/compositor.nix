@@ -1,5 +1,7 @@
-{ enable, vSync }:
-
+{
+  enable,
+  vSync,
+}:
 # Picom compositor configuration
 {
   backend = "xrender";

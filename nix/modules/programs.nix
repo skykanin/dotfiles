@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.local.programs;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.local.programs;
+in {
   options.local.programs = with lib; {
     light.enable = mkEnableOption "Enable Light";
     steam.enable = mkEnableOption "Enable Steam";

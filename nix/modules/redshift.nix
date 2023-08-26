@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   services.redshift = {
     enable = true;
     temperature = {
@@ -12,5 +14,5 @@
   location = {
     latitude = 59.913868;
     longitude = 10.752245;
-  }; 
+  };
 }

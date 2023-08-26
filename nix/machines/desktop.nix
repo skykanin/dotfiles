@@ -1,19 +1,23 @@
-{ config, options, lib, pkgs, ... }:
-
-let
+{
+  config,
+  options,
+  lib,
+  pkgs,
+  ...
+}: let
   xserverConfig = {
     compositorConfig = {
       enable = false;
       vSync = true;
     };
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
     xautolockTimer = 20;
     xrandrHeads = [
       {
         output = "DP-2";
         primary = true;
       }
-      { output = "HDMI-0"; }
+      {output = "HDMI-0";}
     ];
   };
 in {
@@ -34,7 +38,7 @@ in {
     ../modules/ssh.nix
     ../modules/user.nix
     (import ../modules/xserver/xserver.nix
-      ({ inherit config pkgs; } // xserverConfig))
+      ({inherit config pkgs;} // xserverConfig))
   ];
 
   # Local modules

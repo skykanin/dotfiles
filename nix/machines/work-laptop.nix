@@ -1,14 +1,17 @@
-{ config, options, pkgs, ... }:
-
-let
+{
+  config,
+  options,
+  pkgs,
+  ...
+}: let
   xserverConfig = {
     compositorConfig = {
       enable = false;
       vSync = true;
     };
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
     xautolockTimer = 20;
-    xrandrHeads = [ ];
+    xrandrHeads = [];
   };
 in {
   imports = [
@@ -26,7 +29,7 @@ in {
     ../modules/ssh.nix
     ../modules/user.nix
     (import ../modules/xserver/xserver.nix
-      ({ inherit config pkgs; } // xserverConfig))
+      ({inherit config pkgs;} // xserverConfig))
   ];
 
   # Local modules
@@ -38,13 +41,13 @@ in {
 
     nix = {
       max-jobs = 6;
-      extra-substituters = [ "https://scrive.cachix.org" ];
-      extra-trusted-public-keys = [ "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU=" ];
+      extra-substituters = ["https://scrive.cachix.org"];
+      extra-trusted-public-keys = ["scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU="];
     };
 
     programs.light.enable = true;
 
-    services= {
+    services = {
       polybar = {
         enable = true;
         startup-script = ''
@@ -65,83 +68,84 @@ in {
   networking.hostName = "iris";
 
   environment.systemPackages = let
-    vim-with-conf = (import ./../packages/vim.nix { inherit pkgs; });
-    in with pkgs; [
-    _1password-gui-beta
-    adwaita-qt
-    arc-icon-theme
-    arc-theme
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
-    autorandr
-    babashka
-    bat
-    blueberry
-    bottom
-    brightnessctl
-    haskell.packages.ghc946.cabal-install
-    cachix
-    colorz
-    curl
-    difftastic
-    direnv
-    discord
-    emacs29
-    fd
-    feh
-    ffmpeg-full
-    file
-    firefox-bin
-    fish
-    flameshot
-    gimp
-    git
-    gitAndTools.gh
-    gnumake
-    haskell.packages.ghc946.ghc
-    htop
-    insomnia
-    jq
-    keepassxc
-    kitty
-    lagrange
-    libxml2
-    lshw
-    lxappearance
-    maim
-    mktemp
-    mpv
-    neofetch
-    networkmanagerapplet
-    nix-direnv
-    nnn
-    nodejs-18_x
-    ntp
-    openjdk
-    openresolv
-    openssl
-    openvpn
-    pamixer
-    pavucontrol
-    pciutils
-    playerctl
-    polybarFull
-    python3
-    pywal
-    qdirstat
-    ripgrep
-    rlwrap
-    rofi
-    shellcheck
-    slack
-    spotifywm
-    tldr
-    tree
-    unzip
-    vim-with-conf
-    xclip
-    xsel
-    zoom-us
-  ];
+    vim-with-conf = import ./../packages/vim.nix {inherit pkgs;};
+  in
+    with pkgs; [
+      _1password-gui-beta
+      adwaita-qt
+      arc-icon-theme
+      arc-theme
+      (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
+      autorandr
+      babashka
+      bat
+      blueberry
+      bottom
+      brightnessctl
+      haskell.packages.ghc946.cabal-install
+      cachix
+      colorz
+      curl
+      difftastic
+      direnv
+      discord
+      emacs29
+      fd
+      feh
+      ffmpeg-full
+      file
+      firefox-bin
+      fish
+      flameshot
+      gimp
+      git
+      gitAndTools.gh
+      gnumake
+      haskell.packages.ghc946.ghc
+      htop
+      insomnia
+      jq
+      keepassxc
+      kitty
+      lagrange
+      libxml2
+      lshw
+      lxappearance
+      maim
+      mktemp
+      mpv
+      neofetch
+      networkmanagerapplet
+      nix-direnv
+      nnn
+      nodejs-18_x
+      ntp
+      openjdk
+      openresolv
+      openssl
+      openvpn
+      pamixer
+      pavucontrol
+      pciutils
+      playerctl
+      polybarFull
+      python3
+      pywal
+      qdirstat
+      ripgrep
+      rlwrap
+      rofi
+      shellcheck
+      slack
+      spotifywm
+      tldr
+      tree
+      unzip
+      vim-with-conf
+      xclip
+      xsel
+      zoom-us
+    ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -158,14 +162,14 @@ in {
 
   services = {
     logind.lidSwitch = "suspend";
-    
+
     kolide-launcher = {
       enable = true;
       enrollSecretPath = "/persist/kolide/secret";
       rootDirectory = "/cache/kolide";
-      additionalPackages = with pkgs; [ glib zfs networkmanager cryptsetup ];
+      additionalPackages = with pkgs; [glib zfs networkmanager cryptsetup];
     };
-    
+
     ntp.enable = true;
   };
 
@@ -187,4 +191,3 @@ in {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
 }
-

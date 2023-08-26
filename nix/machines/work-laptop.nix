@@ -31,6 +31,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
     ../modules/nix.nix
+    ../modules/hardware.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager
         noisetorchConfig polybarConfig;

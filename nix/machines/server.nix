@@ -17,14 +17,18 @@ in {
   imports = [
     ../modules/user.nix
     ../modules/nix.nix
+    ../modules/hardware.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager
-        noisetorchConfig polybarConfig enableOpengl;
+        noisetorchConfig polybarConfig;
     })
     ../modules/programs.nix
   ];
 
-  modules.user.authorizedSshKeys = authorizedSshKeys;
+  modules = {
+    hardware.opengl.enable = false;
+    user.authorizedSshKeys = authorizedSshKeys;
+  };
   users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
 
   services.openssh.enable = true;

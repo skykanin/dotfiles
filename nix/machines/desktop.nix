@@ -38,6 +38,7 @@ in {
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     ../modules/nix.nix
+    ../modules/hardware.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager enableJellyfin
         noisetorchConfig polybarConfig;
@@ -54,6 +55,7 @@ in {
   ];
 
   modules = {
+    hardware.opentabletdriver.enable = true;
     nix = {
       extra-substituters = [
         "https://iohk.cachix.org"

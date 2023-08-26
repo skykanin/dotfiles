@@ -10,21 +10,18 @@ let
   ];
   enableFirewall = false;
   enableNetworkmanager = false;
-  enableOpengl = false;
-  noisetorchConfig = { enable = false; };
-  polybarConfig = { enable = false; };
 in {
   imports = [
     ../modules/user.nix
     ../modules/nix.nix
     ../modules/hardware.nix
     (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager
-        noisetorchConfig polybarConfig;
+      inherit config options pkgs enableFirewall enableNetworkmanager;
     })
     ../modules/programs.nix
   ];
 
+  # Local modules
   local = {
     hardware.opengl.enable = false;
     user.authorizedSshKeys = authorizedSshKeys;

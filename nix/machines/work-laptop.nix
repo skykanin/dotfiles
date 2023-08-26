@@ -3,20 +3,6 @@
 let
   enableFirewall = true;
   enableNetworkmanager = true;
-  polybarConfig = {
-    enable = true;
-    startup-script = ''
-      MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-      MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-      MONITOR=DP-1-2 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-      MONITOR=DP-1-3 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
-    '';
-  };
-  noisetorchConfig = {
-    enable = true;
-    device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d4-1\\x2d4.2-1\\x2d4.2:1.0-sound-card1-controlC1.device";
-    device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
-  };
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -33,10 +19,11 @@ in {
     ../modules/nix.nix
     ../modules/hardware.nix
     (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager
-        noisetorchConfig polybarConfig;
+      inherit config options pkgs enableFirewall enableNetworkmanager;
     })
     ../modules/programs.nix
+    ../modules/services/noisetorch.nix
+    ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -45,6 +32,7 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
+  # Local modules
   local = {
     nix = {
       max-jobs = 6;
@@ -52,6 +40,23 @@ in {
       extra-trusted-public-keys = [ "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU=" ];
     };
     programs.light.enable = true;
+
+    services= {
+      polybar = {
+        enable = true;
+        startup-script = ''
+          MONITOR=eDP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+          MONITOR=DP-1-1 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+          MONITOR=DP-1-2 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+          MONITOR=DP-1-3 DEFAULT_BATTERY=BAT0 polybar primary -c /etc/polybar/config.ini &
+        '';
+      };
+      noisetorch = {
+        enable = true;
+        device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d4-1\\x2d4.2-1\\x2d4.2:1.0-sound-card1-controlC1.device";
+        device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
+      };
+    };
   };
 
   networking.hostName = "iris";

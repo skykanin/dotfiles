@@ -25,7 +25,6 @@
           idris2-main = inputs.idris2-main.packages.${system};
         };
       lib = nixpkgs.lib;
-      custom-services = lib.filesystem.listFilesRecursive ./modules/services;
       system-rev = { ... }: {
         # Let 'nixos-version --json' know about the Git revision of this flake.
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -40,7 +39,6 @@
           (special-module system)
           ./machines/desktop.nix
           ./hardware/desktop.nix
-          custom-services
         ];
       };
 
@@ -51,7 +49,6 @@
           (special-module system)
           ./machines/laptop.nix
           ./hardware/laptop.nix
-          custom-services
         ];
       };
 
@@ -62,7 +59,6 @@
           (special-module system)
           ./machines/work-laptop.nix
           ./hardware/work-laptop.nix
-          custom-services
           kolide-module.${system}.default
         ];
       };
@@ -74,7 +70,6 @@
           (special-module system)
           ./machines/server.nix
           ./hardware/server.nix
-          custom-services
         ];
       };
     };

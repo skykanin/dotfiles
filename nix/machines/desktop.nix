@@ -3,21 +3,6 @@
 let
   enableFirewall = true;
   enableNetworkmanager = true;
-  enableJellyfin = true;
-  polybarConfig = {
-    enable = true;
-    startup-script = ''
-      MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-      DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
-    '';
-  };
-  noisetorchConfig = {
-    enable = true;
-    device-unit =
-      "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card3-controlC3.device";
-    device-id =
-      "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
-  };
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -40,12 +25,13 @@ in {
     ../modules/nix.nix
     ../modules/hardware.nix
     (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager enableJellyfin
-        noisetorchConfig polybarConfig;
+      inherit config options pkgs enableFirewall enableNetworkmanager;
     })
     ../modules/packages.nix
     ../modules/printing.nix
     ../modules/programs.nix
+    ../modules/services/jellyfin.nix
+    ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -54,6 +40,7 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
+  # Local modules
   local = {
     hardware.opentabletdriver.enable = true;
     nix = {
@@ -65,6 +52,17 @@ in {
       ];
     };
     programs.steam.enable = true;
+
+    services = {
+      jellyfin.enable = true;
+      polybar = {
+        enable = true;
+        startup-script = ''
+          MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
+          DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
+        '';
+      };
+    };
   };
 
   networking = {

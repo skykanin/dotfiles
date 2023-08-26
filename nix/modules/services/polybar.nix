@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.services.custom.polybar;
+  cfg = config.local.services.polybar;
   polybar-config = lib.strings.readFile ../../../dots/polybar/config.ini;
 
 in with lib; {
-  options.services.custom.polybar = {
+  options.local.services.polybar = {
     enable = mkEnableOption "Enable polybar service";
     extraConfig = mkOption {
       type = lib.types.lines;

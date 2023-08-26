@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }:
 
-let cfg = config.services.custom.noisetorch;
-in with lib; {
-  options.services.custom.noisetorch = {
+let
+  cfg = config.local.services.noisetorch;
+in {
+  options.local.services.noisetorch = with lib; {
     enable = mkEnableOption "Enable noisetorch service";
     package = mkOption {
       type = lib.types.package;
@@ -27,8 +28,9 @@ in with lib; {
     };
   };
 
-  config = mkIf cfg.enable {
-    environment = { systemPackages = [ cfg.package ]; };
+  config = lib.mkIf cfg.enable {
+
+    programs.noisetorch.enable = true;
 
     systemd.user.services.noisetorch = {
       description = "Noisetorch Noise Cancelling Daemon";

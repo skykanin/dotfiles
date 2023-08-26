@@ -3,13 +3,6 @@
 let
   enableFirewall = true;
   enableNetworkmanager = true;
-  polybarConfig = {
-    enable = true;
-    startup-script = ''
-      MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
-    '';
-  };
-  noisetorchConfig.enable = false;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -26,12 +19,12 @@ in {
     ../modules/nix.nix
     ../modules/hardware.nix
     (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager polybarConfig
-        noisetorchConfig;
+      inherit config options pkgs enableFirewall enableNetworkmanager;
     })
     ../modules/packages.nix
     ../modules/printing.nix
     ../modules/programs.nix
+    ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -40,6 +33,7 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
+  # Local modules
   local = {
     hardware.opentabletdriver.enable = true;
     nix = {
@@ -53,6 +47,15 @@ in {
     programs = {
       light.enable = true;
       steam.enable = true;
+    };
+
+    services = {
+      polybar = {
+        enable = true;
+        startup-script = ''
+          MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
+        '';
+      };
     };
   };
 

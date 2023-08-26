@@ -1,5 +1,4 @@
 { config, pkgs, enableFirewall, enableNetworkmanager
-, enableJellyfin ? false, polybarConfig, noisetorchConfig
 , options, ... }:
 
 {
@@ -38,8 +37,6 @@
     timeServers = options.networking.timeServers.default ++ [ "ntp.example.com" ];
   };
 
-  programs.noisetorch.enable = noisetorchConfig.enable;
-
   qt = {
     enable = true;
     platformTheme = "gtk2";
@@ -47,16 +44,7 @@
   };
 
   services = {
-    custom = {
-      polybar = polybarConfig;
-      noisetorch = noisetorchConfig;
-    };
-
     gnome.gnome-keyring.enable = true;
-    jellyfin = {
-      enable = enableJellyfin;
-      openFirewall = true;
-    };
     ratbagd.enable = true;
   };
 

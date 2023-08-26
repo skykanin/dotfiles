@@ -18,25 +18,23 @@ in {
     };
   };
 
-  config = {
-    users.users."${cfg.name}" = {
-      isNormalUser = true;
-      description = cfg.name;
-      extraGroups = [
-        "wheel"
-        "audio"
-        "docker"
-        "libvirtd"
-        "kvm"
-        "video"
-        "networkmanager"
-        "postgres"
-      ];
-      initialPassword = cfg.initialPassword; # Change with passwd later
-      openssh.authorizedKeys = {
-        keys = cfg.authorizedSshKeys;
-      };
-      shell = pkgs.fish;
+  config.users.users."${cfg.name}" = {
+    isNormalUser = true;
+    description = cfg.name;
+    extraGroups = [
+      "wheel"
+      "audio"
+      "docker"
+      "libvirtd"
+      "kvm"
+      "video"
+      "networkmanager"
+      "postgres"
+    ];
+    initialPassword = cfg.initialPassword; # Change with passwd later
+    openssh.authorizedKeys = {
+      keys = cfg.authorizedSshKeys;
     };
+    shell = pkgs.fish;
   };
 }

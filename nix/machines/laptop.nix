@@ -10,7 +10,6 @@ let
     '';
   };
   noisetorchConfig.enable = false;
-  threads = 2;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -24,9 +23,10 @@ in {
   imports = [ # Include the results of the hardware scan.
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
+    ../modules/nix.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager polybarConfig
-        noisetorchConfig threads;
+        noisetorchConfig;
     })
     ../modules/packages.nix
     ../modules/printing.nix
@@ -39,9 +39,19 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  module.programs = {
-    light.enable = true;
-    steam.enable = true;
+  modules = {
+    nix = {
+      extra-substituters = [
+        "https://iohk.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
+      ];
+    };
+    programs = {
+      light.enable = true;
+      steam.enable = true;
+    };
   };
 
   networking.hostName = "daisy";

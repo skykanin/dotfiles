@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.module.programs;
+  cfg = config.modules.programs;
 in
 {
-  options.module.programs = with lib; {
+  options.modules.programs = with lib; {
     light.enable = mkEnableOption "Enable Light";
     steam.enable = mkEnableOption "Enable Steam";
   };

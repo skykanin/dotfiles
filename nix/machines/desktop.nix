@@ -18,7 +18,6 @@ let
     device-id =
       "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
   };
-  threads = 2;
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -38,9 +37,10 @@ in {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
+    ../modules/nix.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager enableJellyfin
-        noisetorchConfig polybarConfig threads;
+        noisetorchConfig polybarConfig;
     })
     ../modules/packages.nix
     ../modules/printing.nix
@@ -53,7 +53,17 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  module.programs.steam.enable = true;
+  modules = {
+    nix = {
+      extra-substituters = [
+        "https://iohk.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
+      ];
+    };
+    programs.steam.enable = true;
+  };
 
   networking = {
     hostName = "emma";

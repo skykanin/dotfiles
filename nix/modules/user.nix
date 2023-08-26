@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.module.user;
+  cfg = config.modules.user;
 in {
-  options.module.user = with lib; {
+  options.modules.user = with lib; {
     authorizedSshKeys = mkOption {
       type = types.listOf types.singleLineStr;
       default = [ ];

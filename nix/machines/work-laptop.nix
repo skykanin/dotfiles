@@ -17,7 +17,6 @@ let
     device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d4-1\\x2d4.2-1\\x2d4.2:1.0-sound-card1-controlC1.device";
     device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
   };
-  threads = 6;
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -31,9 +30,10 @@ in {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
+    ../modules/nix.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager
-        noisetorchConfig polybarConfig threads;
+        noisetorchConfig polybarConfig;
     })
     ../modules/programs.nix
     ../modules/redshift.nix
@@ -44,7 +44,14 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  module.programs.light.enable = true;
+  modules = {
+    nix = {
+      max-jobs = 6;
+      extra-substituters = [ "https://scrive.cachix.org" ];
+      extra-trusted-public-keys = [ "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU=" ];
+    };
+    programs.light.enable = true;
+  };
 
   networking.hostName = "iris";
 

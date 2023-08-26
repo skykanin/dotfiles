@@ -11,20 +11,20 @@ let
   enableFirewall = false;
   enableNetworkmanager = false;
   enableOpengl = false;
-  threads = 2;
   noisetorchConfig = { enable = false; };
   polybarConfig = { enable = false; };
 in {
   imports = [
     ../modules/user.nix
+    ../modules/nix.nix
     (import ../modules/general.nix {
       inherit config options pkgs enableFirewall enableNetworkmanager
-        noisetorchConfig polybarConfig threads enableOpengl;
+        noisetorchConfig polybarConfig enableOpengl;
     })
     ../modules/programs.nix
   ];
 
-  module.user.authorizedSshKeys = authorizedSshKeys;
+  modules.user.authorizedSshKeys = authorizedSshKeys;
   users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
 
   services.openssh.enable = true;

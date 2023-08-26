@@ -1,5 +1,5 @@
 { config, pkgs, enableFirewall, enableNetworkmanager, enableOpengl ? true
-, enableJellyfin ? false, polybarConfig, noisetorchConfig, threads
+, enableJellyfin ? false, polybarConfig, noisetorchConfig
 , options, ... }:
 
 {
@@ -55,42 +55,6 @@
     };
     timeServers = options.networking.timeServers.default ++ [ "ntp.example.com" ];
   };
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      max-jobs = threads;
-      substituters = [
-        "https://cache.nixos.org"
-        "https://iohk.cachix.org"
-        "https://nix-community.cachix.org"
-        "https://scrive.cachix.org"
-      ];
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU="
-      ];
-      trusted-substituters = [ "https://hydra.iohk.io" ];
-      trusted-users = [ "root" "skykanin" ];
-    };
-    extraOptions = ''
-      experimental-features = nix-command flakes repl-flake
-      keep-outputs = false
-      keep-derivations = false
-      warn-dirty = false
-    '';
-    gc = {
-      automatic = true;
-      persistent = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
-    package = pkgs.nixVersions.stable;
-  };
-
-  nixpkgs.config.allowUnfree = true;
 
   programs.noisetorch.enable = noisetorchConfig.enable;
 

@@ -10,12 +10,10 @@ let
   ];
   enableFirewall = false;
   enableNetworkmanager = false;
-  enableLight = false; 
   enableOpengl = false;
   threads = 2;
   noisetorchConfig = { enable = false; };
   polybarConfig = { enable = false; };
-  enableSteam = false;
 in {
   imports = [
     ../modules/user.nix
@@ -23,7 +21,7 @@ in {
       inherit config options pkgs enableFirewall enableNetworkmanager
         noisetorchConfig polybarConfig threads enableOpengl;
     })
-    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
+    ../modules/programs.nix
   ];
 
   module.user.authorizedSshKeys = authorizedSshKeys;

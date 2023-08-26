@@ -1,7 +1,15 @@
-{ config, pkgs, enableLight, enableSteam, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  cfg = config.module.programs;
+in
 {
-  programs = {
+  options.module.programs = with lib; {
+    light.enable = mkEnableOption "Enable Light";
+    steam.enable = mkEnableOption "Enable Steam";
+  };
+
+  config.programs = {
     fish = {
       enable = true;
       vendor = {
@@ -22,7 +30,7 @@
     };
 
     steam = {
-      enable = enableSteam;
+      enable = cfg.steam.enable;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
@@ -32,7 +40,7 @@
       package = pkgs.jdk;
     };
 
-    light.enable = enableLight;
+    light.enable = cfg.light.enable;
 
     vim.defaultEditor = true;
   };

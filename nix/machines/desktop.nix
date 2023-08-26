@@ -3,8 +3,6 @@
 let
   enableFirewall = true;
   enableNetworkmanager = true;
-  enableLight = false;
-  enableSteam = true;
   enableJellyfin = true;
   polybarConfig = {
     enable = true;
@@ -46,7 +44,7 @@ in {
     })
     ../modules/packages.nix
     ../modules/printing.nix
-    (import ../modules/programs.nix { inherit config pkgs enableLight enableSteam; })
+    ../modules/programs.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -54,6 +52,8 @@ in {
     (import ../modules/xserver/xserver.nix
       ({ inherit config pkgs; } // xserverConfig))
   ];
+
+  module.programs.steam.enable = true;
 
   networking = {
     hostName = "emma";

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.modules.nix;
+  cfg = config.local.nix;
 in
 {
-  options.modules.nix = with lib; {
+  options.local.nix = with lib; {
     max-jobs = mkOption {
       type = types.ints.positive;
       default = 2;

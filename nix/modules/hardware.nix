@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.modules.hardware;
+  cfg = config.local.hardware;
 in
 {
-  options.modules.hardware = with lib; {
+  options.local.hardware = with lib; {
     opengl.enable =
       (mkEnableOption "Enable OpenGL") // { default = true; };
     opentabletdriver.enable =

@@ -54,7 +54,7 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  modules = {
+  local = {
     hardware.opentabletdriver.enable = true;
     nix = {
       extra-substituters = [

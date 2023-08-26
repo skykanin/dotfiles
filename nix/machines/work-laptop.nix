@@ -45,7 +45,7 @@ in {
       ({ inherit config pkgs; } // xserverConfig))
   ];
 
-  modules = {
+  local = {
     nix = {
       max-jobs = 6;
       extra-substituters = [ "https://scrive.cachix.org" ];

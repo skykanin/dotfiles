@@ -25,7 +25,7 @@ in {
     ../modules/programs.nix
   ];
 
-  modules = {
+  local = {
     hardware.opengl.enable = false;
     user.authorizedSshKeys = authorizedSshKeys;
   };

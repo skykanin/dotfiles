@@ -1,8 +1,6 @@
 { config, options, pkgs, ... }:
 
 let
-  enableFirewall = true;
-  enableNetworkmanager = true;
   xserverConfig = {
     compositorConfig = {
       enable = false;
@@ -18,9 +16,8 @@ in {
     ../modules/boot-work.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager;
-    })
+    ../modules/general.nix
+    ../modules/networking.nix
     ../modules/programs.nix
     ../modules/services/noisetorch.nix
     ../modules/services/polybar.nix
@@ -34,11 +31,17 @@ in {
 
   # Local modules
   local = {
+    networking = {
+      firewall.enable = true;
+      networkmanager.enable = true;
+    };
+
     nix = {
       max-jobs = 6;
       extra-substituters = [ "https://scrive.cachix.org" ];
       extra-trusted-public-keys = [ "scrive.cachix.org-1:U0qIgICaW+EuvCoqaYbbHR8JKTGNi29w4d+7Bc4LWfU=" ];
     };
+
     programs.light.enable = true;
 
     services= {

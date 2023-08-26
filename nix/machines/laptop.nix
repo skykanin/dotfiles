@@ -1,8 +1,6 @@
 { config, options, pkgs, ... }:
 
 let
-  enableFirewall = true;
-  enableNetworkmanager = true;
   xserverConfig = {
     compositorConfig = {
       enable = true;
@@ -18,9 +16,8 @@ in {
     ../modules/boot-efi.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    (import ../modules/general.nix {
-      inherit config options pkgs enableFirewall enableNetworkmanager;
-    })
+    ../modules/general.nix
+    ../modules/networking.nix
     ../modules/packages.nix
     ../modules/printing.nix
     ../modules/programs.nix
@@ -36,6 +33,12 @@ in {
   # Local modules
   local = {
     hardware.opentabletdriver.enable = true;
+
+    networking = {
+      firewall.enable = true;
+      networkmanager.enable = true;
+    };
+
     nix = {
       extra-substituters = [
         "https://iohk.cachix.org"
@@ -44,6 +47,7 @@ in {
         "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       ];
     };
+
     programs = {
       light.enable = true;
       steam.enable = true;

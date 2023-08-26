@@ -65,7 +65,7 @@ in {
   networking.hostName = "iris";
 
   environment.systemPackages = let
-    vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
+    vim-with-conf = (import ./../packages/vim.nix { inherit pkgs; });
     in with pkgs; [
     _1password-gui-beta
     adwaita-qt

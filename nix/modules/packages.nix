@@ -4,7 +4,7 @@ let
   obs-studio-custom = pkgs.wrapOBS {
     plugins = with pkgs.obs-studio-plugins; [ input-overlay ];
   };
-  vim-with-conf = (import ./../modules/vim.nix { inherit pkgs; });
+  vim-with-conf = (import ./../packages/vim.nix { inherit pkgs; });
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python

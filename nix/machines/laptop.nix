@@ -25,6 +25,7 @@ in {
     ../modules/packages.nix
     ../modules/printing.nix
     ../modules/programs.nix
+    ../modules/overlays.nix
     ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix

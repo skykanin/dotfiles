@@ -29,6 +29,7 @@ in {
     ../modules/general.nix
     ../modules/networking.nix
     ../modules/packages.nix
+    ../modules/overlays.nix
     ../modules/printing.nix
     ../modules/programs.nix
     ../modules/services/jellyfin.nix

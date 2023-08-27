@@ -85,7 +85,7 @@
       difftastic
       direnv
       discord
-      emacs29
+      ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [epkgs.vterm]))
       fd
       feh
       ffmpeg-full

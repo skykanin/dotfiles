@@ -4,23 +4,7 @@
   lib,
   pkgs,
   ...
-}: let
-  xserverConfig = {
-    compositorConfig = {
-      enable = false;
-      vSync = true;
-    };
-    videoDrivers = ["nvidia"];
-    xautolockTimer = 20;
-    xrandrHeads = [
-      {
-        output = "DP-2";
-        primary = true;
-      }
-      {output = "HDMI-0";}
-    ];
-  };
-in {
+}: {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
@@ -38,8 +22,7 @@ in {
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    (import ../modules/xserver/xserver.nix
-      ({inherit config pkgs;} // xserverConfig))
+    ../modules/xserver/default.nix
   ];
 
   # Local modules
@@ -71,7 +54,19 @@ in {
           DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
         '';
       };
+      xserver.xautolock.enable = true;
     };
+  };
+
+  services.xserver = {
+    videoDrivers = ["nvidia"];
+    xrandrHeads = [
+      {
+        output = "DP-2";
+        primary = true;
+      }
+      "HDMI-0"
+    ];
   };
 
   networking = {

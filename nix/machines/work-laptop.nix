@@ -3,17 +3,7 @@
   options,
   pkgs,
   ...
-}: let
-  xserverConfig = {
-    compositorConfig = {
-      enable = false;
-      vSync = true;
-    };
-    videoDrivers = ["nvidia"];
-    xautolockTimer = 20;
-    xrandrHeads = [];
-  };
-in {
+}: {
   imports = [
     ../modules/bluetooth.nix
     ../modules/boot-work.nix
@@ -28,8 +18,7 @@ in {
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    (import ../modules/xserver/xserver.nix
-      ({inherit config pkgs;} // xserverConfig))
+    ../modules/xserver/default.nix
   ];
 
   # Local modules
@@ -62,8 +51,15 @@ in {
         device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d4-1\\x2d4.2-1\\x2d4.2:1.0-sound-card1-controlC1.device";
         device-id = "alsa_input.usb-0c76_USB_PnP_Audio_Device-00.mono-fallback";
       };
+
+      xserver.xautolock = {
+        enable = true;
+        time = 10;
+      };
     };
   };
+
+  services.xserver.videoDrivers = ["nvidia"];
 
   networking.hostName = "iris";
 

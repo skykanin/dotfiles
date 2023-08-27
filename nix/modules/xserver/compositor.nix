@@ -1,11 +1,8 @@
-{
-  enable,
-  vSync,
-}:
+{vSync}:
 # Picom compositor configuration
 {
   backend = "xrender";
-  inherit enable;
+  enable = true;
   activeOpacity = 1.0;
   inactiveOpacity = 1.0;
   menuOpacity = 0.9;

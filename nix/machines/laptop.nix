@@ -3,17 +3,7 @@
   options,
   pkgs,
   ...
-}: let
-  xserverConfig = {
-    compositorConfig = {
-      enable = true;
-      vSync = true;
-    };
-    videoDrivers = ["amdgpu" "radeon" "nouveau" "modesetting" "fbdev"];
-    xautolockTimer = 10;
-    xrandrHeads = [];
-  };
-in {
+}: {
   imports = [
     # Include the results of the hardware scan.
     ../modules/bluetooth.nix
@@ -31,8 +21,7 @@ in {
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    (import ../modules/xserver/xserver.nix
-      ({inherit config pkgs;} // xserverConfig))
+    ../modules/xserver/default.nix
   ];
 
   # Local modules
@@ -64,6 +53,10 @@ in {
         startup-script = ''
           MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
         '';
+      };
+      xserver.xautolock = {
+        enable = true;
+        time = 10;
       };
     };
   };

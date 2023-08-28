@@ -32,7 +32,7 @@ in
         etc."polybar/config.ini".text = polybar-config;
       };
 
-      services.dbus = {enable = true;};
+      services.dbus.enable = true;
 
       systemd.user.services.polybar = {
         description = "Polybar status bar";
@@ -45,6 +45,9 @@ in
           pkgs.procps
           pkgs.fribidi
         ];
+        # This isn't very useful because /etc/polybar/config.ini is readonly.
+        # You need to rebuild the nixos config for polybar to update.
+        # TODO: Make the restart trigger on changes to ~/.config/polybar.
         restartTriggers = [config.environment.etc."polybar/config.ini".source];
         script = cfg.startup-script;
         serviceConfig = {

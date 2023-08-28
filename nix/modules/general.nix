@@ -54,6 +54,7 @@
       daemon.settings = {
         features = {buildkit = true;};
       };
+      extraPackages = with pkgs; [ openssh ];
       package = pkgs.docker_24;
     };
     libvirtd.enable = true;

@@ -20,6 +20,10 @@ in {
     # nameservers = [ "9.9.9.11" "8.8.8.8" ];
     networkmanager = {
       enable = cfg.networkmanager.enable;
+      plugins = with pkgs; [
+        networkmanager-openconnect
+        networkmanager-openvpn
+      ];
       wifi.backend = "iwd";
     };
     timeServers = options.networking.timeServers.default ++ ["ntp.example.com"];

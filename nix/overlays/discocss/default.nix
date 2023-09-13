@@ -7,7 +7,7 @@ final: prev: {
         rev = "dfb5a0c9c124c75081351df089e835aa7aca6d60";
         sha256 = "sha256-B4gGDav2Bere9FXl7RHQ+MeUxCHmtkXi4vdSC1O1JI8=";
       };
-    # Make discocss work with Discord 0.0.28
+    # Make discocss work with Discord 0.0.29
     patches = [./discocss-fix.patch];
   });
 }

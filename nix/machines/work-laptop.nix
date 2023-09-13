@@ -18,7 +18,7 @@
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    ../modules/xserver/default.nix
+    ../modules/desktop/xserver/default.nix
   ];
 
   # Local modules

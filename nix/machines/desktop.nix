@@ -22,7 +22,7 @@
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    ../modules/xserver/default.nix
+    ../modules/desktop/wayland/hyprland.nix
   ];
 
   # Local modules

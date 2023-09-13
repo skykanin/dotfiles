@@ -7,7 +7,6 @@
   obs-studio-custom = pkgs.wrapOBS {
     plugins = with pkgs.obs-studio-plugins; [input-overlay];
   };
-  vim-with-conf = import ./../packages/vim.nix {inherit pkgs;};
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python
@@ -59,7 +58,6 @@ in {
     gnumake
     (haskell.packages.ghc946.ghcWithPackages (p: with p; [unicode-show]))
     htop
-    i3lock
     idris2-main.idris2
     insomnia
     imagemagick
@@ -95,7 +93,6 @@ in {
     racket
     ripgrep
     rlwrap
-    rofi
     shellcheck
     slack
     spotifywm
@@ -106,7 +103,6 @@ in {
     tree
     unison-ucm
     unzip
-    vim-with-conf
     weechat
     wget
     xclip

@@ -44,6 +44,9 @@ in {
 
     light.enable = cfg.light.enable;
 
-    vim.defaultEditor = true;
+    vim = {
+      defaultEditor = true;
+      package = import ./../packages/vim.nix {inherit pkgs;};
+    };
   };
 }

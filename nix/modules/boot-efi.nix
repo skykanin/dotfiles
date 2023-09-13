@@ -5,12 +5,11 @@
 }: {
   # Use the systemd-boot EFI boot loader.
   boot = {
-    # Enables NixOS to compile and run? software for these systems using qemu emulation.
+    # Enables NixOS to compile and run software for these systems using qemu emulation.
     binfmt.emulatedSystems = [
       "aarch64-linux"
       "x86_64-windows"
-      # Broken qemu build for this arch
-      # "riscv64-linux"
+      "riscv64-linux"
     ];
 
     loader = {

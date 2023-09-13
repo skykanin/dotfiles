@@ -27,6 +27,12 @@
 
   # Local modules
   local = {
+    desktop.hyprland = {
+      enable = true;
+      enableNvidiaPatches = true;
+      xwayland.enable = true;
+    };
+
     hardware.opentabletdriver.enable = true;
 
     networking = {
@@ -54,19 +60,7 @@
           DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
         '';
       };
-      xserver.xautolock.enable = true;
     };
-  };
-
-  services.xserver = {
-    videoDrivers = ["nvidia"];
-    xrandrHeads = [
-      {
-        output = "DP-2";
-        primary = true;
-      }
-      "HDMI-0"
-    ];
   };
 
   networking = {
@@ -75,9 +69,6 @@
     interfaces.wlan0.useDHCP = true;
   };
 
-  environment.extraInit = ''
-    xrandr --output DP-2 --mode 2560x1440 --rate 169 --output HDMI-0 --mode 2560x1440 --rotate normal --rate 74 --right-of DP-2
-  '';
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you

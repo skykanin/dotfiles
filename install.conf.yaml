@@ -3,10 +3,10 @@
       create: true
       force: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.dotfiles: ''
+    ~/.dotfiles: ""
     ~/.doom.d: dots/emacs/doom
     ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
@@ -14,6 +14,8 @@
     ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
+    ~/.config/hypr/hyprland.conf: dots/hypr/hyprland.conf
+    ~/.config/waybar/config: dots/waybar/config
     ~/.config/xmonad: dots/xmonad
     ~/.xmonad: dots/xmonad
     ~/.config/polybar: dots/polybar
@@ -32,4 +34,4 @@
     - ~/.vim/undo-history
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]

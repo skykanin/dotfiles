@@ -9,8 +9,8 @@
   importOverlay = package:
     import ../overlays/${package}/default.nix;
   # Import packages that don't exist in nixpkgs
-  importCustomPackages = {attrname, package}: final: prev: {
-    "${attrname}" = pkgs.callPackage ../packages/${package}.nix {};
+  importCustomPackages = {attrname, package}: _final: prev: {
+    "${attrname}" = prev.callPackage ../packages/${package}.nix {};
   };
 in {
   config = {

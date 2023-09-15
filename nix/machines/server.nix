@@ -15,11 +15,10 @@ in {
     ../modules/user.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    (import ../modules/general.nix {
-      inherit config options pkgs;
-    })
+    ../modules/general.nix
     ../modules/networking.nix
     ../modules/programs.nix
+    ../modules/overlays.nix
   ];
 
   # Local modules

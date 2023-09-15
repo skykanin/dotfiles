@@ -46,7 +46,7 @@ in {
 
     vim = {
       defaultEditor = true;
-      package = import ./../packages/vim.nix {inherit pkgs;};
+      package = pkgs.vim-with-conf;
     };
   };
 }

@@ -15,6 +15,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    services.greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = with pkgs; "${lib.makeBinPath [ hyprland ]}/${hyprland.meta.mainProgram}";
+            user = config.local.user.name;
+          };
+        };
+      };
+
     programs.hyprland = {
       enable = true;
       inherit (cfg) enableNvidiaPatches;
@@ -23,8 +33,9 @@ in
 
     # Additional packages
     environment.systemPackages = with pkgs; [
-      hyprpaper
+      fribidi # used in statusbar spotify script
       rofi-wayland
+      swaybg
       swayidle
       swaylock-effects
       wl-clipboard

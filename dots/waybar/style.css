@@ -1,0 +1,41 @@
+@import url("/home/skykanin/.cache/wal/colors-waybar.css");
+
+* {
+  font-family: JetBrains Mono, file\-icons, Material Icons, Unifont, sans-serif;
+  font-size: 17px;
+}
+
+window#waybar {
+  background-color: @background;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  border-bottom: 2px solid white;
+  border-style: inset;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+  background-color: #64727d;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#tray {
+  padding-right: 10px;
+}

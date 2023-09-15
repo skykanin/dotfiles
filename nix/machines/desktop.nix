@@ -63,6 +63,14 @@
     };
   };
 
+  # Expose password to swaylock
+  security.pam.services.swaylock = {
+      text = ''
+         auth include login
+       '';
+    };
+
+
   networking = {
     hostName = "emma";
     useDHCP = false;

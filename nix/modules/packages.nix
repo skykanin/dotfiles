@@ -49,12 +49,13 @@ in {
     feh
     ffmpeg-full
     file
-    firefox-bin
+    firefox-wayland
     fish
     flameshot
     gimp
     gitAndTools.gh
     gitFull
+    gnome.gucharmap
     gnumake
     (haskell.packages.ghc946.ghcWithPackages (p: with p; [unicode-show]))
     htop

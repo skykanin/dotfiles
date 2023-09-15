@@ -15,7 +15,7 @@
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
     ~/.config/hypr/hyprland.conf: dots/hypr/hyprland.conf
-    ~/.config/waybar/config: dots/waybar/config
+    ~/.config/waybar: dots/waybar
     ~/.config/xmonad: dots/xmonad
     ~/.xmonad: dots/xmonad
     ~/.config/polybar: dots/polybar

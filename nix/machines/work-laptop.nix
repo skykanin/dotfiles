@@ -12,6 +12,7 @@
     ../modules/general.nix
     ../modules/networking.nix
     ../modules/programs.nix
+    ../modules/overlays.nix
     ../modules/services/noisetorch.nix
     ../modules/services/polybar.nix
     ../modules/redshift.nix
@@ -63,85 +64,83 @@
 
   networking.hostName = "iris";
 
-  environment.systemPackages = let
-    vim-with-conf = import ./../packages/vim.nix {inherit pkgs;};
-  in
-    with pkgs; [
-      _1password-gui-beta
-      adwaita-qt
-      arc-icon-theme
-      arc-theme
-      (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
-      autorandr
-      babashka
-      bat
-      blueberry
-      bottom
-      brightnessctl
-      haskell.packages.ghc946.cabal-install
-      cachix
-      colorz
-      curl
-      difftastic
-      direnv
-      discord
-      ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [epkgs.vterm]))
-      fd
-      feh
-      ffmpeg-full
-      file
-      firefox-bin
-      fish
-      flameshot
-      gimp
-      git
-      gitAndTools.gh
-      gnumake
-      haskell.packages.ghc946.ghc
-      htop
-      insomnia
-      jq
-      keepassxc
-      kitty
-      lagrange
-      libxml2
-      lshw
-      lxappearance
-      maim
-      mktemp
-      mpv
-      neofetch
-      networkmanagerapplet
-      nix-direnv
-      nnn
-      nodejs-18_x
-      ntp
-      openjdk
-      openresolv
-      openssl
-      openvpn
-      pamixer
-      pavucontrol
-      pciutils
-      playerctl
-      polybarFull
-      python3
-      pywal
-      qdirstat
-      ripgrep
-      rlwrap
-      rofi
-      shellcheck
-      slack
-      spotifywm
-      tldr
-      tree
-      unzip
-      vim-with-conf
-      xclip
-      xsel
-      zoom-us
-    ];
+  environment.systemPackages = with pkgs; [
+    _1password-gui-beta
+    adwaita-qt
+    arc-icon-theme
+    arc-theme
+    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
+    autorandr
+    babashka
+    bat
+    blueberry
+    bottom
+    brightnessctl
+    haskell.packages.ghc946.cabal-install
+    cachix
+    colorz
+    curl
+    difftastic
+    direnv
+    discord
+    ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [epkgs.vterm]))
+    fd
+    feh
+    ffmpeg-full
+    file
+    firefox-bin
+    fish
+    flameshot
+    gimp
+    git
+    gitAndTools.gh
+    gnumake
+    haskell.packages.ghc946.ghc
+    httpie-desktop
+    htop
+    insomnia
+    jq
+    keepassxc
+    kitty
+    lagrange
+    libxml2
+    lshw
+    lxappearance
+    maim
+    mktemp
+    mpv
+    neofetch
+    networkmanagerapplet
+    nix-direnv
+    nnn
+    nodejs-18_x
+    ntp
+    openjdk
+    openresolv
+    openssl
+    openvpn
+    pamixer
+    pavucontrol
+    pciutils
+    playerctl
+    polybarFull
+    python3
+    pywal
+    qdirstat
+    ripgrep
+    rlwrap
+    rofi
+    shellcheck
+    slack
+    spotifywm
+    tldr
+    tree
+    unzip
+    vim-with-conf
+    xclip
+    xsel
+    zoom-us
+  ];
 
   hardware.nvidia = {
     modesetting.enable = true;

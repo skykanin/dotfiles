@@ -24,7 +24,12 @@ in {
         networkmanager-openconnect
         networkmanager-openvpn
       ];
-      wifi.backend = "iwd";
+      wifi = {
+        backend = "iwd";
+        # Fixes bug with intermittent wifi disconnects when using iwd backend:
+        # https://forums.gentoo.org/viewtopic-p-8776744.html?sid=47d852651f18223fa1d6d7ff49dadea3
+        powersave = false;
+      };
     };
     timeServers = options.networking.timeServers.default ++ ["ntp.example.com"];
   };

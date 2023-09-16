@@ -44,7 +44,7 @@ in {
     discord
     discocss
     dotty
-    ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [epkgs.vterm]))
+    ((emacsPackagesFor (emacs29.override { withPgtk = true; })).emacsWithPackages (epkgs: [epkgs.vterm]))
     fd
     feh
     ffmpeg-full

@@ -5,5 +5,5 @@ set -x
 discord=$(fd -t d "0.0.*" ~/.config/discord/)
 path=$discord/modules/discord_krisp/discord_krisp.node
 
-addr=$(rz-find -x '4889dfe8........4889dfe8' $path | head -n1)
-rizin -q -w -c "s $addr + 0x12 ; wao nop" $path
+addr=$(rz-find -x '4881ec00010000' $path | head -n1)
+rizin -q -w -c "s $addr + 0x30 ; wao nop" $path

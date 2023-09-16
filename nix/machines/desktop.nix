@@ -30,7 +30,6 @@
     desktop.hyprland = {
       enable = true;
       enableNvidiaPatches = true;
-      xwayland.enable = true;
     };
 
     hardware.opentabletdriver.enable = true;
@@ -63,13 +62,19 @@
     };
   };
 
-  # Expose password to swaylock
-  security.pam.services.swaylock = {
-      text = ''
-         auth include login
-       '';
-    };
+  hardware.nvidia = {
+    # Required for hyprland
+    modesetting.enable = true;
 
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    open = false;
+
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   networking = {
     hostName = "emma";

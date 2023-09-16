@@ -14,6 +14,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     kolide-config.url = "github:skykanin/kolide-launcher";
+    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
@@ -31,6 +32,8 @@
         inputs
         // {
           idris2-main = inputs.idris2-main.packages.${system};
+          # Use xdg-desktop-portal-hyprland version 1.0
+          xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.packages.${system}.default;
         };
       lib = nixpkgs.lib;
       system-rev = {...}: {

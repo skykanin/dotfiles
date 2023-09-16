@@ -15,6 +15,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    # Simple login manager
     services.greetd = {
         enable = true;
         settings = {
@@ -25,16 +26,33 @@ in
         };
       };
 
+    # Make pam module for swaylock
+    security.pam.services.swaylock = {
+      text = ''
+         auth include login
+       '';
+    };
+
+    # Enable proprietary nvidia drivers
+    services.xserver.videoDrivers = lib.optionals cfg.enableNvidiaPatches ["nvidia"];
+
     programs.hyprland = {
       enable = true;
       inherit (cfg) enableNvidiaPatches;
       xwayland.enable = cfg.xwayland.enable;
+      # Options are bugged so we need to override the package ourselves
+      package = pkgs.hyprland.override {
+        inherit (cfg) enableNvidiaPatches;
+        enableXWayland = cfg.xwayland.enable;
+      };
     };
 
     # Additional packages
     environment.systemPackages = with pkgs; [
       fribidi # used in statusbar spotify script
+      grim
       rofi-wayland
+      slurp
       swaybg
       swayidle
       swaylock-effects

@@ -18,6 +18,7 @@ in {
       "alejandra"
       "cbqn"
       "discocss"
+      "emacs"
       "obs"
       "vim"
     ] ++ map importCustomPackages [

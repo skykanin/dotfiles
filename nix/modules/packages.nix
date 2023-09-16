@@ -44,14 +44,13 @@ in {
     discord
     discocss
     dotty
-    ((emacsPackagesFor (emacs29.override { withPgtk = true; })).emacsWithPackages (epkgs: [epkgs.vterm]))
+    emacs
     fd
     feh
     ffmpeg-full
     file
     firefox-wayland
     fish
-    flameshot
     gimp
     gitAndTools.gh
     gitFull

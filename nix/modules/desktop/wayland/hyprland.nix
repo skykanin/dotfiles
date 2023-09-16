@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.local.desktop.hyprland;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.local.desktop.hyprland;
+in {
   imports = [
     ./waybar.nix
   ];
@@ -17,20 +19,20 @@ in
   config = lib.mkIf cfg.enable {
     # Simple login manager
     services.greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            command = with pkgs; "${lib.makeBinPath [ hyprland ]}/${hyprland.meta.mainProgram}";
-            user = config.local.user.name;
-          };
+      enable = true;
+      settings = {
+        default_session = {
+          command = with pkgs; "${lib.makeBinPath [hyprland]}/${hyprland.meta.mainProgram}";
+          user = config.local.user.name;
         };
       };
+    };
 
     # Make pam module for swaylock
     security.pam.services.swaylock = {
       text = ''
-         auth include login
-       '';
+        auth include login
+      '';
     };
 
     # Enable proprietary nvidia drivers

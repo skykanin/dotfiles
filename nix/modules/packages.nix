@@ -58,7 +58,7 @@ in {
     gnumake
     (haskell.packages.ghc946.ghcWithPackages (p: with p; [unicode-show]))
     htop
-    idris2-main.idris2
+    idris2
     insomnia
     imagemagick
     jetbrains.idea-community

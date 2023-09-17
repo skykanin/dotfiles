@@ -2,14 +2,10 @@
   description = "NixOS system configurations for various hosts";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-
     git-ignore-nix = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:IvanMalison/gitignore.nix";
     };
-
-    idris2-main.url = "github:idris-lang/idris2?rev=c2bcc14e00794b19a7fc7ecc600f5a79b849f031";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -31,7 +27,6 @@
       inputs' = system:
         inputs
         // {
-          idris2-main = inputs.idris2-main.packages.${system};
           # Use xdg-desktop-portal-hyprland version 1.0
           xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.packages.${system}.default;
         };

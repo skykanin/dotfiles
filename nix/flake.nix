@@ -21,6 +21,10 @@
     alejandra-remove-ads = import ./overlays/alejandra/default.nix;
     pkgs = nixpkgs.legacyPackages.x86_64-linux.extend alejandra-remove-ads;
   in {
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      name = "nixd-shell";
+      buildInputs = with pkgs; [ nixd ];
+    };
     formatter.x86_64-linux = pkgs.alejandra;
 
     nixosConfigurations = let

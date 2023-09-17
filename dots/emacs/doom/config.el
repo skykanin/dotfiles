@@ -88,6 +88,10 @@
       (formattingProvider . "fourmolu")
       (maxCompletions . 30))))
 
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(nix-mode . ("nixd"))))
+
 ;; Restrict eldoc popup window size to 1.
 (setq-default eldoc-echo-area-use-multiline-p 1)
 

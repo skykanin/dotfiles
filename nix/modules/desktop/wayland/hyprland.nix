@@ -22,7 +22,7 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = with pkgs; "${lib.makeBinPath [hyprland]}/${hyprland.meta.mainProgram}";
+          command = "${lib.getExe config.programs.hyprland.package}";
           user = config.local.user.name;
         };
       };

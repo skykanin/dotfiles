@@ -16,6 +16,7 @@
     ~/.config/i3/config: dots/i3/config
     ~/.config/hypr/hyprland.conf: dots/hypr/hyprland.conf
     ~/.config/waybar: dots/waybar
+    ~/.config/swaylock/config: dots/swaylock/config
     ~/.config/xmonad: dots/xmonad
     ~/.xmonad: dots/xmonad
     ~/.config/polybar: dots/polybar

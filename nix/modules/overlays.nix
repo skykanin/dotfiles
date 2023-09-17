@@ -20,7 +20,6 @@ in {
     nixpkgs.overlays =
       map importOverlay [
         "alejandra"
-        "cbqn"
         "discocss"
         "emacs"
         "obs"

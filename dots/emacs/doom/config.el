@@ -63,7 +63,7 @@
 
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
-      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode))
+      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode haskell-mode))
 
 ;; Remove extra ligatures
 (setq +ligatures-extras-in-modes nil)
@@ -94,6 +94,9 @@
 
 ;; Restrict eldoc popup window size to 1.
 (setq-default eldoc-echo-area-use-multiline-p 1)
+
+(use-package! eglot
+  :custom (eglot-connect-timeout 30))
 
 ;; ------------------------------- END -------------------------------
 

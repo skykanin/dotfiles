@@ -9,6 +9,8 @@
     pathsToLink = ["/share/nix-direnv"];
 
     variables.EDITOR = "vim";
+
+    sessionVariables.FLAKE = "/home/skykanin/dotfiles/nix";
   };
 
   documentation = {

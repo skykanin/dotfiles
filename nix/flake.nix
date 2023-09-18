@@ -3,8 +3,12 @@
 
   inputs = {
     git-ignore-nix = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:IvanMalison/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -18,12 +22,16 @@
     nixpkgs,
     ...
   } @ inputs: let
-    alejandra-remove-ads = import ./overlays/alejandra/default.nix;
-    pkgs = nixpkgs.legacyPackages.x86_64-linux.extend alejandra-remove-ads;
+    overlays = {
+      alejandra-remove-ads = import ./overlays/alejandra/default.nix;
+    };
+    pkgs =
+      builtins.foldl' (acc: overlay: acc.extend overlay)
+      nixpkgs.legacyPackages.x86_64-linux (builtins.attrValues overlays);
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {
       name = "nixd-shell";
-      buildInputs = with pkgs; [ nixd ];
+      buildInputs = with pkgs; [nixd];
     };
     formatter.x86_64-linux = pkgs.alejandra;
 
@@ -31,7 +39,9 @@
       inputs' = system:
         inputs
         // {
+          nh = inputs.nh.packages.${system}.default;
           # Use xdg-desktop-portal-hyprland version 1.0
+          # TODO: Remove this when it's bumped in nixpkgs
           xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.packages.${system}.default;
         };
       lib = nixpkgs.lib;
@@ -42,7 +52,8 @@
       special-module = system: {_module.args = inputs' system;};
       kolide-module = inputs.kolide-config.nixosModules;
     in {
-      "desktop-emma" = lib.nixosSystem rec {
+      # Desktop
+      "emma" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           system-rev
@@ -52,7 +63,8 @@
         ];
       };
 
-      "laptop-daisy" = lib.nixosSystem rec {
+      # Laptop
+      "daisy" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           system-rev
@@ -62,7 +74,8 @@
         ];
       };
 
-      "work-laptop-iris" = lib.nixosSystem rec {
+      # Work laptop
+      "iris" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           system-rev
@@ -73,7 +86,8 @@
         ];
       };
 
-      "server-dandy" = lib.nixosSystem rec {
+      # Server
+      "dandy" = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = lib.lists.flatten [
           system-rev

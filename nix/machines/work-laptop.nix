@@ -2,6 +2,7 @@
   config,
   options,
   pkgs,
+  nh,
   ...
 }: {
   imports = [
@@ -111,6 +112,7 @@
     mpv
     neofetch
     networkmanagerapplet
+    nh
     nix-direnv
     nnn
     nodejs-18_x

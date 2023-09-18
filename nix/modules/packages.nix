@@ -1,7 +1,7 @@
 {
   config,
-  idris2-main,
   pkgs,
+  nh,
   ...
 }: let
   obs-studio-custom = pkgs.wrapOBS {
@@ -76,6 +76,7 @@ in {
     mpv
     neofetch
     networkmanagerapplet
+    nh
     nix-direnv
     nnn
     nodejs-18_x
@@ -95,6 +96,7 @@ in {
     rlwrap
     shellcheck
     slack
+    spot
     spotifywm
     steam
     streamlink

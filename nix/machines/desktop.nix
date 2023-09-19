@@ -10,6 +10,7 @@
     ../modules/boot-efi.nix
     ../modules/nix.nix
     ../modules/hardware.nix
+    ../modules/keyboard.nix
     ../modules/general.nix
     ../modules/networking.nix
     ../modules/packages.nix

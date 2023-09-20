@@ -1,5 +1,6 @@
-{
+[{
     "layer": "top",
+    "output": "DP-2",
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels
@@ -14,22 +15,7 @@
       "tray"
     ],
     // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "warp-on-scroll": false,
-        "format": "{icon} {name}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
-    },
+    "include": ["~/dotfiles/dots/waybar/clock.json", "~/dotfiles/dots/waybar/workspaces.json"],
     "idle_inhibitor": {
         "format": "{icon} {status}",
         "format-icons": {
@@ -40,11 +26,6 @@
     "tray": {
         // "icon-size": 21,
         "spacing": 10
-    },
-    "clock": {
-        "interval": 1,
-        "format": "{:%d %b %H:%M}",
-        "format-alt": "{:%Y.%m.%d %H:%M:%S}"
     },
     "cpu": {
         "format": " {usage}%",
@@ -107,4 +88,26 @@
         "exec": "$HOME/dotfiles/scripts/spotify.sh",
         "interval": 1
     }
-}
+},
+{
+    "layer": "top",
+    "output": "HDMI-A-1",
+    "position": "top",
+    "height": 40,
+    "spacing": 15, // Gaps between modules in pixels
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": [ "disk", "disk#2" ],
+    // Module configuration
+    "include": ["~/dotfiles/dots/waybar/clock.json", "~/dotfiles/dots/waybar/workspaces.json"],
+    "disk": {
+      "interval": 1,
+      "path": "/",
+      "format": "{path}: {used} / {total}"
+    },
+    "disk#2": {
+      "interval": 1,
+      "path": "/mnt/media2",
+      "format": "{path}: {used} / {total}"
+    }
+}]

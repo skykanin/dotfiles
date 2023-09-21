@@ -27,12 +27,6 @@
 
   fonts.packages = with pkgs; [bqn386 jetbrains-mono noto-fonts unifont victor-mono];
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
-
   services = {
     gnome.gnome-keyring.enable = true;
     ratbagd.enable = true;

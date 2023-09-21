@@ -51,6 +51,7 @@ in {
     file
     firefox-wayland
     fish
+    foliate
     gimp
     gitAndTools.gh
     gitFull

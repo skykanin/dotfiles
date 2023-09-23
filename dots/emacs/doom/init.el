@@ -105,7 +105,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter         ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -134,7 +134,8 @@
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
        (haskell            ; a language that's lazier than I am
-        +lsp)
+        +lsp
+        +tree-sitter)
        ;;hy                ; readability of scheme w/ speed of python
        (idris +lsp)        ; a language you can depend on
        json                ; At least it ain't XML
@@ -148,7 +149,7 @@
        ;;lua               ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       nix                 ; I hereby declare "nix geht mehr!"
+       (nix +tree-sitter)  ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org +present)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother

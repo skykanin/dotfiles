@@ -18,6 +18,7 @@
     ../modules/printing.nix
     ../modules/programs.nix
     ../modules/services/jellyfin.nix
+    ../modules/services/noisetorch.nix
     ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
@@ -53,6 +54,11 @@
 
     services = {
       jellyfin.enable = true;
+      noisetorch = {
+        enable = true;
+        device-id = "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
+        device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\x2d6:1.0-sound-card1-controlC1.device";
+      };
       polybar = {
         enable = true;
         startup-script = ''
@@ -62,6 +68,8 @@
       };
     };
   };
+
+  services.flatpak.enable = true;
 
   hardware.nvidia = {
     # Required for hyprland

@@ -95,6 +95,7 @@ in {
     racket
     ripgrep
     rlwrap
+    rnote
     shellcheck
     slack
     spot

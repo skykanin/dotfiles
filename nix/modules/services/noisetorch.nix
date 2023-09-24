@@ -16,7 +16,7 @@ in {
 
     device-unit = mkOption {
       type = lib.types.str;
-      description = "The systemd device unit of the microphone you want noisetorch to act on";
+      description = "The systemd device unit of the microphone you want noisetorch to act on. Can be found with `systemctl list-units --type=device`";
       example = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card4-controlC4.device";
     };
 
@@ -28,7 +28,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.noisetorch.enable = true;
+    programs.noisetorch = {
+      enable = true;
+      inherit (cfg) package;
+    };
 
     systemd.user.services.noisetorch = {
       description = "Noisetorch Noise Cancelling Daemon";
@@ -43,7 +46,7 @@ in {
       };
       requires = [cfg.device-unit];
       wantedBy = ["default.target"];
-      after = ["pulseaudio.service" cfg.device-unit];
+      after = ["pipewire.service" cfg.device-unit];
     };
   };
 }

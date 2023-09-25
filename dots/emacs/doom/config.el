@@ -192,10 +192,14 @@ When F is provided, the info function is calculated with the format
 
 ;; --------------------------------------- END ---------------------------------------
 
+;; Disable italics in tree-sitter font face
+(use-package! tree-sitter
+  :config (set-face-italic 'tree-sitter-hl-face:property nil))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-ayu-mirage)
 
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")

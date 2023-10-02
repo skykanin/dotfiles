@@ -57,7 +57,7 @@
       noisetorch = {
         enable = true;
         device-id = "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
-        device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\x2d6:1.0-sound-card1-controlC1.device";
+        device-unit = "sys-devices-pci0000:00-0000:00:14.0-usb1-1\\x2d6-1\\x2d6:1.0-sound-card4-controlC4.device";
       };
       polybar = {
         enable = true;

@@ -46,7 +46,7 @@ in {
       };
       requires = [cfg.device-unit];
       wantedBy = ["default.target"];
-      after = ["pipewire.service" cfg.device-unit];
+      after = [cfg.device-unit];
     };
   };
 }

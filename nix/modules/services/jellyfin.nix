@@ -13,6 +13,7 @@ in {
     services.jellyfin = {
       enable = true;
       openFirewall = true;
+      user = config.local.user.name;
     };
   };
 }

@@ -10,10 +10,17 @@ in {
     enable = mkEnableOption "Enable Jellyfin service";
   };
   config = lib.mkIf cfg.enable {
-    services.jellyfin = {
-      enable = true;
-      openFirewall = true;
-      user = config.local.user.name;
+    services = {
+      caddy = {
+        enable = true;
+        enableReload = true;
+        configFile = ./Caddyfile;
+      };
+      jellyfin = {
+        enable = true;
+        openFirewall = true;
+        user = config.local.user.name;
+      };
     };
   };
 }

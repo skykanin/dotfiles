@@ -207,6 +207,9 @@ When F is provided, the info function is calculated with the format
 ;; Latex captions underneath blocks
 (setq org-latex-caption-above nil)
 
+;; Set tsx files to use rjsx-mode
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)

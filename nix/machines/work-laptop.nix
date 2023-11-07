@@ -84,7 +84,7 @@
     difftastic
     direnv
     discord
-    ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [epkgs.vterm]))
+    emacs
     fd
     feh
     ffmpeg-full
@@ -126,7 +126,7 @@
     pciutils
     playerctl
     polybarFull
-    python3
+    python312
     pywal
     qdirstat
     ripgrep

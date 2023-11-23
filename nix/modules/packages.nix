@@ -88,7 +88,7 @@ in {
     pavucontrol
     pciutils
     playerctl
-    python3
+    python312
     pywal
     qbittorrent
     qdirstat
@@ -105,6 +105,7 @@ in {
     trash-cli
     tldr
     tree
+    uiua
     unison-ucm
     unzip
     weechat

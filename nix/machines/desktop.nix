@@ -32,6 +32,7 @@
     desktop.hyprland = {
       enable = true;
       enableNvidiaPatches = true;
+      xwayland.enable = false;
     };
 
     hardware.opentabletdriver.enable = true;
@@ -68,8 +69,6 @@
       };
     };
   };
-
-  services.flatpak.enable = true;
 
   hardware.nvidia = {
     # Required for hyprland

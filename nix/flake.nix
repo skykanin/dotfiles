@@ -6,15 +6,15 @@
       url = "github:IvanMalison/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    kolide-config.url = "github:skykanin/kolide-launcher";
+
     nh = {
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    kolide-config.url = "github:skykanin/kolide-launcher";
-    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs = {
@@ -40,9 +40,6 @@
         inputs
         // {
           nh = inputs.nh.packages.${system}.default;
-          # Use xdg-desktop-portal-hyprland version 1.0
-          # TODO: Remove this when it's bumped in nixpkgs
-          xdg-desktop-portal-hyprland = inputs.xdg-desktop-portal-hyprland.packages.${system}.default;
         };
       lib = nixpkgs.lib;
       system-rev = {...}: {

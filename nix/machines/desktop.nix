@@ -32,7 +32,7 @@
     desktop.hyprland = {
       enable = true;
       enableNvidiaPatches = true;
-      xwayland.enable = false;
+      xwayland.enable = true;
     };
 
     hardware.opentabletdriver.enable = true;

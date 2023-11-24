@@ -92,6 +92,11 @@
   (add-to-list 'eglot-server-programs
                '(nix-mode . ("nixd"))))
 
+;; Don't assume this is the only checker that flycheck should use
+(use-package! flycheck-eglot
+  :after (flycheck eglot)
+  :custom (flycheck-eglot-exclusive nil))
+
 ;; Restrict eldoc popup window size to 1.
 (setq-default eldoc-echo-area-use-multiline-p 1)
 

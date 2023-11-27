@@ -66,7 +66,7 @@
   networking.hostName = "iris";
 
   environment.systemPackages = with pkgs; [
-    _1password-gui-beta
+    _1password-gui
     adwaita-qt
     arc-icon-theme
     arc-theme

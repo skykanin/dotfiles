@@ -157,7 +157,18 @@
         :n "x b" #'bqn-comint-send-buffer
         :n "x l" #'bqn-comint-send-dwim))
 
-(use-package! idris2-mode)
+(use-package! idris2-mode
+  :config
+    (add-hook! 'idris2-mode (lambda () (company-mode 0)))
+    (map! :localleader
+          :map idris2-mode-map
+          "p" #'idris2-proof-search
+          "c" #'idris2-case-dwim
+          "a l" #'idris2-make-lemma
+          "l" #'idris2-load-file
+          "a c" #'idris2-add-clause
+          "t" #'idris2-type-at-point
+          "d" #'idris2-jump-to-def-same-window))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)

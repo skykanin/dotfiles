@@ -98,7 +98,7 @@
     "spacing": 15, // Gaps between modules in pixels
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": [ "disk", "disk#2" ],
+    "modules-right": [ "custom/media", "disk", "disk#2" ],
     // Module configuration
     "include": ["~/dotfiles/dots/waybar/clock.json", "~/dotfiles/dots/waybar/workspaces.json"],
     "disk": {
@@ -110,5 +110,11 @@
       "interval": 1,
       "path": "/mnt/media2",
       "format": "{path}: {used} / {total}"
+    },
+    "custom/media": {
+        "format": " {}",
+        "max-length": 40,
+        "exec": "$HOME/dotfiles/scripts/spotify.sh",
+        "interval": 1
     }
 }]

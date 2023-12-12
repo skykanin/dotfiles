@@ -138,6 +138,8 @@
 
 (use-package! bqn-mode
   :config
+  (require 'bqn-keymap-mode)
+  (require 'bqn-glyph-mode)
   ;; Set BQN input method
   (after! bqn-mode
     (set-input-method "BQN-Z")

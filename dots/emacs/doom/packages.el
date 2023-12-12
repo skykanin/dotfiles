@@ -59,8 +59,8 @@
 
 (package! bqn-mode
   :recipe (:host github
-           :repo "museoa/bqn-mode")
-  :pin "d66fe13e5cf98550997aef7e6856677e7199d31d")
+           :repo "museoa/bqn-mode"
+           :branch "main"))
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format

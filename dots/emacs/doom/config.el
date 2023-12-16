@@ -144,6 +144,8 @@
   (after! bqn-mode
     (set-input-method "BQN-Z")
     (setq default-input-method "BQN-Z"))
+  ;; Increase text scale in BQN source buffers
+  (add-hook! 'bqn-mode-hook (text-scale-set 5))
   ;; Set BQN386 font in other bqn major modes. `bqn-mode' already uses the font by default
   (add-hook! '(bqn-keymap-mode-hook bqn-glyph-mode-hook)
            (face-remap-add-relative 'default '(:family "BQN386 Unicode")))

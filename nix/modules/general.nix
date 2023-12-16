@@ -25,7 +25,14 @@
     nixos.enable = true;
   };
 
-  fonts.packages = with pkgs; [bqn386 jetbrains-mono noto-fonts unifont victor-mono];
+  fonts.packages = with pkgs; [
+    bqn386
+    jetbrains-mono
+    noto-fonts
+    uiua386
+    unifont
+    victor-mono
+  ];
 
   services = {
     gnome.gnome-keyring.enable = true;

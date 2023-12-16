@@ -161,6 +161,23 @@
         :n "x b" #'bqn-comint-send-buffer
         :n "x l" #'bqn-comint-send-dwim))
 
+(use-package! uiua-ts-mode
+  :mode "\\.ua\\'"
+  :ensure t
+  :config
+    ;; Register uiua LSP sever in eglot
+    (with-eval-after-load 'eglot
+      (add-to-list 'eglot-server-programs
+                     '(uiua-ts-mode . ("uiua" "lsp"))))
+    (add-hook! '(uiua-ts-mode-hook uiua-mode-hook)
+      (list
+       ;; Use Uiua386 font in uiua buffers
+       (face-remap-add-relative 'default '(:family "Uiua386"))
+       ;; Autostart eglot
+       (eglot-ensure)
+       ;; Increase text scale
+       (text-scale-set 5))))
+
 (use-package! idris2-mode
   :config
     (add-hook! 'idris2-mode (lambda () (company-mode 0)))
@@ -226,6 +243,8 @@ When F is provided, the info function is calculated with the format
 
 ;; Latex captions underneath blocks
 (setq org-latex-caption-above nil)
+
+(defvar flymake-allowed-file-name-masks nil)
 
 ;; Set tsx files to use rjsx-mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . rjsx-mode))

@@ -1,5 +1,5 @@
 source $HOME/.nix-direnv/direnvrc
-export DIRENV_LOG_FORMAT="$(printf "\033[35mdirenv: %%s\033[0m")"
+#export DIRENV_LOG_FORMAT="$(printf "\033[35mdirenv: %%s\033[0m")"
 
 if [ -f /run/current-system/sw/share/nix-direnv/direnvrc ]; then
   source /run/current-system/sw/share/nix-direnv/direnvrc

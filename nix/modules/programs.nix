@@ -12,6 +12,8 @@ in {
   };
 
   config.programs = {
+    direnv.enable = true;
+
     fish = {
       enable = true;
       vendor = {

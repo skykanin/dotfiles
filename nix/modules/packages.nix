@@ -40,7 +40,6 @@ in {
     colorz
     curl
     difftastic
-    direnv
     discord
     discocss
     dotty
@@ -78,7 +77,6 @@ in {
     neofetch
     networkmanagerapplet
     nh
-    nix-direnv
     nnn
     nodejs-18_x
     noisetorch

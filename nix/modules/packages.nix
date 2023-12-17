@@ -48,7 +48,7 @@ in {
     feh
     ffmpeg-full
     file
-    firefox-wayland
+    firefox-devedition
     fish
     foliate
     gimp

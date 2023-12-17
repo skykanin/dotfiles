@@ -1,13 +1,11 @@
 final: prev: {
   vim-with-conf = prev.vim-full.customize {
     name = "vim";
+    vimrcConfig.packages.myplugins = with prev.vimPlugins; {
+      # clipboard support for wayland
+      start = [ vim-wayland-clipboard ];
+    };
     vimrcConfig.customRC = ''
-
-      " Clipboard support for wayland
-      xnoremap "+y y:call system("wl-copy", @")<cr>
-      nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', ''', 'g')<cr>p
-      nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', ''', 'g')<cr>p
-
       " Map keys for copy/pasting from clipboard register
       let mapleader = "<space>"
       map <leader>y "+y

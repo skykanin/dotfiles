@@ -86,8 +86,8 @@
     "custom/media": {
         "format": " {}",
         "max-length": 40,
-        "exec": "$HOME/dotfiles/scripts/spotify.sh",
-        "interval": 1
+        "exec": "$HOME/dotfiles/scripts/scroll_spotify_status.sh",
+        "escape": true
     }
 },
 {
@@ -114,7 +114,7 @@
     "custom/media": {
         "format": " {}",
         "max-length": 40,
-        "exec": "$HOME/dotfiles/scripts/spotify.sh",
-        "interval": 1
+        "exec": "$HOME/dotfiles/scripts/scroll_spotify_status.sh",
+        "escape": true
     }
 }]

@@ -12,7 +12,7 @@ in {
 
   options.local.desktop.hyprland = with lib; {
     enable = mkEnableOption "Enable hyprland module";
-    enableNvidiaPatches = mkEnableOption "Enable Nvidia GPU support";
+    enableNvidiaDriver = mkEnableOption "Enable Nvidia GPU support";
     xwayland.enable = mkEnableOption "Enable XWayland";
   };
 
@@ -36,15 +36,13 @@ in {
     };
 
     # Enable proprietary nvidia drivers
-    services.xserver.videoDrivers = lib.optionals cfg.enableNvidiaPatches ["nvidia"];
+    services.xserver.videoDrivers = lib.optionals cfg.enableNvidiaDriver ["nvidia"];
 
     programs.hyprland = {
       enable = true;
-      inherit (cfg) enableNvidiaPatches;
       xwayland.enable = cfg.xwayland.enable;
       # Options are bugged so we need to override the package ourselves
       package = pkgs.hyprland.override {
-        inherit (cfg) enableNvidiaPatches;
         enableXWayland = cfg.xwayland.enable;
       };
     };

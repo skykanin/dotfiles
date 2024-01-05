@@ -31,7 +31,7 @@
   local = {
     desktop.hyprland = {
       enable = true;
-      enableNvidiaPatches = true;
+      enableNvidiaDriver = true;
       xwayland.enable = true;
     };
 

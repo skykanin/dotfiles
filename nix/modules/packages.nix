@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nh,
   ...
 }: let
   obs-studio-custom = pkgs.wrapOBS {

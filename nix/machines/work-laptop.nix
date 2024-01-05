@@ -2,7 +2,6 @@
   config,
   options,
   pkgs,
-  nh,
   ...
 }: {
   imports = [

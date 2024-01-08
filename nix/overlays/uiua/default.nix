@@ -1,5 +1,5 @@
 final: prev: {
-  uiua = prev.uiua.overrideAttrs(finalAttrs: prevAttrs: {
+  uiua = prev.uiua.overrideAttrs (finalAttrs: prevAttrs: {
     name = "uiua-${finalAttrs.version}";
     version = "0.6.1";
 

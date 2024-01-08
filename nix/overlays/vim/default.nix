@@ -3,7 +3,7 @@ final: prev: {
     name = "vim";
     vimrcConfig.packages.myplugins = with prev.vimPlugins; {
       # clipboard support for wayland
-      start = [ vim-wayland-clipboard ];
+      start = [vim-wayland-clipboard];
     };
     vimrcConfig.customRC = ''
       " Map keys for copy/pasting from clipboard register

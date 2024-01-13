@@ -2,6 +2,11 @@
   description = "NixOS system configurations for various hosts";
 
   inputs = {
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     kolide.url = "github:skykanin/kolide-launcher";
@@ -50,6 +55,7 @@
               modules = [
                 ./machines/laptop.nix
                 ./hardware/laptop.nix
+                inputs.disko.nixosModules.disko
               ];
             };
 

@@ -2,10 +2,10 @@
   config,
   options,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     ../modules/nix.nix
@@ -16,12 +16,10 @@
     ../modules/printing.nix
     ../modules/programs.nix
     ../modules/overlays.nix
-    ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
     ../modules/user.nix
-    ../modules/desktop/xserver/default.nix
   ];
 
   # Local modules
@@ -46,24 +44,20 @@
       light.enable = true;
       steam.enable = true;
     };
-
-    services = {
-      polybar = {
-        enable = true;
-        startup-script = ''
-          MONITOR=eDP-1 polybar primary -c /etc/polybar/config.ini &
-        '';
-      };
-      xserver.xautolock = {
-        enable = true;
-        time = 10;
-      };
-    };
   };
+
+  # Gnome uses Wayland by default, the attrname is just legacy.
+  services.xserver = {
+    enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
+  # Override gnome module setting this to true
+  hardware.pulseaudio.enable = lib.mkForce false;
 
   networking.hostName = "daisy";
 
-  environment.variables = {MESA_LOADER_DRIVER_OVERRIDE = "iris";};
+  environment.variables = {MESA_LOADER_DRIVER_OVERRIDE = "daisy";};
 
   # Suspend on lid close
   services.logind.lidSwitch = "suspend";

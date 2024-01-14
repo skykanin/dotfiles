@@ -107,6 +107,7 @@
     racket
     scala_3
     unison-ucm
+    wineWowPackages.waylandFull
     zoom-us
   ];
 

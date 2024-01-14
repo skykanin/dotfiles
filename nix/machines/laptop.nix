@@ -55,9 +55,12 @@
     desktopManager.gnome.enable = true;
   };
 
+  services.gnome.chrome-gnome-shell.enable = true;
+
   environment.systemPackages = with pkgs; [
     flat-remix-icon-theme
     gnome.gnome-tweaks
+    gnome.gnome-shell-extensions
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
     paper-icon-theme

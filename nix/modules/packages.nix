@@ -6,6 +6,7 @@
   obs-studio-custom = pkgs.wrapOBS {
     plugins = with pkgs.obs-studio-plugins; [input-overlay];
   };
+  # TODO: If used, implement as an overlay
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python
@@ -15,33 +16,21 @@
     ];
   };
 in {
+  # Core packages for desktop systems
   environment.systemPackages = with pkgs; [
-    # vscode
-    #android-studio
-    #android-udev-rules
-    adwaita-qt
-    ani-cli
-    arc-icon-theme
-    arc-theme
     (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
-    autorandr
     babashka
     bat
     bintools-unwrapped
     blueberry
     bottom
-    brightnessctl
     cachix
     cbqn-replxx
-    chatterino2
-    clj-kondo
     clojure
-    colorz
     curl
     difftastic
     discord
     discocss
-    dotty
     emacs
     fd
     feh
@@ -50,36 +39,27 @@ in {
     firefox-devedition
     fish
     foliate
-    gimp
     gitAndTools.gh
     gitFull
     gnome.gucharmap
     gnumake
-    (haskell.packages.ghc946.ghcWithPackages (p: with p; [unicode-show]))
+    ghc
     htop
     idris2
-    insomnia
     imagemagick
-    jetbrains.idea-community
-    joker
     jq
     keepassxc
     kitty
-    lagrange
     lshw
-    lutris
-    lxappearance
+    magic-wormhole
     man-pages
     man-pages-posix
-    metals
     mpv
     neofetch
-    networkmanagerapplet
     nh
     nnn
-    nodejs-18_x
+    nodejs
     noisetorch
-    obs-studio-custom
     openjdk
     pamixer
     pavucontrol
@@ -87,9 +67,7 @@ in {
     playerctl
     python312
     pywal
-    qbittorrent
     qdirstat
-    racket
     ripgrep
     rlwrap
     rnote
@@ -97,22 +75,15 @@ in {
     slack
     spot
     spotifywm
-    steam
-    streamlink
     trash-cli
     tldr
     tree
     uiua
-    unison-ucm
     unzip
     weechat
     wget
-    xclip
     xdg-utils
-    xorg.xbacklight
-    xsel
     yt-dlp
     zip
-    zoom-us
   ];
 }

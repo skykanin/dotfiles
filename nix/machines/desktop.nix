@@ -90,6 +90,26 @@
     interfaces.wlan0.useDHCP = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    # android-studio
+    # android-udev-rules
+    # vscode
+    ani-cli
+    chatterino2
+    clj-kondo
+    jetbrains.idea-community
+    lagrange
+    lutris
+    metals
+    networkmanagerapplet
+    obs-studio-custom
+    qbittorrent
+    racket
+    scala_3
+    unison-ucm
+    zoom-us
+  ];
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you

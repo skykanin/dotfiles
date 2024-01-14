@@ -23,62 +23,69 @@ in {
       };
     };
   };
-  config.services = {
-    autorandr.enable = true;
-    picom =
-      lib.mkIf cfg.compositor.enable
-      (import ./compositor.nix {inherit (cfg.compositor) vSync;});
-    xserver = {
-      autoRepeatDelay = 200;
-      autoRepeatInterval = 10;
-      autorun = true;
+  config = {
+    environment.systemPackages = with pkgs; [
+      xsel
+    ];
 
-      enable = true;
-      layout = "us";
-      libinput = {
+    services = {
+      autorandr.enable = true;
+
+      picom =
+        lib.mkIf cfg.compositor.enable
+        (import ./compositor.nix {inherit (cfg.compositor) vSync;});
+      xserver = {
+        autoRepeatDelay = 200;
+        autoRepeatInterval = 10;
+        autorun = true;
+
         enable = true;
-        mouse = {
-          accelProfile = "flat";
-          disableWhileTyping = true;
-        };
-        touchpad = {
-          accelProfile = "adaptive";
-          naturalScrolling = false;
-        };
-      };
-
-      desktopManager.xterm.enable = true;
-
-      displayManager = {
-        autoLogin = {
+        layout = "us";
+        libinput = {
           enable = true;
-          user = "skykanin";
+          mouse = {
+            accelProfile = "flat";
+            disableWhileTyping = true;
+          };
+          touchpad = {
+            accelProfile = "adaptive";
+            naturalScrolling = false;
+          };
         };
 
-        lightdm = {
+        desktopManager.xterm.enable = true;
+
+        displayManager = {
+          autoLogin = {
+            enable = true;
+            user = "skykanin";
+          };
+
+          lightdm = {
+            enable = true;
+            greeter.enable = false;
+          };
+          defaultSession = "none+i3";
+        };
+
+        exportConfiguration = true;
+
+        wacom.enable = true;
+
+        windowManager.i3 = {
           enable = true;
-          greeter.enable = false;
+          configFile = "/home/skykanin/.config/i3/config";
+          package = pkgs.i3-gaps;
+          extraPackages = with pkgs; [i3lock rofi polybarFull];
         };
-        defaultSession = "none+i3";
+
+        xautolock = lib.mkIf cfg.xautolock.enable (import ./xautolock.nix {
+          inherit (pkgs) i3lock writeShellScript;
+          time = cfg.xautolock.time;
+        });
+
+        xkbOptions = "caps:escape,eurosign:e,compose:rctrl,compose:ralt";
       };
-
-      exportConfiguration = true;
-
-      wacom.enable = true;
-
-      windowManager.i3 = {
-        enable = true;
-        configFile = "/home/skykanin/.config/i3/config";
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [i3lock rofi polybarFull];
-      };
-
-      xautolock = lib.mkIf cfg.xautolock.enable (import ./xautolock.nix {
-        inherit (pkgs) i3lock writeShellScript;
-        time = cfg.xautolock.time;
-      });
-
-      xkbOptions = "caps:escape,eurosign:e,compose:rctrl,compose:ralt";
     };
   };
 }

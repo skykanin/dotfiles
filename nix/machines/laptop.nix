@@ -46,12 +46,25 @@
     };
   };
 
+  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+
   # Gnome uses Wayland by default, the attrname is just legacy.
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    flat-remix-icon-theme
+    gnome.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
+    paper-icon-theme
+    vimix-icon-theme
+    wl-clipboard
+    wlr-randr
+  ];
 
   # Override gnome module setting this to true
   hardware.pulseaudio.enable = lib.mkForce false;

@@ -49,6 +49,7 @@
   # Gnome uses Wayland by default, the attrname is just legacy.
   services.xserver = {
     enable = true;
+    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
 

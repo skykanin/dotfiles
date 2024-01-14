@@ -60,7 +60,7 @@
 (package! bqn-mode
   :recipe (:host github
            :repo "museoa/bqn-mode"
-           :branch "main"))
+           :branch "trunk"))
 
 (package! uiua-ts-mode
   :recipe (:host github

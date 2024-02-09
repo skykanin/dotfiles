@@ -7,7 +7,7 @@
 
 - link:
     ~/.dotfiles: ""
-    ~/.doom.d: dots/emacs/doom
+    ~/.config/doom: dots/emacs/doom
     ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
     ~/.haskeline: dots/.haskeline

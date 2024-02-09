@@ -6,3 +6,4 @@ dots/emacs/#.emacs#
 dots/emacs/doom/myenv
 **/.envrc
 **/.direnv
+**/.DS_Store

@@ -23,7 +23,6 @@ in {
         "discocss"
         "emacs"
         "obs"
-        "uiua"
         "vim"
       ]
       ++ map importCustomPackages [

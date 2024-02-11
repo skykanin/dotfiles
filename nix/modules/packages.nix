@@ -60,7 +60,7 @@ in {
     nnn
     nodejs
     noisetorch
-    openjdk
+    openjdk21
     pamixer
     pavucontrol
     pciutils

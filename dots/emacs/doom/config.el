@@ -35,6 +35,9 @@
       doom-themes-neotree-enable-variable-pitch nil
       doom-themes-neotree-file-icons t)
 
+;; Display major mode icon in the modeline
+(setq doom-modeline-major-mode-icon t)
+
 ;; Add line wrapping
 (global-visual-line-mode t)
 
@@ -136,9 +139,6 @@
 
 (after! scheme-mode-hook
    (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
-
-;; Display major mode icon in the modeline
-(setq doom-modeline-major-mode-icon t)
 
 (map!
  :desc "Toggle comment for a line or region."

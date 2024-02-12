@@ -113,6 +113,14 @@
 
 ;; ------------------------------- END -------------------------------
 
+(use-package! yasnippet
+  ;; Disable yasnippet globally
+  :config (yas-global-mode -1))
+
+(use-package! python
+  ;; Enable yasnippet for python
+  :config (add-hook! 'python-mode #'yas-minor-mode))
+
 ;; Remove rainbow delimiters from lisp modes
 (after! elisp-mode
   (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))

@@ -27,6 +27,8 @@
 
 (package! quarto-mode)
 
+(package! exec-path-from-shell)
+
 ;; NOTE: It's possible to disable parts of lsp-ui as well see docs
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 ;; (package! lsp-ui :disable t)

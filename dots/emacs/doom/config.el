@@ -44,33 +44,41 @@
 ;; This doesn't seem to be a problem on macOS
 (when (eq system-type 'gnu/linux)
   (use-package exec-path-from-shell
-      :init
-      (when (memq window-system '(mac ns x pgtk))
-          (exec-path-from-shell-initialize)
-          (exec-path-from-shell-copy-envs '("SSH_AGENT_PID" "SSH_AUTH_SOCK")))))
+    :init
+    (when (memq window-system '(mac ns x pgtk))
+      (exec-path-from-shell-initialize)
+      (exec-path-from-shell-copy-envs '("SSH_AGENT_PID" "SSH_AUTH_SOCK")))))
 
+;; Since I'm using a non-posix shell
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
+
+;; Elpa/straight/melpa bug?
+(setq package-install-upgrade-built-in t)
+
+>>>>>>> Stashed changes
 ;; FIXME: This only works if `aspell' is installed globally
 ;; on the machine
-(use-package! spell-fu
-  ;; Set the default dictionary to british english
-  :config (setq ispell-dictionary "en_GB"))
+;; (use-package! spell-fu
+;;  ;; Set the default dictionary to british english
+;;  :config (setq ispell-dictionary "en_GB"))
 
 ;; Add more default pairs to evil-surround
 (use-package! evil-surround
   :config
   (setq-default evil-surround-pairs-alist
-    (progn ;; FIXME: These don't work correctly for some reason
-      (dolist (elem (mapcar (lambda (c) `(,c . evil-surround-read-tag)) '(?= ?+ ?~)))
-            (push elem evil-surround-pairs-alist))
-      evil-surround-pairs-alist)))
+                (progn ;; FIXME: These don't work correctly for some reason
+                  (dolist (elem (mapcar (lambda (c) `(,c . evil-surround-read-tag)) '(?= ?+ ?~)))
+                    (push elem evil-surround-pairs-alist))
+                  evil-surround-pairs-alist)))
 
 ;; Configure elcord
 (use-package! elcord
   :config (elcord-mode)
   :custom (elcord-use-major-mode-as-main-icon t)
-          (elcord-refresh-rate 10)
-          ;; NOTE: Bypass discord API URL caching?
-          (elcord-icon-base "https://raw.githubusercontent.com/skykanin/elcord/master/icons/"))
+  (elcord-refresh-rate 10)
+  ;; NOTE: Bypass discord API URL caching?
+  (elcord-icon-base "https://raw.githubusercontent.com/skykanin/elcord/master/icons/"))
 
 ;; Don't format on save for these modes
 (setq +format-on-save-enabled-modes
@@ -95,9 +103,9 @@
 ;;       (:formattingProvider "fourmolu"
 ;;        :maxCompletions 30)
 (setq-default eglot-workspace-configuration
-  '((haskell
-      (formattingProvider . "fourmolu")
-      (maxCompletions . 30))))
+              '((haskell
+                 (formattingProvider . "fourmolu")
+                 (maxCompletions . 30))))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
@@ -138,7 +146,7 @@
   (remove-hook 'geiser-mode-hook #'rainbow-delimiters-mode))
 
 (after! scheme-mode-hook
-   (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
+  (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
 
 (map!
  :desc "Toggle comment for a line or region."
@@ -166,7 +174,7 @@
     (setq-local face-attribute 'default :family "BQN386 Unicode"))
   ;; Set BQN386 font in other bqn major modes. `bqn-mode' already uses the font by default
   (add-hook! '(bqn-comint-mode-hook bqn-keymap-mode-hook bqn-glyph-mode-hook)
-           (face-remap-add-relative 'default '(:family "BQN386 Unicode")))
+    (face-remap-add-relative 'default '(:family "BQN386 Unicode")))
   ;; Keybindings for bqn-mode
   (map! :leader
         :after bqn-mode
@@ -183,21 +191,21 @@
   :mode "\\.ua\\'"
   :ensure t
   :config
-    ;; Register uiua LSP sever in eglot
-    (with-eval-after-load 'eglot
-      (add-to-list 'eglot-server-programs
-                     '(uiua-ts-mode . ("uiua" "lsp"))))
-    (add-hook! '(uiua-ts-mode-hook uiua-mode-hook)
-      (list
-       ;; Use Uiua386 font in uiua buffers
-       (face-remap-add-relative 'default '(:family "Uiua386"))
-       ;; Autostart eglot
-       (eglot-ensure)
-       ;; Increase text scale
-       (text-scale-set 3))))
+  ;; Register uiua LSP sever in eglot
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '(uiua-ts-mode . ("uiua" "lsp"))))
+  (add-hook! '(uiua-ts-mode-hook uiua-mode-hook)
+    (list
+     ;; Use Uiua386 font in uiua buffers
+     (face-remap-add-relative 'default '(:family "Uiua386"))
+     ;; Autostart eglot
+     (eglot-ensure)
+     ;; Increase text scale
+     (text-scale-set 3)))
 
-(use-package! idris2-mode
-  :config
+  (use-package! idris2-mode
+    :config
     (add-hook! 'idris2-mode (lambda () (company-mode 0)))
     (map! :localleader
           :map idris2-mode-map
@@ -207,7 +215,7 @@
           "l" #'idris2-load-file
           "a c" #'idris2-add-clause
           "t" #'idris2-type-at-point
-          "d" #'idris2-jump-to-def-same-window))
+          "d" #'idris2-jump-to-def-same-window)))
 
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
@@ -224,26 +232,26 @@
 ;; file extension.
 (eval-after-load 'all-the-icons
   '(defun all-the-icons--icon-info-for-buffer (&optional f)
-    "Get icon info for the current buffer.
+     "Get icon info for the current buffer.
 
 When F is provided, the info function is calculated with the format
 `all-the-icons-icon-%s-for-file' or `all-the-icons-icon-%s-for-mode'."
-    (let* ((base-f (concat "all-the-icons-icon" (when f (format "-%s" f))))
-           (mode-f (intern (concat base-f "-for-mode"))))
-      (funcall mode-f major-mode))))
+     (let* ((base-f (concat "all-the-icons-icon" (when f (format "-%s" f))))
+            (mode-f (intern (concat base-f "-for-mode"))))
+       (funcall mode-f major-mode))))
 
 ;; When getting the file icon for `ivy-mode' file explorer hard code
 ;; the prolog icon for files that end with ".pl"
 (eval-after-load 'all-the-icons-ivy
   '(defun all-the-icons-ivy-icon-for-file (s)
-    "Return icon for filename S.
+     "Return icon for filename S.
   Return the octicon for directory if S is a directory.
   Otherwise fallback to calling `all-the-icons-icon-for-file'."
-    (cond
-     ((string-match-p "\\/$" s)
-      (all-the-icons-octicon "file-directory" :face 'all-the-icons-ivy-dir-face))
-     ((string-match-p ".*\\.pl" s) (all-the-icons-icon-for-mode 'prolog-mode))
-     (t (all-the-icons-icon-for-file s)))))
+     (cond
+      ((string-match-p "\\/$" s)
+       (all-the-icons-octicon "file-directory" :face 'all-the-icons-ivy-dir-face))
+      ((string-match-p ".*\\.pl" s) (all-the-icons-icon-for-mode 'prolog-mode))
+      (t (all-the-icons-icon-for-file s)))))
 
 ;; --------------------------------------- END ---------------------------------------
 

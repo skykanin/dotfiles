@@ -97,12 +97,13 @@
     ani-cli
     chatterino2
     clj-kondo
-    jetbrains.idea-community
+    jetbrains.idea-ultimate
     lagrange
     lutris
     metals
     networkmanagerapplet
     obs-studio-custom
+    openjdk8
     qbittorrent
     racket
     scala_3

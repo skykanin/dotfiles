@@ -41,7 +41,7 @@ in {
 
     java = {
       enable = true;
-      package = pkgs.jdk;
+      package = pkgs.openjdk21;
     };
 
     light.enable = cfg.light.enable;

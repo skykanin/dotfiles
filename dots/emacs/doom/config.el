@@ -49,6 +49,16 @@
       (exec-path-from-shell-initialize)
       (exec-path-from-shell-copy-envs '("SSH_AGENT_PID" "SSH_AUTH_SOCK")))))
 
+;;; Nice size for the default window
+(defun get-default-height ()
+  (/ (- (display-pixel-height) 120)
+     (frame-char-height)))
+
+;; This is only necessary on macOS
+(when (eq system-type 'darwin)
+  (add-to-list 'default-frame-alist '(width . 140))
+  (add-to-list 'default-frame-alist (cons 'height (get-default-height))))
+
 ;; Since I'm using a non-posix shell
 (setq shell-file-name (executable-find "bash"))
 (setq-default vterm-shell (executable-find "fish"))
@@ -56,7 +66,6 @@
 ;; Elpa/straight/melpa bug?
 (setq package-install-upgrade-built-in t)
 
->>>>>>> Stashed changes
 ;; FIXME: This only works if `aspell' is installed globally
 ;; on the machine
 ;; (use-package! spell-fu

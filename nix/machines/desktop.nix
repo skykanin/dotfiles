@@ -109,7 +109,6 @@
     scala_3
     unison-ucm
     wineWowPackages.waylandFull
-    zoom-us
   ];
 
   # This value determines the NixOS release with which your system is to be

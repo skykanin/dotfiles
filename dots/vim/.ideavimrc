@@ -1,0 +1,4 @@
+set clipboard+=unnamed
+set ideajoin
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'

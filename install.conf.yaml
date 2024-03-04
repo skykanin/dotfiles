@@ -30,6 +30,7 @@
     ~/Pictures/wallpapers: dots/wallpapers
     ~/get-sha.clj: scripts/get-sha.clj
     ~/patch-discord-krisp: scripts/patch-discord-krisp
+    ~/.ideavimrc: dots/vim/.ideavimrc
 
 - create:
     - ~/.vim/undo-history

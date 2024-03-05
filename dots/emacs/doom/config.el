@@ -41,15 +41,7 @@
 ;; Add line wrapping
 (global-visual-line-mode t)
 
-;; This doesn't seem to be a problem on macOS
-(when (eq system-type 'gnu/linux)
-  (use-package exec-path-from-shell
-    :init
-    (when (memq window-system '(mac ns x pgtk))
-      (exec-path-from-shell-initialize)
-      (exec-path-from-shell-copy-envs '("SSH_AGENT_PID" "SSH_AUTH_SOCK")))))
-
-;;; Nice size for the default window
+;; Nice size for the default window
 (defun get-default-height ()
   (/ (- (display-pixel-height) 120)
      (frame-char-height)))

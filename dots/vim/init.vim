@@ -36,10 +36,6 @@ nmap zm <Action>(CollapseAllRegions)
 " Open all folds
 nmap zr <Action>(ExpandAllRegions)
 
-" doom-escape-hook
-nnoremap <Esc> :<C-u>nohl<CR>:<C-u>action HideAllWindows<CR><Esc>
-
-
 "
 " Hybrid mode
 

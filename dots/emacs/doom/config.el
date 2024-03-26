@@ -161,6 +161,18 @@
         :n "f" #'unisonlang-mode-add-fold
         :n "u" #'unisonlang-mode-remove-fold))
 
+(use-package! restclient
+  :config
+  (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+  (map! :after restclient
+        :map restclient-mode-map
+        :localleader
+        :n "p" #'restclient-http-send-current
+        :n "e" #'restclient-http-send-current-raw
+        :n "n" #'restclient-jump-next
+        :n "N" #'restclient-jump-prev
+        :n "y" #'restclient-copy-curl-command))
+
 (use-package! bqn-mode
   :config
   (require 'bqn-keymap-mode)

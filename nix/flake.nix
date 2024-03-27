@@ -39,60 +39,56 @@
           pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
           modules = [
             ./machines/macbook.nix
+            {_module.args = {inherit inputs;};}
           ];
         };
-        nixosConfigurations =
-          # let inputs' = system:
-          #   inputs
-          #   // {
-          #     nh = inputs.nh.packages.${system}.default;
-          #   };
-          # lib = inputs.nixpkgs.lib;
-          # special-module = system: {_module.args = inputs' system;}; in
-          # remember to do `modules = lib.lists.flatten [ (special-module system) ...]`
-          {
-            # Desktop
-            emma = inputs.nixpkgs.lib.nixosSystem rec {
-              system = "x86_64-linux";
-              pkgs = inputs.self.legacyPackages.${system};
-              modules = [
-                ./machines/desktop.nix
-                ./hardware/desktop.nix
-              ];
-            };
-
-            # Laptop
-            daisy = inputs.nixpkgs.lib.nixosSystem rec {
-              system = "x86_64-linux";
-              pkgs = inputs.self.legacyPackages.${system};
-              modules = [
-                ./machines/laptop.nix
-                ./hardware/laptop.nix
-                inputs.disko.nixosModules.disko
-              ];
-            };
-
-            # Work laptop
-            iris = inputs.nixpkgs.lib.nixosSystem rec {
-              system = "x86_64-linux";
-              pkgs = inputs.self.legacyPackages.${system};
-              modules = [
-                ./machines/work-laptop.nix
-                ./hardware/work-laptop.nix
-                inputs.kolide.nixosModules.${system}.default
-              ];
-            };
-
-            # Server
-            dandy = inputs.nixpkgs.lib.nixosSystem rec {
-              system = "x86_64-linux";
-              pkgs = inputs.self.legacyPackages.${system};
-              modules = [
-                ./machines/server.nix
-                ./hardware/server.nix
-              ];
-            };
+        nixosConfigurations = {
+          # Desktop
+          emma = inputs.nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            pkgs = inputs.self.legacyPackages.${system};
+            modules = [
+              ./machines/desktop.nix
+              ./hardware/desktop.nix
+              {_module.args = {inherit inputs;};}
+            ];
           };
+
+          # Laptop
+          daisy = inputs.nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            pkgs = inputs.self.legacyPackages.${system};
+            modules = [
+              ./machines/laptop.nix
+              ./hardware/laptop.nix
+              inputs.disko.nixosModules.disko
+              {_module.args = {inherit inputs;};}
+            ];
+          };
+
+          # Work laptop
+          iris = inputs.nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            pkgs = inputs.self.legacyPackages.${system};
+            modules = [
+              ./machines/work-laptop.nix
+              ./hardware/work-laptop.nix
+              inputs.kolide.nixosModules.${system}.default
+              {_module.args = {inherit inputs;};}
+            ];
+          };
+
+          # Server
+          dandy = inputs.nixpkgs.lib.nixosSystem rec {
+            system = "x86_64-linux";
+            pkgs = inputs.self.legacyPackages.${system};
+            modules = [
+              ./machines/server.nix
+              ./hardware/server.nix
+              {_module.args = {inherit inputs;};}
+            ];
+          };
+        };
       };
 
       perSystem = {

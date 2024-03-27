@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -25,6 +26,7 @@ in {
 
   config = {
     nix = {
+      registry.nixos.flake = inputs.nixpkgs;
       settings = {
         auto-optimise-store = true;
         max-jobs = cfg.max-jobs;

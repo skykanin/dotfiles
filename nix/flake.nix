@@ -17,6 +17,12 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
   outputs = inputs:
@@ -28,6 +34,13 @@
       ];
 
       flake = {
+        darwinConfigurations."nvjs-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
+          modules = [
+            ./machines/macbook.nix
+          ];
+        };
         nixosConfigurations =
           # let inputs' = system:
           #   inputs
@@ -102,6 +115,7 @@
 
         _module.args.pkgs = import inputs.nixpkgs {
           config.allowUnfree = true;
+          hostPlatform = system;
           inherit system;
           overlays = [(import ./overlays/alejandra/default.nix)];
         };

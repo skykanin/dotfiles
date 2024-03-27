@@ -1,11 +1,9 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
-  obs-studio-custom = pkgs.wrapOBS {
-    plugins = with pkgs.obs-studio-plugins; [input-overlay];
-  };
   # TODO: If used, implement as an overlay
   vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
@@ -15,74 +13,73 @@
       vscodevim.vim
     ];
   };
-in {
-  # Core packages for desktop systems
-  environment.systemPackages = with pkgs; [
-    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
-    babashka
-    bat
-    bintools-unwrapped
+  linuxPackages = with pkgs; [
     blueberry
-    bottom
-    cachix
-    cbqn-replxx
-    clojure
-    curl
-    difftastic
-    discord
-    discocss
-    emacs
-    fd
     feh
-    ffmpeg-full
-    file
     firefox-devedition
-    fish
     foliate
-    gitAndTools.gh
-    gitFull
     gnome.gucharmap
-    gnumake
-    ghc
     htop
-    idris2
-    imagemagick
-    jq
-    keepassxc
-    kitty
     lshw
-    magic-wormhole
-    man-pages
-    man-pages-posix
-    mpv
-    neofetch
-    nh
-    nnn
-    nodejs
-    noisetorch
     pamixer
     pavucontrol
-    pciutils
     playerctl
-    python312
-    pywal
     qdirstat
-    ripgrep
-    rlwrap
     rnote
-    shellcheck
-    slack
-    spot
     spotifywm
-    trash-cli
-    tldr
-    tree
-    uiua
-    unzip
-    weechat
-    wget
-    xdg-utils
-    yt-dlp
-    zip
   ];
+in {
+  # Core unix packages
+  environment.systemPackages = with pkgs;
+    [
+      (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
+      babashka
+      bat
+      bintools-unwrapped
+      bottom
+      cachix
+      cbqn-replxx
+      clojure
+      curl
+      difftastic
+      discord
+      discocss
+      emacs
+      fd
+      ffmpeg-full
+      file
+      gitAndTools.gh
+      gitFull
+      gnumake
+      idris2
+      imagemagick
+      jq
+      jwt-cli
+      keepassxc
+      kitty
+      magic-wormhole
+      man-pages
+      man-pages-posix
+      mpv
+      neofetch
+      nh
+      nnn
+      pciutils
+      pywal
+      ripgrep
+      rlwrap
+      shellcheck
+      slack
+      trash-cli
+      tldr
+      tree
+      uiua
+      unzip
+      weechat
+      wget
+      xdg-utils
+      yt-dlp
+      zip
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux linuxPackages;
 }

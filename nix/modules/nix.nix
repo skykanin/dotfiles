@@ -8,8 +8,8 @@
 in {
   options.local.nix = with lib; {
     max-jobs = mkOption {
-      type = types.ints.positive;
-      default = 2;
+      type = types.either types.ints.positive (types.enum ["auto"]);
+      default = "auto";
     };
 
     extra-substituters = mkOption {
@@ -53,12 +53,15 @@ in {
         keep-derivations = false
         warn-dirty = false
       '';
-      gc = {
-        automatic = true;
-        persistent = true;
-        dates = "weekly";
-        options = "--delete-older-than 14d";
-      };
+      gc =
+        {
+          automatic = true;
+          options = "--delete-older-than 14d";
+        }
+        // lib.optionalAttrs pkgs.stdenv.isLinux {
+          persistent = true;
+          dates = "weekly";
+        };
       package = pkgs.nixVersions.stable;
     };
   };

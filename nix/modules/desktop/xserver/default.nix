@@ -40,7 +40,6 @@ in {
         autorun = true;
 
         enable = true;
-        layout = "us";
         libinput = {
           enable = true;
           mouse = {
@@ -84,7 +83,10 @@ in {
           time = cfg.xautolock.time;
         });
 
-        xkbOptions = "caps:escape,eurosign:e,compose:rctrl,compose:ralt";
+        xkb = {
+          layout = "us";
+          options = "caps:escape,eurosign:e,compose:rctrl,compose:ralt";
+        };
       };
     };
   };

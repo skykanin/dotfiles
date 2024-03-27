@@ -10,11 +10,13 @@
     ../modules/boot-efi.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    ../modules/general.nix
+    ../modules/general/default.nix
+    ../modules/general/nixos.nix
     ../modules/networking.nix
     ../modules/packages.nix
     ../modules/printing.nix
-    ../modules/programs.nix
+    ../modules/programs/default.nix
+    ../modules/programs/nixos.nix
     ../modules/overlays.nix
     ../modules/redshift.nix
     ../modules/sound.nix
@@ -55,7 +57,7 @@
     desktopManager.gnome.enable = true;
   };
 
-  services.gnome.chrome-gnome-shell.enable = true;
+  services.gnome.gnome-browser-connector.enable = true;
 
   environment.systemPackages = with pkgs; [
     flat-remix-icon-theme

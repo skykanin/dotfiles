@@ -11,12 +11,14 @@
     ../modules/nix.nix
     ../modules/hardware.nix
     ../modules/keyboard.nix
-    ../modules/general.nix
+    ../modules/general/default.nix
+    ../modules/general/nixos.nix
     ../modules/networking.nix
     ../modules/packages.nix
     ../modules/overlays.nix
     ../modules/printing.nix
-    ../modules/programs.nix
+    ../modules/programs/default.nix
+    ../modules/programs/nixos.nix
     ../modules/services/jellyfin.nix
     ../modules/services/noisetorch.nix
     ../modules/services/polybar.nix

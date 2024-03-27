@@ -15,9 +15,11 @@ in {
     ../modules/user.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    ../modules/general.nix
+    ../modules/general/default.nix
+    ../modules/general/nixos.nix
     ../modules/networking.nix
-    ../modules/programs.nix
+    ../modules/programs/default.nix
+    ../modules/programs/nixos.nix
     ../modules/overlays.nix
   ];
 

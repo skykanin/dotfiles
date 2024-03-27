@@ -9,9 +9,11 @@
     ../modules/boot-work.nix
     ../modules/nix.nix
     ../modules/hardware.nix
-    ../modules/general.nix
+    ../modules/general/default.nix
+    ../modules/general/nixos.nix
     ../modules/networking.nix
-    ../modules/programs.nix
+    ../modules/programs/default.nix
+    ../modules/programs/nixos.nix
     ../modules/overlays.nix
     ../modules/services/noisetorch.nix
     ../modules/services/polybar.nix
@@ -89,7 +91,6 @@
     ffmpeg-full
     file
     firefox-bin
-    fish
     flameshot
     gimp
     git

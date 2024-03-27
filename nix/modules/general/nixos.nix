@@ -1,50 +1,24 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
   environment = {
-    etc."cachix.nix".source = toString ./cachix.nix;
-
-    pathsToLink = ["/share/nix-direnv"];
-
-    variables.EDITOR = "vim";
-
     sessionVariables.FLAKE = "/home/skykanin/dotfiles/nix";
+    pathsToLink = ["/share/nix-direnv"];
   };
 
   documentation = {
-    enable = true;
     dev.enable = true;
-    doc.enable = true;
-    info.enable = true;
-    man = {
-      enable = true;
-      generateCaches = true;
-    };
     nixos.enable = true;
+    man.generateCaches = true;
   };
-
-  fonts.packages = with pkgs; [
-    bqn386
-    jetbrains-mono
-    noto-fonts
-    uiua386
-    unifont
-    victor-mono
-  ];
 
   services = {
     gnome.gnome-keyring.enable = true;
     ratbagd.enable = true;
   };
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStartSec=1s
-    DefaultTimeoutStopSec=1s
-    DefaultTimeoutRestartSec=1s
-    DefaultTimeoutAbortSec=1s
-  '';
 
   time = {
     hardwareClockInLocalTime = true;

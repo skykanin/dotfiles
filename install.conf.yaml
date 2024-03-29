@@ -27,6 +27,7 @@
     ~/.config/rofi/config.rasi: dots/rofi/config.rasi
     ~/.config/wal: dots/wal
     ~/.config/discocss/custom.css: dots/discocss/custom.css
+    ~/.config/bottom/bottom.toml: dots/bottom/bottom.toml
     ~/Pictures/wallpapers: dots/wallpapers
     ~/get-sha.clj: scripts/get-sha.clj
     ~/patch-discord-krisp: scripts/patch-discord-krisp

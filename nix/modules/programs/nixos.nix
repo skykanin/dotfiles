@@ -16,7 +16,7 @@ in {
 
     light.enable = cfg.light.enable;
 
-    gnupg.agent.pinentryFlavor = "curses";
+    gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
 
     java = {
       enable = true;

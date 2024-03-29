@@ -12,7 +12,7 @@
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.initrd.network.enable = true;
-  boot.kernelModules = ["kvm-intel"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
   hardware = {

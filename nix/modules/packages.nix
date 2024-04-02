@@ -20,6 +20,7 @@
     foliate
     gnome.gucharmap
     htop
+    kitty
     lshw
     pamixer
     pavucontrol
@@ -56,7 +57,6 @@ in {
       jq
       jwt-cli
       keepassxc
-      kitty
       magic-wormhole
       man-pages
       man-pages-posix

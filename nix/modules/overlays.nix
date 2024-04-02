@@ -21,7 +21,6 @@ in {
       map importOverlay [
         "alejandra"
         "discocss"
-        "emacs"
         "obs"
         "vim"
       ]

@@ -15,6 +15,7 @@ in {
     ../modules/user.nix
     ../modules/nix.nix
     ../modules/nix-helper.nix
+    ../modules/emacs.nix
     ../modules/hardware.nix
     ../modules/general/default.nix
     ../modules/general/nixos.nix

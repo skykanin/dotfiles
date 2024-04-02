@@ -10,6 +10,7 @@
     ../modules/packages.nix
     ../modules/programs/default.nix
     ../modules/overlays.nix
+    ../modules/emacs.nix
   ];
 
   environment.systemPackages = with pkgs; [

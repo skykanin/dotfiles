@@ -5,30 +5,14 @@
   ...
 }: let
   cfg = config.local.overlays;
-  # Import overlays
-  importOverlay = package:
-    import ../overlays/${package}/default.nix;
   # Import packages that don't exist in nixpkgs
-  importCustomPackages = {
-    attrname,
-    package,
-  }: _final: prev: {
-    "${attrname}" = prev.callPackage ../packages/${package}.nix {};
+  importCustomPackages = path: _final: prev: {
+    inherit (prev.callPackage path {});
   };
+  listNixFilesRecursive = path:
+    builtins.filter (lib.hasSuffix ".nix") (map toString (lib.filesystem.listFilesRecursive path));
 in {
-  config = {
-    nixpkgs.overlays =
-      map importOverlay [
-        "alejandra"
-        "discocss"
-        "obs"
-        "vim"
-      ]
-      ++ map importCustomPackages [
-        {
-          attrname = "httpie-desktop";
-          package = "httpie";
-        }
-      ];
-  };
+  config.nixpkgs.overlays =
+    map import (listNixFilesRecursive ../overlays)
+    ++ map importCustomPackages (listNixFilesRecursive ../packages);
 }

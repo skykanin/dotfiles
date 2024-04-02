@@ -62,7 +62,6 @@ in {
       man-pages-posix
       mpv
       neofetch
-      nh
       nnn
       pciutils
       pywal

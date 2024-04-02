@@ -14,6 +14,7 @@ in {
   imports = [
     ../modules/user.nix
     ../modules/nix.nix
+    ../modules/nix-helper.nix
     ../modules/hardware.nix
     ../modules/general/default.nix
     ../modules/general/nixos.nix

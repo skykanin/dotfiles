@@ -50,6 +50,7 @@
             modules = [
               ./machines/desktop.nix
               ./hardware/desktop.nix
+              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -62,6 +63,7 @@
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
+              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -74,6 +76,7 @@
               ./machines/work-laptop.nix
               ./hardware/work-laptop.nix
               inputs.kolide.nixosModules.${system}.default
+              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -85,6 +88,7 @@
             modules = [
               ./machines/server.nix
               ./hardware/server.nix
+              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -103,9 +107,7 @@
 
         formatter = pkgs.alejandra;
 
-        overlayAttrs = {
-          nh = inputs.nh.packages.${system}.default;
-        };
+        overlayAttrs = {};
 
         legacyPackages = pkgs;
 

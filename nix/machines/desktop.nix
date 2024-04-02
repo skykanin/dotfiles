@@ -9,6 +9,7 @@
     ../modules/bluetooth.nix
     ../modules/boot-efi.nix
     ../modules/nix.nix
+    ../modules/nix-helper.nix
     ../modules/hardware.nix
     ../modules/keyboard.nix
     ../modules/general/default.nix

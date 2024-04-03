@@ -11,6 +11,8 @@
 # Display processes in tree mode
 tree = true
 
+color="gruvbox"
+
 # Whether to hide the average cpu entry.
 #hide_avg_cpu = false
 

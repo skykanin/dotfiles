@@ -26,7 +26,7 @@ in {
 
   config = {
     nix = {
-      registry.nixos.flake = inputs.nixpkgs;
+      registry.self.flake = inputs.nixpkgs;
       settings = {
         auto-optimise-store = true;
         max-jobs = cfg.max-jobs;

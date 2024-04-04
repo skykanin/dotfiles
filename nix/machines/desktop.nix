@@ -74,19 +74,32 @@
     };
   };
 
-  hardware.nvidia = {
-    # Required for hyprland
-    modesetting.enable = true;
+  hardware = {
+    nvidia = {
+      # Required for hyprland
+      modesetting.enable = true;
 
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
 
-    open = false;
+      open = false;
 
-    nvidiaSettings = true;
+      nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
+    opengl = {
+      extraPackages = with pkgs; [
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+        intel-media-driver
+      ];
+    };
   };
+
+
+  services.flatpak.enable = true;
 
   networking = {
     hostName = "emma";

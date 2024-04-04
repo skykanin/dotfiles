@@ -73,8 +73,13 @@
     wlr-randr
   ];
 
-  # Override gnome module setting this to true
-  hardware.pulseaudio.enable = lib.mkForce false;
+  hardware = {
+    opengl.extraPackages = with pkgs; [
+      intel-media-driver
+    ];
+    # Override gnome module setting this to true
+    pulseaudio.enable = lib.mkForce false;
+  };
 
   networking.hostName = "daisy";
 

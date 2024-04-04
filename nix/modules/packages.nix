@@ -16,11 +16,13 @@
   linuxPackages = with pkgs; [
     blueberry
     feh
-    firefox-devedition
     foliate
     gnome.gucharmap
     htop
     kitty
+    # Although librewolf is cross-platform the nixpkgs package
+    # is broken on darwin because firefox is broken for darwin
+    librewolf
     lshw
     pamixer
     pavucontrol

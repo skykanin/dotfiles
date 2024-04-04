@@ -15,8 +15,8 @@
 
   environment.systemPackages = with pkgs; [
     docker_24
-    # firefox is broken on darwin so we use the -bin version from an overlay
-    firefox-devedition-bin
+    # librewolf is broken on darwin so we use a version from an overlay
+    librewolf
     fluxcd
     iterm2
     k9s

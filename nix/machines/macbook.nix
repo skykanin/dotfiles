@@ -28,7 +28,7 @@
   services.nix-daemon.enable = true;
 
   system.defaults.dock.persistent-apps = [
-    "/Applications/Nix Apps/Firefox Developer Edition.app"
+    "/Applications/Nix Apps/LibreWolf.app"
     "/Applications/Nix Apps/Spotify.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams (work or school).app"

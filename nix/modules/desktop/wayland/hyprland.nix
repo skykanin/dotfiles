@@ -12,7 +12,6 @@ in {
 
   options.local.desktop.hyprland = with lib; {
     enable = mkEnableOption "Enable hyprland module";
-    enableNvidiaDriver = mkEnableOption "Enable Nvidia GPU support";
     xwayland.enable = mkEnableOption "Enable XWayland";
   };
 
@@ -34,9 +33,6 @@ in {
         auth include login
       '';
     };
-
-    # Enable proprietary nvidia drivers
-    services.xserver.videoDrivers = lib.optionals cfg.enableNvidiaDriver ["nvidia"];
 
     programs.hyprland = {
       enable = true;

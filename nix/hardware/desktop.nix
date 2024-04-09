@@ -10,7 +10,7 @@
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["amdgpu"];
   boot.initrd.network.enable = true;
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
@@ -40,6 +40,7 @@
   fileSystems."/mnt/media" = {
     device = "/dev/disk/by-uuid/FAFA6314FA62CC87";
     fsType = "ntfs";
+    options = ["nofail"];
   };
 
   fileSystems."/mnt/win" = {

@@ -35,7 +35,6 @@
   local = {
     desktop.hyprland = {
       enable = true;
-      enableNvidiaDriver = true;
       xwayland.enable = true;
     };
 
@@ -75,31 +74,19 @@
   };
 
   hardware = {
-    nvidia = {
-      # Required for hyprland
-      modesetting.enable = true;
-
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-
-      open = false;
-
-      nvidiaSettings = true;
-
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-
     opengl = {
       extraPackages = with pkgs; [
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-        intel-media-driver
+        amdvlk
       ];
     };
   };
 
 
-  services.flatpak.enable = true;
+  services = {
+    flatpak.enable = true;
+    # Enable AMD GPU drivers
+    xserver.videoDrivers = ["amdgpu"];
+  };
 
   networking = {
     hostName = "emma";

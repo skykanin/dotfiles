@@ -39,9 +39,6 @@
 (package! eglot
   :pin "8b5532dd32b25276c1857508030b207f765ef9b6")
 
-(package! lsp-metals
-  :pin "a2df7263ece6ac69214e41c52d66aab8d3f650eb")
-
 (package! idris-mode
   :recipe (:host github
            :repo "idris-hackers/idris-mode"

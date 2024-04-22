@@ -11,11 +11,6 @@
 
     kolide.url = "github:skykanin/kolide-launcher";
 
-    nh = {
-      url = "github:viperML/nh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-darwin = {
@@ -50,7 +45,6 @@
             modules = [
               ./machines/desktop.nix
               ./hardware/desktop.nix
-              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -63,7 +57,6 @@
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
-              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };
@@ -88,7 +81,6 @@
             modules = [
               ./machines/server.nix
               ./hardware/server.nix
-              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };

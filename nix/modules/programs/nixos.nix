@@ -23,6 +23,12 @@ in {
       package = pkgs.openjdk21;
     };
 
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+    };
+
     steam = lib.mkIf cfg.steam.enable {
       enable = true;
       remotePlay.openFirewall = true;

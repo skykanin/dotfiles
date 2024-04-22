@@ -9,8 +9,6 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    kolide.url = "github:skykanin/kolide-launcher";
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-darwin = {
@@ -57,19 +55,6 @@
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
-              {_module.args = {inherit inputs;};}
-            ];
-          };
-
-          # Work laptop
-          iris = inputs.nixpkgs.lib.nixosSystem rec {
-            system = "x86_64-linux";
-            pkgs = inputs.self.legacyPackages.${system};
-            modules = [
-              ./machines/work-laptop.nix
-              ./hardware/work-laptop.nix
-              inputs.kolide.nixosModules.${system}.default
-              inputs.nh.nixosModules.default
               {_module.args = {inherit inputs;};}
             ];
           };

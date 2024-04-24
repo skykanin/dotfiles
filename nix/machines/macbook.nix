@@ -25,6 +25,10 @@
 
   homebrew = {
     enable = true;
+    # TODO:
+    # - Add docker module to nix-darwin
+    # - Make nix signal package work on aarch64-darwin
+    # - Package naisdevice-tenant in nix
     casks = [ "docker" "naisdevice-tenant" "signal" ];
     taps = [ "nais/tap" ];
   };

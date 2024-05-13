@@ -21,32 +21,34 @@
     firmware = [pkgs.wireless-regdb];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/9d9ea324-965f-43af-bba6-c45a225f8fd5";
-    fsType = "ext4";
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/9d9ea324-965f-43af-bba6-c45a225f8fd5";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/75EB-A750";
-    fsType = "vfat";
-  };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/75EB-A750";
+      fsType = "vfat";
+    };
 
-  # fileSystems."/mnt/media2" = {
-  #   device = "/dev/disk/by-uuid/1ee97da3-3b08-47bb-973a-5cf118df9f88";
-  #   fsType = "btrfs";
-  #   options = ["subvol=root" "usebackuproot" "nofail"];
-  # };
+    "/mnt/media" = {
+      device = "/dev/disk/by-uuid/FE22F44322F40307";
+      fsType = "ntfs";
+      options = ["rw" "uid=1000"];
+    };
 
-  fileSystems."/mnt/media" = {
-    device = "/dev/disk/by-uuid/FAFA6314FA62CC87";
-    fsType = "ntfs";
-    options = ["nofail"];
-  };
+    "/mnt/media2" = {
+      device = "/dev/disk/by-uuid/1ee97da3-3b08-47bb-973a-5cf118df9f88";
+      fsType = "btrfs";
+      options = ["subvol=root" "usebackuproot" "nofail"];
+    };
 
-  fileSystems."/mnt/win" = {
-    device = "/dev/disk/by-uuid/6CAAB456AAB41E90";
-    fsType = "ntfs";
-    options = ["rw" "uid=1000"];
+    "/mnt/win" = {
+      device = "/dev/disk/by-uuid/6CAAB456AAB41E90";
+      fsType = "ntfs";
+      options = ["rw" "uid=1000"];
+    };
   };
 
   swapDevices = [];

@@ -19,6 +19,7 @@
     foliate
     gnome.gucharmap
     htop
+    kdenlive
     kitty
     # Although librewolf is cross-platform the nixpkgs package
     # is broken on darwin because firefox is broken for darwin

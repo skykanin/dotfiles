@@ -4,7 +4,7 @@ function haskell-repl --description "Open ghc repl with packages"
 
     # Set default value for ghc argument
     if [ -z $_flag_ghc ]
-       set -f _flag_ghc '94'
+       set -f _flag_ghc '98'
     end
 
     nix shell --impure --expr \

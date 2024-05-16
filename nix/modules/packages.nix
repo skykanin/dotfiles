@@ -49,6 +49,7 @@ in {
       discord
       discocss
       emacs
+      fastfetch
       fd
       ffmpeg-full
       file
@@ -64,7 +65,6 @@ in {
       man-pages
       man-pages-posix
       mpv
-      neofetch
       nnn
       pciutils
       pywal

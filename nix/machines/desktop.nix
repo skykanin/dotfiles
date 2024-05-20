@@ -83,8 +83,13 @@
 
   services = {
     flatpak.enable = true;
+
+    # Enable USB multiplexing daemon, needed for ifuse.
+    usbmuxd.enable = true;
+
     # Enable AMD GPU drivers
     xserver.videoDrivers = ["amdgpu"];
+
   };
 
   networking = {

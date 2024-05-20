@@ -19,6 +19,7 @@
     foliate
     gnome.gucharmap
     htop
+    ifuse
     kdenlive
     kitty
     # Although librewolf is cross-platform the nixpkgs package
@@ -31,6 +32,7 @@
     qdirstat
     rnote
     spotifywm
+    usbutils
   ];
 in {
   # Core unix packages

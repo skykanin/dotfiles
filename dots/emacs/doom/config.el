@@ -149,6 +149,9 @@
 (after! scheme-mode-hook
   (remove-hook 'scheme-mode-hook #'rainbow-delimiters-mode))
 
+(after! yuck-mode
+  (add-hook! 'yuck-mode-hook #'parinfer-rust-mode))
+
 (map!
  :desc "Toggle comment for a line or region."
  :n "C-/" #'comment-line)

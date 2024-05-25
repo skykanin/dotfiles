@@ -1,11 +1,10 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: let
   # TODO: If used, implement as an overlay
-  vscode = pkgs.vscode-with-extensions.override {
+  _vscode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
       ms-python.python
       ms-toolsai.jupyter
@@ -36,7 +35,7 @@
   ];
 in {
   # Core unix packages
-  environment.systemPackages = with pkgs;
+  environment.systemPackages = (with pkgs;
     [
       (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
       babashka
@@ -84,6 +83,6 @@ in {
       xdg-utils
       yt-dlp
       zip
-    ]
+    ])
     ++ lib.optionals pkgs.stdenv.isLinux linuxPackages;
 }

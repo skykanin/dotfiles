@@ -30,6 +30,7 @@ in {
       settings = {
         auto-optimise-store = true;
         max-jobs = cfg.max-jobs;
+        sandbox = true;
         substituters =
           [
             "https://cache.nixos.org"

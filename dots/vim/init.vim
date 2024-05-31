@@ -9,7 +9,6 @@ set ignorecase
 set matchpairs
 set multiple-cursors
 set number
-set relativenumber
 set smartcase
 set surround
 set wrapscan

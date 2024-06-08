@@ -42,6 +42,7 @@ in {
         enableXWayland = cfg.xwayland.enable;
       };
     };
+    xdg.portal.enable = true;
 
     # Additional packages
     environment.systemPackages = with pkgs; [

@@ -49,7 +49,6 @@ in {
       difftastic
       discord
       discocss
-      emacs
       fastfetch
       fd
       ffmpeg-full

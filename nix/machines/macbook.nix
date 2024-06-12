@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     kubectx
+    kubeseal
     # librewolf is broken on darwin so we use a version from an overlay
     librewolf
     fluxcd

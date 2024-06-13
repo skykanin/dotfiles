@@ -23,11 +23,7 @@ in {
       package = pkgs.openjdk21;
     };
 
-    nh = {
-      enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3";
-    };
+    nh.enable = true;
 
     steam = lib.mkIf cfg.steam.enable {
       enable = true;

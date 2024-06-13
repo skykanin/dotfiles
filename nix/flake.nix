@@ -20,21 +20,33 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["aarch64-darwin" "x86_64-linux"];
+      systems = ["aarch64-darwin" "x86_64-darwin" "x86_64-linux"];
 
       imports = [
         inputs.flake-parts.flakeModules.easyOverlay
       ];
 
       flake = {
-        darwinConfigurations."nvjs-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem rec {
-          system = "aarch64-darwin";
-          pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
-          modules = [
-            ./machines/macbook.nix
-            {_module.args = {inherit inputs;};}
-          ];
+        darwinConfigurations = {
+          "nvj" = inputs.nix-darwin.lib.darwinSystem rec {
+            system = "aarch64-darwin";
+            pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
+            modules = [
+              ./machines/macbook.nix
+              {_module.args = {inherit inputs;};}
+            ];
+          };
+          # MacOS VM
+          "skykanins-iMac-Pro" = inputs.nix-darwin.lib.darwinSystem rec {
+            system = "x86_64-darwin";
+            pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
+            modules = [
+              ./machines/mac-vm.nix
+              {_module.args = {inherit inputs;};}
+            ];
+          };
         };
+
         nixosConfigurations = {
           # Desktop
           emma = inputs.nixpkgs.lib.nixosSystem rec {

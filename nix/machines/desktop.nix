@@ -80,7 +80,6 @@
     };
   };
 
-
   services = {
     flatpak.enable = true;
 
@@ -90,6 +89,12 @@
     # Enable AMD GPU drivers
     xserver.videoDrivers = ["amdgpu"];
 
+    # Enable GNOME desktop manager
+    # xserver = {
+    #   enable = true;
+    #   desktopManager.gnome.enable = true;
+    #   displayManager.gdm.enable = true;
+    # };
   };
 
   networking = {

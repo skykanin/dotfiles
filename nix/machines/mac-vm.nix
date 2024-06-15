@@ -34,8 +34,8 @@
     # - Add docker module to nix-darwin
     # - Make nix signal package work on aarch64-darwin
     # - Package naisdevice-tenant in nix
-    casks = [ "docker" "naisdevice-tenant" "signal" ];
-    taps = [ "nais/tap" ];
+    casks = ["docker" "naisdevice-tenant" "signal"];
+    taps = ["nais/tap"];
   };
 
   programs.vim.enable = true;

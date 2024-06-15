@@ -35,8 +35,8 @@
   ];
 in {
   # Core unix packages
-  environment.systemPackages = (with pkgs;
-    [
+  environment.systemPackages =
+    (with pkgs; [
       (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
       babashka
       bat

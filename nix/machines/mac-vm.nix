@@ -14,7 +14,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    emacs29
+    # The nix-darwin emacs service doesn't add emacs to system packages
+    # so we have to do it manually
+    config.services.emacs.package
     karabiner-elements
     kubectx
     kubeseal

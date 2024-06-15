@@ -14,6 +14,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    # The nix-darwin emacs service doesn't add emacs to system packages
+    # so we have to do it manually
+    config.services.emacs.package
     kubectx
     kubeseal
     # librewolf is broken on darwin so we use a version from an overlay

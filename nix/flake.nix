@@ -86,12 +86,13 @@
 
       perSystem = {
         pkgs,
+        self',
         system,
         ...
       }: {
         devShells.default = pkgs.mkShell {
           name = "nixd-shell";
-          packages = with pkgs; [nixd];
+          packages = [pkgs.nixd self'.formatter];
         };
 
         formatter = pkgs.alejandra;

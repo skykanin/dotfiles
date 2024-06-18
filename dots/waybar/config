@@ -4,10 +4,10 @@
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
-      "idle_inhibitor",
+      "custom/recording_status",
       "cpu",
       "memory",
       "pulseaudio",
@@ -15,13 +15,26 @@
       "tray"
     ],
     // Modules configuration
-    "include": ["~/dotfiles/dots/waybar/clock.json", "~/dotfiles/dots/waybar/workspaces.json"],
+    "include": [
+      "~/dotfiles/dots/waybar/clock.json",
+      "~/dotfiles/dots/waybar/workspaces.json"
+    ],
     "idle_inhibitor": {
         "format": "{icon} {status}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
         }
+    },
+    "custom/recording_status": {
+        "exec": "",
+        "format": "{icon} {status}",
+        "format-icons": {
+            "recording": "",
+            "disabled": ""
+        },
+        "tooltip": true,
+        "tooltip-format": "OBS recording status"
     },
     "tray": {
         // "icon-size": 21,
@@ -96,7 +109,7 @@
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [ "custom/media", "disk", "disk#2" ],
     // Module configuration

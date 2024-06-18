@@ -28,14 +28,23 @@
     ../modules/ssh.nix
     ../modules/user.nix
     ../modules/desktop/wayland/hyprland.nix
+    ../modules/desktop/wayland/sway.nix
+    ../modules/desktop/wayland/greetd.nix
   ];
 
   # Local modules
   local = {
     desktop.hyprland = {
+      enable = false;
+      xwayland.enable = true;
+    };
+
+    desktop.sway = {
       enable = true;
       xwayland.enable = true;
     };
+
+    desktop.greetd.enable = true;
 
     hardware.opentabletdriver.enable = true;
 

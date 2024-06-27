@@ -23,11 +23,12 @@ set $menu dmenu_path | rofi -show drun | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/wallpapers/planets.jpg fill
 
 output DP-2 {
     resolution 2560x1440@169.83Hz
     position 2560 0
+    render_bit_depth 10
 }
 
 output HDMI-A-1 {

@@ -32,6 +32,7 @@
     rnote
     spotifywm
     usbutils
+    vesktop
   ];
 in {
   # Core unix packages

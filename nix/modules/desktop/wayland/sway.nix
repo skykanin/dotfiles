@@ -31,7 +31,7 @@ in {
           swayidle
           swaylock-effects
           wl-clipboard
-          wlr-randr
+          wofi
         ];
 
         extraSessionCommands = ''
@@ -55,19 +55,20 @@ in {
       waybar.enable = true;
     };
 
-    xdg.portal.enable = true;
+    xdg.portal = {
+      enable = true;
+      config = {
+        default = {
+          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+          "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
+        };
+      };
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
 
     # Additional packages
     environment.systemPackages = with pkgs; [
       fribidi # used in statusbar spotify script
-      grim
-      obs-cmd
-      rofi-wayland
-      slurp
-      swaybg
-      swayidle
-      swaylock-effects
-      wl-clipboard
       wlr-randr
     ];
   };

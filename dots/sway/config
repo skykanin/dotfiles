@@ -28,7 +28,9 @@ output * bg ~/Pictures/wallpapers/planets.jpg fill
 output DP-2 {
     resolution 2560x1440@169.83Hz
     position 2560 0
-    render_bit_depth 10
+    # We can't use 10 here because then screen sharing doesn't work for this monitor :/
+    # https://github.com/swaywm/sway/issues/8227
+    render_bit_depth 8
 }
 
 output HDMI-A-1 {
@@ -168,7 +170,7 @@ input type:pointer {
     assign [class="kitty-startup"] 1
     assign [class="librewolf-startup"] 2
     assign [class="emacs-startup"] 3
-    assign [class="discord"] 4
+    assign [class="vesktop"] 4
     assign [class="spotify"] 5
     assign [class="qBittorrent"] 6
 
@@ -282,7 +284,7 @@ exec waybar
 exec kitty --name "kitty-startup"
 exec librewolf --name "librewolf-startup"
 exec emacs --name "emacs-startup"
-exec Discord --disable-smooth-scrolling
+exec vesktop
 exec spotify
 
 # Audio controls

@@ -18,7 +18,6 @@
     ../modules/printing.nix
     ../modules/programs/default.nix
     ../modules/programs/nixos.nix
-    ../modules/overlays.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix

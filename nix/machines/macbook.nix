@@ -5,12 +5,11 @@
   ...
 }: {
   imports = [
-    ../modules/nix.nix
+    ../modules/emacs.nix
     ../modules/general/default.nix
+    ../modules/nix.nix
     ../modules/packages.nix
     ../modules/programs/default.nix
-    ../modules/overlays.nix
-    ../modules/emacs.nix
   ];
 
   environment.systemPackages = with pkgs; [

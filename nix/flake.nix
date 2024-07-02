@@ -28,9 +28,9 @@
 
       flake = {
         darwinConfigurations = {
-          "nvj" = inputs.nix-darwin.lib.darwinSystem rec {
+          "nvjs-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem rec {
             system = "aarch64-darwin";
-            pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
+            pkgs = inputs.self.legacyPackages.${system};
             modules = [
               ./machines/macbook.nix
               {_module.args = {inherit inputs;};}
@@ -39,7 +39,7 @@
           # MacOS VM
           "skykanins-iMac-Pro" = inputs.nix-darwin.lib.darwinSystem rec {
             system = "x86_64-darwin";
-            pkgs = inputs.self.legacyPackages.${system}.extend (inputs.nixpkgs-firefox-darwin.overlay);
+            pkgs = inputs.self.legacyPackages.${system};
             modules = [
               ./machines/mac-vm.nix
               {_module.args = {inherit inputs;};}
@@ -88,6 +88,7 @@
         pkgs,
         self',
         system,
+        lib,
         ...
       }: {
         devShells.default = pkgs.mkShell {
@@ -105,7 +106,16 @@
           config.allowUnfree = true;
           hostPlatform = system;
           inherit system;
-          overlays = [(import ./overlays/alejandra/default.nix)];
+          overlays = let
+            importCustomPackages = path: _final: prev: {
+              inherit (prev.callPackage path {});
+            };
+            listNixFilesRecursive = path:
+              builtins.filter (lib.hasSuffix ".nix") (map toString (lib.filesystem.listFilesRecursive path));
+          in
+            map import (listNixFilesRecursive ./overlays)
+            ++ map importCustomPackages (listNixFilesRecursive ./packages)
+            ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay];
         };
       };
     };

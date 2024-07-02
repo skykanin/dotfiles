@@ -21,7 +21,6 @@ in {
     ../modules/networking.nix
     ../modules/programs/default.nix
     ../modules/programs/nixos.nix
-    ../modules/overlays.nix
   ];
 
   # Local modules

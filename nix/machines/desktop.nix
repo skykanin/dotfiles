@@ -16,7 +16,6 @@
     ../modules/general/nixos.nix
     ../modules/networking.nix
     ../modules/packages.nix
-    ../modules/overlays.nix
     ../modules/printing.nix
     ../modules/programs/default.nix
     ../modules/programs/nixos.nix

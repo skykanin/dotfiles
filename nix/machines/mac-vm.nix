@@ -9,7 +9,6 @@
     ../modules/general/default.nix
     ../modules/packages.nix
     ../modules/programs/default.nix
-    ../modules/overlays.nix
     ../modules/emacs.nix
   ];
 

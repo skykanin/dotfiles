@@ -177,11 +177,8 @@ input type:pointer {
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    # Toggle then vertical/horizontal "split" of the current object of your focus
+    bindsym $mod+v splitt
 
     # Switch the current container between different layout styles
     # I never use stacking
@@ -305,5 +302,7 @@ bindsym $mod+p exec ~/dotfiles/scripts/keepass-rofi -d ~/Passwords.kdbx
 
 # Screenshot
 bindsym $mod+s exec grim -g "$(slurp -d)" - | wl-copy # select display output
+
+xwayland enable
 
 include /etc/sway/config.d/*

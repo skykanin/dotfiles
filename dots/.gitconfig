@@ -4,10 +4,12 @@
 [core]
 	editor = vim
 [diff]
-        tool = vimdiff3
- 	# external = difft --color auto
+	tool = vimdiff3
+	# external = difft --color auto
 [merge]
 	conflictstyle = diff3
+[rebase]
+	updateRefs = true
 [push]
 	followTags = true
 	autoSetupRemote = true
@@ -16,15 +18,13 @@
 [init]
 	defaultBranch = main
 [color.ui]
-       ui = always
+	ui = always
 [color.status]
 	changed = 83
-        added = 199
+	added = 199
 [color.diff]
-        new = 83
+	new = 83
 [credential "https://github.com"]
-	helper = 
 	helper = !/run/current-system/sw/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
 	helper = !/run/current-system/sw/bin/gh auth git-credential

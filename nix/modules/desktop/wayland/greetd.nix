@@ -13,11 +13,12 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = let wm =
-            if config.local.desktop.hyprland.enable
-            then config.programs.hyprland.package
-            else config.programs.sway.package;
-            in "${lib.getExe wm} 2> ~/sway.log";
+          command = let
+            wm =
+              if config.local.desktop.hyprland.enable
+              then config.programs.hyprland.package
+              else config.programs.sway.package;
+          in "${lib.getExe wm} 2> ~/sway.log";
           user = config.local.user.name;
         };
       };

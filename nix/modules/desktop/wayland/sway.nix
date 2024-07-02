@@ -59,11 +59,11 @@ in {
       enable = true;
       config = {
         default = {
-          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-          "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+          "org.freedesktop.portal.FileChooser" = ["xdg-desktop-portal-gtk"];
         };
       };
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
 
     # Additional packages

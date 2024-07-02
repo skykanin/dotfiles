@@ -25,6 +25,7 @@
     iterm2
     k9s
     spotify
+    vim-with-conf
   ];
 
   homebrew = {
@@ -37,7 +38,9 @@
     taps = ["nais/tap"];
   };
 
-  programs.vim.enable = true;
+  nix.nixPath = [
+    "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
+  ];
 
   services.nix-daemon.enable = true;
 
@@ -45,7 +48,7 @@
     "/Applications/Nix Apps/LibreWolf.app"
     "/Applications/Nix Apps/Spotify.app"
     "/Applications/Microsoft Outlook.app"
-    "/Applications/Microsoft Teams (work or school).app"
+    "/Applications/Microsoft Teams.app"
     "/Applications/Nix Apps/Slack.app"
     "/Applications/Nix Apps/Discord.app"
     "/Applications/Nix Apps/KeePassXC.app"

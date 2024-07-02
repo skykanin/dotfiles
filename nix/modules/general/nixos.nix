@@ -15,6 +15,8 @@
     man.generateCaches = true;
   };
 
+  fontDir.enable = config.services.flatpak.enable;
+
   services = {
     gnome.gnome-keyring.enable = true;
     ratbagd.enable = true;

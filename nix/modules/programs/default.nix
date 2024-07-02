@@ -7,6 +7,8 @@
   config.programs = {
     direnv.enable = true;
 
+    gnupg.agent.enable = true;
+
     fish = {
       enable = true;
       vendor = {
@@ -16,8 +18,6 @@
       };
     };
 
-    gnupg.agent.enable = true;
 
-    vim.package = lib.mkDefault pkgs.vim-with-conf;
   };
 }

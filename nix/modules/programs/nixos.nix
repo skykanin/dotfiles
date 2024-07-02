@@ -31,6 +31,9 @@ in {
       dedicatedServer.openFirewall = true;
     };
 
-    vim.defaultEditor = true;
+    vim = {
+      defaultEditor = true;
+      package = lib.mkDefault pkgs.vim-with-conf;
+    };
   };
 }

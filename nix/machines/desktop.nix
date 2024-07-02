@@ -117,6 +117,7 @@
     # android-udev-rules
     # vscode
     ani-cli
+    bottles
     chatterino2
     clj-kondo
     jetbrains.idea-ultimate

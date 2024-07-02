@@ -72,7 +72,7 @@
   ];
 
   hardware = {
-    opengl.extraPackages = with pkgs; [
+    graphics.extraPackages = with pkgs; [
       intel-media-driver
     ];
     # Override gnome module setting this to true

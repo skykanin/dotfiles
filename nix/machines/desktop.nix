@@ -80,13 +80,7 @@
     };
   };
 
-  hardware = {
-    opengl = {
-      extraPackages = with pkgs; [
-        amdvlk
-      ];
-    };
-  };
+  hardware.graphics.extraPackages = [pkgs.amdvlk];
 
   services = {
     flatpak.enable = true;

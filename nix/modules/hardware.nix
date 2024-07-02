@@ -14,7 +14,7 @@ in {
   };
 
   config.hardware = {
-    opengl.enable = cfg.opengl.enable;
+    graphics.enable = cfg.opengl.enable;
     opentabletdriver.enable = cfg.opentabletdriver.enable;
   };
 }

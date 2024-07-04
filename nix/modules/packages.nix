@@ -50,6 +50,7 @@ in {
       difftastic
       discord
       discocss
+      eza
       fastfetch
       fd
       ffmpeg-full

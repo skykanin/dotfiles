@@ -39,3 +39,9 @@ window#waybar {
 #tray {
   padding-right: 10px;
 }
+
+#mode {
+  background-color: #853748;
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+}

@@ -31,7 +31,7 @@ in {
       settings = {
         auto-optimise-store = true;
         max-jobs = cfg.max-jobs;
-        sandbox = true;
+        sandbox = pkgs.stdenv.isLinux;
         substituters =
           [
             "https://cache.nixos.org"
@@ -52,7 +52,7 @@ in {
         trusted-users = ["root" "skykanin"];
       };
       extraOptions = ''
-        experimental-features = nix-command flakes repl-flake
+        experimental-features = nix-command flakes
         keep-outputs = false
         keep-derivations = false
         warn-dirty = false
@@ -66,7 +66,7 @@ in {
           persistent = true;
           dates = "weekly";
         };
-      package = pkgs.nixVersions.stable;
+      package = pkgs.nixVersions.latest;
     };
   };
 }

@@ -1,6 +1,6 @@
 [{
     "layer": "top",
-    "output": "DP-2",
+    "output": "DP-1",
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels
@@ -106,7 +106,7 @@
 },
 {
     "layer": "top",
-    "output": "HDMI-A-1",
+    "output": "DP-2",
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels

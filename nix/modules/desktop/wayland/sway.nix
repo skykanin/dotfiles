@@ -36,7 +36,7 @@ in {
 
         extraSessionCommands = ''
           # SDL:
-          export SDL_VIDEODRIVER=wayland
+          export SDL_VIDEODRIVER="wayland,x11"
           # QT (needs qt5.qtwayland in systemPackages):
           export QT_QPA_PLATFORM=wayland-egl
           export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"

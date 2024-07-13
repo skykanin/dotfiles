@@ -10,7 +10,6 @@
     ../modules/boot-efi.nix
     ../modules/nix.nix
     ../modules/emacs.nix
-    ../modules/hardware.nix
     ../modules/general/default.nix
     ../modules/general/nixos.nix
     ../modules/networking.nix
@@ -26,8 +25,6 @@
 
   # Local modules
   local = {
-    hardware.opentabletdriver.enable = true;
-
     networking = {
       firewall.enable = true;
       networkmanager.enable = true;
@@ -72,9 +69,11 @@
   ];
 
   hardware = {
-    graphics.extraPackages = with pkgs; [
-      intel-media-driver
-    ];
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [intel-media-driver];
+    };
+    opentabletdriver.enable = true;
     # Override gnome module setting this to true
     pulseaudio.enable = lib.mkForce false;
   };

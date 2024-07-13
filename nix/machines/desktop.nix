@@ -10,7 +10,6 @@
     ../modules/boot-efi.nix
     ../modules/nix.nix
     ../modules/emacs.nix
-    ../modules/hardware.nix
     ../modules/keyboard.nix
     ../modules/general/default.nix
     ../modules/general/nixos.nix
@@ -45,8 +44,6 @@
 
     desktop.greetd.enable = true;
 
-    hardware.opentabletdriver.enable = true;
-
     networking = {
       firewall.enable = true;
       networkmanager.enable = true;
@@ -60,8 +57,6 @@
         "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
       ];
     };
-
-    programs.steam.enable = true;
 
     services = {
       jellyfin.enable = true;
@@ -80,7 +75,19 @@
     };
   };
 
-  hardware.graphics.extraPackages = [pkgs.amdvlk];
+  hardware = {
+    graphics = {
+      enable32Bit = true;
+      extraPackages = [pkgs.amdvlk];
+    };
+    opentabletdriver.enable = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    extraPackages = [pkgs.SDL2];
+    protontricks.enable = true;
+  };
 
   services = {
     flatpak.enable = true;

@@ -15,7 +15,6 @@ in {
     ../modules/user.nix
     ../modules/nix.nix
     ../modules/emacs.nix
-    ../modules/hardware.nix
     ../modules/general/default.nix
     ../modules/general/nixos.nix
     ../modules/networking.nix
@@ -25,9 +24,9 @@ in {
 
   # Local modules
   local = {
-    hardware.opengl.enable = false;
     user.authorizedSshKeys = authorizedSshKeys;
   };
+
   users.users.root.openssh.authorizedKeys.keys = authorizedSshKeys;
 
   services.openssh.enable = true;

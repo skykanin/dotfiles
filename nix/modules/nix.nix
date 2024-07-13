@@ -26,7 +26,7 @@ in {
 
   config = {
     nix = {
-      nixPath = [ "nixpkgs=${config.nix.registry.self.flake}" ];
+      nixPath = ["nixpkgs=${config.nix.registry.self.flake}"];
       registry.self.flake = inputs.nixpkgs;
       settings = {
         auto-optimise-store = true;

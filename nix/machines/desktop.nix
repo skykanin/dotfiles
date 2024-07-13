@@ -115,7 +115,6 @@
   environment.systemPackages = with pkgs; [
     # android-studio
     # android-udev-rules
-    # vscode
     ani-cli
     bottles
     chatterino2

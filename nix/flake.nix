@@ -9,6 +9,12 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    # cppnix fork
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-darwin = {
@@ -32,6 +38,7 @@
             system = "aarch64-darwin";
             pkgs = inputs.self.legacyPackages.${system};
             modules = [
+              inputs.lix-module.nixosModules.default
               ./machines/macbook.nix
               {_module.args = {inherit inputs;};}
             ];
@@ -41,6 +48,7 @@
             system = "x86_64-darwin";
             pkgs = inputs.self.legacyPackages.${system};
             modules = [
+              inputs.lix-module.nixosModules.default
               ./machines/mac-vm.nix
               {_module.args = {inherit inputs;};}
             ];
@@ -53,6 +61,7 @@
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
             modules = [
+              inputs.lix-module.nixosModules.default
               ./machines/desktop.nix
               ./hardware/desktop.nix
               {_module.args = {inherit inputs;};}
@@ -64,6 +73,7 @@
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
             modules = [
+              inputs.lix-module.nixosModules.default
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
@@ -76,6 +86,7 @@
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
             modules = [
+              inputs.lix-module.nixosModules.default
               ./machines/server.nix
               ./hardware/server.nix
               {_module.args = {inherit inputs;};}

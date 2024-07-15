@@ -16,7 +16,7 @@
     blueberry
     feh
     foliate
-    gnome.gucharmap
+    gucharmap
     htop
     ifuse
     kdenlive

@@ -58,7 +58,7 @@
 
   environment.systemPackages = with pkgs; [
     flat-remix-icon-theme
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnome.gnome-shell-extensions
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock

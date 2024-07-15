@@ -52,7 +52,7 @@ in {
         trusted-users = ["root" "skykanin"];
       };
       extraOptions = ''
-        experimental-features = nix-command flakes
+        experimental-features = nix-command flakes repl-flake
         keep-outputs = false
         keep-derivations = false
         warn-dirty = false
@@ -66,7 +66,7 @@ in {
           persistent = true;
           dates = "weekly";
         };
-      package = pkgs.nixVersions.latest;
+      package = pkgs.lix;
     };
   };
 }

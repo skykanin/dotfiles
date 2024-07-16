@@ -106,7 +106,10 @@
 (setq-default eglot-workspace-configuration
               '((haskell
                  (formattingProvider . "fourmolu")
-                 (maxCompletions . 30))))
+                 (maxCompletions . 30))
+
+                (typescript
+                 (codeActionsOnSave))))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs

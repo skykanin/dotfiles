@@ -63,7 +63,6 @@ in {
       jq
       jwt-cli
       keepassxc
-      magic-wormhole
       man-pages
       man-pages-posix
       mpv
@@ -80,6 +79,7 @@ in {
       uiua
       unzip
       weechat
+      wormhole-william
       wget
       xdg-utils
       yt-dlp

@@ -78,7 +78,12 @@
   hardware = {
     graphics = {
       enable32Bit = true;
-      extraPackages = [pkgs.amdvlk];
+      extraPackages = with pkgs; [
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
+        # amdvlk
+      ];
     };
     opentabletdriver.enable = true;
   };

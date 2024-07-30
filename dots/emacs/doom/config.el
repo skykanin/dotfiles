@@ -103,13 +103,19 @@
 ;; '((:haskell .
 ;;       (:formattingProvider "fourmolu"
 ;;        :maxCompletions 30)
+;;
+;; TIP: You can always check if the resulting json is valib by evaluating
+;; (json-encode eglot-workspace-configuration)
+;; and see the current loaded workspace configuration with `eglot-show-workspace-configuration'
 (setq-default eglot-workspace-configuration
               '((haskell
                  (formattingProvider . "fourmolu")
                  (maxCompletions . 30))
 
                 (typescript
-                 (codeActionsOnSave))))
+                 (codeActionsOnSave))
+
+                (nixd (formatting (command . ["nix" "fmt"])))))
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs

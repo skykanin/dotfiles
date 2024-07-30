@@ -66,6 +66,7 @@ in {
       man-pages
       man-pages-posix
       mpv
+      nheko
       nnn
       pciutils
       pywal
@@ -78,7 +79,6 @@ in {
       tree
       uiua
       unzip
-      weechat
       wormhole-william
       wget
       xdg-utils

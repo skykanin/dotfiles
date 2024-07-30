@@ -9,6 +9,11 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
 
+(package! c3-mode
+  :recipe (:host github
+           :repo "c3lang/editor-plugins"
+           :files ("emacs/*.el")))
+
 (package! elcord
   ;; Disable elcord if on "iris" computer
   :disable (member (system-name) '("iris" "P1046964.ssb.no"))

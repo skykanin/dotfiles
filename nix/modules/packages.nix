@@ -25,6 +25,8 @@
     # is broken on darwin because firefox is broken for darwin
     librewolf
     lshw
+    # Cross-platform, but currently broken on darwin
+    nheko
     pamixer
     pavucontrol
     playerctl
@@ -66,7 +68,6 @@ in {
       man-pages
       man-pages-posix
       mpv
-      nheko
       nnn
       pciutils
       pywal

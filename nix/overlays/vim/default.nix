@@ -1,15 +1,20 @@
-final: prev: {
-  vim-with-conf = prev.vim-full.customize {
+final: prev:
+let
+  inherit (prev) lib;
+  inherit (prev.stdenv) isDarwin isLinux;
+  vim = if isDarwin then prev.vim-darwin else prev.vim-full;
+in {
+  vim-with-conf = vim.customize {
     name = "vim";
     vimrcConfig.packages.myplugins = with prev.vimPlugins; {
-      # clipboard support for wayland
-      start = [vim-wayland-clipboard];
+      # clipboard support for wayland on linux
+      start = lib.optional isLinux vim-wayland-clipboard;
     };
     vimrcConfig.customRC = ''
       " Map keys for copy/pasting from clipboard register
       let mapleader = "<space>"
-      map <leader>y "+y
-      map <leader>p "+p
+      map <leader>y ${if isDarwin then "\"*y" else "\"+y"}
+      map <leader>p ${if isDarwin then "\"*p" else "\"+p"}
 
       " Prevent vim from clearing clipboard on exit
       autocmd VimLeave * call system("xsel -ib", getreg('+'))
@@ -26,7 +31,7 @@ final: prev: {
       " Whitespace highlighting
       highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
-      set clipboard=unnamedplus
+      set clipboard=${if isDarwin then "unnamed" else "unnamedplus"}
       set backspace=indent,eol,start
       set formatoptions=r
 

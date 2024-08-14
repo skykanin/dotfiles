@@ -12,23 +12,25 @@
     ../modules/programs/default.nix
   ];
 
-  environment.variables.EDITOR = "vim";
+  environment = {
+    variables.EDITOR = "vim";
 
-  environment.systemPackages = with pkgs; [
-    # The nix-darwin emacs service doesn't add emacs to system packages
-    # so we have to do it manually
-    config.services.emacs.package
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-    kubectx
-    kubeseal
-    # librewolf is broken on darwin so we use a version from an overlay
-    librewolf
-    fluxcd
-    iterm2
-    k9s
-    spotify
-    vim-with-conf
-  ];
+    systemPackages = with pkgs; [
+      # The nix-darwin emacs service doesn't add emacs to system packages
+      # so we have to do it manually
+      config.services.emacs.package
+      (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+      kubectx
+      kubeseal
+      # librewolf is broken on darwin so we use a version from an overlay
+      librewolf
+      fluxcd
+      iterm2
+      k9s
+      spotify
+      vim-with-conf
+    ];
+  };
 
   homebrew = {
     enable = true;

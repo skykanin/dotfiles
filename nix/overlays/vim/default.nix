@@ -1,8 +1,10 @@
-final: prev:
-let
+final: prev: let
   inherit (prev) lib;
   inherit (prev.stdenv) isDarwin isLinux;
-  vim = if isDarwin then prev.vim-darwin else prev.vim-full;
+  vim =
+    if isDarwin
+    then prev.vim-darwin
+    else prev.vim-full;
 in {
   vim-with-conf = vim.customize {
     name = "vim";
@@ -13,8 +15,16 @@ in {
     vimrcConfig.customRC = ''
       " Map keys for copy/pasting from clipboard register
       let mapleader = "<space>"
-      map <leader>y ${if isDarwin then "\"*y" else "\"+y"}
-      map <leader>p ${if isDarwin then "\"*p" else "\"+p"}
+      map <leader>y ${
+        if isDarwin
+        then "\"*y"
+        else "\"+y"
+      }
+      map <leader>p ${
+        if isDarwin
+        then "\"*p"
+        else "\"+p"
+      }
 
       " Prevent vim from clearing clipboard on exit
       autocmd VimLeave * call system("xsel -ib", getreg('+'))
@@ -31,7 +41,11 @@ in {
       " Whitespace highlighting
       highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
-      set clipboard=${if isDarwin then "unnamed" else "unnamedplus"}
+      set clipboard=${
+        if isDarwin
+        then "unnamed"
+        else "unnamedplus"
+      }
       set backspace=indent,eol,start
       set formatoptions=r
 

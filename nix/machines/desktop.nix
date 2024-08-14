@@ -82,7 +82,7 @@
         vulkan-loader
         vulkan-validation-layers
         vulkan-extension-layer
-        # amdvlk
+        amdvlk
       ];
     };
     opentabletdriver.enable = true;

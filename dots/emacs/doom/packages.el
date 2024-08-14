@@ -43,9 +43,6 @@
 ;; When developing on `lsp-mode' use the local repo
 ;; (package! lsp-mode :recipe (:local-repo "~/Projects/lsp-mode" :files ("*.el" "clients/*.el") :build (:not compile)))
 
-(package! eglot
-  :pin "8b5532dd32b25276c1857508030b207f765ef9b6")
-
 (package! idris-mode
   :recipe (:host github
            :repo "idris-hackers/idris-mode"

@@ -12,6 +12,8 @@
     ../modules/programs/default.nix
   ];
 
+  environment.variables.EDITOR = "vim";
+
   environment.systemPackages = with pkgs; [
     # The nix-darwin emacs service doesn't add emacs to system packages
     # so we have to do it manually

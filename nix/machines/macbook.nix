@@ -21,6 +21,7 @@
       config.services.emacs.package
       (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
       kubectx
+      kubernetes-helm
       kubeseal
       # librewolf is broken on darwin so we use a version from an overlay
       librewolf
@@ -34,12 +35,13 @@
 
   homebrew = {
     enable = true;
+    brews = ["chart-releaser"];
     # TODO:
     # - Add docker module to nix-darwin
     # - Make nix signal package work on aarch64-darwin
     # - Package naisdevice-tenant in nix
     casks = ["docker" "naisdevice-tenant" "signal"];
-    taps = ["nais/tap"];
+    taps = ["nais/tap" "helm/tap" ];
   };
 
   nix.nixPath = [

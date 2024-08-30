@@ -12,6 +12,7 @@ in {
   };
 
   config.programs = {
+    command-not-found.enable = !config.programs.nix-index.enable;
     fuse.userAllowOther = true;
 
     light.enable = cfg.light.enable;
@@ -24,6 +25,8 @@ in {
     };
 
     nh.enable = true;
+
+    nix-index.enable = true;
 
     steam = lib.mkIf cfg.steam.enable {
       enable = true;

@@ -48,6 +48,7 @@ in {
       cachix
       cbqn-replxx
       clojure
+      croc
       curl
       difftastic
       discord
@@ -80,7 +81,6 @@ in {
       tree
       uiua
       unzip
-      wormhole-william
       wget
       xdg-utils
       yt-dlp

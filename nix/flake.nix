@@ -37,20 +37,20 @@
           "nvjs-MacBook-Air" = inputs.nix-darwin.lib.darwinSystem rec {
             system = "aarch64-darwin";
             pkgs = inputs.self.legacyPackages.${system};
+            specialArgs = {inherit inputs;};
             modules = [
               inputs.lix-module.nixosModules.default
               ./machines/macbook.nix
-              {_module.args = {inherit inputs;};}
             ];
           };
           # MacOS VM
           "skykanins-iMac-Pro" = inputs.nix-darwin.lib.darwinSystem rec {
             system = "x86_64-darwin";
             pkgs = inputs.self.legacyPackages.${system};
+            specialArgs = {inherit inputs;};
             modules = [
               inputs.lix-module.nixosModules.default
               ./machines/mac-vm.nix
-              {_module.args = {inherit inputs;};}
             ];
           };
         };
@@ -60,11 +60,11 @@
           emma = inputs.nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
+            specialArgs = {inherit inputs;};
             modules = [
               inputs.lix-module.nixosModules.default
               ./machines/desktop.nix
               ./hardware/desktop.nix
-              {_module.args = {inherit inputs;};}
             ];
           };
 
@@ -72,12 +72,12 @@
           daisy = inputs.nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
+            specialArgs = {inherit inputs;};
             modules = [
               inputs.lix-module.nixosModules.default
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
-              {_module.args = {inherit inputs;};}
             ];
           };
 
@@ -85,11 +85,11 @@
           dandy = inputs.nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
+            specialArgs = {inherit inputs;};
             modules = [
               inputs.lix-module.nixosModules.default
               ./machines/server.nix
               ./hardware/server.nix
-              {_module.args = {inherit inputs;};}
             ];
           };
         };

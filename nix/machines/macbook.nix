@@ -16,6 +16,7 @@
     variables.EDITOR = "vim";
 
     systemPackages = with pkgs; [
+      coreutils-full
       # The nix-darwin emacs service doesn't add emacs to system packages
       # so we have to do it manually
       config.services.emacs.package

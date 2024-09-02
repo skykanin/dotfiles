@@ -41,7 +41,7 @@
     # - Make nix signal package work on aarch64-darwin
     # - Package naisdevice-tenant in nix
     casks = ["docker" "naisdevice-tenant" "signal"];
-    taps = ["nais/tap" "helm/tap" ];
+    taps = ["nais/tap" "helm/tap"];
   };
 
   nix.nixPath = [

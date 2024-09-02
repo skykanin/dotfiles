@@ -18,6 +18,7 @@
     foliate
     gucharmap
     htop
+    httpie-desktop
     ifuse
     kdenlive
     kitty

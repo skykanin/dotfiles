@@ -118,14 +118,15 @@
           hostPlatform = system;
           inherit system;
           overlays = let
-            importCustomPackages = path: _final: prev: {
-              inherit (prev.callPackage path {});
+            compose = f: g: x: f (g x);
+            mkCustomPackage = pair: _final: prev: {
+              "${pair.name}" = prev.callPackage (pair.package) {};
             };
             listNixFilesRecursive = path:
               builtins.filter (lib.hasSuffix ".nix") (map toString (lib.filesystem.listFilesRecursive path));
           in
             map import (listNixFilesRecursive ./overlays)
-            ++ map importCustomPackages (listNixFilesRecursive ./packages)
+            ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages)
             ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay];
         };
       };

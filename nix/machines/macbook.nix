@@ -21,6 +21,7 @@
       # so we have to do it manually
       config.services.emacs.package
       (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+      helm-chart-releaser
       kubectx
       kubernetes-helm
       kubeseal
@@ -36,7 +37,6 @@
 
   homebrew = {
     enable = true;
-    brews = ["chart-releaser"];
     # TODO:
     # - Add docker module to nix-darwin
     # - Make nix signal package work on aarch64-darwin

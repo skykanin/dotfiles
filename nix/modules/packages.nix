@@ -26,8 +26,10 @@
     # is broken on darwin because firefox is broken for darwin
     librewolf
     lshw
-    # Cross-platform, but currently broken on darwin
-    nheko
+    # Cross-platform, but currently broken on darwin.
+    # Also currently insecure due to CVEs in libolm dependency.
+    # See: https://github.com/Nheko-Reborn/nheko/issues/1786
+    # nheko
     pamixer
     pavucontrol
     playerctl

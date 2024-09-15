@@ -19,10 +19,7 @@ in {
 
     gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
 
-    java = {
-      enable = true;
-      package = pkgs.openjdk21;
-    };
+    java.enable = true;
 
     nh.enable = true;
 

@@ -32,6 +32,7 @@ in {
     };
 
     vim = {
+      enable = true;
       defaultEditor = true;
       package = lib.mkDefault pkgs.vim-with-conf;
     };

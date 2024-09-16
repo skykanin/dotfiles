@@ -142,6 +142,9 @@
   ;; Enable yasnippet for python
   :config (add-hook! 'python-mode #'yas-minor-mode))
 
+(use-package yaml-mode
+  :config (add-hook 'yaml-mode-hook #'flymake-actionlint-action-load-when-actions-file))
+
 ;; Remove rainbow delimiters from lisp modes
 (after! elisp-mode
   (remove-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))

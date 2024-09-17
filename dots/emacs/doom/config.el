@@ -134,6 +134,9 @@
 
 ;; ------------------------------- END -------------------------------
 
+(use-package! magit
+  :custom (magit-diff-refine-hunk 'all))
+
 (use-package! yasnippet
   ;; Disable yasnippet globally
   :config (yas-global-mode -1))

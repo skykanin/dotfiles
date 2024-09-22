@@ -172,6 +172,9 @@
 (after! yuck-mode
   (add-hook! 'yuck-mode-hook #'parinfer-rust-mode))
 
+(use-package! kubed
+  :config (map! :leader :desc "kubed" "k" #'kubed-prefix-map))
+
 (map!
  :desc "Toggle comment for a line or region."
  :n "C-/" #'comment-line)

@@ -137,6 +137,11 @@
 (use-package! magit
   :custom (magit-diff-refine-hunk 'all))
 
+(setq projectile-require-project-root t)
+
+(use-package! haskell-mode
+  :config (remove-hook! haskell-mode #'(eglot-ensure projectile-mode)))
+
 (use-package! yasnippet
   ;; Disable yasnippet globally
   :config (yas-global-mode -1))

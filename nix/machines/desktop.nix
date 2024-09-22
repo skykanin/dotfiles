@@ -20,7 +20,6 @@
     ../modules/programs/nixos.nix
     ../modules/services/jellyfin.nix
     ../modules/services/noisetorch.nix
-    ../modules/services/polybar.nix
     ../modules/redshift.nix
     ../modules/sound.nix
     ../modules/ssh.nix
@@ -64,13 +63,6 @@
         enable = true;
         device-id = "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";
         device-unit = "sys-devices-pci0000:00-0000:00:08.1-0000:13:00.4-usb5-5\x2d2-5\x2d2:1.0-sound-card4-controlC4.device";
-      };
-      polybar = {
-        enable = true;
-        startup-script = ''
-          MONITOR=DP-2 polybar primary -c /etc/polybar/config.ini &
-          DEFAULT_NETWORK_INTERFACE=wlan0 MONITOR=HDMI-0 polybar secondary -c /etc/polybar/config.ini &
-        '';
       };
     };
   };

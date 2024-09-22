@@ -41,6 +41,11 @@
 
 (package! yuck-mode)
 
+(package! kubed
+  :recipe (:host sourcehut
+           :repo "eshel/kubed"
+           :branch "master"))
+
 ;; NOTE: It's possible to disable parts of lsp-ui as well see docs
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 ;; (package! lsp-ui :disable t)

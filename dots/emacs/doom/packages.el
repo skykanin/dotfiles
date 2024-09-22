@@ -14,6 +14,11 @@
            :repo "c3lang/editor-plugins"
            :files ("emacs/*.el")))
 
+(package! lean4-mode
+  :recipe (:host github
+           :repo "leanprover/lean4-mode"
+           :files ("*.el" "data")))
+
 (package! elcord
   ;; Disable elcord if on "iris" computer
   :disable (member (system-name) '("iris" "P1046964.ssb.no"))

@@ -6,6 +6,8 @@
 [diff]
 	tool = vimdiff3
 	# external = difft --color auto
+[fetch]
+	prune = true
 [merge]
 	conflictstyle = diff3
 [rebase]

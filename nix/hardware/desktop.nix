@@ -49,6 +49,22 @@
       fsType = "ntfs";
       options = ["rw" "uid=1000"];
     };
+
+    "/mnt/drive" = {
+      device = "google-drive:/";
+      fsType = "rclone";
+      options = [
+        "nodev"
+        "nofail"
+        "allow_other"
+        "args2env"
+        # This config is purposely not managed by nix so that the API access
+        # token remains secret.
+        #
+        # TODO: Start using agenix to manage secrets in a pure way
+        "config=/home/${config.local.user.name}/.config/rclone/rclone.conf"
+      ];
+    };
   };
 
   swapDevices = [];

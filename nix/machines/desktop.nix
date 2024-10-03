@@ -125,6 +125,7 @@
     openjdk8
     qbittorrent
     racket
+    rclone
     scala_3
     unison-ucm
     wineWowPackages.waylandFull

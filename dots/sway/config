@@ -298,7 +298,7 @@ bindsym XF86AudioPrev exec playerctl -p spotify previous
 bindsym $mod+Next exec obs-cmd recording toggle
 
 # Password store
-bindsym $mod+p exec ~/dotfiles/scripts/keepass-rofi -d ~/Passwords.kdbx
+bindsym $mod+p exec ~/dotfiles/scripts/keepass-rofi -d /mnt/drive/Passwords/Passwords.kdbx
 
 # Screenshot
 bindsym $mod+s exec grim -g "$(slurp -d)" - | wl-copy # select display output

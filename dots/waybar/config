@@ -69,7 +69,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "interface": "wlan0",
+        //"interface": "wlan0",
         "format-wifi": " {signalStrength}%",
         "format-ethernet": " {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) ",

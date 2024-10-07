@@ -274,9 +274,6 @@ hide_edge_borders smart
 
 bindsym Ctrl+Mod1+q exec swaylock
 
-# start the statusbar
-exec waybar
-
 # startup apps
 exec kitty --name "kitty-startup"
 exec librewolf --name "librewolf-startup"

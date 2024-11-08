@@ -12,7 +12,7 @@ in {
   config = lib.mkIf cfg.enable {
     services = {
       caddy = {
-        enable = true;
+        enable = false;
         enableReload = true;
         configFile = ./Caddyfile;
       };

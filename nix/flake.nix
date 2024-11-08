@@ -110,6 +110,7 @@
 
         _module.args.pkgs = import inputs.nixpkgs {
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [ "olm-3.2.16" ];
           hostPlatform = system;
           inherit system;
           overlays = let

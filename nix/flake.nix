@@ -39,7 +39,6 @@
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
-              inputs.lix-module.nixosModules.default
               ./machines/macbook.nix
             ];
           };
@@ -49,7 +48,6 @@
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
-              inputs.lix-module.nixosModules.default
               ./machines/mac-vm.nix
             ];
           };
@@ -62,7 +60,6 @@
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
-              inputs.lix-module.nixosModules.default
               ./machines/desktop.nix
               ./hardware/desktop.nix
             ];
@@ -74,7 +71,6 @@
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
-              inputs.lix-module.nixosModules.default
               ./machines/laptop.nix
               ./hardware/laptop.nix
               inputs.disko.nixosModules.disko
@@ -87,7 +83,6 @@
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
-              inputs.lix-module.nixosModules.default
               ./machines/server.nix
               ./hardware/server.nix
             ];
@@ -128,6 +123,9 @@
             map import (listNixFilesRecursive ./overlays)
             ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages)
             ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay];
+            # TODO: Waiting for https://nixpkgs-tracker.ocfox.me/?pr=354243 to hit nixos-unstable
+            # to fix the nix dependency bug which caused the lix-module overlay to rebuild 'webkitgtk-*'.
+            #++ [ inputs.lix-module.overlays.default ];
         };
       };
     };

@@ -149,11 +149,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1719535623,
-        "narHash": "sha256-CMqjPbNRsBKndH4mUMbdtceMZMPkNOPXgkqmrAqILYY=",
+        "lastModified": 1728608143,
+        "narHash": "sha256-qiS1mk/Zte00rE/iK9eicDmxSSKQHtzKKL3hqvxlqtc=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "2380fe2f38ee83fb7ac2a769ee5472500f608f59",
+        "rev": "508cc4e16d28071346d7c3027093314b9210e711",
         "type": "github"
       },
       "original": {

@@ -123,10 +123,8 @@
           in
             map import (listNixFilesRecursive ./overlays)
             ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages)
-            ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay];
-            # TODO: Waiting for https://nixpkgs-tracker.ocfox.me/?pr=354243 to hit nixos-unstable
-            # to fix the nix dependency bug which caused the lix-module overlay to rebuild 'webkitgtk-*'.
-            #++ [ inputs.lix-module.overlays.default ];
+            ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay]
+            ++ [ inputs.lix-module.overlays.default ];
         };
       };
     };

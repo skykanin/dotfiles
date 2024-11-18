@@ -277,8 +277,6 @@ bindsym Ctrl+Mod1+q exec swaylock
 # startup apps
 exec kitty --name "kitty-startup"
 exec librewolf --name "librewolf-startup"
-exec emacs --name "emacs-startup"
-exec vesktop
 exec spotify
 
 # Audio controls

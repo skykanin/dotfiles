@@ -11,7 +11,7 @@
 
     # cppnix fork
     lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=refs/tags/2.91.1-1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

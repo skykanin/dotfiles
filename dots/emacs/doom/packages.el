@@ -73,6 +73,13 @@
            :repo "crmsnbleyd/uiua-ts-mode"
            :branch "main"))
 
+(package! pkl-mode
+  :recipe (:host github
+           :repo "sin-ack/pkl-mode"
+           :branch "master")
+  ;; Version 1.0.3
+  :pin "c57fe374a9c57eee6432d0b449e410ab8dc40a89")
+
 (package! flymake-actionlint)
 
 ;; To install a package directly from a remote git repo, you must specify a

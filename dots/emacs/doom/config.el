@@ -181,6 +181,13 @@
 (after! yuck-mode
   (add-hook! 'yuck-mode-hook #'parinfer-rust-mode))
 
+(use-package! parinfer-rust-mode
+  :custom
+  (parinfer-rust-library
+   (if (eq system-type 'darwin)
+       "/Users/nvj/parinfer-rust-darwin.so"
+       parinfer-rust-library)))
+
 (use-package! kubed
   :config (map! :leader :desc "kubed" "k" #'kubed-prefix-map))
 

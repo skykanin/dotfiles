@@ -82,8 +82,17 @@
   (elcord-icon-base "https://raw.githubusercontent.com/skykanin/elcord/master/icons/"))
 
 ;; Don't format on save for these modes
-(setq +format-on-save-enabled-modes
-      '(not emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode haskell-mode json-mode yaml-mode))
+(setq +format-on-save-disabled-modes
+      '(emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode haskell-mode yaml-mode))
+
+(use-package! apheleia
+  :config
+    ;; (apheleia-global-mode -1)
+    ;; Don't respect identation config set in emacs
+    (setq apheleia-formatters-respect-indent-level nil))
+    ;; This isn't really needed with the config above
+    ;; (setf (alist-get 'prettier-json apheleia-formatters)
+    ;;       '("apheleia-npx" "prettier" "--stdin-filepath" filepath "--parser=json")))
 
 ;; Remove extra ligatures
 (setq +ligatures-extras-in-modes nil)

@@ -9,7 +9,7 @@
 [flags]
 
 # Display processes in tree mode
-tree = true
+tree = false
 
 color="gruvbox"
 

@@ -47,7 +47,7 @@ in {
       babashka
       bat
       bintools-unwrapped
-      bottom
+      btop
       cachix
       cbqn-replxx
       clojure

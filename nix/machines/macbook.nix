@@ -20,6 +20,7 @@
       # The nix-darwin emacs service doesn't add emacs to system packages
       # so we have to do it manually
       config.services.emacs.package
+      parinfer-rust-emacs # emacs dep
       (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
       helm-chart-releaser
       kubectl

@@ -69,6 +69,7 @@
 
   hardware = {
     graphics = {
+      enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
         vulkan-loader
@@ -82,7 +83,7 @@
 
   programs.steam = {
     enable = true;
-    extraPackages = [pkgs.SDL2];
+    extraPackages = [ pkgs.SDL2 ];
     protontricks.enable = true;
   };
 

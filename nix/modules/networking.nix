@@ -14,8 +14,8 @@ in {
   config.networking = {
     firewall = lib.mkIf cfg.firewall.enable {
       enable = true;
-      allowedTCPPorts = [3333 4568 8080 8096 8920 9630 44330 19000 19001 19002 19003];
-      allowedUDPPorts = [9630 44330 19000 19001 19002 19003];
+      allowedTCPPorts = [943 3333 4568 8080 8096 8920 9630 44330 19000 19001 19002 19003];
+      allowedUDPPorts = [1194 9630 44330 19000 19001 19002 19003];
     };
     networkmanager = {
       enable = cfg.networkmanager.enable;

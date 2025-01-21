@@ -113,6 +113,7 @@
   environment.systemPackages = with pkgs; [
     # android-studio
     # android-udev-rules
+    adwaita-icon-theme
     ani-cli
     bottles
     chatterino2

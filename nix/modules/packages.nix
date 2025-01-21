@@ -64,6 +64,7 @@ in {
       gitAndTools.gh
       gitFull
       gnumake
+      gnused
       idris2
       imagemagick
       jq
@@ -86,6 +87,7 @@ in {
       unzip
       wget
       xdg-utils
+      yq-go
       yt-dlp
       zip
     ])

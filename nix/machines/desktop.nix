@@ -75,7 +75,6 @@
         vulkan-loader
         vulkan-validation-layers
         vulkan-extension-layer
-        amdvlk
       ];
     };
     opentabletdriver.enable = true;
@@ -130,6 +129,7 @@
     racket
     rclone
     scala_3
+    tokyonight-gtk-theme
     unison-ucm
     wineWowPackages.waylandFull
   ];

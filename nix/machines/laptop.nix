@@ -45,7 +45,7 @@
     };
   };
 
-  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+  services.udev.packages = with pkgs; [gnome-settings-daemon];
 
   # Gnome uses Wayland by default, the attrname is just legacy.
   services.xserver = {
@@ -59,7 +59,7 @@
   environment.systemPackages = with pkgs; [
     flat-remix-icon-theme
     gnome-tweaks
-    gnome.gnome-shell-extensions
+    gnome-shell-extensions
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
     paper-icon-theme

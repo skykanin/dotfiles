@@ -22,19 +22,7 @@ in {
         enable = true;
         xwayland.enable = cfg.xwayland.enable;
 
-        # TODO: sway 1.10 introduced a lot of regressions. Therefore we override it
-        # to use version 1.9. See: https://github.com/swaywm/sway/issues
-        package =
-          let sway-unwrapped = pkgs.sway-unwrapped.overrideAttrs (final: {
-                version = "1.9";
-                src = pkgs.fetchFromGitHub {
-                  owner = "swaywm";
-                  repo = "sway";
-                  rev = final.version;
-                  hash = "sha256-/6+iDkQfdLcL/pTJaqNc6QdP4SRVOYLjfOItEu/bZtg=";
-                };
-              });
-          in pkgs.sway.override { sway-unwrapped = sway-unwrapped.override { wlroots = pkgs.wlroots_0_17; }; };
+        package = pkgs.sway;
 
         extraPackages = with pkgs; [
           grim

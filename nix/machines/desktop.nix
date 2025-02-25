@@ -31,17 +31,13 @@
 
   # Local modules
   local = {
-    desktop.hyprland = {
-      enable = false;
-      xwayland.enable = true;
+    desktop = {
+      sway = {
+        enable = true;
+        xwayland.enable = true;
+      };
+      greetd.enable = true;
     };
-
-    desktop.sway = {
-      enable = true;
-      xwayland.enable = true;
-    };
-
-    desktop.greetd.enable = true;
 
     networking = {
       firewall.enable = true;
@@ -72,9 +68,10 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-extension-layer
+        # vulkan-loader
+        # vulkan-validation-layers
+        # vulkan-extension-layer
+        # vaapiVdpau
       ];
     };
     opentabletdriver.enable = true;
@@ -97,8 +94,8 @@
     xserver.videoDrivers = ["amdgpu"];
 
     # Enable GNOME desktop manager
+    # udev.packages = [pkgs.gnome-settings-daemon];
     # xserver = {
-    #   enable = true;
     #   desktopManager.gnome.enable = true;
     #   displayManager.gdm.enable = true;
     # };
@@ -118,6 +115,8 @@
     bottles
     chatterino2
     clj-kondo
+    # gnomeExtensions.appindicator
+    # gnomeExtensions.dash-to-dock
     jetbrains.idea-ultimate
     lagrange
     lutris

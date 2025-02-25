@@ -11,9 +11,8 @@ final: prev: {
         --prefix PATH : "${final.lib.makeBinPath (with final; [
           bat
           ffmpegthumbnailer
-          gnome-epub-thumbnailer
           poppler_utils
-        ])}"
+        ] ++ final.lib.optional final.stdenv.isLinux final.gnome-epub-thumbnailer)}"
     '';
   });
 }

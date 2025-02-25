@@ -20,7 +20,7 @@
     htop
     httpie-desktop
     ifuse
-    kdenlive
+    kdePackages.kdenlive
     kitty
     # Although librewolf is cross-platform the nixpkgs package
     # is broken on darwin because firefox is broken for darwin
@@ -54,7 +54,6 @@ in {
       croc
       curl
       difftastic
-      discord
       discocss
       eza
       fastfetch

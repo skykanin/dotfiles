@@ -27,8 +27,8 @@ in {
   config.nix = {
     nixPath = ["nixpkgs=${config.nix.registry.self.flake}"];
     registry.self.flake = inputs.nixpkgs;
+    optimise.automatic = true;
     settings = {
-      auto-optimise-store = true;
       max-jobs = cfg.max-jobs;
       sandbox = pkgs.stdenv.isLinux;
       substituters =

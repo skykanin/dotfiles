@@ -61,7 +61,8 @@ in {
       ffmpeg-full
       file
       gitAndTools.gh
-      gitFull
+      # gitFull broken on darwin atm
+      (if pkgs.stdenv.isDarwin then git else gitFull)
       gnumake
       gnused
       idris2

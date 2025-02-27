@@ -51,8 +51,6 @@
     "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
   ];
 
-  services.nix-daemon.enable = true;
-
   system.defaults.dock.persistent-apps = [
     "/Applications/Nix Apps/LibreWolf.app"
     "/Applications/Nix Apps/Spotify.app"
@@ -66,4 +64,7 @@
     "/Applications/Nix Apps/Emacs.app"
     "/Applications/IntelliJ IDEA Ultimate alias"
   ];
+
+  ids.gids.nixbld = 30000;
+  system.stateVersion = 6;
 }

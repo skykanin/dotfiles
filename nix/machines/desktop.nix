@@ -79,8 +79,8 @@
 
   programs.steam = {
     enable = true;
-    extraPackages = [ pkgs.SDL2 ];
-    extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraPackages = [pkgs.SDL2];
+    extraCompatPackages = [pkgs.proton-ge-bin];
     protontricks.enable = true;
   };
 

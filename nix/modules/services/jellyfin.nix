@@ -29,5 +29,18 @@ in {
         user = config.local.user.name;
       };
     };
+
+    virtualisation.oci-containers.containers.openvpn-as = {
+      autoStart = true;
+      capabilities.NET_ADMIN = true;
+      image = "openvpn/openvpn-as";
+      ports = [
+        "943:943/tcp"
+        "443:443/tcp"
+        "1194:1194/udp"
+      ];
+      privileged = true;
+      volumes = [ "/home/skykanin/.config/openvpn-as:/openvpn" ];
+    };
   };
 }

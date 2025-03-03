@@ -40,7 +40,7 @@ in {
         "1194:1194/udp"
       ];
       privileged = true;
-      volumes = [ "/home/skykanin/.config/openvpn-as:/openvpn" ];
+      volumes = [ "/home/${config.local.user.name}/.config/openvpn-as:/openvpn" ];
     };
   };
 }

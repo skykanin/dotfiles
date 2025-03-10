@@ -4,8 +4,8 @@
     package = let
       emacsPackage =
         if pkgs.stdenv.isLinux
-        then pkgs.emacs29-pgtk
-        else pkgs.emacs29;
+        then pkgs.emacs30-pgtk
+        else pkgs.emacs30;
     in
       emacsPackage.pkgs.emacsWithPackages (epkgs: [
         epkgs.vterm

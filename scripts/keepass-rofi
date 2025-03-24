@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-m() { rofi -dmenu -i "$@" ;}
+m() {
+  dir="$HOME/.config/rofi/launchers/type-2"
+  theme='style-1'
+
+  rofi \
+    -dmenu \
+    -i "$@" \
+    -theme "${dir}/${theme}.rasi"
+}
 
 clip_username() {
   echo "$dbpass" | keepassxc-cli show "$db" "$entry" | grep 'UserName:' | \

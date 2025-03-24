@@ -20,9 +20,16 @@ in {
       dnsmasq = {
         enable = false;
         settings = {
-          address = "/jellyfin.lan/192.168.1.205";
+          address = [ "/jellyfin.lan/192.168.1.205" ];
+          conf-file = null;
+          # server = [ "8.8.8.8" "8.8.4.4" ];
+          # local = "/lan/";
+          # domain = "lan";
+          # expand-hosts = true;
+          port = "5353";
         };
       };
+
       jellyfin = {
         enable = true;
         openFirewall = true;

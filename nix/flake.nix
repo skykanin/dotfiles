@@ -21,7 +21,6 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
   outputs = inputs:
@@ -122,8 +121,7 @@
               builtins.filter (lib.hasSuffix ".nix") (map toString (lib.filesystem.listFilesRecursive path));
           in
             map import (listNixFilesRecursive ./overlays)
-            ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages)
-            ++ lib.optionals (lib.lists.elem system ["aarch64-darwin" "x86_64-darwin"]) [inputs.nixpkgs-firefox-darwin.overlay];
+            ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages);
           # ++ [ inputs.lix-module.overlays.default ];
         };
       };

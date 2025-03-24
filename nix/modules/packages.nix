@@ -22,9 +22,6 @@
     ifuse
     kdePackages.kdenlive
     kitty
-    # Although librewolf is cross-platform the nixpkgs package
-    # is broken on darwin because firefox is broken for darwin
-    librewolf
     lshw
     # Cross-platform, but currently broken on darwin.
     # Also currently insecure due to CVEs in libolm dependency.
@@ -70,6 +67,7 @@ in {
       jq
       jwt-cli
       keepassxc
+      librewolf
       man-pages
       man-pages-posix
       mpv

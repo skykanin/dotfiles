@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -167,7 +167,7 @@ input type:pointer {
     workspace 8 output DP-2 
 
     # assign apps to workspaces
-    assign [class="kitty-startup"] 1
+    assign [class="ghostty-startup"] 1
     assign [class="librewolf-startup"] 2
     assign [class="emacs-startup"] 3
     assign [class="vesktop"] 4
@@ -275,7 +275,7 @@ hide_edge_borders smart
 bindsym Ctrl+Mod1+q exec swaylock
 
 # startup apps
-exec kitty --name "kitty-startup"
+exec $term --name "ghostty-startup"
 exec librewolf --name "librewolf-startup"
 exec spotify
 

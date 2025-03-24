@@ -21,7 +21,6 @@
     httpie-desktop
     ifuse
     kdePackages.kdenlive
-    kitty
     lshw
     # Cross-platform, but currently broken on darwin.
     # Also currently insecure due to CVEs in libolm dependency.
@@ -57,6 +56,7 @@ in {
       fd
       ffmpeg-full
       file
+      ghostty
       gitAndTools.gh
       # gitFull broken on darwin atm
       (if pkgs.stdenv.isDarwin then git else gitFull)

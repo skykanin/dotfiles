@@ -22,6 +22,7 @@
     ~/.xmonad: dots/xmonad
     ~/.config/polybar: dots/polybar
     ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf
+    ~/.config/ghostty: dots/ghostty
     ~/.config/fish: dots/fish
     ~/.config/mpv: dots/mpv
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix

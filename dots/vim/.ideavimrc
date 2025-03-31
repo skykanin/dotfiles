@@ -1,3 +1,5 @@
-source ~/dotfiles/dots/vim/init.vim
-
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+
+source ~/dotfiles/dots/vim/init.vim

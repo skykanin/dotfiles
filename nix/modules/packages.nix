@@ -56,6 +56,7 @@ in {
       fd
       ffmpeg-full
       file
+      firefox
       ghostty
       gitAndTools.gh
       # gitFull broken on darwin atm
@@ -67,7 +68,6 @@ in {
       jq
       jwt-cli
       keepassxc
-      librewolf
       man-pages
       man-pages-posix
       mpv

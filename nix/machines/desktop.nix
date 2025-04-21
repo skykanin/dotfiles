@@ -18,7 +18,7 @@
     ../modules/printing.nix
     ../modules/programs/default.nix
     ../modules/programs/nixos.nix
-    ../modules/services/jellyfin.nix
+    ../modules/services/media.nix
     ../modules/services/noisetorch.nix
     ../modules/redshift.nix
     ../modules/sound.nix
@@ -54,7 +54,7 @@
     };
 
     services = {
-      jellyfin.enable = true;
+      media.enable = true;
       noisetorch = {
         enable = true;
         device-id = "alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_REV8-00.analog-stereo";

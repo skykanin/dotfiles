@@ -94,11 +94,11 @@
     xserver.videoDrivers = ["amdgpu"];
 
     # Enable GNOME desktop manager
-    # udev.packages = [pkgs.gnome-settings-daemon];
-    # xserver = {
-    #   desktopManager.gnome.enable = true;
-    #   displayManager.gdm.enable = true;
-    # };
+    udev.packages = [pkgs.gnome-settings-daemon];
+    xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+    };
   };
 
   networking = {
@@ -115,8 +115,8 @@
     bottles
     chatterino2
     clj-kondo
-    # gnomeExtensions.appindicator
-    # gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
     jetbrains.idea-ultimate
     lagrange
     lutris

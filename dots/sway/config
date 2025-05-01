@@ -276,7 +276,7 @@ bindsym Ctrl+Mod1+q exec swaylock
 
 # startup apps
 exec $term --name "ghostty-startup"
-exec librewolf --name "librewolf-startup"
+exec firefox --name "firefox-startup"
 exec spotify
 
 # Audio controls

@@ -30,6 +30,7 @@ in {
         };
       };
 
+      # Port 8096
       jellyfin = {
         enable = true;
         openFirewall = true;
@@ -48,6 +49,7 @@ in {
         openFirewall = true;
       };
 
+      # Port 8989
       sonarr = {
         enable = true;
         openFirewall = true;

@@ -38,13 +38,26 @@
     ];
   };
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   homebrew = {
     enable = true;
     # TODO:
     # - Add docker module to nix-darwin
     # - Make nix signal package work on aarch64-darwin
-    casks = ["docker" "signal"];
-    taps = ["helm/tap"];
+    taps = ["helm/tap" "nais/tap"];
+    casks = [
+      "cameracontroller"
+      "docker"
+      "firefox"
+      "naisdevice-tenant"
+      "slack"
+      "signal"
+    ];
+
+    onActivation = {
+      cleanup = "uninstall";
+    };
   };
 
   nix.nixPath = [
@@ -52,11 +65,11 @@
   ];
 
   system.defaults.dock.persistent-apps = [
-    "/Applications/Nix Apps/LibreWolf.app"
+    "/Applications/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
-    "/Applications/Nix Apps/Slack.app"
+    "/Applications/Slack.app"
     "/Applications/Nix Apps/Discord.app"
     "/Applications/Nix Apps/KeePassXC.app"
     "/System/Applications/System Settings.app"

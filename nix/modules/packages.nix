@@ -16,6 +16,7 @@
     blueberry
     feh
     foliate
+    ghostty
     gucharmap
     htop
     httpie-desktop
@@ -57,7 +58,6 @@ in {
       ffmpeg-full
       file
       firefox
-      ghostty
       gitAndTools.gh
       # gitFull broken on darwin atm
       (if pkgs.stdenv.isDarwin then git else gitFull)
@@ -65,6 +65,7 @@ in {
       gnused
       idris2
       imagemagick
+      iterm2
       jq
       jwt-cli
       keepassxc

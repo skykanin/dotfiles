@@ -65,7 +65,6 @@ in {
       gnused
       idris2
       imagemagick
-      iterm2
       jq
       jwt-cli
       keepassxc

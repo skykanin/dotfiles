@@ -69,6 +69,6 @@ in {
         dates = "weekly";
       };
 
-    package = pkgs.lixVersions.stable;
+    package = pkgs.lixPackageSets.stable.lix;
   };
 }

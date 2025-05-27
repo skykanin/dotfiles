@@ -35,6 +35,7 @@
       k9s
       spotify
       vim-with-conf
+      zed-editor
     ];
   };
 
@@ -67,6 +68,7 @@
   system.defaults.dock.persistent-apps = [
     "/Applications/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"
+    "/Applications/Calendar.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
     "/Applications/Slack.app"

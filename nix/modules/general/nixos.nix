@@ -5,7 +5,7 @@
   ...
 }: {
   environment = {
-    sessionVariables.FLAKE = "/home/skykanin/dotfiles/nix";
+    sessionVariables.NH_FLAKE = "/home/skykanin/dotfiles/nix";
     pathsToLink = ["/share/nix-direnv"];
   };
 

@@ -79,10 +79,11 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        # vulkan-loader
+        vulkan-loader
+        vulkan-tools
         # vulkan-validation-layers
         # vulkan-extension-layer
-        # vaapiVdpau
+        vaapiVdpau
       ];
     };
     opentabletdriver.enable = true;

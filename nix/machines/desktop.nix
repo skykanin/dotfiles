@@ -36,7 +36,6 @@
         enable = true;
         xwayland.enable = true;
       };
-      # greetd.enable = true;
     };
 
     networking = {
@@ -53,6 +52,8 @@
       ];
     };
 
+    programs.steam.enable = true;
+
     services = {
       media.enable = true;
       noisetorch = {
@@ -63,6 +64,7 @@
     };
   };
 
+  # Use Norwegian locale
   i18n.extraLocaleSettings = {
     LC_MEASUREMENT = "nb_NO.UTF-8";
     LC_MONETARY = "nb_NO.UTF-8";
@@ -87,13 +89,6 @@
       ];
     };
     opentabletdriver.enable = true;
-  };
-
-  programs.steam = {
-    enable = true;
-    extraPackages = [pkgs.SDL2];
-    extraCompatPackages = [pkgs.proton-ge-bin];
-    protontricks.enable = true;
   };
 
   services = {
@@ -125,6 +120,7 @@
     bottles
     chatterino2
     clj-kondo
+    google-chrome
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
     jetbrains.idea-ultimate
@@ -133,7 +129,6 @@
     metals
     networkmanagerapplet
     obs-studio-custom
-    openjdk8
     qbittorrent
     racket
     rclone

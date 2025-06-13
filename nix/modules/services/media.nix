@@ -20,7 +20,7 @@ in {
       dnsmasq = {
         enable = false;
         settings = {
-          address = [ "/jellyfin.lan/192.168.1.205" ];
+          address = ["/jellyfin.lan/192.168.1.205"];
           conf-file = null;
           # server = [ "8.8.8.8" "8.8.4.4" ];
           # local = "/lan/";
@@ -73,7 +73,7 @@ in {
             hash = "sha256-QOMpPg+0DWZLmoUWrAebipHsTxKdxbF0IFH6pRn8oVA=";
           };
 
-          meta = prev.meta // { broken = false; };
+          meta = prev.meta // {broken = false;};
         });
       };
     };
@@ -88,7 +88,7 @@ in {
         "1194:1194/udp"
       ];
       privileged = true;
-      volumes = [ "/home/${config.local.user.name}/.config/openvpn-as:/openvpn" ];
+      volumes = ["/home/${config.local.user.name}/.config/openvpn-as:/openvpn"];
     };
   };
 }

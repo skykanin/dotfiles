@@ -60,7 +60,11 @@ in {
       firefox
       gitAndTools.gh
       # gitFull broken on darwin atm
-      (if pkgs.stdenv.isDarwin then git else gitFull)
+      (
+        if pkgs.stdenv.isDarwin
+        then git
+        else gitFull
+      )
       gnumake
       gnused
       idris2

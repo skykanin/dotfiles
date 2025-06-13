@@ -8,6 +8,10 @@
   cfg = config.local.nix;
 in {
   options.local.nix = with lib; {
+    gc.automatic = mkOption {
+      type = types.bool;
+      default = false;
+    };
     max-jobs = mkOption {
       type = types.either types.ints.positive (types.enum ["auto"]);
       default = "auto";
@@ -29,6 +33,7 @@ in {
     registry.self.flake = inputs.nixpkgs;
     optimise.automatic = true;
     settings = {
+      auto-optimise-store = true;
       max-jobs = cfg.max-jobs;
       sandbox = pkgs.stdenv.isLinux;
       substituters =
@@ -61,7 +66,7 @@ in {
     '';
     gc =
       {
-        automatic = true;
+        inherit (cfg.gc) automatic;
         options = "--delete-older-than 14d";
       }
       // lib.optionalAttrs pkgs.stdenv.isLinux {

@@ -39,6 +39,9 @@ in {
 
     steam = lib.mkIf cfg.steam.enable {
       enable = true;
+      extraPackages = [pkgs.SDL2];
+      extraCompatPackages = [pkgs.proton-ge-bin];
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };

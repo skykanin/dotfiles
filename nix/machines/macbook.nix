@@ -16,6 +16,7 @@
     variables.EDITOR = "vim";
 
     systemPackages = with pkgs; [
+      colima
       coreutils-full
       # The nix-darwin emacs service doesn't add emacs to system packages
       # so we have to do it manually
@@ -43,13 +44,10 @@
 
   homebrew = {
     enable = true;
-    # TODO:
-    # - Add docker module to nix-darwin
-    # - Make nix signal package work on aarch64-darwin
+    # TODO: Make nix signal package work on aarch64-darwin
     taps = ["helm/tap" "nais/tap"];
     casks = [
       "cameracontroller"
-      "docker"
       "firefox"
       "naisdevice-tenant"
       "slack"

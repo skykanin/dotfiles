@@ -5,7 +5,7 @@
   ...
 }: {
   programs.ssh = {
-    startAgent = true;
+    startAgent = !config.services.gnome.gcr-ssh-agent.enable;
     hostKeyAlgorithms = ["ssh-ed25519" "ssh-rsa"];
     extraConfig = ''
       AddKeysToAgent yes

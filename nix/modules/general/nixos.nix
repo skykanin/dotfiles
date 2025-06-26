@@ -32,7 +32,7 @@
         features = {buildkit = true;};
       };
       extraPackages = with pkgs; [openssh];
-      package = pkgs.docker_27;
+      package = pkgs.docker_28;
     };
     libvirtd.enable = true;
   };

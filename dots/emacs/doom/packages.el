@@ -19,14 +19,6 @@
            :repo "leanprover/lean4-mode"
            :files ("*.el" "data")))
 
-(package! elcord
-  ;; Disable elcord if on "iris" computer
-  :disable (member (system-name) '("iris" "P1046964.ssb.no"))
-  ;; Use latest version on master
-  :recipe (:host github
-           :repo "Mstrodl/elcord"
-           :branch "master"))
-
 (package! flycheck-clj-kondo)
 
 (package! svelte-mode)

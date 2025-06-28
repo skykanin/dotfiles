@@ -73,14 +73,6 @@
                     (push elem evil-surround-pairs-alist))
                   evil-surround-pairs-alist)))
 
-;; Configure elcord
-(use-package! elcord
-  :config (elcord-mode)
-  :custom (elcord-use-major-mode-as-main-icon t)
-  (elcord-refresh-rate 10)
-  ;; NOTE: Bypass discord API URL caching?
-  (elcord-icon-base "https://raw.githubusercontent.com/skykanin/elcord/master/icons/"))
-
 ;; Don't format on save for these modes
 (setq +format-on-save-disabled-modes
       '(emacs-lisp-mode sql-mode clojure-mode tex-mode latex-mode org-msg-edit-mode python rjsx-mode js2-mode less-css-mode format-all-mode haskell-mode yaml-mode))

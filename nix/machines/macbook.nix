@@ -17,25 +17,23 @@
 
     systemPackages = with pkgs; [
       colima
-      coreutils-full
       # The nix-darwin emacs service doesn't add emacs to system packages
-      # so we have to do it manually
       config.services.emacs.package
+      coreutils-full
+      discord
       docker
       docker-credential-helpers
-      discord
-      parinfer-rust-emacs # emacs dep
+      fluxcd
       (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
       helm-chart-releaser
+      iterm2
+      k9s
       kubectl
       kubectx
       kubernetes-helm
       kubeseal
-      # librewolf is broken on darwin so we use a version from an overlay
-      librewolf
-      fluxcd
-      iterm2
-      k9s
+      parinfer-rust-emacs # emacs dep
+      rectangle
       spotify
       vim-with-conf
       zed-editor

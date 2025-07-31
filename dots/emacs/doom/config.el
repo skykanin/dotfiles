@@ -143,6 +143,10 @@
 (use-package! haskell-mode
   :config (remove-hook! haskell-mode #'(eglot-ensure projectile-mode)))
 
+(use-package! scala-mode
+  :mode (("\\.mill\\'" . scala-mode)
+         ("\\.sc\\'" . scala-mode)))
+
 (use-package! yasnippet
   ;; Disable yasnippet globally
   :config (yas-global-mode -1))

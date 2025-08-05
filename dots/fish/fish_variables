@@ -1,8 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR ANDROID_SDK:/home/skykanin/Android/Sdk
+SETUVAR JAVA_HOME:/nix/store/grchzapmvxi1qaks444i7nvc4jk29fig\x2dzulu\x2dca\x2djdk\x2d21\x2e0\x2e2/zulu\x2d21\x2ejdk/Contents/Home
+SETUVAR --path PATH:/Users/nvj/\x2enpm\x2dglobal/bin\x1e/Users/nvj/\x2enpm\x2dglobal\x1e/Users/nvj/\x2elocal/bin\x1e/opt/homebrew/bin\x1e/Users/nvj/\x2econfig/emacs/bin\x1e/Users/nvj/\x2enix\x2dprofile/bin\x1e/nix/var/nix/profiles/default/bin\x1e/usr/local/bin\x1e/System/Cryptexes/App/usr/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/local/bin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/bin\x1e/var/run/com\x2eapple\x2esecurity\x2ecryptexd/codex\x2esystem/bootstrap/usr/appleinternal/bin\x1e/run/current\x2dsystem/sw/bin
 SETUVAR __fish_init_2_3_0:\x1d
-SETUVAR __fish_initialized:3800
+SETUVAR __fish_initialized:3400
 SETUVAR alias:gs\x3dgit\x20status
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2d\x2dreverse
@@ -40,8 +41,8 @@ SETUVAR fish_pager_color_secondary_background:\x1d
 SETUVAR fish_pager_color_secondary_completion:\x1d
 SETUVAR fish_pager_color_secondary_description:\x1d
 SETUVAR fish_pager_color_secondary_prefix:\x1d
-SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/home/skykanin/\x2econfig/emacs/bin\x1e/home/skykanin/\x2ecabal/bin\x1e/home/skykanin/\x2enpm\x2dglobal/bin/\x1e/home/skykanin/\x2eemacs\x2ed/bin
+SETUVAR fish_user_paths:/Users/nvj/\x2econfig/emacs/bin\x1e/home/skykanin/\x2econfig/emacs/bin\x1e/home/skykanin/\x2ecabal/bin\x1e/home/skykanin/\x2enpm\x2dglobal/bin/\x1e/home/skykanin/\x2eemacs\x2ed/bin

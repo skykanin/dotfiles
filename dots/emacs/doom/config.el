@@ -147,6 +147,11 @@
   :mode (("\\.mill\\'" . scala-mode)
          ("\\.sc\\'" . scala-mode)))
 
+(map! :after clojure-mode
+      :map clojure-mode-map
+      :localleader
+      :n "u" #'cider-jack-in-universal)
+
 (use-package! yasnippet
   ;; Disable yasnippet globally
   :config (yas-global-mode -1))

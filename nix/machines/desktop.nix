@@ -120,10 +120,11 @@
     bottles
     chatterino2
     clj-kondo
+    discord
     google-chrome
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
-    jetbrains.idea-ultimate
+    jetbrains-toolbox
     lagrange
     lutris
     metals
@@ -136,6 +137,7 @@
     tokyonight-gtk-theme
     unison-ucm
     wineWowPackages.waylandFull
+    zed-editor
   ];
 
   # This value determines the NixOS release with which your system is to be

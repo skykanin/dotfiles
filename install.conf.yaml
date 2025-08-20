@@ -12,6 +12,7 @@
     ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
     ~/.haskeline: dots/.haskeline
+    ~/.gitignore_global: dots/.gitignore_global
     ~/.nix-direnv/direnvrc: dots/nix-direnv/direnvrc
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
@@ -31,7 +32,6 @@
     ~/.config/wal: dots/wal
     ~/.config/discocss/custom.css: dots/discocss/custom.css
     ~/.config/bottom/bottom.toml: dots/bottom/bottom.toml
-    ~/.config/btop/btop.conf: dots/btop/btop.conf
     ~/Pictures/wallpapers: dots/wallpapers
     ~/get-sha.clj: scripts/get-sha.clj
     ~/patch-discord-krisp: scripts/patch-discord-krisp

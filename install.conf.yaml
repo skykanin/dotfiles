@@ -8,6 +8,7 @@
 - link:
     ~/.dotfiles: ""
     ~/.config/doom: dots/emacs/doom
+    ~/.config/zed: dots/zed
     ~/.ghci: dots/.ghci
     ~/.gitconfig: dots/.gitconfig
     ~/.haskeline: dots/.haskeline

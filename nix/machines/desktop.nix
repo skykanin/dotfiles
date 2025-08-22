@@ -137,7 +137,6 @@
     tokyonight-gtk-theme
     unison-ucm
     wineWowPackages.waylandFull
-    zed-editor
   ];
 
   # This value determines the NixOS release with which your system is to be

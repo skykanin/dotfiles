@@ -26,7 +26,6 @@
       fluxcd
       (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
       helm-chart-releaser
-      iterm2
       k9s
       kubectl
       kubectx
@@ -36,7 +35,6 @@
       rectangle
       spotify
       vim-with-conf
-      zed-editor
     ];
   };
 

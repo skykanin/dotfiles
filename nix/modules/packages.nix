@@ -16,7 +16,6 @@
     blueberry
     feh
     foliate
-    ghostty
     gucharmap
     htop
     httpie-desktop
@@ -58,6 +57,7 @@ in {
       ffmpeg-full
       file
       firefox
+      (if pkgs.stdenv.isLinux then ghostty else ghostty-bin)
       gitAndTools.gh
       # gitFull broken on darwin atm
       (
@@ -91,6 +91,7 @@ in {
       xdg-utils
       yq-go
       yt-dlp
+      zed-editor
       zip
     ])
     ++ lib.optionals pkgs.stdenv.isLinux linuxPackages;

@@ -1,5 +1,6 @@
 font-family = Victor Mono SemiBold
-font-size = 14.0
+font-size = 18.0
 theme = iTerm2 Default
 cursor-style = block
 cursor-style-blink = true
+shell-integration = fish

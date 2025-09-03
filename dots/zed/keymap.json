@@ -10,12 +10,24 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
+      "space t t": "workspace::NewTerminal"
     }
   },
   {
-    "context": "Editor && vim_mode == insert",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       // "j k": "vim::NormalBefore"
+      "space o": null
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting",
+    "bindings": {
+      "space w l": "workspace::ActivatePaneRight",
+      "space w h": "workspace::ActivatePaneLeft",
+      "space f s": "workspace::Save",
+      "space p t": "workspace::ToggleLeftDock",
+      "space s p": "file_finder::Toggle"
     }
   }
 ]

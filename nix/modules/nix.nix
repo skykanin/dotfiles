@@ -58,7 +58,7 @@ in {
       repl-overlays = [./repl-overlays.nix];
     };
     extraOptions = ''
-      experimental-features = nix-command flakes repl-flake
+      experimental-features = nix-command flakes
       keep-outputs = false
       keep-derivations = false
       warn-dirty = false

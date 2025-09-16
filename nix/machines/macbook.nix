@@ -31,6 +31,7 @@
       kubectx
       kubernetes-helm
       kubeseal
+      orion-browser
       parinfer-rust-emacs # emacs dep
       rectangle
       spotify

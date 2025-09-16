@@ -57,7 +57,11 @@ in {
       ffmpeg-full
       file
       firefox
-      (if pkgs.stdenv.isLinux then ghostty else ghostty-bin)
+      (
+        if pkgs.stdenv.isLinux
+        then ghostty
+        else ghostty-bin
+      )
       gitAndTools.gh
       # gitFull broken on darwin atm
       (

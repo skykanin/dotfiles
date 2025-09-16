@@ -71,7 +71,7 @@
     "/Applications/Nix Apps/Discord.app"
     "/Applications/Nix Apps/KeePassXC.app"
     "/System/Applications/System Settings.app"
-    "/Applications/Nix Apps/iTerm2.app"
+    "/Applications/Nix Apps/Ghostty.app"
     "/Applications/Nix Apps/Emacs.app"
     "/Applications/IntelliJ IDEA Ultimate alias"
   ];

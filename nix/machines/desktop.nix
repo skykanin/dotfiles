@@ -104,6 +104,11 @@
     udev.packages = [pkgs.gnome-settings-daemon];
     desktopManager.gnome.enable = true;
     displayManager.gdm.enable = true;
+
+    gvfs = {
+      enable = true;
+      package = pkgs.gvfs.override { googleSupport = true; gnomeSupport = true; };
+    };
   };
 
   networking = {

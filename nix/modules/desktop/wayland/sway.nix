@@ -27,7 +27,7 @@ in {
         extraPackages = with pkgs; [
           grim
           obs-cmd
-          rofi-wayland
+          rofi
           slurp
           swaybg
           swayidle

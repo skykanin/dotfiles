@@ -38,7 +38,7 @@ in {
       fribidi # used in statusbar spotify script
       grim
       obs-cmd
-      rofi-wayland
+      rofi
       slurp
       swaybg
       swayidle

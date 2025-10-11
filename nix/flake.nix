@@ -9,13 +9,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    # cppnix fork
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=refs/tags/2.91.1-1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -125,7 +119,6 @@
           in
             map import (listNixFilesRecursive ./overlays)
             ++ map (compose mkCustomPackage import) (listNixFilesRecursive ./packages);
-          # ++ [ inputs.lix-module.overlays.default ];
         };
       };
     };

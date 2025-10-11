@@ -4,7 +4,7 @@
   ...
 }: {
   services.printing = {
-    enable = true;
+    enable = false;
     drivers = [pkgs.brlaser pkgs.hplipWithPlugin];
   };
 }

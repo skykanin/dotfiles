@@ -35,6 +35,7 @@
       parinfer-rust-emacs # emacs dep
       rectangle
       spotify
+      trivy
       vim-with-conf
     ];
   };

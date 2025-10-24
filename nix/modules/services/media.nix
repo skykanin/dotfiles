@@ -63,7 +63,7 @@ in {
 
       # Port 8191
       flaresolverr = {
-        enable = true;
+        enable = false;
         openFirewall = true;
         package = pkgs.flaresolverr.overrideAttrs (prev: {
           src = pkgs.fetchFromGitHub {

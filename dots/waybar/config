@@ -4,7 +4,7 @@
     "position": "top",
     "height": 40,
     "spacing": 15, // Gaps between modules in pixels
-    "modules-left": ["hyprland/workspaces", "sway/workspaces"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces", "niri/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
       "sway/mode",
@@ -103,7 +103,7 @@
         "exec": "$HOME/dotfiles/scripts/scroll_spotify_status.sh",
         "escape": true
     }
-},
+}/*,
 {
     "layer": "top",
     "output": "DP-2",
@@ -131,4 +131,5 @@
         "exec": "$HOME/dotfiles/scripts/scroll_spotify_status.sh",
         "escape": true
     }
-}]
+}*/
+]

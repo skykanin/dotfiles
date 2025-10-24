@@ -64,6 +64,8 @@
     };
   };
 
+  programs.niri.enable = true;
+
   # Use Norwegian locale
   i18n.extraLocaleSettings = {
     LC_MEASUREMENT = "nb_NO.UTF-8";

@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.local.nix;
+  cfg = config.local.nix.settings;
 in {
-  options.local.nix = with lib; {
+  options.local.nix.settings = with lib; {
     gc.automatic = mkOption {
       type = types.bool;
       default = false;

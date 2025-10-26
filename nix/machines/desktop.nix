@@ -43,7 +43,7 @@
       networkmanager.enable = true;
     };
 
-    nix = {
+    nix.settings = {
       extra-substituters = [
         "https://iohk.cachix.org"
       ];

@@ -62,7 +62,7 @@ in {
         then ghostty
         else ghostty-bin
       )
-      gitAndTools.gh
+      gh
       # gitFull broken on darwin atm
       (
         if pkgs.stdenv.isDarwin

@@ -13,7 +13,7 @@ final: prev: {
         [
           bat
           ffmpegthumbnailer
-          poppler_utils
+          poppler-utils
         ]
         ++ final.lib.optional final.stdenv.isLinux final.gnome-epub-thumbnailer)}"
     '';

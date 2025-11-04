@@ -87,7 +87,7 @@
         vulkan-tools
         # vulkan-validation-layers
         # vulkan-extension-layer
-        vaapiVdpau
+        libva-vdpau-driver
       ];
     };
     opentabletdriver.enable = true;

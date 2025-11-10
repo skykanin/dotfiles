@@ -129,7 +129,7 @@
     # android-udev-rules
     adwaita-icon-theme
     ani-cli
-    bottles
+    (bottles.override { removeWarningPopup = true; })
     chatterino2
     clj-kondo
     discord

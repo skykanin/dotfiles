@@ -36,6 +36,7 @@
       rectangle
       spotify
       trivy
+      unison-ucm
       vim-with-conf
     ];
   };

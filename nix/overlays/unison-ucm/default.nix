@@ -4,7 +4,7 @@ final: prev: {
     src = {
       aarch64-darwin = final.fetchurl {
         url = "https://github.com/unisonweb/unison/releases/download/release/${finalAttrs.version}/ucm-macos-arm64.tar.gz";
-        hash = "";
+        hash = "sha256-lCFL10KzS2HoE2xEHE1rmQzhwR7LpFXiNR7mSZj0CDw=";
       };
       x86_64-linux = final.fetchurl {
         url = "https://github.com/unisonweb/unison/releases/download/release/${finalAttrs.version}/ucm-linux-x64.tar.gz";

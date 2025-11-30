@@ -23,7 +23,8 @@
 
 (package! svelte-mode)
 
-(package! unisonlang-mode)
+(package! unison-ts-mode
+  :recipe (:host github :repo "fmguerreiro/unison-ts-mode"))
 
 (package! fish-mode)
 

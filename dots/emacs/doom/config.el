@@ -196,10 +196,11 @@
  :desc "Toggle comment for a line or region."
  :n "C-/" #'comment-line)
 
-(use-package! unisonlang-mode
+(use-package! unison-ts-mode
   :config
-  (map! :after unisonlang-mode
-        :map unisonlang-mode-map
+  (add-hook! 'unison-ts-mode-hook 'eglot-ensure)
+  (map! :after unison-ts-mode
+        :map unison-ts-mode-map
         :localleader
         :n "f" #'unisonlang-mode-add-fold
         :n "u" #'unisonlang-mode-remove-fold))

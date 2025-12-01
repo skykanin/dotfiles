@@ -57,6 +57,7 @@ in {
       ffmpeg-full
       file
       firefox
+      fzf
       (
         if pkgs.stdenv.isLinux
         then ghostty

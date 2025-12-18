@@ -107,13 +107,11 @@
     # Enable AMD GPU drivers
     xserver.videoDrivers = ["amdgpu"];
 
-    # Enable GNOME desktop manager
-    udev.packages = [pkgs.gnome-settings-daemon];
-    desktopManager.gnome.enable = true;
-
     # Enable COSMIC desktop environment
     desktopManager.cosmic.enable = true;
     displayManager.cosmic-greeter.enable = true;
+    # Use GNOME keyring
+    gnome.gnome-keyring.enable = true;
 
     gvfs = {
       enable = true;
@@ -144,8 +142,6 @@
       clj-kondo
       discord
       google-chrome
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
       inputs.nix-citizen.packages.${pkgs.system}.star-citizen
       jetbrains-toolbox
       lagrange

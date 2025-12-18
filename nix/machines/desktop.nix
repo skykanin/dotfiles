@@ -110,7 +110,10 @@
     # Enable GNOME desktop manager
     udev.packages = [pkgs.gnome-settings-daemon];
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+
+    # Enable COSMIC desktop environment
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
 
     gvfs = {
       enable = true;
@@ -124,33 +127,41 @@
     interfaces.wlan0.useDHCP = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # android-studio
-    # android-udev-rules
-    adwaita-icon-theme
-    ani-cli
-    (bottles.override { removeWarningPopup = true; })
-    chatterino2
-    clj-kondo
-    discord
-    google-chrome
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-dock
-    inputs.nix-citizen.packages.${pkgs.system}.star-citizen
-    jetbrains-toolbox
-    lagrange
-    lutris
-    metals
-    networkmanagerapplet
-    obs-studio-custom
-    qbittorrent
-    racket
-    rclone
-    scala_3
-    tokyonight-gtk-theme
-    unison-ucm
-    wineWowPackages.waylandFull
-  ];
+  environment = {
+    cosmic.excludePackages = with pkgs; [
+      cosmic-edit
+      cosmic-player
+      cosmic-term
+    ];
+
+    systemPackages = with pkgs; [
+      # android-studio
+      # android-udev-rules
+      adwaita-icon-theme
+      ani-cli
+      (bottles.override { removeWarningPopup = true; })
+      chatterino2
+      clj-kondo
+      discord
+      google-chrome
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-dock
+      inputs.nix-citizen.packages.${pkgs.system}.star-citizen
+      jetbrains-toolbox
+      lagrange
+      lutris
+      metals
+      networkmanagerapplet
+      obs-studio-custom
+      qbittorrent
+      racket
+      rclone
+      scala_3
+      tokyonight-gtk-theme
+      unison-ucm
+      wineWowPackages.waylandFull
+    ];
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

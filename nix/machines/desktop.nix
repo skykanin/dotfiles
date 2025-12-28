@@ -32,13 +32,6 @@
 
   # Local modules
   local = {
-    desktop = {
-      sway = {
-        enable = true;
-        xwayland.enable = true;
-      };
-    };
-
     networking = {
       firewall.enable = true;
       networkmanager.enable = true;

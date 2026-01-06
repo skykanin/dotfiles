@@ -2,7 +2,8 @@ if test -z "$SSH_ENV"
     set -xg SSH_ENV $HOME/.ssh/environment
 end
 
-if systemctl --user is-active --quiet gcr-ssh-agent.service
+set -l os (uname)
+if test "$os" = Linux && systemctl --user is-active --quiet gcr-ssh-agent.service
     set -l SOCKET_PATH $XDG_RUNTIME_DIR/gcr/ssh
     # Verify that the socket exists
     if test -S $SOCKET_PATH

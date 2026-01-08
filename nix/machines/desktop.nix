@@ -141,6 +141,7 @@
       lutris
       metals
       networkmanagerapplet
+      obs-cmd
       obs-studio-custom
       qbittorrent
       racket
@@ -148,6 +149,7 @@
       scala_3
       tokyonight-gtk-theme
       unison-ucm
+      wl-clipboard
       wineWowPackages.waylandFull
     ];
   };

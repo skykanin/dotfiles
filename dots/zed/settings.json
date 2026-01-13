@@ -11,8 +11,8 @@
   "ssh_connections": [
     {
       "host": "github.com",
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
   "disable_ai": true,
   "theme": "Ayu Darker",
@@ -22,25 +22,26 @@
   "load_direnv": "shell_hook",
   "languages": {
     "Python": {
-      "language_servers": ["ty", "!basedpyright"]
+      "language_servers": ["ty", "!basedpyright"],
     },
     "Nix": {
-      "language_servers": ["nixd"]
-    }
+      "language_servers": ["nixd"],
+    },
   },
   "lsp": {
     "hls": {
       "initialization_options": {
         "haskell": {
-          "formattingProvider": "fourmolu"
-        }
-      }
-    }
+          "formattingProvider": "fourmolu",
+        },
+      },
+    },
   },
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
-  }
+    "show_other_hints": true,
+  },
+  "which_key": { "enabled": true },
 }

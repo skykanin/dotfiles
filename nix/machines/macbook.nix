@@ -47,6 +47,7 @@
     enable = true;
     # TODO: Make nix signal package work on aarch64-darwin
     taps = ["helm/tap" "nais/tap"];
+    brews = [ "mole" ];
     casks = [
       "cameracontroller"
       "firefox"
@@ -84,4 +85,5 @@
 
   ids.gids.nixbld = 30000;
   system.stateVersion = 6;
+  system.primaryUser = "nvj";
 }

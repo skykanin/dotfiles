@@ -9,28 +9,36 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
       "space t t": "workspace::NewTerminal",
-    },
-  },
-  {
-    "context": "Editor && vim_mode == normal",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
-      "space o": null,
+      "space /": "workspace::NewSearch",
+      "space space": "file_finder::Toggle",
       // Window operations (SPC w)
       "space w l": "workspace::ActivatePaneRight",
+      "space w L": "workspace::MovePaneRight",
       "space w h": "workspace::ActivatePaneLeft",
+      "space w H": "workspace::MovePaneLeft",
       "space w j": "workspace::ActivatePaneDown",
+      "space w J": "workspace::MovePaneDown",
       "space w k": "workspace::ActivatePaneUp",
+      "space w K": "workspace::MovePaneUp",
       "space w s": "pane::SplitDown",
       "space w v": "pane::SplitRight",
       "space w c": "pane::CloseActiveItem",
       // Open operations (SPC o)
       "space o t": "terminal_panel::Toggle",
+      "space o p": "workspace::ToggleLeftDock",
+      // Search operations (SPC s)
+      "space s p": "file_finder::Toggle",
       // Project operations (SPC p)
-      "space p f": "file_finder::Toggle",
       "space p p": "projects::OpenRecent",
+      "space p o": "workspace::Open",
+      "space p s": "zed::OpenProjectSettings",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space o": null,
       // Code operations (SPC c)
       "space c a": "editor::ToggleCodeActions",
       "space c d": "editor::GoToDefinition",
@@ -45,8 +53,6 @@
     "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting",
     "bindings": {
       "space f s": "workspace::Save",
-      "space p t": "workspace::ToggleLeftDock",
-      "space s p": "file_finder::Toggle",
     },
   },
 ]

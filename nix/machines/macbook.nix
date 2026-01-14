@@ -12,6 +12,8 @@
     ../modules/programs/default.nix
   ];
 
+  local.nix.settings.gc.automatic = true;
+
   environment = {
     variables.EDITOR = "vim";
 

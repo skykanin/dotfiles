@@ -71,6 +71,9 @@ in {
       // lib.optionalAttrs pkgs.stdenv.isLinux {
         persistent = true;
         dates = "weekly";
+      }
+      // lib.optionalAttrs pkgs.stdenv.isDarwin {
+        interval = { Hour = 3; Minute = 15; Weekday = 7; };
       };
 
     package = pkgs.lixPackageSets.stable.lix;

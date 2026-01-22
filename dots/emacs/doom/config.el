@@ -202,8 +202,8 @@
   (map! :after unison-ts-mode
         :map unison-ts-mode-map
         :localleader
-        :n "f" #'unisonlang-mode-add-fold
-        :n "u" #'unisonlang-mode-remove-fold))
+        :n "r" #'unison-ts-repl
+        :n "u" #'unison-ts-update))
 
 (use-package! restclient
   :config

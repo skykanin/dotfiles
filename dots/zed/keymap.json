@@ -47,6 +47,7 @@
       "space c D": "editor::FindAllReferences",
       "space c f": "editor::Format",
       "space c r": "editor::Rename",
+      "space c R": "editor::RestartLanguageServer",
       "space c x": "diagnostics::Deploy",
       "shift k": "editor::ShowSignatureHelp",
     },

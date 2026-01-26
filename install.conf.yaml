@@ -26,6 +26,7 @@
     ~/.config/kitty/kitty.conf: dots/kitty/kitty.conf
     ~/.config/ghostty: dots/ghostty
     ~/.config/fish: dots/fish
+    ~/.config/opencode/opencode.jsonc : dots/opencode/opencode.jsonc
     ~/.config/mpv: dots/mpv
     ~/.config/btop : dots/btop
     ~/.config/nixpkgs/config.nix: dots/nixpkgs/config.nix

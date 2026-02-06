@@ -8,12 +8,12 @@
   }:
     stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "orion-browser";
-      version = "26";
+      version = "1.0.3";
 
       src = fetchurl {
-        url = "https://cdn.kagi.com/downloads/${finalAttrs.version}_0/Orion.dmg";
+        url = "https://cdn.kagi.com/downloads/26_0/Orion.dmg";
         name = "Orion-${finalAttrs.version}.dmg";
-        hash = "sha256-zOknGC/KPjcy8xS0ObZ7FvkTr+cTbsybmBvXgh59Q1M=";
+        hash = "sha256-PEUQP0fYUe1aiHToYvhgmKivy5SHQHU5c7JToEJXsMw=";
       };
 
       sourceRoot = "Orion.app";
@@ -21,10 +21,14 @@
       nativeBuildInputs = [undmg];
 
       installPhase = ''
+        runHook preInstall
+
         mkdir -p "$out/Applications/Orion.app"
         cp -R . "$out/Applications/Orion.app"
         mkdir "$out/bin"
         ln -s "$out/Applications/Orion.app/Contents/MacOS/Orion" "$out/bin/orion"
+
+        runHook postInstall
       '';
 
       meta = with lib; {

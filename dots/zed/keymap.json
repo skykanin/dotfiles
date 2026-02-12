@@ -7,7 +7,7 @@
 // from the command palette.
 [
   {
-    "context": "Workspace && vim_mode == normal",
+    "context": "Workspace && vim_mode == normal || Editor && vim_mode == normal || Terminal && vim_mode == normal",
     "bindings": {
       "space t t": "workspace::NewTerminal",
       "space t R": "workspace::Reload",

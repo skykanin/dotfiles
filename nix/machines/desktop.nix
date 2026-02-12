@@ -1,7 +1,5 @@
 {
   config,
-  options,
-  lib,
   pkgs,
   inputs,
   ...
@@ -110,6 +108,40 @@
       enable = true;
       package = pkgs.gvfs.override { googleSupport = true; gnomeSupport = true; };
     };
+
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+      applications = {
+        env = {
+          PATH = "$(PATH):${config.programs.steam.package}/bin";
+        };
+        apps = [
+          {
+            name = "Steam Big Picture";
+            cmd = "${config.programs.steam.package}/bin/steam -bigpicture";
+            image-path = "steam.png";
+            prep-cmd = [
+              {
+                do = "";
+                undo = "${config.programs.steam.package}/bin/steam -shutdown";
+              }
+            ];
+          }
+          {
+            name = "Desktop";
+            image-path = "desktop.png";
+          }
+        ];
+      };
+    };
+
+    udev.extraRules = ''
+      ## Controller support for Sunshine.
+      KERNEL=="uinput", GROUP="input", MODE="0660" OPTIONS+="static_node=uinput"
+    '';
   };
 
   networking = {
@@ -149,6 +181,7 @@
       scala_3
       tokyonight-gtk-theme
       unison-ucm
+      webos-dev-manager
       wl-clipboard
       wineWowPackages.waylandFull
     ];

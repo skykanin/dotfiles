@@ -22,6 +22,11 @@ in {
       default = [];
     };
 
+    extra-trusted-substituters = mkOption {
+      type = types.listOf types.singleLineStr;
+      default = [];
+    };
+
     extra-trusted-public-keys = mkOption {
       type = types.listOf types.singleLineStr;
       default = [];
@@ -51,7 +56,8 @@ in {
       trusted-substituters = [
         "https://hydra.iohk.io"
         "https://hydra.nixos.org"
-      ];
+      ] ++ cfg.extra-trusted-substituters;
+
       trusted-users = ["root" "skykanin"];
 
       # lix specific configuration

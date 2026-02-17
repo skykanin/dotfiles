@@ -49,6 +49,7 @@
       orion-browser
       parinfer-rust-emacs # emacs dep
       rectangle
+      signal-desktop
       spotify
       trivy
       unison-ucm
@@ -60,14 +61,12 @@
 
   homebrew = {
     enable = true;
-    # TODO: Make nix signal package work on aarch64-darwin
     taps = ["helm/tap"];
     brews = ["mole"];
     casks = [
       "firefox"
       "proton-pass"
       "slack"
-      "signal"
     ];
 
     onActivation = {

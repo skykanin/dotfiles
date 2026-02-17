@@ -29,6 +29,7 @@
     variables.EDITOR = "vim";
 
     systemPackages = with pkgs; [
+      cameracontroller
       colima
       # The nix-darwin emacs service doesn't add emacs to system packages
       config.services.emacs.package
@@ -63,7 +64,6 @@
     taps = ["helm/tap"];
     brews = ["mole"];
     casks = [
-      "cameracontroller"
       "firefox"
       "proton-pass"
       "slack"

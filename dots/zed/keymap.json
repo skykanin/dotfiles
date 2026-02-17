@@ -35,7 +35,8 @@
       "space o t": "terminal_panel::Toggle",
       "space o p": "workspace::ToggleLeftDock",
       // Search operations (SPC s)
-      "space s p": "file_finder::Toggle",
+      "space s p f": "file_finder::Toggle",
+      "space s p": "pane::DeploySearch",
       // Project operations (SPC p)
       "space p p": "projects::OpenRecent",
       "space p o": "workspace::Open",

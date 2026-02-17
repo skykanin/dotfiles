@@ -44,6 +44,7 @@
       kubectx
       kubernetes-helm
       kubeseal
+      naisdevice-tenant
       orion-browser
       parinfer-rust-emacs # emacs dep
       rectangle
@@ -59,12 +60,11 @@
   homebrew = {
     enable = true;
     # TODO: Make nix signal package work on aarch64-darwin
-    taps = ["helm/tap" "nais/tap"];
-    brews = [ "mole" ];
+    taps = ["helm/tap"];
+    brews = ["mole"];
     casks = [
       "cameracontroller"
       "firefox"
-      "naisdevice-tenant"
       "proton-pass"
       "slack"
       "signal"

@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -12,7 +11,19 @@
     ../modules/programs/default.nix
   ];
 
-  local.nix.settings.gc.automatic = true;
+  local.nix.settings = {
+    gc.automatic = true;
+
+    extra-trusted-public-keys = [
+      "unison.cachix.org-1:i1DUFkisRPVOyLp/vblDsbsObmyCviq/zs6eRuzth3k="
+    ];
+
+    extra-trusted-substituters = [
+      "https://unison.cachix.org"
+    ];
+  };
+
+  nix.settings.trusted-users = [ "nvj" ];
 
   environment = {
     variables.EDITOR = "vim";
@@ -54,6 +65,7 @@
       "cameracontroller"
       "firefox"
       "naisdevice-tenant"
+      "proton-pass"
       "slack"
       "signal"
     ];

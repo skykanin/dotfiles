@@ -45,7 +45,6 @@
       kubectx
       kubernetes-helm
       kubeseal
-      naisdevice-tenant
       orion-browser
       parinfer-rust-emacs # emacs dep
       rectangle
@@ -61,10 +60,11 @@
 
   homebrew = {
     enable = true;
-    taps = ["helm/tap"];
+    taps = ["helm/tap" "nais/tap"];
     brews = ["mole"];
     casks = [
       "firefox"
+      "naisdevice-tenant"
       "proton-pass"
       "slack"
     ];

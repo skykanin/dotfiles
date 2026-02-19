@@ -41,6 +41,11 @@
 
 (package! quarto-mode)
 
+;; Disabling "core" packages like this can break
+;; stuff, but removing the mode hook from different
+;; lisp modes doesn't seem to work anymore...
+(package! rainbow-delimiters-mode :disable t)
+
 ;; NOTE: It's possible to disable parts of lsp-ui as well see docs
 ;; https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 ;; (package! lsp-ui :disable t)

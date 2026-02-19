@@ -198,7 +198,11 @@
 
 (use-package! unison-ts-mode
   :config
-  (add-hook! 'unison-ts-mode-hook 'eglot-ensure)
+  (with-eval-after-load 'eglot (unison-ts-mode-setup-eglot))
+  ;; Don't autostart eglot when opening unison buffers so we get to run
+  ;; 'ucm' in a terminal window before starting the LSP server which
+  ;; hooks into the 'ucm' sessions LSP.
+  ;;(add-hook! 'unison-ts-mode-hook 'eglot-ensure)
   (map! :after unison-ts-mode
         :map unison-ts-mode-map
         :localleader

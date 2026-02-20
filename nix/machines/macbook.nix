@@ -45,6 +45,7 @@
       kubectx
       kubernetes-helm
       kubeseal
+      naisdevice-tenant
       orion-browser
       parinfer-rust-emacs # emacs dep
       rectangle

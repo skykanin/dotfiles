@@ -183,7 +183,7 @@
       unison-ucm
       webos-dev-manager
       wl-clipboard
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
     ];
   };
 

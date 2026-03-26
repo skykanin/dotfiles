@@ -48,6 +48,7 @@
       # naisdevice-tenant
       orion-browser
       parinfer-rust-emacs # emacs dep
+      proton-pass
       rectangle
       signal-desktop
       spotify
@@ -66,7 +67,6 @@
     casks = [
       "firefox"
       "naisdevice-tenant"
-      "proton-pass"
       "slack"
     ];
 

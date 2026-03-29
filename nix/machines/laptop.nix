@@ -29,10 +29,7 @@
       firewall.enable = true;
       networkmanager.enable = true;
     };
-    programs = {
-      light.enable = true;
-      steam.enable = true;
-    };
+    programs.steam.enable = true;
   };
 
   services.udev.packages = with pkgs; [gnome-settings-daemon];

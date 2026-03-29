@@ -13,7 +13,7 @@
     ];
   };
   linuxPackages = with pkgs; [
-    blueberry
+    blueman
     feh
     foliate
     gucharmap

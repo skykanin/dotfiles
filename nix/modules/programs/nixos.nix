@@ -7,15 +7,12 @@
   cfg = config.local.programs;
 in {
   options.local.programs = with lib; {
-    light.enable = mkEnableOption "Enable Light";
     steam.enable = mkEnableOption "Enable Steam";
   };
 
   config.programs = {
     command-not-found.enable = !config.programs.nix-index.enable;
     fuse.userAllowOther = true;
-
-    light.enable = cfg.light.enable;
 
     gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
 

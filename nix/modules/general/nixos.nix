@@ -18,10 +18,11 @@
   services = {
     gnome.gnome-keyring.enable = true;
     ratbagd.enable = true;
+    timesyncd.enable = true;
   };
 
   time = {
-    hardwareClockInLocalTime = true;
+    hardwareClockInLocalTime = false;
     timeZone = "Europe/Oslo";
   };
 

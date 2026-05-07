@@ -13,6 +13,8 @@
       "space t R": "workspace::Reload",
       "space /": "workspace::NewSearch",
       // Window operations (SPC w)
+      "space w tab": "pane::ActivateNextItem",
+      "space w shift tab": "pane::ActivatePreviousItem",
       "space w l": "workspace::ActivatePaneRight",
       "space w L": "workspace::MovePaneRight",
       "space w h": "workspace::ActivatePaneLeft",
@@ -56,5 +58,22 @@
   {
     "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting",
     "bindings": {},
+  },
+  // We need this for which-key
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space": null,
+    },
+  },
+  // Any bracket functionality
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // Traditional Vim behavior
+      "q": "vim::AnyQuotes",
+      "b": "vim::AnyBrackets",
+      "p": "vim::AnyBrackets",
+    },
   },
 ]

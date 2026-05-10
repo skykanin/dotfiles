@@ -140,6 +140,14 @@
 
 (setq projectile-require-project-root t)
 
+
+;; `map!' fails to replace `which-key' description for keybindings.
+;; See https://github.com/doomemacs/doomemacs/issues/8539
+(map! :leader
+      :prefix "p"
+      :desc "Replace regexp in project"
+      :n "r" #'projectile-replace-regexp)
+
 (use-package! haskell-mode
   :config (remove-hook! haskell-mode #'(eglot-ensure projectile-mode)))
 

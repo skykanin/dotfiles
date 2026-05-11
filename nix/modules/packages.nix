@@ -26,7 +26,6 @@
     # Also currently insecure due to CVEs in libolm dependency.
     # See: https://github.com/Nheko-Reborn/nheko/issues/1786
     nheko
-    opencode
     pamixer
     pavucontrol
     playerctl
@@ -82,6 +81,7 @@ in {
       man-pages-posix
       mpv
       nnn
+      opencode
       pciutils
       pywal
       ripgrep

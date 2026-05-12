@@ -142,6 +142,9 @@
       ## Controller support for Sunshine.
       KERNEL=="uinput", GROUP="input", MODE="0660" OPTIONS+="static_node=uinput"
     '';
+
+    # For better performance in CosmicDE
+    system76-scheduler.enable = true;
   };
 
   networking = {
@@ -162,15 +165,14 @@
       # android-udev-rules
       adwaita-icon-theme
       ani-cli
-      (bottles.override { removeWarningPopup = true; })
       chatterino2
       clj-kondo
       discord
+      faugus-launcher
       google-chrome
       inputs.nix-citizen.packages.${pkgs.system}.star-citizen
       jetbrains-toolbox
       lagrange
-      lutris
       metals
       networkmanagerapplet
       obs-cmd

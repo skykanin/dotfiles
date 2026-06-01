@@ -106,7 +106,7 @@
 
     gvfs = {
       enable = true;
-      package = pkgs.gvfs.override { googleSupport = true; gnomeSupport = true; };
+      package = pkgs.gvfs.override { gnomeSupport = true; };
     };
 
     sunshine = {

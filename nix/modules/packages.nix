@@ -90,7 +90,7 @@ in {
       shellcheck
       slack
       trash-cli
-      tldr
+      tlrc
       tree
       uiua
       unzip

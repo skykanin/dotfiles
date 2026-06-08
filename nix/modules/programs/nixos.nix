@@ -34,11 +34,6 @@ in {
 
     nix-index.enable = true;
 
-    gamescope = lib.mkIf cfg.steam.enable {
-      enable = true;
-      capSysNice = true;
-    };
-
     steam = lib.mkIf cfg.steam.enable {
       enable = true;
       extraPackages = [pkgs.SDL2];
@@ -46,7 +41,7 @@ in {
       protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      gamescopeSession.enable = true;
+      gamescopeSession.enable = false;
     };
 
     vim = {

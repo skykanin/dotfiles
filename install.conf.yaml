@@ -17,6 +17,8 @@
     ~/.config/direnv/direnvrc: dots/direnv/direnvrc
     ~/.config/i3/config: dots/i3/config
     ~/.config/hypr/hyprland.conf: dots/hypr/hyprland.conf
+    ~/.config/niri: dots/niri
+    ~/.config/noctalia/config.toml: dots/noctalia/config.toml
     ~/.config/sway/config: dots/sway/config
     ~/.config/waybar: dots/waybar
     ~/.config/swaylock/config: dots/swaylock/config

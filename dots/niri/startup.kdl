@@ -1,0 +1,17 @@
+environment {
+  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORMTHEME "qt6ct"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  GDK_BACKEND "wayland"
+  MOZ_ENABLE_WAYLAND "1"
+  NOCTALIA_PAM_SERVICE "noctalia"
+}
+
+spawn-at-startup "cliphist" "wipe"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
+spawn-at-startup "firefox"
+spawn-at-startup "spotify"
+spawn-at-startup "vesktop"
+spawn-at-startup "qbittorrent"

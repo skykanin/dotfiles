@@ -1,0 +1,21 @@
+[theme]
+mode = "dark"
+
+[bar]
+order = ["main"]
+
+[bar.main]
+position = "top"
+thickness = 40
+shadow = false
+panel_overlap = 0
+radius = 0
+margin_ends = 0
+margin_edge = 0
+padding = 20
+widget_spacing = 10
+scale = 1.1
+
+start  = ["launcher", "wallpaper", "workspaces"]
+center = ["clock"]
+end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]

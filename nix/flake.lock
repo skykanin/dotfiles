@@ -237,6 +237,38 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1781074563,
+        "narHash": "sha256-d34lhgOet4IqYMnCxbIvwFBMOyTV6PT4TyNEOP0/ZhU=",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1014179.9ae611a455b9/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1781465881,
+        "narHash": "sha256-zIxGgisnxQ51ym0K/y+wBa/PNk3RoUDJ4DQD/vibNkM=",
+        "ref": "refs/heads/feat/add-nixos-module",
+        "rev": "e723b3704a937cf91ad42405e11de231503832d7",
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/skykanin/Projects/noctalia"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "file:///home/skykanin/Projects/noctalia"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -244,7 +276,8 @@
         "nix-citizen": "nix-citizen",
         "nix-darwin": "nix-darwin",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "noctalia": "noctalia"
       }
     },
     "systems": {

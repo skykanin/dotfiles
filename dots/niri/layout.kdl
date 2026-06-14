@@ -1,0 +1,61 @@
+hotkey-overlay {
+  skip-at-startup
+}
+
+layout {
+  gaps 10
+
+  empty-workspace-above-first
+  center-focused-column "never"
+  always-center-single-column
+
+  preset-column-widths {
+    proportion 0.5
+    proportion 1.0
+  }
+
+  preset-window-heights {
+    proportion 0.5
+    proportion 1.0
+  }
+
+  default-column-width { proportion 1.0; }
+
+  focus-ring {
+    width 2
+    active-gradient from="#8DBEF3" to="#B4CD8C" angle=45 in="oklch longer hue"
+  }
+
+  border {
+    off
+  }
+
+  shadow {
+    on
+  }
+
+  struts {
+    left -8
+    right -8
+    top -6
+    bottom -6
+  }
+}
+
+overview {
+  zoom 0.4
+  backdrop-color "#000"
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+  slowdown 0.5
+}
+
+cursor {
+  xcursor-theme "volantes_cursors"
+  xcursor-size 14
+}

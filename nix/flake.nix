@@ -22,6 +22,8 @@
     };
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+
+    noctalia.url = "git+file:///home/skykanin/Projects/noctalia?shallow=1";
   };
 
   outputs = inputs:
@@ -62,6 +64,7 @@
             modules = [
               ./machines/desktop.nix
               ./hardware/desktop.nix
+              inputs.noctalia.nixosModules.default
             ];
           };
 

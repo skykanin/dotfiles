@@ -24,8 +24,9 @@
     ../modules/ssh.nix
     ../modules/user.nix
     ../modules/desktop/wayland/hyprland.nix
-    ../modules/desktop/wayland/sway.nix
     ../modules/desktop/wayland/greetd.nix
+    ../modules/desktop/wayland/niri.nix
+    ../modules/desktop/wayland/sway.nix
   ];
 
   # Local modules
@@ -35,13 +36,17 @@
       networkmanager.enable = true;
     };
 
+    desktop.niri.enable = true;
+
     nix.settings = {
       extra-substituters = [
+        "https://noctalia.cachix.org"
         "https://iohk.cachix.org"
         "https://nix-gaming.cachix.org"
         "https://nix-citizen.cachix.org"
       ];
       extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
@@ -59,8 +64,6 @@
       };
     };
   };
-
-  programs.niri.enable = true;
 
   # Use Norwegian locale
   i18n.extraLocaleSettings = {

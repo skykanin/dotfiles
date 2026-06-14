@@ -8,8 +8,13 @@
   inherit (lib) lists;
 in {
   options.local.desktop.niri = with lib; {
-    enable = mkEnableOption "Enable niri module";
-    xwayland.enable = mkEnableOption "Enable XWayland support";
+    enable = mkEnableOption "niri";
+    xwayland.enable = mkOption {
+      default = true;
+      example = true;
+      description = "Whether to enable xwayland support.";
+      type = lib.types.bool;
+    };
   };
 
   config = lib.mkIf cfg.enable {

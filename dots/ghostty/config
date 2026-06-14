@@ -4,3 +4,5 @@ theme = iTerm2 Default
 cursor-style = block
 cursor-style-blink = true
 shell-integration = fish
+copy-on-select = clipboard
+app-notifications = no-clipboard-copy

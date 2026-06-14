@@ -1,10 +1,10 @@
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
-  Mod+Return { spawn "ghostty"; }
+  Mod+Return { spawn-sh "ghostty"; }
   Mod+T { spawn "kitty"; }
   Mod+W { spawn "firefox"; }
-  Mod+E { spawn "emacsclient -c"; }
+  Mod+E { spawn-sh "emacsclient -c"; }
   Mod+N { spawn "nautilus"; }
   Mod+M { spawn "spotify"; }
 
@@ -17,8 +17,6 @@ binds {
   Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
   Mod+Comma { spawn-sh "noctalia msg settings toggle"; }
   Mod+Period { spawn-sh "noctalia msg panel-toggle emoji"; }
-
-  Super+Alt+X allow-when-locked=true { spawn "hyprlock"; }
 
   XF86Calculator { spawn-sh "ghostty -e 'nix run self#babashka'"; }
   XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up" "5"; }

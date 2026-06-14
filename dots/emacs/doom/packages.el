@@ -41,6 +41,10 @@
 
 (package! quarto-mode)
 
+(package! kdl-ts-mode
+  :recipe (:host github
+           :repo "merrickluo/kdl-ts-mode"))
+
 ;; Disabling "core" packages like this can break
 ;; stuff, but removing the mode hook from different
 ;; lisp modes doesn't seem to work anymore...

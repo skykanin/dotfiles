@@ -140,6 +140,7 @@
 
 (setq projectile-require-project-root t)
 
+(use-package! kdl-ts-mode)
 
 ;; `map!' fails to replace `which-key' description for keybindings.
 ;; See https://github.com/doomemacs/doomemacs/issues/8539

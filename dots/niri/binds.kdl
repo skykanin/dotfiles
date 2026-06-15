@@ -15,24 +15,25 @@ binds {
   Mod+X { spawn-sh "noctalia msg panel-toggle session"; }
   Ctrl+Alt+Q { spawn-sh "noctalia msg session lock"; }
   Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
-  Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+  //Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
+  Mod+Shift+S { spawn-sh "noctalia msg screenshot-region"; }
   Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
   Mod+Period { spawn-sh "noctalia msg panel-toggle emoji"; }
 
   XF86Calculator { spawn-sh "ghostty -e 'nix run self#babashka'"; }
-  XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up" "5"; }
-  XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down" "5"; }
-  XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "0" "+5%"; }
+  XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "0" "-5%"; }
+  XF86AudioMute { spawn "pactl" "set-sink-mute" "0" "toggle"; }
   XF86MonBrightnessUp { spawn "noctalia" "brightness-up" "all" "5"; }
   XF86MonBrightnessDown { spawn "noctalia" "brightness-down" "all" "5"; }
 
   //XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-  XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
-  XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
-  XF86AudioPrev         allow-when-locked=true { spawn "playerctl" "previous"; }
-  XF86AudioStop         allow-when-locked=true { spawn "playerctl" "stop"; }
-  XF86AudioMedia        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioPlay         allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioNext         allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+  XF86AudioPrev         allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+  XF86AudioStop         allow-when-locked=true { spawn "noctalia" "msg" "media" "stop"; }
+  XF86AudioMedia        allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
 
   Mod+Q { close-window; }
 

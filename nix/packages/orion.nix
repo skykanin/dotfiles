@@ -8,12 +8,12 @@
   }:
     stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "orion-browser";
-      version = "1.0.3";
+      version = "1.0.8";
 
       src = fetchurl {
         url = "https://cdn.kagi.com/downloads/26_0/Orion.dmg";
         name = "Orion-${finalAttrs.version}.dmg";
-        hash = "sha256-BQvEix++B1f3xC4MC08hGGYD/QSmGXbbar4dCfPjr78=";
+        hash = "sha256-Nvg+CjXNj+oayu2Suvjp05naZwRc2Buc5KJuHj2k5AM=";
       };
 
       sourceRoot = "Orion.app";

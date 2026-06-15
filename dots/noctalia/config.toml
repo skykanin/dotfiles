@@ -1,22 +1,23 @@
 [bar]
 order = ["main"]
 
-[bar.main]
-position = "top"
-thickness = 40
-shadow = false
-panel_overlap = 0
-radius = 0
-margin_ends = 0
-margin_edge = 0
-padding = 20
-widget_spacing = 10
-scale = 1.1
+    [bar.main]
+    position = "top"
+    thickness = 40
+    shadow = false
+    panel_overlap = 0
+    radius = 0
+    margin_ends = 0
+    margin_edge = 0
+    padding = 20
+    widget_spacing = 10
+    scale = 1.1
 
-start  = ["launcher", "wallpaper", "workspaces"]
-center = ["clock"]
-end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+    start  = ["launcher", "wallpaper", "workspaces"]
+    center = ["clock"]
+    end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
 
+# Logitech G Pro mouse
 [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
 warning_threshold = 10
 
@@ -47,8 +48,37 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
         input_radius = 6.0
         show_login_button = true
 
-[shell.panel]
-launcher_categories = false
+[shell]
+avatar_path           = "~/Pictures/Sunyata.webp"
+telemetry_enabled     = false
+
+    [shell.screenshot]
+    save_to_file      = false
+    directory         = "~/Pictures/Screenshots"
+    filename_pattern  = "screenshot_%Y%m%d_%H%M%S"
+    copy_to_clipboard = true
+    freeze_screen     = true
+    pipe_to_command   = false
+    pipe_command      = "swappy -f -"
+
+    [shell.panel]
+    launcher_categories = false
+
+[location]
+auto_locate = true
+
+[weather]
+enabled         = true
+refresh_minutes = 30
+unit            = "metric"
+effects         = true
+
+[audio]
+enable_overdrive     = false  # allow volume sliders above 100% (up to 150%)
+enable_sounds        = false   # master toggle for UI sounds
+#sound_volume         = 0.5    # global sound volume (0.0 - 1.0)
+volume_change_sound  = ""     # empty = bundled default sounds/volume-change.wav
+notification_sound   = ""     # empty = bundled default sounds/notification.wav
 
 [theme]
 source = "wallpaper"

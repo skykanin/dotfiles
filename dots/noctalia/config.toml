@@ -106,6 +106,10 @@ enabled = true
 [theme]
 source = "wallpaper"
 
+    [theme.templates]
+    enable_builtin_templates = true
+    builtin_ids = [ "qt", "gtk4", "gtk3" ]
+
 [wallpaper]
 directory = "/home/skykanin/Pictures/wallpapers"
 

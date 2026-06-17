@@ -24,7 +24,7 @@ warning_threshold = 10
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1", "clock" ]
+widget_order = [ "lockscreen-login-box@DP-1", "clock", "weather" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -49,18 +49,34 @@ widget_order = [ "lockscreen-login-box@DP-1", "clock" ]
         show_login_button = true
 
     [lockscreen_widgets.widget.clock]
-    type     = "clock"
-    output   = "DP-1"
-    cx         = 1600.0
-    cy         = 120.0
+    type       = "clock"
+    output     = "DP-1"
+    cx         = 1280.0
+    cy         = 600.0
     box_width  = 0.0
     box_height = 0.0
     rotation   = 0.0
 
         [lockscreen_widgets.widget.clock.settings]
-        format = "{:%H:%M}"
-        background       = true
-        background_color = "surface"
+        format           = "{:%H:%M}"
+        shadow           = true
+        background       = false
+        center_text      = true
+
+
+    [lockscreen_widgets.widget.weather]
+    type       = "weather"
+    output     = "DP-1"
+    cx         = 1280.0
+    cy         = 730.0
+    box_width  = 0.0
+    box_height = 0.0
+    rotation   = 0.0
+
+        [lockscreen_widgets.widget.weather.settings]
+        color              = "on_surface"
+        show_forecast      = false
+        background         = false
 
 
 [shell]
@@ -99,9 +115,9 @@ notification_sound   = ""     # empty = bundled default sounds/notification.wav
 pre_action_fade_seconds = 2.0
 
 [idle.behavior.lock]
-timeout = 600
-command = "noctalia:session lock"
 enabled = true
+action = "lock"
+timeout = 600
 
 [theme]
 source = "wallpaper"

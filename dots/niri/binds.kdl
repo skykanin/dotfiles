@@ -16,7 +16,7 @@ binds {
   Ctrl+Alt+Q { spawn-sh "noctalia msg session lock"; }
   Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
   //Mod+Shift+S { spawn-sh "grim -g \"$(slurp)\" - | swappy -f -"; }
-  Mod+Shift+S { spawn-sh "noctalia msg screenshot-region"; }
+  Mod+Shift+S allow-when-locked=true { spawn-sh "noctalia msg screenshot-region"; }
   Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
   Mod+Period { spawn-sh "noctalia msg panel-toggle emoji"; }
 

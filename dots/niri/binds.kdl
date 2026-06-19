@@ -39,8 +39,8 @@ binds {
 
   Mod+Left  { focus-column-or-monitor-left; }
   Mod+H     { focus-column-or-monitor-left; }
-  Mod+Down  { focus-window-down; }
-  Mod+Up    { focus-window-up; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
   Mod+Right { focus-column-or-monitor-right; }
   Mod+L     { focus-column-or-monitor-right; }
 

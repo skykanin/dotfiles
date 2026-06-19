@@ -22,6 +22,7 @@ in {
       cliphist
       grim
       obs-cmd
+      qt6Packages.qt6ct
       slurp
       swappy
       wl-clipboard
@@ -36,6 +37,8 @@ in {
       enable = true;
       systemd.enable = true;
     };
+
+    qt.platformTheme = "qt5ct";
 
     xdg.portal = {
       enable = true;

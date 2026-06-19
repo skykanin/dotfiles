@@ -255,18 +255,17 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1781465881,
-        "narHash": "sha256-zIxGgisnxQ51ym0K/y+wBa/PNk3RoUDJ4DQD/vibNkM=",
-        "ref": "refs/heads/feat/add-nixos-module",
-        "rev": "e723b3704a937cf91ad42405e11de231503832d7",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/skykanin/Projects/noctalia"
+        "lastModified": 1781885221,
+        "narHash": "sha256-2qswUftNxt9Ms2btv1KOgCNkd5EwrsDtpnu35eKxa9U=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "8f8562046195b2f6ab65c115bb34825c90131eb6",
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/skykanin/Projects/noctalia"
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
       }
     },
     "root": {

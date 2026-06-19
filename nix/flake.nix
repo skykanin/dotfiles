@@ -23,7 +23,7 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    noctalia.url = "git+file:///home/skykanin/Projects/noctalia?shallow=1";
+    noctalia.url = "github:noctalia-dev/noctalia";
   };
 
   outputs = inputs:

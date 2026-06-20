@@ -15,7 +15,15 @@ order = ["main"]
 
     start  = ["wallpaper", "workspaces"]
     center = ["clock"]
-    end    = ["media", "tray", "network", "bluetooth", "output-volume", "input-volume", "brightness", "battery", "session"]
+    end    = [ "media", "cpu", "ram", "tray", "network", "bluetooth", "output-volume", "input-volume", "brightness", "battery", "session"]
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_used"
 
 [widget.media]
 title_scroll = "on_hover"

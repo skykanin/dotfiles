@@ -13,9 +13,24 @@ order = ["main"]
     widget_spacing = 10
     scale = 1.1
 
-    start  = ["launcher", "wallpaper", "workspaces"]
+    start  = ["wallpaper", "workspaces"]
     center = ["clock"]
-    end    = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session"]
+    end    = ["media", "tray", "network", "bluetooth", "output-volume", "input-volume", "brightness", "battery", "session"]
+
+[widget.media]
+title_scroll = "on_hover"
+
+[widget.tray]
+drawer = true
+drawer_columns = 4
+
+[widget.input-volume]
+type = "volume"
+device = "input"
+
+[widget.output-volume]
+type = "volume"
+device = "output"
 
 # Logitech G Pro mouse
 [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]

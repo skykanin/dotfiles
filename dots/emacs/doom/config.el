@@ -138,6 +138,10 @@
 (use-package! magit
   :custom (magit-diff-refine-hunk 'all))
 
+(use-package! forge
+  :after magit
+  :config (setq auth-sources '("~/.authinfo.gpg")))
+
 (setq projectile-require-project-root t)
 
 (use-package! kdl-ts-mode)

@@ -56,6 +56,5 @@ animations {
 }
 
 cursor {
-  xcursor-theme "volantes_cursors"
-  xcursor-size 14
+  xcursor-size 20
 }

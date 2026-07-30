@@ -38,6 +38,9 @@
 ;; Display major mode icon in the modeline
 (setq doom-modeline-major-mode-icon t)
 
+;; Make inferior buffers scroll to bottom on new output
+(setq comint-scroll-to-bottom-on-output t)
+
 ;; Add line wrapping
 (global-visual-line-mode t)
 
@@ -142,6 +145,10 @@
   :after magit
   :config (setq auth-sources '("~/.authinfo.gpg")))
 
+(use-package! code-review
+  :after forge
+  :custom (code-review-auth-login-marker 'forge))
+
 (setq projectile-require-project-root t)
 
 (use-package! kdl-ts-mode)
@@ -220,7 +227,11 @@
         :map unison-ts-mode-map
         :localleader
         :n "r" #'unison-ts-repl
-        :n "u" #'unison-ts-update))
+        :n "i" #'unison-ts-inferior-ucm
+        :n "a" #'unison-ts-add
+        :n "u" #'unison-ts-update
+        :n "t" #'unison-ts-test
+        :n "x" #'unison-ts-run))
 
 (use-package! restclient
   :config

@@ -13,11 +13,6 @@ in {
     programs.regreet = {
       enable = true;
 
-      theme = {
-        package = pkgs.tokyonight-gtk-theme;
-        name = "Tokyonight-Dark";
-      };
-
       iconTheme = {
         package = pkgs.numix-icon-theme;
         name = "Numix Circle";

@@ -184,7 +184,6 @@
       racket
       rclone
       scala_3
-      tokyonight-gtk-theme
       unison-ucm
       webos-dev-manager
       wl-clipboard

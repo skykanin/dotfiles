@@ -22,8 +22,6 @@
     };
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-
-    noctalia.url = "github:noctalia-dev/noctalia";
   };
 
   outputs = inputs:
@@ -64,7 +62,6 @@
             modules = [
               ./machines/desktop.nix
               ./hardware/desktop.nix
-              inputs.noctalia.nixosModules.default
             ];
           };
 

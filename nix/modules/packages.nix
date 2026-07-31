@@ -77,7 +77,6 @@ in {
       jq
       jwt-cli
       keepassxc
-      let-go
       man-pages
       man-pages-posix
       mpv

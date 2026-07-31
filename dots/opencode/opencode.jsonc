@@ -11,7 +11,14 @@
         "edit": "ask",
         "read": "allow",
         "bash": "allow",
-      }
+      },
     }
-  }
+  },
+  "mcp": {
+    "unison": {
+      "type": "local",
+      "command": ["/run/current-system/sw/bin/ucm", "mcp"],
+      "enabled": true,
+    },
+  },
 }

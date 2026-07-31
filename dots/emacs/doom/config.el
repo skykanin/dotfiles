@@ -245,6 +245,10 @@
         :n "N" #'restclient-jump-prev
         :n "y" #'restclient-copy-curl-command))
 
+(use-package! json-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.jsonc\\'" . jsonc-mode)))
+
 (use-package! bqn-mode
   :config
   ;; Set BQN input method

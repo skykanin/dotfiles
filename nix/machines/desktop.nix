@@ -156,6 +156,8 @@
     interfaces.wlan0.useDHCP = true;
   };
 
+  programs.localsend.enable = true;
+
   environment = {
     cosmic.excludePackages = with pkgs; [
       cosmic-edit

@@ -291,6 +291,13 @@
      ;; Increase text scale
      (text-scale-set 3))))
 
+
+(use-package! svelte-ts-mode
+  :after eglot
+  :config
+  (add-to-list 'eglot-server-programs '(svelte-ts-mode . ("svelteserver" "--stdio"))))
+
+
 (use-package! idris2-mode
   :config
   (add-hook! 'idris2-mode (lambda () (company-mode 0)))

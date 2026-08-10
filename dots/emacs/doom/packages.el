@@ -21,7 +21,9 @@
 
 (package! flycheck-clj-kondo)
 
-(package! svelte-mode)
+(package! svelte-ts-mode
+  :recipe (:host github
+           :repo "leafOfTree/svelte-ts-mode"))
 
 (package! unison-ts-mode
   :recipe (:host github :repo "fmguerreiro/unison-ts-mode"))

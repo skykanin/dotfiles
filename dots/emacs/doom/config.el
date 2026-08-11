@@ -297,6 +297,11 @@
   :config
   (add-to-list 'eglot-server-programs '(svelte-ts-mode . ("svelteserver" "--stdio"))))
 
+(use-package! protobuf-mode
+  :after eglot
+  :config
+  (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+  (add-to-list 'eglot-server-programs '(protobuf-mode . ("buf" "lsp" "serve"))))
 
 (use-package! idris2-mode
   :config

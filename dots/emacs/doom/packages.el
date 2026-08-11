@@ -88,6 +88,8 @@
 
 (package! flymake-actionlint)
 
+(package! protobuf-mode)
+
 ;; Doom's pinned Forge 0.5.0 requires ghub 4.x, which still provides glab.el.
 (package! ghub :pin "1fbce5379e21565f497c0f59bbe5349773c4be62") ; v4.3.0
 

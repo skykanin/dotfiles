@@ -63,7 +63,11 @@
   homebrew = {
     enable = true;
     taps = ["helm/tap" "nais/tap"];
-    brews = ["mole"];
+    brews = [
+      "mole"
+      # naisdevice-tenant dependency
+      "wireguard-tools"
+    ];
     casks = [
       "firefox"
       "naisdevice-tenant"

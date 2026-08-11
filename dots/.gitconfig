@@ -1,6 +1,7 @@
 [user]
 	email = 3789764+skykanin@users.noreply.github.com
 	name = skykanin
+	signingkey = ~/.ssh/id_github.pub
 [core]
 	editor = vim
 	excludefiles = .gitignore_global
@@ -35,3 +36,7 @@
 	user = skykanin
 [submodule]
 	recurse = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

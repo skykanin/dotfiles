@@ -14,7 +14,7 @@ in {
     command-not-found.enable = !config.programs.nix-index.enable;
     fuse.userAllowOther = true;
 
-    gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
+    gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
 
     java = {
       enable = true;

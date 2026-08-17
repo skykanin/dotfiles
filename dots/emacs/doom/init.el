@@ -126,7 +126,9 @@
        ;;data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;elixir            ; erlang done right
-       elm                 ; care for a cup of TEA?
+       (elm                ; care for a cup of TEA?
+        +lsp
+        +tree-sitter)
        emacs-lisp          ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
@@ -136,6 +138,7 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        (go +lsp +tree-sitter)         ; the hipster dialect
+       (graphql +lsp +tree-sitter) ; Give queries a REST
        (haskell            ; a language that's lazier than I am
         +lsp
         +tree-sitter)
@@ -158,7 +161,7 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +tree-sitter)  ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +present)      ; organize your plain life in plain text
+       (org +gnuplot +hugo +present +pandoc)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        purescript          ; javascript, but functional
@@ -176,7 +179,10 @@
        (scala              ; java, but good
         +lsp
         +tree-sitter)
-       scheme              ; a fully conniving family of lisps
+       (scheme             ; a fully conniving family of lisps
+        +chicke
+        +guile
+        +racket)
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.

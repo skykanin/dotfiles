@@ -30,10 +30,6 @@ switch (uname)
     if command -q /usr/libexec/java_home
       set -gx JAVA_HOME (/usr/libexec/java_home 2>/dev/null)
     end
-  case Linux
-    if test -d /run/current-system/sw/bin
-      fish_add_path --global /run/current-system/sw/bin
-    end
 end
 
 # pnpm

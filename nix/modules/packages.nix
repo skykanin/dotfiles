@@ -22,10 +22,6 @@
     ifuse
     kdePackages.kdenlive
     lshw
-    # Cross-platform, but currently broken on darwin.
-    # Also currently insecure due to CVEs in libolm dependency.
-    # See: https://github.com/Nheko-Reborn/nheko/issues/1786
-    nheko
     pamixer
     pavucontrol
     playerctl
@@ -57,6 +53,7 @@ in {
       ffmpeg-full
       file
       firefox
+      fluffychat
       fzf
       (
         if pkgs.stdenv.isLinux

@@ -3,7 +3,7 @@
     enable = true;
     package = let
       emacsPackage =
-        if pkgs.stdenv.isLinux
+        if pkgs.stdenv.hostPlatform.isLinux
         then pkgs.emacs-pgtk
         else pkgs.emacs-macport;
     in

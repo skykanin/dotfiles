@@ -1,4 +1,4 @@
-final: prev: if prev.stdenv.isDarwin then {
+final: prev: if prev.stdenv.hostPlatform.isDarwin then {
   signal-desktop = final.stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "signal-desktop";
     version = "7.89.0";

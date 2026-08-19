@@ -1,5 +1,5 @@
 final: prev:
-  if prev.stdenv.isDarwin then {
+  if prev.stdenv.hostPlatform.isDarwin then {
     proton-pass = final.stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "proton-pass";
       version = "1.34.1";

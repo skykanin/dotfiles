@@ -56,14 +56,14 @@ in {
       firefox
       fzf
       (
-        if pkgs.stdenv.isLinux
+        if pkgs.stdenv.hostPlatform.isLinux
         then ghostty
         else ghostty-bin
       )
       gh
       # gitFull broken on darwin atm
       (
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then git
         else gitFull
       )
@@ -97,5 +97,5 @@ in {
       zed-editor
       zip
     ])
-    ++ lib.optionals pkgs.stdenv.isLinux linuxPackages;
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux linuxPackages;
 }

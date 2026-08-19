@@ -92,7 +92,7 @@
   system.defaults.dock.persistent-apps = [
     "/Applications/Nix Apps/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"
-    "/Applications/Calendar.app"
+    "/System/Applications/Calendar.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
     "/Applications/Nix Apps/Slack.app"

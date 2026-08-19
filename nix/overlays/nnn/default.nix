@@ -15,7 +15,7 @@ final: prev: {
           ffmpegthumbnailer
           poppler-utils
         ]
-        ++ final.lib.optional final.stdenv.isLinux final.gnome-epub-thumbnailer)}"
+        ++ final.lib.optional final.stdenv.hostPlatform.isLinux final.gnome-epub-thumbnailer)}"
     '';
   });
 }

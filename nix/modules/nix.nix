@@ -39,7 +39,7 @@ in {
     optimise.automatic = true;
     settings = {
       max-jobs = cfg.max-jobs;
-      sandbox = pkgs.stdenv.isLinux;
+      sandbox = pkgs.stdenv.hostPlatform.isLinux;
       substituters =
         [
           "https://cache.nixos.org"
@@ -74,11 +74,11 @@ in {
         inherit (cfg.gc) automatic;
         options = "--delete-older-than 14d";
       }
-      // lib.optionalAttrs pkgs.stdenv.isLinux {
+      // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         persistent = true;
         dates = "weekly";
       }
-      // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
         interval = { Hour = 3; Minute = 15; Weekday = 7; };
       };
 

@@ -18,7 +18,7 @@
       };
       # See fish issue with nix-darwin: https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
       loginShellInit =
-        if pkgs.stdenv.isDarwin
+        if pkgs.stdenv.hostPlatform.isDarwin
         then let
           # This naive quoting is good enough in this case. There shouldn't be any
           # double quotes in the input string, and it needs to be double quoted in case

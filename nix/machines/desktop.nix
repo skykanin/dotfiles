@@ -175,7 +175,7 @@
       discord
       faugus-launcher
       google-chrome
-      inputs.nix-citizen.packages.${pkgs.system}.star-citizen
+      inputs.nix-citizen.packages.${pkgs.stdenv.hostPlatform.system}.star-citizen
       jetbrains-toolbox
       lagrange
       metals

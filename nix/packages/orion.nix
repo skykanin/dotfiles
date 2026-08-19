@@ -13,7 +13,7 @@
       src = fetchurl {
         url = "https://cdn.kagi.com/downloads/26_0/Orion.dmg";
         name = "Orion-${finalAttrs.version}.dmg";
-        hash = "sha256-eyAdRr0VqJ3eraiImHlzU+TSYbdDBtwx+nvfwT/ECxI=";
+        hash = "sha256-Uz6z5uVXnS+F8GLkRoqtTXZl/DtEgqdpXt9ne1a+cqA=";
       };
 
       sourceRoot = "Orion.app";

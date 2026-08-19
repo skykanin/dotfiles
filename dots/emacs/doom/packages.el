@@ -90,9 +90,6 @@
 
 (package! protobuf-mode)
 
-;; Doom's pinned Forge 0.5.0 requires ghub 4.x, which still provides glab.el.
-(package! ghub :pin "1fbce5379e21565f497c0f59bbe5349773c4be62") ; v4.3.0
-
 ;; Transient 0.13.5+ requires compat 31.x for `static-when'.
 (package! compat :pin "b5b48183689b536f72b1214106afeabc465da9d4") ; 31.0.0.1
 

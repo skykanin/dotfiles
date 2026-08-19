@@ -38,7 +38,11 @@ in {
       systemd.enable = true;
     };
 
-    qt.platformTheme = "qt5ct";
+    qt = {
+      enable = true;
+      platformTheme = "qt5ct";
+      style = "breeze";
+    };
 
     xdg.portal = {
       enable = true;

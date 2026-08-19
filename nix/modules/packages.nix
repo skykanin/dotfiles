@@ -15,6 +15,7 @@
   linuxPackages = with pkgs; [
     blueman
     feh
+    fluffychat
     foliate
     gucharmap
     htop
@@ -53,7 +54,6 @@ in {
       ffmpeg-full
       file
       firefox
-      fluffychat
       fzf
       (
         if pkgs.stdenv.isLinux

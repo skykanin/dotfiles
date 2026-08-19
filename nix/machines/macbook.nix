@@ -23,7 +23,7 @@
     ];
   };
 
-  nix.settings.trusted-users = [ "nvj" ];
+  nix.settings.trusted-users = ["nvj"];
 
   environment = {
     variables.EDITOR = "vim";
@@ -62,16 +62,20 @@
 
   homebrew = {
     enable = true;
-    taps = ["helm/tap" "nais/tap"];
+    taps = [
+      "helm/tap"
+      {
+        name = "nais/tap";
+        trusted = true;
+      }
+    ];
     brews = [
       "mole"
       # naisdevice-tenant dependency
       "wireguard-tools"
     ];
     casks = [
-      "firefox"
       "naisdevice-tenant"
-      "slack"
     ];
 
     onActivation = {
@@ -86,22 +90,21 @@
   ];
 
   system.defaults.dock.persistent-apps = [
-    "/Applications/Firefox.app"
+    "/Applications/Nix Apps/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"
     "/Applications/Calendar.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
-    "/Applications/Slack.app"
+    "/Applications/Nix Apps/Slack.app"
     "/Applications/Nix Apps/Discord.app"
     "/Applications/Nix Apps/KeePassXC.app"
     "/System/Applications/System Settings.app"
     "/Applications/Nix Apps/Ghostty.app"
     "/Applications/Nix Apps/Emacs.app"
-    "/Applications/Nix Apps/Zed.app"
     "/Applications/IntelliJ IDEA Ultimate alias"
   ];
 
-  ids.gids.nixbld = 30000;
+  ids.gids.nixbld = 350;
   system.stateVersion = 6;
   system.primaryUser = "nvj";
 }

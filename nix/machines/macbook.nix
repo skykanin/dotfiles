@@ -92,6 +92,7 @@
   system.defaults.dock.persistent-apps = [
     "/Applications/Nix Apps/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"
+    "/System/Applications/Messages.app"
     "/System/Applications/Calendar.app"
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
@@ -101,7 +102,9 @@
     "/System/Applications/System Settings.app"
     "/Applications/Nix Apps/Ghostty.app"
     "/Applications/Nix Apps/Emacs.app"
-    "/Applications/IntelliJ IDEA Ultimate alias"
+    "/Users/nvj/Applications/IntelliJ IDEA.app"
+    "/System/Applications/Notes.app"
+    "/System/Applications/Reminders.app"
   ];
 
   ids.gids.nixbld = 350;

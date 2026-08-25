@@ -1,6 +1,6 @@
 final: prev: let
   inherit (prev) lib;
-  inherit (prev.stdenv) isDarwin isLinux;
+  inherit (prev.stdenv.hostPlatform) isDarwin isLinux;
   vim =
     if isDarwin
     then prev.vim-darwin

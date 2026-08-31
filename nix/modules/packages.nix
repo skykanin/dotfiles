@@ -3,15 +3,6 @@
   pkgs,
   ...
 }: let
-  # TODO: If used, implement as an overlay
-  _vscode = pkgs.vscode-with-extensions.override {
-    vscodeExtensions = with pkgs.vscode-extensions; [
-      ms-python.python
-      ms-toolsai.jupyter
-      ms-vsliveshare.vsliveshare
-      vscodevim.vim
-    ];
-  };
   linuxPackages = with pkgs; [
     blueman
     feh

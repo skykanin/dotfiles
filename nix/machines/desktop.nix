@@ -104,6 +104,9 @@
     # Enable COSMIC desktop environment
     desktopManager.cosmic.enable = true;
     displayManager.cosmic-greeter.enable = true;
+    # For better performance in CosmicDE
+    system76-scheduler.enable = config.services.desktopManager.cosmic.enable;
+
     # Use GNOME keyring
     gnome.gnome-keyring.enable = true;
 
@@ -145,9 +148,6 @@
       ## Controller support for Sunshine.
       KERNEL=="uinput", GROUP="input", MODE="0660" OPTIONS+="static_node=uinput"
     '';
-
-    # For better performance in CosmicDE
-    system76-scheduler.enable = true;
   };
 
   networking = {

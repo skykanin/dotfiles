@@ -6,7 +6,6 @@
     appimageTools,
     fetchurl,
     stdenvNoCC,
-    lib,
   }: let
     pname = "httpie";
     version = "2024.1.2";
@@ -15,7 +14,7 @@
       hash = "sha256-OOP1l7J2BgO3nOPSipxfwfN/lOUsl80UzYMBosyBHrM=";
     };
     appimage = appimageTools.wrapType2 {inherit pname version src;};
-    appimage-contents = appimageTools.extractType2 {inherit pname version src;};
+    appimage-contents = appimageTools.extract {inherit pname version src;};
   in
     stdenvNoCC.mkDerivation {
       inherit pname version;

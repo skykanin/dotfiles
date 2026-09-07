@@ -9,7 +9,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin";

@@ -31,6 +31,7 @@
     systemPackages = with pkgs; [
       cameracontroller
       colima
+      cplt
       # The nix-darwin emacs service doesn't add emacs to system packages
       config.services.emacs.package
       coreutils-full
@@ -103,6 +104,7 @@
     "/Applications/Nix Apps/Ghostty.app"
     "/Applications/Nix Apps/Emacs.app"
     "/Users/nvj/Applications/IntelliJ IDEA.app"
+    "/Users/nvj/Applications/Datagrip.app"
     "/System/Applications/Notes.app"
     "/System/Applications/Reminders.app"
   ];

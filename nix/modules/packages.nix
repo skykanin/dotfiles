@@ -81,7 +81,6 @@ in {
       xdg-utils
       yq-go
       yt-dlp
-      zed-editor
       zip
     ])
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux linuxPackages;

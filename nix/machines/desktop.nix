@@ -174,7 +174,6 @@
       clj-kondo
       discord
       faugus-launcher
-      google-chrome
       inputs.nix-citizen.packages.${pkgs.stdenv.hostPlatform.system}.star-citizen
       jetbrains-toolbox
       lagrange

@@ -319,12 +319,26 @@
 ;; Make format errors popup small and escapable
 (set-popup-rule! "*format-all-errors*" :ttl 0 :quit t)
 
-;; ------------------------- Modeline and file explorer icons -------------------------
-
 ;; Associate the .pl file extension with prolog and not the default perl
 (progn
   (rassq-delete-all 'perl-mode auto-mode-alist)
   (add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode)))
+
+(use-package! prolog
+  :after eglot
+  :config
+    (setopt eglot-server-programs
+            (cons
+               (cons 'prolog-mode
+                     (list "swipl"
+                           "-O"
+                           "-g" "use_module(library(lsp_server))."
+                           "-g" "lsp_server:main"
+                           "-t" "halt"
+                           "--" "stdio"))
+               eglot-server-programs)))
+
+;; ------------------------- Modeline and file explorer icons -------------------------
 
 ;; When getting the file icon for the buffer *only* use the
 ;; major-mode to determine the correct icon to use, not the

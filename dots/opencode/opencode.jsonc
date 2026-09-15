@@ -21,5 +21,14 @@
       "command": ["/run/current-system/sw/bin/ucm", "mcp"],
       "enabled": true,
     },
+    "github": {
+      "type": "local",
+        "command": [
+          "sh",
+          "-c",
+          "GITHUB_PERSONAL_ACCESS_TOKEN=$(gh auth token) /run/current-system/sw/bin/github-mcp-server stdio",
+        ],
+      "enabled": true,
+    },
   },
 }

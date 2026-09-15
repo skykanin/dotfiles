@@ -52,12 +52,8 @@ in {
         else ghostty-bin
       )
       gh
-      # gitFull broken on darwin atm
-      (
-        if pkgs.stdenv.hostPlatform.isDarwin
-        then git
-        else gitFull
-      )
+      gitFull
+      github-mcp-server
       gnumake
       gnused
       idris2

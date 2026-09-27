@@ -41,8 +41,10 @@ in {
       protontricks.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      gamescopeSession.enable = false;
+      gamescopeSession.enable = true;
     };
+
+    gamescope.enableWsi = true;
 
     vim = {
       enable = true;

@@ -47,6 +47,9 @@ device = "output"
 [battery.device."/org/freedesktop/UPower/devices/battery_hidpp_battery_0"]
 warning_threshold = 10
 
+[lockscreen]
+transition = []
+
 [lockscreen_widgets]
 enabled = true
 schema_version = 2

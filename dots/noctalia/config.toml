@@ -13,9 +13,12 @@ order = ["main"]
     widget_spacing = 10
     scale = 1.1
 
-    start  = ["wallpaper", "workspaces"]
+    start  = ["wallpaper","mpvpaper", "workspaces"]
     center = ["clock"]
     end    = [ "media", "cpu", "ram", "tray", "network", "bluetooth", "output-volume", "input-volume", "brightness", "battery", "session"]
+
+[widget.mpvpaper]
+type = "noctalia/mpvpaper:mpvpaper"
 
 [widget.cpu]
 type = "sysmon"
@@ -102,9 +105,6 @@ telemetry_enabled     = false
     pipe_to_command   = false
     pipe_command      = "swappy -f -"
 
-    [shell.panel]
-    launcher_categories = false
-
 [location]
 auto_locate = true
 
@@ -144,3 +144,9 @@ directory = "/home/skykanin/Pictures/wallpapers"
 
     [wallpaper.last]
     path = "/home/skykanin/Pictures/wallpapers/planets.jpg"
+
+[plugin_settings."noctalia/mpvpaper"]
+video_directory = "~/Videos/Wallpapers"
+
+[plugins]
+enabled = ["noctalia/mpvpaper"]

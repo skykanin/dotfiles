@@ -21,6 +21,8 @@ in {
     environment.systemPackages = with pkgs; ([
       cliphist
       grim
+      mpv
+      mpvpaper
       obs-cmd
       qt6Packages.qt6ct
       slurp

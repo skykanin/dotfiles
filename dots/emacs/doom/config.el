@@ -30,6 +30,11 @@
        :weight 'semi-bold
        :size 14))
 
+;; Don't use cursive font
+(with-eval-after-load 'tree-sitter-hl
+  (set-face-attribute 'tree-sitter-hl-face:property nil :slant 'normal)
+  (set-face-attribute 'tree-sitter-hl-face:variable nil :slant 'normal))
+
 ;; Neotree settings
 (setq doom-neotree-enable-variable-pitch nil
       doom-themes-neotree-enable-variable-pitch nil

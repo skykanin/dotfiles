@@ -90,7 +90,13 @@
 
 (package! protobuf-mode)
 
-;; Transient 0.13.5+ requires compat 31.x for `static-when'.
+;; Forge 0.4.6 requires the forge libraries and APIs removed in Ghub 5.x.
+(package! ghub :pin "97a07691efad6fc16bc000a35be80d4f8dae251a") ; 4.3.2
+
+;; Magit 4.2.0 uses the menu layout from before Transient 0.9.
+(package! transient :pin "25b994a565ce8035330b0a3071ee430c0282349e") ; 0.8.8
+
+;; Keep compat 31.x available for updated dependencies.
 (package! compat :pin "b5b48183689b536f72b1214106afeabc465da9d4") ; 31.0.0.1
 
 ;; To install a package directly from a remote git repo, you must specify a

@@ -12,8 +12,6 @@
   ];
 
   local.nix.settings = {
-    gc.automatic = true;
-
     extra-trusted-public-keys = [
       "unison.cachix.org-1:i1DUFkisRPVOyLp/vblDsbsObmyCviq/zs6eRuzth3k="
     ];

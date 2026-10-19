@@ -21,17 +21,6 @@ in {
       package = pkgs.openjdk21;
     };
 
-    # TODO: Move this into separate module when nix-darwin gets this module too
-    # See: https://github.com/nix-darwin/nix-darwin/pull/942
-    nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        dates = "monthly";
-      };
-      flake = "/home/skykanin/dotfiles/nix";
-    };
-
     nix-index.enable = true;
 
     steam = lib.mkIf cfg.steam.enable {

@@ -39,6 +39,7 @@
     desktop.niri.enable = true;
 
     nix.settings = {
+      extra-trusted-users = [ "skykanin" ];
       extra-substituters = [
         "https://noctalia.cachix.org"
         "https://iohk.cachix.org"

@@ -31,6 +31,11 @@ in {
       type = types.listOf types.singleLineStr;
       default = [];
     };
+
+    extra-trusted-users = mkOption {
+      type = types.listOf types.str;
+      default = [];
+    };
   };
 
   config.nix = {
@@ -58,7 +63,7 @@ in {
         "https://hydra.nixos.org"
       ] ++ cfg.extra-trusted-substituters;
 
-      trusted-users = ["root" "skykanin"];
+      trusted-users = [ "root" ] ++ cfg.extra-trusted-users;
 
       # lix specific configuration
       repl-overlays = [./repl-overlays.nix];

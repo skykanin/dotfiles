@@ -22,6 +22,8 @@
     };
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+
+    tangled.url = "git+https://tangled.org/tangled.org/core";
   };
 
   outputs = inputs:
@@ -78,11 +80,13 @@
           };
 
           # Server
-          dandy = inputs.nixpkgs.lib.nixosSystem rec {
+          hush = inputs.nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             pkgs = inputs.self.legacyPackages.${system};
             specialArgs = {inherit inputs;};
             modules = [
+              inputs.tangled.nixosModules.knot-rs
+              inputs.tangled.nixosModules.appview
               ./machines/server.nix
               ./hardware/server.nix
             ];

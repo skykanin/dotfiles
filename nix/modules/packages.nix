@@ -67,7 +67,6 @@ in {
       nnn
       opencode
       pciutils
-      pywal
       ripgrep
       rlwrap
       shellcheck

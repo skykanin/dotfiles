@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -44,7 +45,14 @@ in {
       fd
       ffmpeg-full
       file
-      firefox
+      (
+        if stdenv.hostPlatform.isDarwin
+        then
+          firefox.override {
+            appDataDir = "/Users/${config.system.primaryUser}/Library/Application Support/org.nixos.firefox";
+          }
+        else firefox
+      )
       fzf
       (
         if pkgs.stdenv.hostPlatform.isLinux

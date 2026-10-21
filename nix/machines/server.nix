@@ -155,6 +155,11 @@
   networking.firewall.allowedTCPPorts = [ 22 53 80 443 2200 ];
   networking.firewall.allowedUDPPorts = [ 22 53 443 2200 ];
 
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #

@@ -88,6 +88,11 @@
     "nixpkgs=https://nixos.org/channels/nixpkgs-unstable"
   ];
 
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   system.defaults.dock.persistent-apps = [
     "/Applications/Nix Apps/Firefox.app"
     "/Applications/Nix Apps/Spotify.app"

@@ -23,12 +23,12 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/9d9ea324-965f-43af-bba6-c45a225f8fd5";
+      device = "/dev/disk/by-uuid/9dd1d47f-6a70-4170-818a-f3bbc4849f68";
       fsType = "ext4";
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/75EB-A750";
+      device = "/dev/disk/by-uuid/6170-440E";
       fsType = "vfat";
     };
 
@@ -53,12 +53,6 @@
       device = "/dev/disk/by-uuid/1ee97da3-3b08-47bb-973a-5cf118df9f88";
       fsType = "btrfs";
       options = ["subvol=root" "usebackuproot" "nofail"];
-    };
-
-    "/mnt/win" = {
-      device = "/dev/disk/by-uuid/6CAAB456AAB41E90";
-      fsType = "ntfs";
-      options = ["rw" "uid=1000"];
     };
 
     "/mnt/drive" = {

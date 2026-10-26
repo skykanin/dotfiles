@@ -57,7 +57,10 @@
 ;; This is only necessary on macOS
 (when (eq system-type 'darwin)
   (add-to-list 'default-frame-alist '(width . 140))
-  (add-to-list 'default-frame-alist (cons 'height (get-default-height))))
+  (add-to-list 'default-frame-alist (cons 'height (get-default-height)))
+  ;; Let both Option keys type international characters (å, ø, æ) instead of Meta
+  (setq mac-option-modifier 'none
+        ns-option-modifier  'none))
 
 ;; Since I'm using a non-posix shell
 (setq shell-file-name (executable-find "bash"))

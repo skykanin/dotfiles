@@ -67,6 +67,7 @@
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEemzAV7rW6hjqVIy1Pktd7jKtlkayVUNHfcO8H6SQfj hush server ssh key"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBIgYUNbgUiLAC6k+RgviJvi3DNyaGgENYmwE+Z/x+Zv meta@arch"
     ];
   };
 

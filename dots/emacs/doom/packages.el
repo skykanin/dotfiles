@@ -47,6 +47,8 @@
   :recipe (:host github
            :repo "merrickluo/kdl-ts-mode"))
 
+(package! flycheck-eglot)
+
 ;; Disabling "core" packages like this can break
 ;; stuff, but removing the mode hook from different
 ;; lisp modes doesn't seem to work anymore...

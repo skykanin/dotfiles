@@ -68,6 +68,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEemzAV7rW6hjqVIy1Pktd7jKtlkayVUNHfcO8H6SQfj hush server ssh key"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBIgYUNbgUiLAC6k+RgviJvi3DNyaGgENYmwE+Z/x+Zv meta@arch"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdHdHNiznomJyPFm5jXWn9DLXsxMoqc2HOetlhus0JS myServer"
     ];
   };
 
@@ -82,54 +83,54 @@
     };
   };
 
-  services.tangled.knot-rs = {
-    enable = true;
-    environmentFile = "/etc/knot/knot.env";
-    settings = {
-      server = {
-        hostname = "knot.oyster.cafe";
-        admins = ["did:plc:usucbdwz7frtkxjzxqtdtulu"];
-        ssh_listen_addr = "[::]:22";
-        appview_endpoint = "http://127.0.0.1:3000";
-      };
-      git.object_format = "sha256";
-      atproto.plc_directory = "https://plc.directory";
-      xrpc = {
-        trusted_proxy_header = "x-forwarded-for";
-        trusted_proxies = ["127.0.0.1" "::1"];
-      };
-    };
-  };
-  services.openssh.ports = [2200];
+  # services.tangled.knot-rs = {
+  #   enable = true;
+  #   environmentFile = "/etc/knot/knot.env";
+  #   settings = {
+  #     server = {
+  #       hostname = "knot.oyster.cafe";
+  #       admins = ["did:plc:usucbdwz7frtkxjzxqtdtulu"];
+  #       ssh_listen_addr = "[::]:22";
+  #       appview_endpoint = "http://127.0.0.1:3000";
+  #     };
+  #     git.object_format = "sha256";
+  #     atproto.plc_directory = "https://plc.directory";
+  #     xrpc = {
+  #       trusted_proxy_header = "x-forwarded-for";
+  #       trusted_proxies = ["127.0.0.1" "::1"];
+  #     };
+  #   };
+  # };
+  services.openssh.ports = [22 2200];
 
-  services.tangled.appview = {
-    enable = true;
-    dev = true;
-    appviewHost = "127.0.0.1:3000";
-    appviewName = "Hush";
-    listenAddr = "127.0.0.1:3000";
-    metricsListenAddr = "127.0.0.1:9090";
-    redis.addr = "127.0.0.1:6379";
-    environmentFile = "/etc/tangled/appview.env";
-  };
+  # services.tangled.appview = {
+  #   enable = true;
+  #   dev = true;
+  #   appviewHost = "127.0.0.1:3000";
+  #   appviewName = "Hush";
+  #   listenAddr = "127.0.0.1:3000";
+  #   metricsListenAddr = "127.0.0.1:9090";
+  #   redis.addr = "127.0.0.1:6379";
+  #   environmentFile = "/etc/tangled/appview.env";
+  # };
 
   # Development mode reads templates and static assets from the working directory.
-  systemd.services.appview.preStart = ''
-    mkdir -p appview/pages
-    ln -sfn ${inputs.tangled}/appview/pages/templates appview/pages/templates
-    ln -sfn ${inputs.tangled.packages.${pkgs.stdenv.hostPlatform.system}.appview-static-files} appview/pages/static
-  '';
+  # systemd.services.appview.preStart = ''
+  #   mkdir -p appview/pages
+  #   ln -sfn ${inputs.tangled}/appview/pages/templates appview/pages/templates
+  #   ln -sfn ${inputs.tangled.packages.${pkgs.stdenv.hostPlatform.system}.appview-static-files} appview/pages/static
+  # '';
 
-  services.caddy = {
-    enable = true;
-    virtualHosts = {
-      "knot.oyster.cafe" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:5555
-        '';
-      };
-    };
-  };
+  #services.caddy = {
+  #  enable = true;
+  #  virtualHosts = {
+  #    "knot.oyster.cafe" = {
+  #      extraConfig = ''
+  #        reverse_proxy 127.0.0.1:5555
+  #      '';
+  #    };
+  #  };
+  #};
 
   virtualisation.docker.enable = true;
 
@@ -158,7 +159,6 @@
 
   security.pki.caCertificateBlacklist = [
     "Comodo AAA Services root"
-    "emSign ECC Root CA - G3"
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,

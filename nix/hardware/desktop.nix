@@ -33,20 +33,9 @@
     };
 
     "/mnt/media" = {
-      device = "/dev/disk/by-uuid/FE22F44322F40307";
-      fsType = "ntfs";
-      options = ["rw" "uid=1000"];
-    };
-
-    # Ensure proton (wine) prefixes are stored on the main disk in ext4
-    "/mnt/media/LinuxGames/steamapps/compatdata" = {
-      device = "/home/skykanin/.local/share/Steam/compatdata-ntfs";
-      fsType = "none";
-      options = [
-        "bind"
-        "nofail"
-        "x-systemd.requires-mounts-for=/mnt/media"
-      ];
+      device = "/dev/disk/by-uuid/cca84990-1e86-400e-a347-8c2e14787d8f";
+      fsType = "ext4";
+      options = ["noatime" "nofail"];
     };
 
     "/mnt/media2" = {

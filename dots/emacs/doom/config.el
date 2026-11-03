@@ -383,6 +383,21 @@ When F is provided, the info function is calculated with the format
 ;; Latex captions underneath blocks
 (setq org-latex-caption-above nil)
 
+;; Auto-export reveal.js presentations to HTML on save and on revert (so edits
+;; made outside Emacs are exported too). Only applies to org files containing a
+;; `#+REVEAL_' keyword, and the hooks are buffer-local so other org files are
+;; unaffected. The browser still needs a manual refresh.
+(defun my/org-re-reveal-export-on-save ()
+  (require 'org-re-reveal)
+  (org-re-reveal-export-to-html))
+
+(add-hook! 'org-mode-hook
+  (when (save-excursion
+          (goto-char (point-min))
+          (re-search-forward "^#\\+REVEAL_" nil t))
+    (add-hook 'after-save-hook #'my/org-re-reveal-export-on-save nil t)
+    (add-hook 'after-revert-hook #'my/org-re-reveal-export-on-save nil t)))
+
 (defvar flymake-allowed-file-name-masks nil)
 
 ;; Set tsx files to use rjsx-mode

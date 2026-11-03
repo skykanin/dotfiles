@@ -33,7 +33,6 @@
       # The nix-darwin emacs service doesn't add emacs to system packages
       config.services.emacs.package
       coreutils-full
-      discord
       docker
       docker-credential-helpers
       fluxcd
@@ -53,6 +52,7 @@
       spotify
       trivy
       unison-ucm
+      vesktop
       vim-with-conf
     ];
   };
@@ -90,7 +90,7 @@
 
   security.pki.caCertificateBlacklist = [
     "Comodo AAA Services root"
-    "emSign ECC Root CA - G3"
+    # "emSign ECC Root CA - G3"
   ];
 
   system.defaults.dock.persistent-apps = [
@@ -101,7 +101,7 @@
     "/Applications/Microsoft Outlook.app"
     "/Applications/Microsoft Teams.app"
     "/Applications/Nix Apps/Slack.app"
-    "/Applications/Nix Apps/Discord.app"
+    "/Applications/Nix Apps/Vesktop.app"
     "/Applications/Nix Apps/KeePassXC.app"
     "/System/Applications/System Settings.app"
     "/Applications/Nix Apps/Ghostty.app"

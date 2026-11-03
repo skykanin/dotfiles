@@ -2,11 +2,11 @@ final: prev:
   if prev.stdenv.hostPlatform.isDarwin then {
     proton-pass = final.stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "proton-pass";
-      version = "1.34.1";
+      version = "1.43.0";
 
       src = final.fetchurl {
         url = "https://proton.me/download/pass/macos/ProtonPass_${finalAttrs.version}.dmg";
-        hash = "sha256-B5weoPQSnp4UT6bX5kNwb7dFixN1AV9TVSlC7niALwk=";
+        hash = "sha256-+dtkShLEgeG3/iNf+xFA5LTKNuVKUC/lcZLcA9Dulyc=";
       };
 
       sourceRoot = ".";

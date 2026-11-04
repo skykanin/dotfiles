@@ -1,22 +1,22 @@
 {
   name = "helm-chart-releaser";
   package = {
-    buildGoModule,
+    buildGo127Module,
     fetchFromGitHub,
     lib,
   }:
-    buildGoModule rec {
+    buildGo127Module rec {
       pname = "chart-releaser";
-      version = "1.6.1";
+      version = "1.10.1";
 
       src = fetchFromGitHub {
         owner = "helm";
         repo = "chart-releaser";
         rev = "v${version}";
-        hash = "sha256-8+O9JErEB1Z/zlrWm975v5Qf0YG0lbPcjY5LlDKw8U4=";
+        hash = "sha256-RLlKRD690C3LTIGhmWNNlN6dRuTRCHu0QstufZ6+JBs=";
       };
 
-      vendorHash = "sha256-S/V1kTgD/cXaJNYpPPNjM9ya2zv6Bsy/YBn7I/1EjwI=";
+      vendorHash = "sha256-M0opZb4s5A/zynI2V4wl5FK2pILtL2dehDmGc/htXvQ=";
 
       doCheck = false;
 

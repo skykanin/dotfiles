@@ -195,7 +195,6 @@
 
   security.pki.caCertificateBlacklist = [
     "Comodo AAA Services root"
-    "emSign ECC Root CA - G3"
   ];
 
   # This value determines the NixOS release with which your system is to be

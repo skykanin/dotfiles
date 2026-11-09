@@ -103,6 +103,19 @@
     # Enable AMD GPU drivers
     xserver.videoDrivers = ["amdgpu"];
 
+    displayManager.noctalia-greeter = {
+      enable = true;
+      settings = {
+        cursor = {
+          size = 20;
+          theme = "Adwaita";
+        };
+        keyboard = {
+          layout = "us";
+        };
+      };
+    };
+
     # Use GNOME keyring
     gnome.gnome-keyring.enable = true;
 

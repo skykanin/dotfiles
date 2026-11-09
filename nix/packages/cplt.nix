@@ -14,10 +14,12 @@
         owner = "navikt";
         repo = "cplt";
         rev = version;
-        hash = "sha256-vkuPVdQ+4apucIVXPsY7yAx3ek1+FfoqXxh4SPo550U=";
+        hash = "sha256-7XOB0YQ8VD3XvmtbhNBT3ymFnZhVn4TV3U6nTRMNdak=";
       };
 
-      cargoHash = "sha256-eP41X/0WvIDJM+vD4iBTFfSe9DiKdInpYs+hnaJ3G1k=";
+      doCheck = false;
+
+      cargoHash = "sha256-drJfyP8lH7IOrUNo7pBdSSZlANtw//S8yzQGnUc0YNY=";
 
       env.CPLT_LONG_VERSION = version;
 

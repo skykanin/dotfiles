@@ -1,11 +1,11 @@
 final: prev: if prev.stdenv.hostPlatform.isDarwin then {
   signal-desktop = final.stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "signal-desktop";
-    version = "7.89.0";
+    version = "8.34.0";
 
     src = final.fetchurl {
       url = "https://updates.signal.org/desktop/signal-desktop-mac-universal-${finalAttrs.version}.dmg";
-      hash = "sha256-Y2xUCWDRsb+A2GypvxZPc1VChRX3ElgrPOeeu4w4FRU=";
+      hash = "sha256-GC7vuUvRLBXBdv4jmVoiiWT+ZcLhnsgPJpgDwQDJoYI=";
     };
 
     sourceRoot = ".";

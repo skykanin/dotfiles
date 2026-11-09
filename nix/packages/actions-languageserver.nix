@@ -29,7 +29,7 @@
 
       npmBuildScript = "build --workspace=@actions/languageserver";
 
-      npmPackFlags = [ "--workspace=@actions/languageserver" ];
+      npmPackFlags = ["--workspace=@actions/languageserver"];
 
       meta = {
         description = "Language server for GitHub Actions";

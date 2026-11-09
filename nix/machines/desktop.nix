@@ -24,7 +24,6 @@
     ../modules/ssh.nix
     ../modules/user.nix
     ../modules/desktop/wayland/hyprland.nix
-    ../modules/desktop/wayland/greetd.nix
     ../modules/desktop/wayland/niri.nix
     ../modules/desktop/wayland/sway.nix
   ];
@@ -36,11 +35,10 @@
       networkmanager.enable = true;
     };
 
-    desktop.greetd.enable = true;
     desktop.niri.enable = true;
 
     nix.settings = {
-      extra-trusted-users = [ "skykanin" ];
+      extra-trusted-users = ["skykanin"];
       extra-substituters = [
         "https://noctalia.cachix.org"
         "https://iohk.cachix.org"
@@ -121,7 +119,7 @@
 
     gvfs = {
       enable = true;
-      package = pkgs.gvfs.override { gnomeSupport = true; };
+      package = pkgs.gvfs.override {gnomeSupport = true;};
     };
 
     sunshine = {

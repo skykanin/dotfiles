@@ -4,9 +4,10 @@
     appimageTools,
     fetchurl,
     lib,
-  }:
-    let version = "1.99.19";
-    in appimageTools.wrapType2 {
+  }: let
+    version = "1.99.19";
+  in
+    appimageTools.wrapType2 {
       pname = "webos-dev-manager";
       inherit version;
 

@@ -58,12 +58,14 @@ in {
         ]
         ++ cfg.extra-trusted-public-keys;
 
-      trusted-substituters = [
-        "https://hydra.iohk.io"
-        "https://hydra.nixos.org"
-      ] ++ cfg.extra-trusted-substituters;
+      trusted-substituters =
+        [
+          "https://hydra.iohk.io"
+          "https://hydra.nixos.org"
+        ]
+        ++ cfg.extra-trusted-substituters;
 
-      trusted-users = [ "root" ] ++ cfg.extra-trusted-users;
+      trusted-users = ["root"] ++ cfg.extra-trusted-users;
 
       # lix specific configuration
       repl-overlays = [./repl-overlays.nix];
@@ -84,7 +86,11 @@ in {
         dates = "weekly";
       }
       // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
-        interval = { Hour = 3; Minute = 15; Weekday = 7; };
+        interval = {
+          Hour = 3;
+          Minute = 15;
+          Weekday = 7;
+        };
       };
 
     package = pkgs.lixPackageSets.stable.lix;

@@ -10,24 +10,22 @@ in {
     enable = mkEnableOption "Enable media service";
   };
   config = lib.mkIf cfg.enable {
-
-
     # Allow HTTP/HTTPS traffic to caddy
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedTCPPorts = [80 443];
 
     services.caddy = {
-        enable = true;
-        enableReload = true;
-        configFile = pkgs.writeText "Caddyfile" ''
-          jellyflix.xyz
+      enable = true;
+      enableReload = true;
+      configFile = pkgs.writeText "Caddyfile" ''
+        jellyflix.xyz
 
-          reverse_proxy 127.0.0.1:8096
-        '';
+        reverse_proxy 127.0.0.1:8096
+      '';
     };
 
     services.jellyfin = {
-        enable = true;
-        user = config.local.user.name;
+      enable = true;
+      user = config.local.user.name;
     };
 
     # virtualisation.oci-containers.containers.openvpn-as = {

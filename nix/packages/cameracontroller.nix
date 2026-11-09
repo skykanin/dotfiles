@@ -5,7 +5,8 @@
     stdenvNoCC,
     unzip,
     lib,
-  }: stdenvNoCC.mkDerivation (finalAttrs: {
+  }:
+    stdenvNoCC.mkDerivation (finalAttrs: {
       pname = "cameracontroller";
       version = "1.4.0";
       src = fetchurl {
@@ -13,33 +14,32 @@
         hash = "sha256-ikbcsgqNiJjUxHVA9jbpkMo+NAHA/wYgQ+/lzDPTndo=";
       };
 
-    nativeBuildInputs = [ unzip ];
+      nativeBuildInputs = [unzip];
 
-    unpackPhase = ''
-      unzip $src
-    '';
+      unpackPhase = ''
+        unzip $src
+      '';
 
-    sourceRoot = "CameraController.app";
-    dontPatch = true;
-    dontConfigure = true;
-    dontBuild = true;
+      sourceRoot = "CameraController.app";
+      dontPatch = true;
+      dontConfigure = true;
+      dontBuild = true;
 
-    installPhase = ''
-      runHook preInstall
+      installPhase = ''
+        runHook preInstall
 
-      mkdir -p $out/Applications/CameraController.app
-      cp -R . $out/Applications/CameraController.app
+        mkdir -p $out/Applications/CameraController.app
+        cp -R . $out/Applications/CameraController.app
 
-      runHook postInstall
-    '';
+        runHook postInstall
+      '';
 
-    meta = {
-      description = "Control USB Cameras from an app";
-      homepage = "https://github.com/Itaybre/CameraController";
-      license = lib.licenses.gpl3Only;
-      platforms = [ "aarch64-darwin" ];
-      sourceProvenance = [lib.sourceTypes.binaryNativeCode];
-    };
-
-  });
+      meta = {
+        description = "Control USB Cameras from an app";
+        homepage = "https://github.com/Itaybre/CameraController";
+        license = lib.licenses.gpl3Only;
+        platforms = ["aarch64-darwin"];
+        sourceProvenance = [lib.sourceTypes.binaryNativeCode];
+      };
+    });
 }

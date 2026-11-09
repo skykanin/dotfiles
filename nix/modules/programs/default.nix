@@ -3,8 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-  let inherit (pkgs.stdenv) hostPlatform; in {
+}: let
+  inherit (pkgs.stdenv) hostPlatform;
+in {
   config.programs = {
     direnv.enable = true;
 
@@ -35,23 +36,31 @@
 
     nh = {
       enable = true;
-      clean = {
-        enable = true;
-      } // (if hostPlatform.isDarwin then
+      clean =
         {
-          interval = [
-            # Monthly interval
-            {
-              Day = 1;
-              Hour = 0;
-              Minute = 0;
-            }
-          ];
+          enable = true;
         }
-        else {
-          dates = "monthly";
-        });
-      flake = "${if hostPlatform.isDarwin then "/Users/nvj" else "/home/skykanin"}/dotfiles/nix";
+        // (
+          if hostPlatform.isDarwin
+          then {
+            interval = [
+              # Monthly interval
+              {
+                Day = 1;
+                Hour = 0;
+                Minute = 0;
+              }
+            ];
+          }
+          else {
+            dates = "monthly";
+          }
+        );
+      flake = "${
+        if hostPlatform.isDarwin
+        then "/Users/nvj"
+        else "/home/skykanin"
+      }/dotfiles/nix";
     };
   };
 }

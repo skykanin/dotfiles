@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../modules/nix.nix
   ];
@@ -56,7 +58,7 @@
   users.users."exec" = {
     isNormalUser = true;
     description = "exec";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       croc
       fastfetch
@@ -72,7 +74,7 @@
     ];
   };
 
-  local.nix.settings.extra-trusted-users = [ "exec" ];
+  local.nix.settings.extra-trusted-users = ["exec"];
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -154,8 +156,8 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 53 80 443 2200 ];
-  networking.firewall.allowedUDPPorts = [ 22 53 443 2200 ];
+  networking.firewall.allowedTCPPorts = [22 53 80 443 2200];
+  networking.firewall.allowedUDPPorts = [22 53 443 2200];
 
   security.pki.caCertificateBlacklist = [
     "Comodo AAA Services root"
@@ -179,5 +181,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }

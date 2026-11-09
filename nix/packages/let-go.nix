@@ -18,7 +18,7 @@
 
       vendorHash = "sha256-ZrSjzLAd4qEBkAWRS6vW+a5fZ79ecPETzwzT+HsHS60=";
 
-      subPackages = [ "." ];
+      subPackages = ["."];
 
       ldflags = [
         "-s"
@@ -39,7 +39,7 @@
         license = licenses.mit;
         mainProgram = "lg";
         platforms = platforms.unix;
-        maintainers = with maintainers; [ skykanin ];
+        maintainers = with maintainers; [skykanin];
       };
     };
 }

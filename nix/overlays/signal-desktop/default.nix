@@ -1,4 +1,6 @@
-final: prev: if prev.stdenv.hostPlatform.isDarwin then {
+final: prev:
+if prev.stdenv.hostPlatform.isDarwin
+then {
   signal-desktop = final.stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "signal-desktop";
     version = "8.34.0";
@@ -50,8 +52,8 @@ final: prev: if prev.stdenv.hostPlatform.isDarwin then {
       homepage = "https://signal.org/download/";
       license = final.lib.licenses.agpl3Only;
       platforms = final.lib.platforms.darwin;
-      sourceProvenance = with final.lib.sourceTypes; [ binaryNativeCode ];
+      sourceProvenance = with final.lib.sourceTypes; [binaryNativeCode];
     };
   });
-
-} else {}
+}
+else {}

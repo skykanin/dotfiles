@@ -18,20 +18,22 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; ([
-      cliphist
-      grim
-      mpv
-      mpvpaper
-      obs-cmd
-      qt6Packages.qt6ct
-      slurp
-      swappy
-      wl-clipboard
-      wlr-randr
-    ] ++ lists.optional
-           cfg.xwayland.enable
-           xwayland-satellite
+    environment.systemPackages = with pkgs; (
+      [
+        cliphist
+        grim
+        mpv
+        mpvpaper
+        obs-cmd
+        qt6Packages.qt6ct
+        slurp
+        swappy
+        wl-clipboard
+        wlr-randr
+      ]
+      ++ lists.optional
+      cfg.xwayland.enable
+      xwayland-satellite
     );
 
     programs.niri.enable = true;

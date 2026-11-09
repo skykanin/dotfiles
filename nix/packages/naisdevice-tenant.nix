@@ -8,11 +8,10 @@
     lib,
     wireguard-go,
     wireguard-tools,
-  }:
-    let
-      wgPath = lib.getExe' wireguard-tools "wg";
-      wireguardGoPath = lib.getExe' wireguard-go "wireguard-go";
-    in
+  }: let
+    wgPath = lib.getExe' wireguard-tools "wg";
+    wireguardGoPath = lib.getExe' wireguard-go "wireguard-go";
+  in
     buildGo126Module rec {
       pname = "naisdevice-tenant";
       version = "1.12.0";
@@ -25,7 +24,7 @@
         hash = "sha256-5oQMExqkhyIsKGqG+yvuwfHJdhw7ewlYHkpqS11Gxug=";
       };
 
-      patches = [ ./naisdevice-tenant-wireguard-paths.patch ];
+      patches = [./naisdevice-tenant-wireguard-paths.patch];
 
       postPatch = ''
         substituteInPlace internal/helper/helper_darwin.go \
@@ -44,7 +43,7 @@
         "cmd/naisdevice-agent"
       ];
 
-      tags = [ "tenant" ];
+      tags = ["tenant"];
 
       ldflags = [
         "-X github.com/nais/device/internal/version.Revision=${rev}"
@@ -55,15 +54,15 @@
       # TODO: Use write-darwin-bundle script to create PList information
       # and copy icon from assets/macos folder in the $src
       postInstall = ''
-        app="$out/Applications/naisdevice.app"
-        mkdir -p "$app/Contents/{MacOS, Resources}"
+                app="$out/Applications/naisdevice.app"
+                mkdir -p "$app/Contents/{MacOS, Resources}"
 
-        cat > "$app/Contents/MacOS/naisdevice" <<'EOF'
-#!/bin/sh
-exec "${placeholder "out"}/bin/naisdevice-helper" &
-exec "${placeholder "out"}/bin/naisdevice-systray"
-EOF
-        chmod 755 "$app/Contents/MacOS/naisdevice"
+                cat > "$app/Contents/MacOS/naisdevice" <<'EOF'
+        #!/bin/sh
+        exec "${placeholder "out"}/bin/naisdevice-helper" &
+        exec "${placeholder "out"}/bin/naisdevice-systray"
+        EOF
+                chmod 755 "$app/Contents/MacOS/naisdevice"
       '';
 
       meta = {
@@ -73,7 +72,7 @@ EOF
         longDescription = ''
           Naisdevice is a application suite that enables NAV developers to connect to internal resources in a secure and friendly manner.
         '';
-        platforms = [ "aarch64-darwin" ];
+        platforms = ["aarch64-darwin"];
       };
     };
 }

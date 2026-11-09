@@ -10,7 +10,7 @@ in {
     lib.mkEnableOption "Enable greetd login service";
 
   config = lib.mkIf cfg.enable {
-    programs.regreet = {
+    services.displayManager.regreet = {
       enable = true;
 
       iconTheme = {
@@ -32,32 +32,15 @@ in {
       enable = true;
       settings = {
         default_session = let
-          cfg-rgt = config.programs.regreet;
-          sway-config =
-            pkgs.writeTextFile
-            {
-              name = "regreet-sway-config";
-              text = ''
-                # Notice that `swaymsg exit` will run after ReGreet.
-                exec "${lib.getExe cfg-rgt.package}; swaymsg exit"
-
-                bindsym Mod4+shift+e exec swaynag \
-                -t warning \
-                -m 'What do you want to do?' \
-                -b 'Poweroff' 'systemctl poweroff' \
-                -b 'Reboot' 'systemctl reboot'
-
-                output DP-1 {
-                    resolution 2560x1440@169.83Hz
-                    position 2560 0
-                    render_bit_depth 8
-                }
-
-                include /etc/sway/config.d/*
-              '';
-            };
+          cfg-rgt = config.services.displayManager.regreet;
+          niri-config = pkgs.writeText "regreet-niri-config.kdl" ''
+            ${builtins.readFile ../../../../dots/niri/outputs.kdl}
+            hotkey-overlay { skip-at-startup; }
+            spawn-at-startup "sh" "-c" "${lib.getExe cfg-rgt.package}; niri msg action quit --skip-confirmation"
+            cursor { xcursor-size 20; }
+          '';
         in {
-          command = "${lib.getExe pkgs.sway} --config ${sway-config}";
+          command = "${lib.getExe config.programs.niri.package} -c ${niri-config}";
         };
       };
     };

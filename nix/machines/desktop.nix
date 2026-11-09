@@ -36,6 +36,7 @@
       networkmanager.enable = true;
     };
 
+    desktop.greetd.enable = true;
     desktop.niri.enable = true;
 
     nix.settings = {
@@ -102,12 +103,6 @@
     # Enable AMD GPU drivers
     xserver.videoDrivers = ["amdgpu"];
 
-    # Enable COSMIC desktop environment
-    desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
-    # For better performance in CosmicDE
-    system76-scheduler.enable = config.services.desktopManager.cosmic.enable;
-
     # Use GNOME keyring
     gnome.gnome-keyring.enable = true;
 
@@ -160,12 +155,6 @@
   programs.localsend.enable = true;
 
   environment = {
-    cosmic.excludePackages = with pkgs; [
-      cosmic-edit
-      cosmic-player
-      cosmic-term
-    ];
-
     systemPackages = with pkgs; [
       # android-studio
       # android-udev-rules

@@ -56,5 +56,5 @@ animations {
 }
 
 cursor {
-  xcursor-size 20
+  xcursor-size 15
 }

@@ -21,11 +21,11 @@ binds {
   Mod+Period { spawn-sh "noctalia msg panel-toggle emoji"; }
 
   XF86Calculator { spawn-sh "ghostty -e 'nix run self#babashka'"; }
-  XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "0" "+5%"; }
-  XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "0" "-5%"; }
-  XF86AudioMute { spawn "pactl" "set-sink-mute" "0" "toggle"; }
-  XF86MonBrightnessUp { spawn "noctalia" "brightness-up" "all" "5"; }
-  XF86MonBrightnessDown { spawn "noctalia" "brightness-down" "all" "5"; }
+  XF86AudioRaiseVolume { spawn "noctalia" "msg" "volume-up" "5"; }
+  XF86AudioLowerVolume { spawn "noctalia" "msg" "volume-down" "5"; }
+  XF86AudioMute { spawn "noctalia" "msg" "volume-mute"; }
+  XF86MonBrightnessUp { spawn "noctalia" "msg" "brightness-up" "all" "5"; }
+  XF86MonBrightnessDown { spawn "noctalia" "msg" "brightness-down" "all" "5"; }
 
   //XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 

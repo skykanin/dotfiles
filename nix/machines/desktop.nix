@@ -175,6 +175,11 @@
       file = ../secrets/noctalia-calendar.toml.age;
       owner = config.local.user.name;
     };
+
+    "rclone.conf" = {
+      file = ../secrets/rclone.conf.age;
+      owner = config.local.user.name;
+    };
   };
 
   environment = {

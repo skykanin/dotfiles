@@ -6,4 +6,5 @@ let
 in {
   "noctalia-icloud.age".publicKeys = [skykanin emma];
   "noctalia-calendar.toml.age".publicKeys = [skykanin emma];
+  "rclone.conf.age".publicKeys = [skykanin emma];
 }

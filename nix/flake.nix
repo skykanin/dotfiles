@@ -2,6 +2,11 @@
   description = "NixOS system configurations for various hosts";
 
   inputs = {
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,6 +69,7 @@
             modules = [
               ./machines/desktop.nix
               ./hardware/desktop.nix
+              inputs.agenix.nixosModules.default
             ];
           };
 

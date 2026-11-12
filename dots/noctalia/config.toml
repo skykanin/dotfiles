@@ -108,6 +108,21 @@ telemetry_enabled     = false
     pipe_to_command   = false
     pipe_command      = "swappy -f -"
 
+[calendar]
+enabled         = true
+refresh_minutes = 15
+
+    [include]
+    files = ["/run/agenix/noctalia-calendar.toml"]
+
+    [calendar.account.icloud_personal]
+    type              = "caldav"
+    name              = "iCloud"
+    provider          = "icloud"
+    calendars         = [] # pull all calendars
+    credential_source = "file"
+    password_file     = "/run/agenix/noctalia-icloud"
+
 [location]
 auto_locate = true
 

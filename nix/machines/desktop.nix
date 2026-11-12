@@ -165,6 +165,18 @@
 
   programs.localsend.enable = true;
 
+  age.secrets = {
+    "noctalia-icloud" = {
+      file = ../secrets/noctalia-icloud.age;
+      owner = config.local.user.name;
+    };
+
+    "noctalia-calendar.toml" = {
+      file = ../secrets/noctalia-calendar.toml.age;
+      owner = config.local.user.name;
+    };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       # android-studio
@@ -175,6 +187,7 @@
       clj-kondo
       discord
       faugus-launcher
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.nix-citizen.packages.${pkgs.stdenv.hostPlatform.system}.star-citizen
       jetbrains-toolbox
       lagrange

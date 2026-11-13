@@ -19,7 +19,7 @@
     "unison": {
       "type": "local",
       "command": ["/run/current-system/sw/bin/ucm", "mcp"],
-      "enabled": true,
+      "enabled": false,
     },
     "github": {
       "type": "local",

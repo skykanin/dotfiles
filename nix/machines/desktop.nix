@@ -149,15 +149,13 @@
           }
         ];
       };
-
-      settings = {
-        gamepad = "ds5";
-      };
     };
 
     udev.extraRules = ''
       ## Controller support for Sunshine.
       KERNEL=="uinput", GROUP="input", MODE="0660" OPTIONS+="static_node=uinput"
+      # DS5 emulation needs uhid; static_node so the rule applies before the module loads.
+      KERNEL=="uhid", GROUP="input", MODE="0660", OPTIONS+="static_node=uhid", TAG+="uaccess"
     '';
   };
 

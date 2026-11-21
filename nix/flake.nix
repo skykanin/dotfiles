@@ -95,6 +95,7 @@
               inputs.tangled.nixosModules.appview
               ./machines/server.nix
               ./hardware/server.nix
+              inputs.agenix.nixosModules.default
             ];
           };
         };

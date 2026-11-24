@@ -67,6 +67,7 @@ in {
       idris2
       imagemagick
       jq
+      jujutsu
       jwt-cli
       keepassxc
       man-pages

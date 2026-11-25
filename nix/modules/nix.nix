@@ -44,7 +44,7 @@ in {
     optimise.automatic = true;
     settings = {
       max-jobs = cfg.max-jobs;
-      sandbox = pkgs.stdenv.hostPlatform.isLinux;
+      sandbox = true;
       substituters =
         [
           "https://cache.nixos.org"
